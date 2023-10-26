@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{2AB280AC-DEB0-4A12-BD9B-A6B8778454DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DethiLayer", "DethiLayer\DethiLayer.csproj", "{8A4F2D0F-A71B-48ED-91FD-677F76B65926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLDETHI", "QLDETHI\QLDETHI.csproj", "{36376D4A-D799-4DA6-A282-D6D205571D21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB280AC-DEB0-4A12-BD9B-A6B8778454DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB280AC-DEB0-4A12-BD9B-A6B8778454DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB280AC-DEB0-4A12-BD9B-A6B8778454DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB280AC-DEB0-4A12-BD9B-A6B8778454DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4F2D0F-A71B-48ED-91FD-677F76B65926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4F2D0F-A71B-48ED-91FD-677F76B65926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4F2D0F-A71B-48ED-91FD-677F76B65926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4F2D0F-A71B-48ED-91FD-677F76B65926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36376D4A-D799-4DA6-A282-D6D205571D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36376D4A-D799-4DA6-A282-D6D205571D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36376D4A-D799-4DA6-A282-D6D205571D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36376D4A-D799-4DA6-A282-D6D205571D21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDF2D051-7906-4068-A36D-F125CBDE4483}
+	EndGlobalSection
+EndGlobal

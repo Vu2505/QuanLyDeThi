@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DETHITRACNGHIEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bai">
+          <Key>
+            <PropertyRef Name="MaBai" />
+          </Key>
+          <Property Name="MaBai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenBai" Type="nvarchar(max)" />
+          <Property Name="MaChuong" Type="int" />
+        </EntityType>
+        <EntityType Name="CauHoi">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NDCH" Type="nvarchar(max)" />
+          <Property Name="A" Type="nvarchar(max)" />
+          <Property Name="B" Type="nvarchar(max)" />
+          <Property Name="C" Type="nvarchar(max)" />
+          <Property Name="D" Type="nvarchar(max)" />
+          <Property Name="DapAnDung" Type="nvarchar(max)" />
+          <Property Name="HinhAnh" Type="varbinary(max)" />
+          <Property Name="MaKhoi" Type="int" />
+          <Property Name="MaMonHoc" Type="int" />
+          <Property Name="MaChuong" Type="int" />
+          <Property Name="MaBai" Type="int" />
+          <Property Name="DoKho" Type="int" />
+          <Property Name="TrangThai" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="MaGiangVien" Type="int" />
+        </EntityType>
+        <EntityType Name="Chuong">
+          <Key>
+            <PropertyRef Name="MaChuong" />
+          </Key>
+          <Property Name="MaChuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenChuong" Type="nvarchar(max)" />
+          <Property Name="MaMonHoc" Type="int" />
+        </EntityType>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDe" />
+          </Key>
+          <Property Name="MaDe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamHoc" Type="int" />
+          <Property Name="MaHienThi" Type="int" />
+          <Property Name="KyThi" Type="nvarchar(max)" />
+          <Property Name="HinhThucThi" Type="nvarchar(max)" />
+          <Property Name="SoCauHoi" Type="int" />
+          <Property Name="MaMonHoc" Type="int" />
+          <Property Name="MaKhoi" Type="int" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="MaGiangVien" Type="int" />
+        </EntityType>
+        <EntityType Name="DoKho">
+          <Key>
+            <PropertyRef Name="MaDoKho" />
+          </Key>
+          <Property Name="MaDoKho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDoKho" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="MaGiangVien" />
+          </Key>
+          <Property Name="MaGiangVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGiangVien" Type="nvarchar(max)" />
+          <Property Name="MaMonHoc" Type="int" />
+        </EntityType>
+        <EntityType Name="Khoi">
+          <Key>
+            <PropertyRef Name="MaKhoi" />
+          </Key>
+          <Property Name="MaKhoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKhoi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar(max)" />
+          <Property Name="MaKhoi" Type="int" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenMonHoc" Type="nvarchar(max)" />
+          <Property Name="MaKhoi" Type="int" />
+        </EntityType>
+        <EntityType Name="NamHoc">
+          <Key>
+            <PropertyRef Name="MaNamHoc" />
+          </Key>
+          <Property Name="MaNamHoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNamHoc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NoiDungDeThi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDe" Type="int" />
+          <Property Name="MaCauHoi" Type="int" />
+          <Property Name="ThuTuCauHoi" Type="int" />
+          <Property Name="ThuTuXepDapAn" Type="int" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="IdTK" />
+          </Key>
+          <Property Name="IdTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Matkhau" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoaiTaiKhoan" Type="int" Nullable="false" />
+          <Property Name="TinhTrang" Type="int" Nullable="false" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="DETHITRACNGHIEMModelStoreContainer">
+          <EntitySet Name="Bai" EntityType="Self.Bai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CauHoi" EntityType="Self.CauHoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chuong" EntityType="Self.Chuong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeThi" EntityType="Self.DeThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoKho" EntityType="Self.DoKho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiangVien" EntityType="Self.GiangVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khoi" EntityType="Self.Khoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NamHoc" EntityType="Self.NamHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoiDungDeThi" EntityType="Self.NoiDungDeThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DETHITRACNGHIEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DETHITRACNGHIEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bais" EntityType="DETHITRACNGHIEMModel.Bai" />
+          <EntitySet Name="CauHois" EntityType="DETHITRACNGHIEMModel.CauHoi" />
+          <EntitySet Name="Chuongs" EntityType="DETHITRACNGHIEMModel.Chuong" />
+          <EntitySet Name="DoKhoes" EntityType="DETHITRACNGHIEMModel.DoKho" />
+          <EntitySet Name="GiangViens" EntityType="DETHITRACNGHIEMModel.GiangVien" />
+          <EntitySet Name="Khois" EntityType="DETHITRACNGHIEMModel.Khoi" />
+          <EntitySet Name="Lops" EntityType="DETHITRACNGHIEMModel.Lop" />
+          <EntitySet Name="MonHocs" EntityType="DETHITRACNGHIEMModel.MonHoc" />
+          <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
+          <EntitySet Name="NoiDungDeThis" EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" />
+          <EntitySet Name="NamHocs" EntityType="DETHITRACNGHIEMModel.NamHoc" />
+          <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
+        </EntityContainer>
+        <EntityType Name="Bai">
+          <Key>
+            <PropertyRef Name="MaBai" />
+          </Key>
+          <Property Name="MaBai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenBai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaChuong" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CauHoi">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NDCH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="B" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="D" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DapAnDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MaKhoi" Type="Int32" />
+          <Property Name="MaMonHoc" Type="Int32" />
+          <Property Name="MaChuong" Type="Int32" />
+          <Property Name="MaBai" Type="Int32" />
+          <Property Name="DoKho" Type="Int32" />
+          <Property Name="TrangThai" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaGiangVien" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Chuong">
+          <Key>
+            <PropertyRef Name="MaChuong" />
+          </Key>
+          <Property Name="MaChuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenChuong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaMonHoc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DoKho">
+          <Key>
+            <PropertyRef Name="MaDoKho" />
+          </Key>
+          <Property Name="MaDoKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDoKho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="MaGiangVien" />
+          </Key>
+          <Property Name="MaGiangVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGiangVien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaMonHoc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Khoi">
+          <Key>
+            <PropertyRef Name="MaKhoi" />
+          </Key>
+          <Property Name="MaKhoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKhoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMonHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="IdTK" />
+          </Key>
+          <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGV" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Matkhau" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiTaiKhoan" Type="Int32" Nullable="false" />
+          <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NoiDungDeThi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDe" Type="Int32" />
+          <Property Name="MaCauHoi" Type="Int32" />
+          <Property Name="ThuTuCauHoi" Type="Int32" />
+          <Property Name="ThuTuXepDapAn" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NamHoc">
+          <Key>
+            <PropertyRef Name="MaNamHoc" />
+          </Key>
+          <Property Name="MaNamHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNamHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDe" />
+          </Key>
+          <Property Name="MaDe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamHoc" Type="Int32" />
+          <Property Name="MaHienThi" Type="Int32" />
+          <Property Name="KyThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HinhThucThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoCauHoi" Type="Int32" />
+          <Property Name="MaMonHoc" Type="Int32" />
+          <Property Name="MaKhoi" Type="Int32" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="MaGiangVien" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DETHITRACNGHIEMModelStoreContainer" CdmEntityContainer="DETHITRACNGHIEMEntities">
+          <EntitySetMapping Name="Bais">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Bai">
+              <MappingFragment StoreEntitySet="Bai">
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+                <ScalarProperty Name="TenBai" ColumnName="TenBai" />
+                <ScalarProperty Name="MaBai" ColumnName="MaBai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CauHois">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.CauHoi">
+              <MappingFragment StoreEntitySet="CauHoi">
+                <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="DoKho" ColumnName="DoKho" />
+                <ScalarProperty Name="MaBai" ColumnName="MaBai" />
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="DapAnDung" ColumnName="DapAnDung" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="A" ColumnName="A" />
+                <ScalarProperty Name="NDCH" ColumnName="NDCH" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chuongs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Chuong">
+              <MappingFragment StoreEntitySet="Chuong">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="TenChuong" ColumnName="TenChuong" />
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoKhoes">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DoKho">
+              <MappingFragment StoreEntitySet="DoKho">
+                <ScalarProperty Name="TenDoKho" ColumnName="TenDoKho" />
+                <ScalarProperty Name="MaDoKho" ColumnName="MaDoKho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiangViens">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.GiangVien">
+              <MappingFragment StoreEntitySet="GiangVien">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="TenGiangVien" ColumnName="TenGiangVien" />
+                <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khois">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Khoi">
+              <MappingFragment StoreEntitySet="Khoi">
+                <ScalarProperty Name="TenKhoi" ColumnName="TenKhoi" />
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lops">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Lop">
+              <MappingFragment StoreEntitySet="Lop">
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonHocs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.MonHoc">
+              <MappingFragment StoreEntitySet="MonHoc">
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="LoaiTaiKhoan" ColumnName="LoaiTaiKhoan" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+                <ScalarProperty Name="IdTK" ColumnName="IdTK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoiDungDeThis">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NoiDungDeThi">
+              <MappingFragment StoreEntitySet="NoiDungDeThi">
+                <ScalarProperty Name="ThuTuXepDapAn" ColumnName="ThuTuXepDapAn" />
+                <ScalarProperty Name="ThuTuCauHoi" ColumnName="ThuTuCauHoi" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NamHocs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NamHoc">
+              <MappingFragment StoreEntitySet="NamHoc">
+                <ScalarProperty Name="TenNamHoc" ColumnName="TenNamHoc" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeThis">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DeThi">
+              <MappingFragment StoreEntitySet="DeThi">
+                <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="SoCauHoi" ColumnName="SoCauHoi" />
+                <ScalarProperty Name="HinhThucThi" ColumnName="HinhThucThi" />
+                <ScalarProperty Name="KyThi" ColumnName="KyThi" />
+                <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
+                <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
