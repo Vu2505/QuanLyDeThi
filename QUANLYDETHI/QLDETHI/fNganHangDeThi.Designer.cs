@@ -161,7 +161,7 @@ namespace QLDETHI
             // 
             this.barPrint.Caption = "Print";
             this.barPrint.Id = 6;
-            this.barPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem8.ImageOptions.SvgImage")));
+            this.barPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barPrint.ImageOptions.SvgImage")));
             this.barPrint.Name = "barPrint";
             this.barPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrint_ItemClick);
             // 
@@ -264,6 +264,7 @@ namespace QLDETHI
             this.gvDanhSach.DetailHeight = 1065;
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // ID
             // 

@@ -12,6 +12,7 @@ using DataLayer;
 using QLDETHI.Reports;
 using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
+using DethiLayer.DTO;
 
 namespace QLDETHI
 {
@@ -22,6 +23,7 @@ namespace QLDETHI
             InitializeComponent();
         }
         NOIDUNGDETHI _noidungdethi;
+        List<DETHI_DTO> _lstDTDTO;
 
         private void fNganHangDeThi_Load(object sender, EventArgs e)
         {
@@ -33,6 +35,7 @@ namespace QLDETHI
         {
             gridDeThi.DataSource = _noidungdethi.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstDTDTO = _noidungdethi.getListFull();
         }
 
         private void barPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -43,6 +46,15 @@ namespace QLDETHI
             report.InitData(lstDT);
             documentViewer.DocumentSource = report;
             report.ShowPreviewDialog();
-        } 
+        }
+
+        private void gvDanhSach_Click(object sender, EventArgs e)
+        {
+            //if(gvDanhSach.RowCount > 0)
+            //{
+            //    _noidungdethi = gvDanhSach.GetFocusedRowCellValue("ID").ToString();
+
+            //}
+        }
     }
 }
