@@ -10,6 +10,8 @@ namespace QLDETHI.Reports
 {
     public partial class fDeThiChiTiet : DevExpress.XtraReports.UI.XtraReport
     {
+        // Thêm thuộc tính MaDe
+        public int MaDe { get; set; }
         public fDeThiChiTiet()
         {
             InitializeComponent();

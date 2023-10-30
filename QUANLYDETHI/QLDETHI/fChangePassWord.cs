@@ -53,19 +53,6 @@ namespace QLDETHI
                     MessageBox.Show(exception.Message);
                 }
             }
-
-
-            //if (user == null)
-            //{
-            //    MessageBox.Show("Mật khẩu cũ không đúng.");
-            //}
-            //else
-            //{
-            //    // Cập nhật mật khẩu mới cho người dùng
-            //    user.Matkhau = newPassword;
-            //    db.SaveChanges();
-            //    MessageBox.Show("Mật khẩu đã được thay đổi thành công.");
-            //}
         }
 
         public bool KiemTra()

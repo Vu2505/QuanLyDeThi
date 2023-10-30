@@ -439,11 +439,14 @@ namespace QLDETHI
                 MessageBox.Show("Tổng số câu đã chọn không đủ để tạo đề thi.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
             // Tạo đề thi mới
             DeThi newDeThi = new DeThi
             {
                 NamHoc = (int)cbxNamHoc.SelectedValue, // Thay bằng giá trị thích hợp
                 KyThi = "Kỳ thi",   // Thay bằng giá trị thích hợp
+                MaHienThi = GenerateNewMaHienThi(),
                 HinhThucThi = "Hình thức thi", // Thay bằng giá trị thích hợp
                 SoCauHoi = selectedMaCauHoiIds.Count, // Số câu hỏi được chọn
                 MaMonHoc = (int)cbxMonHoc1.SelectedValue, // Mã môn học
@@ -490,6 +493,20 @@ namespace QLDETHI
 
             db.SaveChanges();
             selectedMaCauHoiIds.Clear();
+        }
+
+        private int GenerateNewMaHienThi()
+        {
+            using (DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities())
+            {
+                int newMaHienThi;
+                do
+                {
+                    newMaHienThi = new Random().Next(100, 1000);
+                }
+                while (db.DeThis.Any(d => d.MaHienThi == newMaHienThi));
+                return newMaHienThi;
+            }
         }
 
         int GetViTriDapAnDung(string dapAnDung)
