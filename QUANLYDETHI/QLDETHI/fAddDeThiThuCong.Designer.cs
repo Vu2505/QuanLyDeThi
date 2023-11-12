@@ -29,7 +29,7 @@ namespace QLDETHI
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbxThoiGianThi = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.nudSoCauHoiMuonTao = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
@@ -37,8 +37,6 @@ namespace QLDETHI
             this.cbxMonHoc1 = new System.Windows.Forms.ComboBox();
             this.cbxKhoi = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.label22 = new System.Windows.Forms.Label();
             this.cbxLop = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,12 +61,15 @@ namespace QLDETHI
             this.gbChuong = new System.Windows.Forms.GroupBox();
             this.flpChuong = new System.Windows.Forms.FlowLayoutPanel();
             this.Groupbox = new System.Windows.Forms.GroupBox();
+            this.cbxHocKy = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txbTenDeThi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lbTongSoCauMuonTao = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
             this.lbTongSoCauDaChon = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoCauHoiMuonTao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCauHoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkChonCauHoi)).BeginInit();
@@ -82,26 +83,26 @@ namespace QLDETHI
             this.Groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox5
+            // cbxThoiGianThi
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(471, 95);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(238, 24);
-            this.comboBox5.TabIndex = 13;
+            this.cbxThoiGianThi.FormattingEnabled = true;
+            this.cbxThoiGianThi.Location = new System.Drawing.Point(933, 63);
+            this.cbxThoiGianThi.Name = "cbxThoiGianThi";
+            this.cbxThoiGianThi.Size = new System.Drawing.Size(238, 24);
+            this.cbxThoiGianThi.TabIndex = 13;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(367, 95);
+            this.label21.Location = new System.Drawing.Point(798, 63);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 17);
+            this.label21.Size = new System.Drawing.Size(91, 17);
             this.label21.TabIndex = 12;
-            this.label21.Text = "Hình thức thi";
+            this.label21.Text = "Thời gian Thi";
             // 
             // nudSoCauHoiMuonTao
             // 
-            this.nudSoCauHoiMuonTao.Location = new System.Drawing.Point(471, 66);
+            this.nudSoCauHoiMuonTao.Location = new System.Drawing.Point(933, 33);
             this.nudSoCauHoiMuonTao.Name = "nudSoCauHoiMuonTao";
             this.nudSoCauHoiMuonTao.Size = new System.Drawing.Size(238, 22);
             this.nudSoCauHoiMuonTao.TabIndex = 11;
@@ -110,7 +111,7 @@ namespace QLDETHI
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(367, 68);
+            this.label20.Location = new System.Drawing.Point(798, 33);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(75, 17);
             this.label20.TabIndex = 10;
@@ -150,22 +151,6 @@ namespace QLDETHI
             this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Năm học";
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(933, 33);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(238, 22);
-            this.numericUpDown5.TabIndex = 15;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(765, 35);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(147, 17);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Số lượng đề muốn tạo";
             // 
             // cbxLop
             // 
@@ -422,13 +407,15 @@ namespace QLDETHI
             // 
             this.Groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Groupbox.Controls.Add(this.cbxHocKy);
+            this.Groupbox.Controls.Add(this.label7);
+            this.Groupbox.Controls.Add(this.txbTenDeThi);
+            this.Groupbox.Controls.Add(this.label6);
             this.Groupbox.Controls.Add(this.lbTongSoCauMuonTao);
             this.Groupbox.Controls.Add(this.lb);
             this.Groupbox.Controls.Add(this.lbTongSoCauDaChon);
             this.Groupbox.Controls.Add(this.label5);
-            this.Groupbox.Controls.Add(this.numericUpDown5);
-            this.Groupbox.Controls.Add(this.label22);
-            this.Groupbox.Controls.Add(this.comboBox5);
+            this.Groupbox.Controls.Add(this.cbxThoiGianThi);
             this.Groupbox.Controls.Add(this.label21);
             this.Groupbox.Controls.Add(this.nudSoCauHoiMuonTao);
             this.Groupbox.Controls.Add(this.label20);
@@ -447,10 +434,44 @@ namespace QLDETHI
             this.Groupbox.TabStop = false;
             this.Groupbox.Text = "Thông tin chung";
             // 
+            // cbxHocKy
+            // 
+            this.cbxHocKy.FormattingEnabled = true;
+            this.cbxHocKy.Location = new System.Drawing.Point(933, 95);
+            this.cbxHocKy.Name = "cbxHocKy";
+            this.cbxHocKy.Size = new System.Drawing.Size(238, 24);
+            this.cbxHocKy.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(798, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 17);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Học kỳ";
+            // 
+            // txbTenDeThi
+            // 
+            this.txbTenDeThi.Location = new System.Drawing.Point(471, 62);
+            this.txbTenDeThi.Multiline = true;
+            this.txbTenDeThi.Name = "txbTenDeThi";
+            this.txbTenDeThi.Size = new System.Drawing.Size(238, 52);
+            this.txbTenDeThi.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(367, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Tên Đề Thi";
+            // 
             // lbTongSoCauMuonTao
             // 
             this.lbTongSoCauMuonTao.AutoSize = true;
-            this.lbTongSoCauMuonTao.Location = new System.Drawing.Point(973, 68);
+            this.lbTongSoCauMuonTao.Location = new System.Drawing.Point(1433, 75);
             this.lbTongSoCauMuonTao.Name = "lbTongSoCauMuonTao";
             this.lbTongSoCauMuonTao.Size = new System.Drawing.Size(16, 17);
             this.lbTongSoCauMuonTao.TabIndex = 19;
@@ -459,7 +480,7 @@ namespace QLDETHI
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(956, 68);
+            this.lb.Location = new System.Drawing.Point(1416, 75);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(12, 17);
             this.lb.TabIndex = 18;
@@ -468,7 +489,7 @@ namespace QLDETHI
             // lbTongSoCauDaChon
             // 
             this.lbTongSoCauDaChon.AutoSize = true;
-            this.lbTongSoCauDaChon.Location = new System.Drawing.Point(930, 68);
+            this.lbTongSoCauDaChon.Location = new System.Drawing.Point(1390, 75);
             this.lbTongSoCauDaChon.Name = "lbTongSoCauDaChon";
             this.lbTongSoCauDaChon.Size = new System.Drawing.Size(16, 17);
             this.lbTongSoCauDaChon.TabIndex = 17;
@@ -477,7 +498,7 @@ namespace QLDETHI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(768, 68);
+            this.label5.Location = new System.Drawing.Point(1228, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 17);
             this.label5.TabIndex = 16;
@@ -493,7 +514,6 @@ namespace QLDETHI
             this.Text = "fAddDeThiThuCong";
             this.Load += new System.EventHandler(this.fAddDeThiThuCong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudSoCauHoiMuonTao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCauHoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkChonCauHoi)).EndInit();
@@ -513,7 +533,7 @@ namespace QLDETHI
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbxThoiGianThi;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.NumericUpDown nudSoCauHoiMuonTao;
         private System.Windows.Forms.Label label20;
@@ -521,8 +541,6 @@ namespace QLDETHI
         private System.Windows.Forms.ComboBox cbxMonHoc1;
         private System.Windows.Forms.ComboBox cbxKhoi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbxLop;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -551,5 +569,9 @@ namespace QLDETHI
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label lbTongSoCauDaChon;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxHocKy;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbTenDeThi;
+        private System.Windows.Forms.Label label6;
     }
 }

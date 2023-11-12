@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DethiLayer.DTO;
 
 namespace DethiLayer
 {
@@ -67,6 +68,25 @@ namespace DethiLayer
 
                 throw new Exception("Lỗi: " + ex.Message);
             }
+        }
+
+        public List<MONHOC_DTO> getListFull()
+        {
+            var lstB = db.MonHocs.ToList();
+            List<MONHOC_DTO> lstBDTO = new List<MONHOC_DTO>();
+            MONHOC_DTO bDTO;
+            foreach (var item in lstB)
+            {
+                bDTO = new MONHOC_DTO();
+                bDTO.MaMonHoc = item.MaMonHoc;
+                bDTO.TenMonHoc = item.TenMonHoc;
+                bDTO.MaKhoi = item.MaKhoi;
+                var c = db.Khois.FirstOrDefault(b => b.MaKhoi == item.MaKhoi);
+                bDTO.TenKhoi = c.TenKhoi;
+
+                lstBDTO.Add(bDTO);
+            }
+            return lstBDTO;
         }
     }
 }

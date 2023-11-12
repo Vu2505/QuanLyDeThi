@@ -115,8 +115,13 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaNamHoc").ToString());
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TenNamHoc").ToString();
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaNamHoc").ToString());
+                var k = _namhoc.getItem(_id);
+                txtTen.Text = k.TenNamHoc;
+                _namhoc.Update(k);
+            }
         }
     }
 }

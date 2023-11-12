@@ -161,6 +161,9 @@
     <Compile Include="GiangVien.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
+    <Compile Include="HocKy.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Khoi.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
@@ -193,6 +196,12 @@
       <DependentUpon>QLDT.edmx</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoan.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThoiGianThi.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TinhTrang.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
   </ItemGroup>

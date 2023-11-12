@@ -15,6 +15,7 @@ namespace QLDETHI.Luutru
             get { return user; }
             set { user = value; }
         }        
+
     }
 
 

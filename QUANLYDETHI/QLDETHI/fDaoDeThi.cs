@@ -72,8 +72,9 @@ namespace QLDETHI
 
                     newDeThi.NamHoc = originalDeThi[i].NamHoc;
                     newDeThi.MaHienThi = GenerateNewMaHienThi(); // Tạo mã hiển thị mới (ví dụ: 156, 209, 320)
-                    newDeThi.KyThi = originalDeThi[i].KyThi;
-                    newDeThi.HinhThucThi = originalDeThi[i].HinhThucThi;
+                    newDeThi.TenDeThi = originalDeThi[i].TenDeThi;
+                    newDeThi.MaThoiGianThi = originalDeThi[i].MaThoiGianThi;
+                    newDeThi.MaHocKy = originalDeThi[i].MaHocKy;
                     newDeThi.MaMonHoc = originalDeThi[i].MaMonHoc;
                     newDeThi.MaKhoi = originalDeThi[i].MaKhoi;
                     newDeThi.MaLop = originalDeThi[i].MaLop;
@@ -120,8 +121,9 @@ namespace QLDETHI
                 {
                     NamHoc = newDeThi.NamHoc,
                     MaHienThi = newDeThi.MaHienThi,
-                    KyThi = newDeThi.KyThi,
-                    HinhThucThi = newDeThi.HinhThucThi,
+                    TenDeThi = newDeThi.TenDeThi,
+                    MaThoiGianThi = newDeThi.MaThoiGianThi,
+                    MaHocKy = newDeThi.MaHocKy,
                     SoCauHoi = newDeThi.SoCauHoi,
                     MaMonHoc = newDeThi.MaMonHoc,
                     MaKhoi = newDeThi.MaKhoi,
@@ -166,43 +168,6 @@ namespace QLDETHI
             return randomizedAnswers;
         }
 
-        /// <summary>
-        /// Hàm để cập nhật câu hỏi sau khi đảo ngẫu nhiên và cập nhật lại đáp án đúng
-        /// </summary>
-        /// <param name="question"></param>
-        /// <returns>Thứ tự vị trí dáp án trong đề </returns>
-        private int RandomizeQuestion(CauHoi question)
-        {
-
-            // Lưu nội dung ban đầu và các đáp án ban đầu
-            string originalContent = question.NDCH;
-            string originalCorrectAnswer = question.DapAnDung;
-            string originalA = question.A;
-            string originalB = question.B;
-            string originalC = question.C;
-            string originalD = question.D;
-
-            // Đảo ngẫu nhiên các đáp án và nội dung
-            string[] randomizedAnswers = RandomizeAnswers(new[] { originalA, originalB, originalC, originalD });
-            string randomizedContent = ShuffleContent(originalContent);
-
-            // Cập nhật nội dung và các đáp án theo vị trí đảo ngẫu nhiên
-            question.NDCH = randomizedContent;
-            question.A = randomizedAnswers[0];
-            question.B = randomizedAnswers[1];
-            question.C = randomizedAnswers[2];
-            question.D = randomizedAnswers[3];
-
-            // Xác định lại đáp án đúng
-            if (originalCorrectAnswer == originalA) question.DapAnDung = question.A;
-            else if (originalCorrectAnswer == originalB) question.DapAnDung = question.B;
-            else if (originalCorrectAnswer == originalC) question.DapAnDung = question.C;
-            else if (originalCorrectAnswer == originalD) question.DapAnDung = question.D;
-
-            // Xác định lại đáp án đúng
-            int positionOfCorrectAnswer = Array.IndexOf(randomizedAnswers, originalCorrectAnswer);
-            return positionOfCorrectAnswer;
-        }
 
         private string ShuffleContent(string originalContent)
         {
@@ -218,18 +183,6 @@ namespace QLDETHI
                 characters[n] = value;
             }
             return new string(characters);
-        }
-
-        private string GetCorrectAnswer(string answer)
-        {
-            switch (answer)
-            {
-                case "A": return "A";
-                case "B": return "B";
-                case "C": return "C";
-                case "D": return "D";
-                default: return "A"; // Đáp án mặc định nếu không xác định được
-            }
         }
 
         private List<CauHoi> RandomizeQuestions(List<CauHoi> questions)

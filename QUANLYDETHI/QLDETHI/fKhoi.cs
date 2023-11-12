@@ -117,8 +117,13 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaKhoi").ToString());
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TenKhoi").ToString();
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaKhoi").ToString());
+                var k = _khoi.getItem(_id);
+                txtTen.Text = k.TenKhoi;
+                _khoi.Update(k);
+            }
         }
     }
 }

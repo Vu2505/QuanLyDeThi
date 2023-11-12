@@ -34,12 +34,9 @@ namespace QLDETHI
             loadCombo();
         }
 
-        
-
-
         void loadData()
         {
-            gridBai.DataSource = _bai.getList();
+            gridBai.DataSource = _bai.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
         void loadCombo()
@@ -131,9 +128,14 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaBai").ToString());
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TenBai").ToString();
-            cbxChuong.Text = gvDanhSach.GetFocusedRowCellValue("MaChuong").ToString();
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaBai").ToString());
+                var k = _bai.getItem(_id);
+                txtTen.Text = k.TenBai;
+                cbxChuong.SelectedValue = k.MaChuong;
+                _bai.Update(k);
+            }
         }
     }
 }

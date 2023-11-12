@@ -12,6 +12,9 @@
     <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
     <EntitySet Name="NoiDungDeThis" EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" />
     <EntitySet Name="NamHocs" EntityType="DETHITRACNGHIEMModel.NamHoc" />
+    <EntitySet Name="HocKies" EntityType="DETHITRACNGHIEMModel.HocKy" />
+    <EntitySet Name="ThoiGianThis" EntityType="DETHITRACNGHIEMModel.ThoiGianThi" />
+    <EntitySet Name="TinhTrangs" EntityType="DETHITRACNGHIEMModel.TinhTrang" />
     <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
   </EntityContainer>
   <EntityType Name="Bai">
@@ -118,6 +121,27 @@
     <Property Name="MaNamHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenNamHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="HocKy">
+    <Key>
+      <PropertyRef Name="MaHocKy" />
+    </Key>
+    <Property Name="MaHocKy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHocKy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThoiGianThi">
+    <Key>
+      <PropertyRef Name="MaThoiGianThi" />
+    </Key>
+    <Property Name="MaThoiGianThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenThoiGianThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TinhTrang">
+    <Key>
+      <PropertyRef Name="MaTinhTrang" />
+    </Key>
+    <Property Name="MaTinhTrang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="DeThi">
     <Key>
       <PropertyRef Name="MaDe" />
@@ -125,12 +149,13 @@
     <Property Name="MaDe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NamHoc" Type="Int32" />
     <Property Name="MaHienThi" Type="Int32" />
-    <Property Name="KyThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="HinhThucThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenDeThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SoCauHoi" Type="Int32" />
     <Property Name="MaMonHoc" Type="Int32" />
     <Property Name="MaKhoi" Type="Int32" />
     <Property Name="MaLop" Type="Int32" />
     <Property Name="MaGiangVien" Type="Int32" />
+    <Property Name="MaHocKy" Type="Int32" />
+    <Property Name="MaThoiGianThi" Type="Int32" />
   </EntityType>
 </Schema>

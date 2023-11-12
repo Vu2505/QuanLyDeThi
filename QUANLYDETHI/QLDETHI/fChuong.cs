@@ -37,7 +37,7 @@ namespace QLDETHI
 
         void loadData()
         {
-            gridChuong.DataSource = _chuong.getList();
+            gridChuong.DataSource = _chuong.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
             //DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
             //var result = from c in db.Chuongs
@@ -140,9 +140,14 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaLop").ToString());
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TenLop").ToString();
-            cbxMonHoc.Text = gvDanhSach.GetFocusedRowCellValue("MaKhoi").ToString();
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaChuong").ToString());
+                var k = _chuong.getItem(_id);
+                txtTen.Text = k.TenChuong;
+                cbxMonHoc.SelectedValue = k.MaMonHoc;
+                _chuong.Update(k);
+            }
         }
 
     }

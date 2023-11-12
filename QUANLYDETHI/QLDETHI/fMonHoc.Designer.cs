@@ -32,12 +32,15 @@ namespace QLDETHI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMonHoc));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cbxKhoi = new System.Windows.Forms.ComboBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridMonHoc = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MaMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -52,9 +55,6 @@ namespace QLDETHI
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cbxKhoi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -84,6 +84,24 @@ namespace QLDETHI
             this.splitContainer1.Size = new System.Drawing.Size(800, 400);
             this.splitContainer1.SplitterDistance = 120;
             this.splitContainer1.TabIndex = 11;
+            // 
+            // cbxKhoi
+            // 
+            this.cbxKhoi.FormattingEnabled = true;
+            this.cbxKhoi.Location = new System.Drawing.Point(275, 55);
+            this.cbxKhoi.Name = "cbxKhoi";
+            this.cbxKhoi.Size = new System.Drawing.Size(282, 24);
+            this.cbxKhoi.TabIndex = 3;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(128, 63);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(27, 18);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Khối";
             // 
             // txtTen
             // 
@@ -119,7 +137,7 @@ namespace QLDETHI
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MaMonHoc,
             this.TenMonHoc,
-            this.MaKhoi});
+            this.TenKhoi});
             this.gvDanhSach.GridControl = this.gridMonHoc;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
@@ -146,6 +164,16 @@ namespace QLDETHI
             this.TenMonHoc.Visible = true;
             this.TenMonHoc.VisibleIndex = 1;
             this.TenMonHoc.Width = 94;
+            // 
+            // TenKhoi
+            // 
+            this.TenKhoi.Caption = "Khối";
+            this.TenKhoi.FieldName = "TenKhoi";
+            this.TenKhoi.MinWidth = 25;
+            this.TenKhoi.Name = "TenKhoi";
+            this.TenKhoi.Visible = true;
+            this.TenKhoi.VisibleIndex = 2;
+            this.TenKhoi.Width = 94;
             // 
             // barManager1
             // 
@@ -287,34 +315,6 @@ namespace QLDETHI
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 400);
             // 
-            // MaKhoi
-            // 
-            this.MaKhoi.Caption = "ID Khối";
-            this.MaKhoi.FieldName = "MaKhoi";
-            this.MaKhoi.MinWidth = 25;
-            this.MaKhoi.Name = "MaKhoi";
-            this.MaKhoi.Visible = true;
-            this.MaKhoi.VisibleIndex = 2;
-            this.MaKhoi.Width = 94;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(128, 63);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(27, 18);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Khối";
-            // 
-            // cbxKhoi
-            // 
-            this.cbxKhoi.FormattingEnabled = true;
-            this.cbxKhoi.Location = new System.Drawing.Point(275, 55);
-            this.cbxKhoi.Name = "cbxKhoi";
-            this.cbxKhoi.Size = new System.Drawing.Size(282, 24);
-            this.cbxKhoi.TabIndex = 3;
-            // 
             // fMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,7 +364,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn MaMonHoc;
         private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
         private System.Windows.Forms.TextBox txtTen;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhoi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
         private System.Windows.Forms.ComboBox cbxKhoi;
         private DevExpress.XtraEditors.LabelControl labelControl2;
     }

@@ -16,6 +16,9 @@
         <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TaiKhoan" Width="1.5" PointX="7.5" PointY="2.75" />
         <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" Width="1.5" PointX="7.5" PointY="0.5" />
         <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NamHoc" Width="1.5" PointX="2.25" PointY="4.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.HocKy" Width="1.5" PointX="4" PointY="5.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.ThoiGianThi" Width="1.5" PointX="0.5" PointY="5.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TinhTrang" Width="1.5" PointX="5.75" PointY="5.75" />
         <EntityTypeShape EntityType="DETHITRACNGHIEMModel.DeThi" Width="1.5" PointX="4" PointY="2.25" />
       </Diagram>
     </edmx:Diagrams>

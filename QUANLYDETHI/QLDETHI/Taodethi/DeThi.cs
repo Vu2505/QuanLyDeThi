@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DethiLayer;
+using DethiLayer.DTO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,23 +9,19 @@ using System.Threading.Tasks;
 
 namespace QLDETHI.Taodethi
 {
+
     public class DeThi
     {
         private List<Chuong> danhSachChuong;
 
         private int soLuongCauHoiMuonTao;
         private int soLuongCauHoiDangTao;
-
-        public int SoLuongCauHoiDangTao { get => soLuongCauHoiDangTao; set => soLuongCauHoiDangTao = value; }
+        public int SoLuongCauHoiDangTao { get => soLuongCauHoiDangTao; }
+        public int SoLuongCauHoiMuonTao { get => soLuongCauHoiMuonTao; set => soLuongCauHoiMuonTao = value; }
 
         public DeThi()
         {
             danhSachChuong = new List<Chuong>();
-        }
-
-        public DeThi(List<Chuong> danhSachChuong)
-        {
-            this.danhSachChuong = danhSachChuong;
         }
 
         public bool KiemTraLaRong()
@@ -41,37 +39,42 @@ namespace QLDETHI.Taodethi
 
         public bool KiemTraChuongRong(int maChuong)
         {
-            foreach(var item in danhSachChuong)
+            bool chuongDoLaRong = true;
+
+            foreach (var item in danhSachChuong)
             {
-                if(item.MaChuong == maChuong && item.KiemTraLaRong())
+                if(item.MaChuong == maChuong && !item.KiemTraLaRong())
                 {
-                    return true;
+                    chuongDoLaRong = false;
                 }
             }
-            return false;
+            return chuongDoLaRong;
         }
 
         public bool KiemTraBaiCuaChuongRong(int maChuong, int maBai)
         {
+            // Đặt giá trị mặc định của bài là rỗng
+            bool baiDoLaRong = true;
             foreach (var chuong in danhSachChuong)
             {
                 if (chuong.MaChuong == maChuong)
                 {
                     foreach(var bai in chuong.DanhSachBai)
                     {
-                        if (bai.MaBai == maBai && bai.KiemTraLaRong())
+                        if (bai.MaBai == maBai && !bai.KiemTraLaRong())
                         {
-                            return true;
+                            baiDoLaRong = false;
                         }
                     }
                 }
             }
-            return false;
+            return baiDoLaRong;
         }
 
-        public void CapNhatChuong(int maChuong, int soLuongCauDe, int soLuongCauTB, int soLuongCauKho)
+        public KiemTraSoLuong CapNhatChuong(int maChuong, int soLuongCauDe, int soLuongCauTB, int soLuongCauKho)
         {
-            foreach (var chuong in danhSachChuong)
+            soLuongCauHoiDangTao = 0;
+            foreach(var chuong in danhSachChuong)
             {
                 if (chuong.MaChuong == maChuong)
                 {
@@ -85,14 +88,16 @@ namespace QLDETHI.Taodethi
                         bai.SoLuongCauDe = 0;
                         bai.SoLuongCauTB = 0;
                         bai.SoLuongCauKho = 0;
-                    }
-                    return;
+                    }                    
                 }
+                soLuongCauHoiDangTao += chuong.SoLuongCau;
             }
+            return KiemTraSoLuongCauHoi();
         }
 
-        public void CapNhatBaiCuaChuong(int maChuong, int maBai, int soLuongCauDe, int soLuongCauTB, int soLuongCauKho)
+        public KiemTraSoLuong CapNhatBaiCuaChuong(int maChuong, int maBai, int soLuongCauDe, int soLuongCauTB, int soLuongCauKho)
         {
+            soLuongCauHoiDangTao = 0;
             foreach (var chuong in danhSachChuong)
             {
                 if (chuong.MaChuong == maChuong)
@@ -115,7 +120,9 @@ namespace QLDETHI.Taodethi
                         chuong.SoLuongCauKho += bai.SoLuongCauKho;
                     }
                 }
+                soLuongCauHoiDangTao += chuong.SoLuongCau;
             }
+            return KiemTraSoLuongCauHoi();
         }
 
 
@@ -182,6 +189,61 @@ namespace QLDETHI.Taodethi
             map.Add("soLuongCauKho", 0);
             return map;
         }
+
+        public override string ToString()
+        {            
+            List<string> result = new List<string>();
+            foreach (var chuong in danhSachChuong)
+            {
+                if (!chuong.KiemTraLaRong())
+                {
+                    result.Add(chuong.ToString());
+                }
+            }
+
+            return $"{string.Join("\n", result)}";
+        }
+
+        public KiemTraSoLuong KiemTraSoLuongCauHoi()
+        {
+            var result = KiemTraSoLuong.DuCau;
+            if(soLuongCauHoiMuonTao > soLuongCauHoiDangTao)
+            {
+                result = KiemTraSoLuong.ThieuCau;
+            }
+            else if (soLuongCauHoiDangTao > soLuongCauHoiMuonTao)
+            {
+                result = KiemTraSoLuong.ThuaCau;
+            }
+            return result;
+        }
+
+        public List<CAUHOI_DTO> GetCauHoiTheoChuong()
+        {
+            CAUHOI db = new CAUHOI();
+            List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
+            
+            foreach (var chuong in danhSachChuong)
+            {
+                result.AddRange(chuong.GetCauHoi());
+            }
+
+            return result;
+        }
+
+        public List<CAUHOI_DTO> GetCauHoiTheoBai()
+        {
+            CAUHOI db = new CAUHOI();
+            List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
+
+            foreach (var chuong in danhSachChuong)
+            {
+                result.AddRange(chuong.GetCauHoiTheoBai());
+            }
+
+            return result;
+        }
+
     }
 
 
@@ -191,20 +253,19 @@ namespace QLDETHI.Taodethi
         private int soLuongCauDe;
         private int soLuongCauTB;
         private int soLuongCauKho;
-        private HashSet<Bai> danhSachBai;
+        private List<Bai> danhSachBai;
 
         public int MaChuong { get => maChuong;}
         public int SoLuongCauDe { get => soLuongCauDe; set => soLuongCauDe = value; }
         public int SoLuongCauTB { get => soLuongCauTB; set => soLuongCauTB = value; }
         public int SoLuongCauKho { get => soLuongCauKho; set => soLuongCauKho = value; }
         public int SoLuongCau { get => soLuongCauDe + soLuongCauTB + soLuongCauKho; }
-        public HashSet<Bai> DanhSachBai { get => danhSachBai; }
+        public List<Bai> DanhSachBai { get => danhSachBai; }
         
-
         public Chuong(int maChuong)
         {
             this.maChuong = maChuong;
-            danhSachBai = new HashSet<Bai>();
+            danhSachBai = new List<Bai>();
         }
 
         public bool KiemTraLaRong()
@@ -212,9 +273,21 @@ namespace QLDETHI.Taodethi
             return SoLuongCau == 0;
         }
 
-        public void ThemBai(Bai bai)
+        public void ThemBai(Bai themBai)
         {
-            danhSachBai.Add(bai);
+            bool baiKhongCoTrongDanhSach = true;
+            foreach(var bai in danhSachBai)
+            {
+                if(bai.MaBai == themBai.MaBai)
+                {
+                    baiKhongCoTrongDanhSach = false;
+                    break;
+                }
+            }
+            if (baiKhongCoTrongDanhSach)
+            {
+                danhSachBai.Add(themBai);
+            }
         }
 
         public void ThemCauHoiVaoBai(int maBai, int soLuongCauDe, int soLuongCauTB, int soLuongCauKho)
@@ -238,6 +311,49 @@ namespace QLDETHI.Taodethi
             map.Add("soLuongCauKho", soLuongCauKho);
             return map;
         }
+
+        public override string ToString()
+        {
+            var _chuong = new CHUONG();
+            string tenChuong = _chuong.getItem(maChuong).TenChuong;
+            List<string> result = new List<string>();
+            foreach (var bai in danhSachBai)
+            {
+                if (!bai.KiemTraLaRong())
+                {
+                    result.Add(bai.ToString());
+                }
+            }
+            if(result != null && result.Count != 0)
+            {
+                return $"{tenChuong}: Tổng Số Câu: {SoLuongCau} [{string.Join(" | ", result)}]";
+            }
+            return $"{tenChuong}: Tổng Số Câu: {SoLuongCau} |(Dễ: {soLuongCauDe} câu, Trung bình: {soLuongCauTB} câu, Khó: {soLuongCauKho} câu)";
+        }
+
+        public List<CAUHOI_DTO> GetCauHoi()
+        {
+            CAUHOI db = new CAUHOI();
+            List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
+            result.AddRange(db.getListRanDomChuong(maChuong, 1, soLuongCauDe));
+            result.AddRange(db.getListRanDomChuong(maChuong, 2, soLuongCauTB));
+            result.AddRange(db.getListRanDomChuong(maChuong, 3, soLuongCauKho));
+            return result;
+        }
+
+        public List<CAUHOI_DTO> GetCauHoiTheoBai()
+        {
+            CAUHOI db = new CAUHOI();
+            List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
+            
+            foreach (var bai in danhSachBai)
+            {
+                result.AddRange(bai.GetCauHoi());
+            }
+
+            return result;
+        }
+ 
 
     }
 
@@ -290,5 +406,28 @@ namespace QLDETHI.Taodethi
             map.Add("soLuongCauKho", soLuongCauKho);
             return map;
         }
+        public override string ToString()
+        {
+            var _bai = new BAI();
+            string tenBai = _bai.getItem(maBai).TenBai;
+            return $"{tenBai}: Dễ: {soLuongCauDe} câu, Trung bình: {soLuongCauTB} câu, Khó: {soLuongCauKho} câu";
+        }
+
+        public List<CAUHOI_DTO> GetCauHoi()
+        {
+            CAUHOI db = new CAUHOI();
+            List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
+            result.AddRange(db.getListRanDomBai(maBai, 1, soLuongCauDe));
+            result.AddRange(db.getListRanDomBai(maBai, 2, soLuongCauTB));
+            result.AddRange(db.getListRanDomBai(maBai, 3, soLuongCauKho));
+            return result;
+        }
+    }
+
+    public enum KiemTraSoLuong
+    {
+        ThieuCau,
+        DuCau,
+        ThuaCau,
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DethiLayer.DTO;
 
 namespace DethiLayer
 {
@@ -12,7 +13,7 @@ namespace DethiLayer
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
 
         public static int TableWidth = 100;
-        public static int TableHeight = 25;
+        public static int TableHeight = 40;
         public Chuong getItem(int id)
         {
             return db.Chuongs.FirstOrDefault(x => x.MaChuong == id);
@@ -72,6 +73,25 @@ namespace DethiLayer
 
                 throw new Exception("Lỗi: " + ex.Message);
             }
+        }
+
+        public List<CHUONG_DTO> getListFull()
+        {
+            var lstB = db.Chuongs.ToList();
+            List<CHUONG_DTO> lstBDTO = new List<CHUONG_DTO>();
+            CHUONG_DTO bDTO;
+            foreach (var item in lstB)
+            {
+                bDTO = new CHUONG_DTO();
+                bDTO.MaChuong = item.MaChuong;
+                bDTO.TenChuong = item.TenChuong;
+                bDTO.MaMonHoc = item.MaMonHoc;
+                var c = db.MonHocs.FirstOrDefault(b => b.MaMonHoc == item.MaMonHoc);
+                bDTO.TenMonHoc = c.TenMonHoc;
+
+                lstBDTO.Add(bDTO);
+            }
+            return lstBDTO;
         }
     }
 }

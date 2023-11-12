@@ -116,16 +116,41 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="HocKies">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.HocKy">
+        <MappingFragment StoreEntitySet="HocKy">
+          <ScalarProperty Name="TenHocKy" ColumnName="TenHocKy" />
+          <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThoiGianThis">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.ThoiGianThi">
+        <MappingFragment StoreEntitySet="ThoiGianThi">
+          <ScalarProperty Name="TenThoiGianThi" ColumnName="TenThoiGianThi" />
+          <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhTrangs">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TinhTrang">
+        <MappingFragment StoreEntitySet="TinhTrang">
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DeThis">
       <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DeThi">
         <MappingFragment StoreEntitySet="DeThi">
+          <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
+          <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
           <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
           <ScalarProperty Name="MaLop" ColumnName="MaLop" />
           <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
           <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
           <ScalarProperty Name="SoCauHoi" ColumnName="SoCauHoi" />
-          <ScalarProperty Name="HinhThucThi" ColumnName="HinhThucThi" />
-          <ScalarProperty Name="KyThi" ColumnName="KyThi" />
+          <ScalarProperty Name="TenDeThi" ColumnName="TenDeThi" />
           <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
           <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
           <ScalarProperty Name="MaDe" ColumnName="MaDe" />

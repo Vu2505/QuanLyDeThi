@@ -17,12 +17,13 @@ namespace DataLayer
         public int MaDe { get; set; }
         public Nullable<int> NamHoc { get; set; }
         public Nullable<int> MaHienThi { get; set; }
-        public string KyThi { get; set; }
-        public string HinhThucThi { get; set; }
+        public string TenDeThi { get; set; }
         public Nullable<int> SoCauHoi { get; set; }
         public Nullable<int> MaMonHoc { get; set; }
         public Nullable<int> MaKhoi { get; set; }
         public Nullable<int> MaLop { get; set; }
         public Nullable<int> MaGiangVien { get; set; }
+        public Nullable<int> MaHocKy { get; set; }
+        public Nullable<int> MaThoiGianThi { get; set; }
     }
 }

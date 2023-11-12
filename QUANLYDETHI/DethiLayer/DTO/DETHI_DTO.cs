@@ -17,8 +17,11 @@ namespace DethiLayer.DTO
         public int? NamHoc { get; set; }
         public string TenNamHoc { get; set; }
         public int? MaHienThi { get; set; }
-        public string KyThi { get; set; }
-        public string HinhThucThi { get; set; }
+        public string TenDeThi { get; set; }
+        public int? MaThoiGianThi { get; set; }
+        public string TenThoiGianThi { get; set; }
+        public int? MaHocKy { get; set; }
+        public string TenHocKy { get; set; }
         public int? SoCauHoi { get; set; }
         public int? MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }

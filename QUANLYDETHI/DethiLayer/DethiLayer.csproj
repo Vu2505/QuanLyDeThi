@@ -142,14 +142,22 @@
     <Compile Include="CHUONG.cs" />
     <Compile Include="DETHI.cs" />
     <Compile Include="DOKHO.cs" />
+    <Compile Include="DTO\BAI_DTO.cs" />
+    <Compile Include="DTO\CAUHOI_DTO.cs" />
+    <Compile Include="DTO\CHUONG_DTO.cs" />
     <Compile Include="DTO\DETHI_DTO.cs" />
+    <Compile Include="DTO\LOP_DTO.cs" />
+    <Compile Include="DTO\MONHOC_DTO.cs" />
     <Compile Include="KHOI.cs" />
+    <Compile Include="HOCKY.cs" />
     <Compile Include="LOP.cs" />
     <Compile Include="MONHOC.cs" />
     <Compile Include="NAMHOC.cs" />
     <Compile Include="NOIDUNGDETHI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TAIKHOAN.cs" />
+    <Compile Include="THOIGIANTHI.cs" />
+    <Compile Include="TINHTRANG.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

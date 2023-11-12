@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DethiLayer;
 
 namespace DethiLayer
 {
@@ -67,5 +68,8 @@ namespace DethiLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
+
+
+        
     }
 }

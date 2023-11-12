@@ -40,11 +40,11 @@ namespace QLDETHI
             this.D = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DapAnDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaChuong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaBai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoKho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TrangThai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCauHoi = new DevExpress.XtraGrid.GridControl();
@@ -70,7 +70,7 @@ namespace QLDETHI
             this.cbxMonHoc1 = new System.Windows.Forms.ComboBox();
             this.cbxChuong = new System.Windows.Forms.ComboBox();
             this.cbxBai = new System.Windows.Forms.ComboBox();
-            this.cbxTrangThai = new System.Windows.Forms.ComboBox();
+            this.cbxTinhTrang = new System.Windows.Forms.ComboBox();
             this.cbxDoKho = new System.Windows.Forms.ComboBox();
             this.cbxKhoi = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -127,11 +127,11 @@ namespace QLDETHI
             this.D,
             this.DapAnDung,
             this.HinhAnh,
-            this.MaKhoi,
-            this.MaMonHoc,
-            this.MaChuong,
-            this.MaBai,
-            this.DoKho,
+            this.TenKhoi,
+            this.TenMonHoc,
+            this.TenChuong,
+            this.TenBai,
+            this.TenDoKho,
             this.TrangThai,
             this.GhiChu});
             this.gvDanhSach.GridControl = this.gridCauHoi;
@@ -209,55 +209,55 @@ namespace QLDETHI
             this.HinhAnh.VisibleIndex = 7;
             this.HinhAnh.Width = 93;
             // 
-            // MaKhoi
+            // TenKhoi
             // 
-            this.MaKhoi.Caption = "ID Khối";
-            this.MaKhoi.FieldName = "MaKhoi";
-            this.MaKhoi.MinWidth = 25;
-            this.MaKhoi.Name = "MaKhoi";
-            this.MaKhoi.Visible = true;
-            this.MaKhoi.VisibleIndex = 8;
-            this.MaKhoi.Width = 93;
+            this.TenKhoi.Caption = "Khối";
+            this.TenKhoi.FieldName = "TenKhoi";
+            this.TenKhoi.MinWidth = 25;
+            this.TenKhoi.Name = "TenKhoi";
+            this.TenKhoi.Visible = true;
+            this.TenKhoi.VisibleIndex = 8;
+            this.TenKhoi.Width = 93;
             // 
-            // MaMonHoc
+            // TenMonHoc
             // 
-            this.MaMonHoc.Caption = "ID Môn Học";
-            this.MaMonHoc.FieldName = "MaMonHoc";
-            this.MaMonHoc.MinWidth = 25;
-            this.MaMonHoc.Name = "MaMonHoc";
-            this.MaMonHoc.Visible = true;
-            this.MaMonHoc.VisibleIndex = 9;
-            this.MaMonHoc.Width = 93;
+            this.TenMonHoc.Caption = "Môn Học";
+            this.TenMonHoc.FieldName = "TenMonHoc";
+            this.TenMonHoc.MinWidth = 25;
+            this.TenMonHoc.Name = "TenMonHoc";
+            this.TenMonHoc.Visible = true;
+            this.TenMonHoc.VisibleIndex = 9;
+            this.TenMonHoc.Width = 93;
             // 
-            // MaChuong
+            // TenChuong
             // 
-            this.MaChuong.Caption = "ID Chương";
-            this.MaChuong.FieldName = "MaChuong";
-            this.MaChuong.MinWidth = 25;
-            this.MaChuong.Name = "MaChuong";
-            this.MaChuong.Visible = true;
-            this.MaChuong.VisibleIndex = 10;
-            this.MaChuong.Width = 93;
+            this.TenChuong.Caption = "Chương";
+            this.TenChuong.FieldName = "TenChuong";
+            this.TenChuong.MinWidth = 25;
+            this.TenChuong.Name = "TenChuong";
+            this.TenChuong.Visible = true;
+            this.TenChuong.VisibleIndex = 10;
+            this.TenChuong.Width = 93;
             // 
-            // MaBai
+            // TenBai
             // 
-            this.MaBai.Caption = "ID Bài";
-            this.MaBai.FieldName = "MaBai";
-            this.MaBai.MinWidth = 25;
-            this.MaBai.Name = "MaBai";
-            this.MaBai.Visible = true;
-            this.MaBai.VisibleIndex = 11;
-            this.MaBai.Width = 93;
+            this.TenBai.Caption = "Bài";
+            this.TenBai.FieldName = "TenBai";
+            this.TenBai.MinWidth = 25;
+            this.TenBai.Name = "TenBai";
+            this.TenBai.Visible = true;
+            this.TenBai.VisibleIndex = 11;
+            this.TenBai.Width = 93;
             // 
-            // DoKho
+            // TenDoKho
             // 
-            this.DoKho.Caption = "Độ Khó";
-            this.DoKho.FieldName = "DoKho";
-            this.DoKho.MinWidth = 25;
-            this.DoKho.Name = "DoKho";
-            this.DoKho.Visible = true;
-            this.DoKho.VisibleIndex = 12;
-            this.DoKho.Width = 93;
+            this.TenDoKho.Caption = "Độ Khó";
+            this.TenDoKho.FieldName = "TenDoKho";
+            this.TenDoKho.MinWidth = 25;
+            this.TenDoKho.Name = "TenDoKho";
+            this.TenDoKho.Visible = true;
+            this.TenDoKho.VisibleIndex = 12;
+            this.TenDoKho.Width = 93;
             // 
             // TrangThai
             // 
@@ -492,7 +492,7 @@ namespace QLDETHI
             this.splitContainer1.Panel1.Controls.Add(this.cbxMonHoc1);
             this.splitContainer1.Panel1.Controls.Add(this.cbxChuong);
             this.splitContainer1.Panel1.Controls.Add(this.cbxBai);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxTrangThai);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxTinhTrang);
             this.splitContainer1.Panel1.Controls.Add(this.cbxDoKho);
             this.splitContainer1.Panel1.Controls.Add(this.cbxKhoi);
             this.splitContainer1.Panel1.Controls.Add(this.txtGhiChu);
@@ -554,18 +554,18 @@ namespace QLDETHI
             this.cbxBai.Size = new System.Drawing.Size(281, 24);
             this.cbxBai.TabIndex = 40;
             // 
-            // cbxTrangThai
+            // cbxTinhTrang
             // 
-            this.cbxTrangThai.FormattingEnabled = true;
-            this.cbxTrangThai.Items.AddRange(new object[] {
+            this.cbxTinhTrang.FormattingEnabled = true;
+            this.cbxTinhTrang.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.cbxTrangThai.Location = new System.Drawing.Point(1029, 225);
-            this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTrangThai.Name = "cbxTrangThai";
-            this.cbxTrangThai.Size = new System.Drawing.Size(225, 24);
-            this.cbxTrangThai.TabIndex = 39;
+            this.cbxTinhTrang.Location = new System.Drawing.Point(1029, 225);
+            this.cbxTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxTinhTrang.Name = "cbxTinhTrang";
+            this.cbxTinhTrang.Size = new System.Drawing.Size(225, 24);
+            this.cbxTinhTrang.TabIndex = 39;
             // 
             // cbxDoKho
             // 
@@ -584,6 +584,7 @@ namespace QLDETHI
             this.cbxKhoi.Name = "cbxKhoi";
             this.cbxKhoi.Size = new System.Drawing.Size(281, 24);
             this.cbxKhoi.TabIndex = 34;
+            this.cbxKhoi.SelectedIndexChanged += new System.EventHandler(this.cbxKhoi_SelectedIndexChanged);
             // 
             // txtGhiChu
             // 
@@ -613,7 +614,7 @@ namespace QLDETHI
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(72, 18);
             this.labelControl11.TabIndex = 28;
-            this.labelControl11.Text = "Trạng Thái";
+            this.labelControl11.Text = "Tình Trạng";
             // 
             // labelControl12
             // 
@@ -867,14 +868,14 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn D;
         private DevExpress.XtraGrid.Columns.GridColumn DapAnDung;
         private DevExpress.XtraGrid.Columns.GridColumn HinhAnh;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhoi;
-        private DevExpress.XtraGrid.Columns.GridColumn MaMonHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn MaChuong;
-        private DevExpress.XtraGrid.Columns.GridColumn MaBai;
-        private DevExpress.XtraGrid.Columns.GridColumn DoKho;
+        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn TenChuong;
+        private DevExpress.XtraGrid.Columns.GridColumn TenBai;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
         private DevExpress.XtraGrid.Columns.GridColumn TrangThai;
         private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
-        private System.Windows.Forms.ComboBox cbxTrangThai;
+        private System.Windows.Forms.ComboBox cbxTinhTrang;
         private System.Windows.Forms.ComboBox cbxDoKho;
         private System.Windows.Forms.ComboBox cbxKhoi;
         private System.Windows.Forms.TextBox txtGhiChu;

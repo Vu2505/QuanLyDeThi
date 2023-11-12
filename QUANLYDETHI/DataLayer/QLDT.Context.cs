@@ -36,6 +36,9 @@ namespace DataLayer
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<NoiDungDeThi> NoiDungDeThis { get; set; }
         public virtual DbSet<NamHoc> NamHocs { get; set; }
+        public virtual DbSet<HocKy> HocKies { get; set; }
+        public virtual DbSet<ThoiGianThi> ThoiGianThis { get; set; }
+        public virtual DbSet<TinhTrang> TinhTrangs { get; set; }
         public virtual DbSet<DeThi> DeThis { get; set; }
     }
 }

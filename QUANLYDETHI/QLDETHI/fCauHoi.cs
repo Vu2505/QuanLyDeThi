@@ -36,6 +36,7 @@ namespace QLDETHI
         KHOI _khoi;
         DOKHO _dokho;
         BAI _bai;
+        TINHTRANG _tinhtrang;
         bool _them;
         int _id;
 
@@ -48,6 +49,7 @@ namespace QLDETHI
             _khoi = new KHOI();
             _dokho = new DOKHO();
             _bai = new BAI();
+            _tinhtrang = new TINHTRANG();
             _showHide(true);
             loadData();
             loadCombo();
@@ -59,7 +61,7 @@ namespace QLDETHI
 
         void loadData()
         {
-            gridCauHoi.DataSource = _cauhoi.getList();
+            gridCauHoi.DataSource = _cauhoi.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
 
         }
@@ -91,7 +93,14 @@ namespace QLDETHI
             cbxBai.DataSource = _bai.getList();
             cbxBai.DisplayMember = "TenBai";
             cbxBai.ValueMember = "MaBai";
+
+            cbxTinhTrang.DataSource = _tinhtrang.getList();
+            cbxTinhTrang.DisplayMember = "TenTinhTrang";
+            cbxTinhTrang.ValueMember = "MaTinhTrang";
         }
+
+
+
 
         void _showHide(bool kt)
         {
@@ -104,6 +113,66 @@ namespace QLDETHI
             btnPrint.Enabled = kt;
             //txtNDCH.Enabled = !kt;
         }
+
+        private void cbxKhoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cbxMonHoc1.Controls.Clear();
+                int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+
+                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                cbxMonHoc1.DataSource = MonHocList;
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
+            catch (InvalidCastException ex)
+            {
+                // Xử lý trường hợp không thể ép kiểu thành công.
+                //MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void cbxMonHoc1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                cbxChuong.Controls.Clear();
+                int selectedMonHocId = (int)cbxMonHoc1.SelectedValue;
+                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                var chuongList = db.Chuongs.Where(c => c.MaMonHoc == selectedMonHocId).ToList();
+                cbxChuong.DataSource = chuongList;
+                cbxChuong.DisplayMember = "TenChuong";
+                cbxChuong.ValueMember = "MaChuong";
+            }
+            catch (InvalidCastException ex)
+            {
+                // Xử lý trường hợp không thể ép kiểu thành công.
+                //MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void cbxChuong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cbxBai.Controls.Clear();
+                int selectedChuongId = (int)cbxChuong.SelectedValue;
+                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                var baiList = db.Bais.Where(c => c.MaChuong == selectedChuongId).ToList();
+                cbxBai.DataSource = baiList;
+                cbxBai.DisplayMember = "TenBai";
+                cbxBai.ValueMember = "MaBai";
+            }
+            catch (InvalidCastException ex)
+            {
+                // Xử lý trường hợp không thể ép kiểu thành công.
+                //MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -205,52 +274,7 @@ namespace QLDETHI
             }
         }
 
-
-
-
-
-
-
-        private void cbxMonHoc1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                cbxChuong.Controls.Clear();
-                int selectedMonHocId = (int)cbxMonHoc1.SelectedValue;
-                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                var chuongList = db.Chuongs.Where(c => c.MaMonHoc == selectedMonHocId).ToList();
-                cbxChuong.DataSource = chuongList;
-                cbxChuong.DisplayMember = "TenChuong";
-                cbxChuong.ValueMember = "MaChuong";
-            }
-            catch (InvalidCastException ex)
-            {
-                // Xử lý trường hợp không thể ép kiểu thành công.
-                //MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
-
-            
-        private void cbxChuong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                cbxBai.Controls.Clear();
-                int selectedChuongId = (int)cbxChuong.SelectedValue;
-                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                var baiList = db.Bais.Where(c => c.MaChuong == selectedChuongId).ToList();
-                cbxBai.DataSource = baiList;
-                cbxBai.DisplayMember = "TenBai";
-                cbxBai.ValueMember = "MaBai";
-            }
-            catch (InvalidCastException ex)
-            {
-                // Xử lý trường hợp không thể ép kiểu thành công.
-                //MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
-
+     
         void SaveData()
         {
             if (_them)
@@ -280,14 +304,18 @@ namespace QLDETHI
                 k.MaChuong = int.Parse(cbxChuong.SelectedValue.ToString());
                 k.MaBai = int.Parse(cbxBai.SelectedValue.ToString());
                 k.DoKho = int.Parse(cbxDoKho.SelectedValue.ToString());
-                k.TrangThai = int.Parse(cbxTrangThai.Text);
+                k.TrangThai = int.Parse(cbxTinhTrang.Text);
                 k.GhiChu = txtGhiChu.Text;
                 _cauhoi.Add(k);
             }
             else
             {
+                
+                
                 var k = _cauhoi.getItem(_id);
-                k.NDCH = txtNDCH.Text;
+                if (k != null)
+                {
+                    k.NDCH = txtNDCH.Text;
                 k.A = txtA.Text;
                 k.B = txtB.Text;
                 k.C = txtC.Text;
@@ -312,9 +340,10 @@ namespace QLDETHI
                 k.MaChuong = int.Parse(cbxChuong.SelectedValue.ToString());
                 k.MaBai = int.Parse(cbxBai.SelectedValue.ToString());
                 k.DoKho = int.Parse(cbxDoKho.SelectedValue.ToString());
-                k.TrangThai = int.Parse(cbxTrangThai.Text);
+                k.TrangThai = int.Parse(cbxTinhTrang.Text);
                 k.GhiChu = txtGhiChu.Text;
                 _cauhoi.Update(k);
+                }
             }
         }
 
@@ -355,6 +384,20 @@ namespace QLDETHI
                 picHinhAnh.Image = Base64ToImage(k.HinhAnh);
                 cbxKhoi.SelectedValue = k.MaKhoi;
                 cbxMonHoc1.SelectedValue = k.MaMonHoc;
+                //try
+                //{
+                //    int selectedMonHocId = (int)cbxMonHoc1.SelectedValue;
+                //    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                //    var chuongList = db.Chuongs.Where(c => c.MaMonHoc == selectedMonHocId).ToList();
+                //    cbxBai.DataSource = chuongList;
+                //    cbxBai.DisplayMember = "TenChuong";
+                //    cbxBai.ValueMember = "MaChuong";
+                //}
+                //catch (InvalidCastException ex)
+                //{
+                //    // Xử lý trường hợp không thể ép kiểu thành công.
+                //    //MessageBox.Show("Lỗi: " + ex.Message);
+                //}
                 cbxChuong.SelectedValue = k.MaChuong;
                 try
                 {
@@ -372,7 +415,7 @@ namespace QLDETHI
                 }
                 cbxBai.SelectedValue = k.MaBai;
                 cbxDoKho.SelectedValue = k.DoKho;
-                cbxTrangThai.Text = k.TrangThai.ToString();
+                cbxTinhTrang.Text = k.TrangThai.ToString();
                 txtGhiChu.Text= k.GhiChu;
                 _cauhoi.Update(k);
             }

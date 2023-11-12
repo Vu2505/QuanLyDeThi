@@ -96,14 +96,26 @@ namespace DethiLayer
                 var mk = db.DeThis.FirstOrDefault(b => b.MaDe == item.MaDe);
                 dtDTO.MaKhoi = mk.MaKhoi;
                 dtDTO.MaLop = mk.MaLop;
-                var mkhoi = db.Khois.FirstOrDefault(b => b.MaKhoi == mk.MaKhoi);
-                dtDTO.TenKhoi = mkhoi.TenKhoi;
+                dtDTO.SoCauHoi = mk.SoCauHoi;
+                dtDTO.TenDeThi = mk.TenDeThi;
+
+                dtDTO.MaThoiGianThi = mk.MaThoiGianThi;
+                var thgian = db.ThoiGianThis.FirstOrDefault(b => b.MaThoiGianThi == mk.MaThoiGianThi);
+                dtDTO.TenThoiGianThi = thgian.TenThoiGianThi;
+
+                dtDTO.MaHocKy = mk.MaHocKy;
+                var hk = db.HocKies.FirstOrDefault(b => b.MaHocKy == mk.MaHocKy);
+                dtDTO.TenHocKy = hk.TenHocKy;
+
                 dtDTO.MaHienThi = mk.MaHienThi;
                 dtDTO.NamHoc = mk.NamHoc;
+
+                var mkhoi = db.Khois.FirstOrDefault(b => b.MaKhoi == mk.MaKhoi);
+                dtDTO.TenKhoi = mkhoi.TenKhoi;
+                
                 var nh = db.NamHocs.FirstOrDefault(b => b.MaNamHoc == mk.NamHoc);
                 dtDTO.TenNamHoc = nh.TenNamHoc;
-                dtDTO.KyThi = mk.KyThi;
-                dtDTO.HinhThucThi = mk.HinhThucThi;
+                
 
                 dtDTO.MaMonHoc = mk.MaMonHoc;
                 var mh = db.MonHocs.FirstOrDefault(b => b.MaMonHoc == mk.MaMonHoc);

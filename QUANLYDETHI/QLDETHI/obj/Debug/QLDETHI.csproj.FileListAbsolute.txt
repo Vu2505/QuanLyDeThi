@@ -252,3 +252,12 @@ D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.csproj.CopyComplete
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.exe
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.pdb
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fDaoDeThi.resources
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\LanguageExt.Core.dll
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\System.ValueTuple.dll
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\LanguageExt.Core.xml
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\bin\Debug\System.ValueTuple.xml
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.Reports.fDapAnDeThi.resources

@@ -37,6 +37,8 @@ namespace QLDETHI
         Chuong chuongDangChon;
         Bai baiDangChon;
         List<CauHoi> selectedCauHoiList = new List<CauHoi>();
+        HOCKY _hocky;
+        THOIGIANTHI _thoigianthi;
         private void fAddDeThiThuCong_Load(object sender, EventArgs e)
         {
             _chuong = new CHUONG();
@@ -46,6 +48,8 @@ namespace QLDETHI
             _cauhoi = new CAUHOI();
             _lop = new LOP();
             _namhoc = new NAMHOC();
+            _hocky = new HOCKY();
+            _thoigianthi = new THOIGIANTHI();
             loadData();
             loadCombo();
         }
@@ -67,6 +71,16 @@ namespace QLDETHI
             cbxNamHoc.DataSource = _namhoc.getList();
             cbxNamHoc.DisplayMember = "TenNamHoc";
             cbxNamHoc.ValueMember = "MaNamHoc";
+
+            cbxHocKy.DataSource = _hocky.getList();
+            cbxHocKy.DisplayMember = "TenHocKy";
+            cbxHocKy.ValueMember = "MaHocKy";
+
+            cbxThoiGianThi.DataSource = _thoigianthi.getList();
+            cbxThoiGianThi.DisplayMember = "TenThoiGianThi";
+            cbxThoiGianThi.ValueMember = "MaThoiGianThi";
+
+
         }
 
         void loadData()
@@ -349,7 +363,6 @@ namespace QLDETHI
             flpKetQuaRangBuoc.Controls.Add(label);
         }
 
-
         // Khai báo Dictionary để lưu trạng thái màu của từng chương và bài
         Dictionary<int, bool> chuongColorStatus = new Dictionary<int, bool>();
         Dictionary<int, bool> baiColorStatus = new Dictionary<int, bool>();
@@ -427,6 +440,7 @@ namespace QLDETHI
                 // Đặt lại giá trị của NumericUpDown về giá trị trước khi thay đổi
                 nudSoCauHoiMuonTao.Value = selectedMaCauHoiIds.Count;
             }
+
         }
 
         void btnTaoDeThi_Click(object sender, EventArgs e)
@@ -445,13 +459,14 @@ namespace QLDETHI
             DeThi newDeThi = new DeThi
             {
                 NamHoc = (int)cbxNamHoc.SelectedValue, // Thay bằng giá trị thích hợp
-                KyThi = "Kỳ thi",   // Thay bằng giá trị thích hợp
+                TenDeThi = txbTenDeThi.Text,   // Thay bằng giá trị thích hợp
                 MaHienThi = GenerateNewMaHienThi(),
-                HinhThucThi = "Hình thức thi", // Thay bằng giá trị thích hợp
+                MaThoiGianThi = (int)cbxThoiGianThi.SelectedValue, // Thay bằng giá trị thích hợp
                 SoCauHoi = selectedMaCauHoiIds.Count, // Số câu hỏi được chọn
                 MaMonHoc = (int)cbxMonHoc1.SelectedValue, // Mã môn học
                 MaKhoi = (int)cbxKhoi.SelectedValue, // Mã khối
                 MaLop = (int)cbxLop.SelectedValue, // Mã lớp
+                MaHocKy = (int)cbxHocKy.SelectedValue,
                 MaGiangVien = 1, // Thay bằng giá trị thích hợp
             };
 
@@ -471,26 +486,21 @@ namespace QLDETHI
                 if (cauHoi != null)
                 {
                     string dapAnDung = cauHoi.DapAnDung;
-                    int viTriDapAnDung = GetViTriDapAnDung(dapAnDung);
 
-                    if (viTriDapAnDung != -1)
+                    NoiDungDeThi noiDungDeThi = new NoiDungDeThi
                     {
-                        NoiDungDeThi noiDungDeThi = new NoiDungDeThi
-                        {
-                            MaDe = maDeThi,
-                            MaCauHoi = cauHoiId,
-                            ThuTuCauHoi = thuTuCauHoi,
-                            ThuTuXepDapAn = viTriDapAnDung
-                        };
+                        MaDe = maDeThi,
+                        MaCauHoi = cauHoiId,
+                        ThuTuCauHoi = thuTuCauHoi,
+                        ThuTuXepDapAn = 1,
+                    };
 
-                        // Thêm noiDungDeThi vào cơ sở dữ liệu
-                        db.NoiDungDeThis.Add(noiDungDeThi);
+                    // Thêm noiDungDeThi vào cơ sở dữ liệu
+                    db.NoiDungDeThis.Add(noiDungDeThi);
 
-                        thuTuCauHoi++;
-                    }
+                    thuTuCauHoi++;
                 }
             }
-
             db.SaveChanges();
             selectedMaCauHoiIds.Clear();
         }

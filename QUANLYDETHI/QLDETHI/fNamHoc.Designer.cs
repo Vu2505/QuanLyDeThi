@@ -78,6 +78,7 @@ namespace QLDETHI
             this.TenNamHoc});
             this.gvDanhSach.GridControl = this.gridNamHoc;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // MaNamHoc
             // 

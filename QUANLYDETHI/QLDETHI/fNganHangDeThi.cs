@@ -54,7 +54,6 @@ namespace QLDETHI
 
         private void barPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             if (selectedMaDe.HasValue) // Kiểm tra xem đã chọn mã đề hay chưa
             {
                 // Khởi tạo và hiển thị báo cáo với mã đề đã chọn
@@ -65,6 +64,15 @@ namespace QLDETHI
 
                 documentViewer.DocumentSource = report;
                 report.ShowPreviewDialog();
+
+
+                fDapAnDeThi report1 = new fDapAnDeThi();
+                //DocumentViewer documentViewer1 = new DocumentViewer();
+                //var lstDT1 = _noidungdethi.getListFull(selectedMaDe); // Sử dụng mã đề đã chọn
+                report1.InitData(lstDT);
+
+                documentViewer.DocumentSource = report1;
+                report1.ShowPreviewDialog();
             }
         }
 

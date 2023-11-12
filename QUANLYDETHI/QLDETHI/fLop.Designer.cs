@@ -48,7 +48,7 @@ namespace QLDETHI
             this.TenLop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaLop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridLop = new DevExpress.XtraGrid.GridControl();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -231,20 +231,20 @@ namespace QLDETHI
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MaLop,
             this.TenLop,
-            this.MaKhoi});
+            this.TenKhoi});
             this.gvDanhSach.GridControl = this.gridLop;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             // 
-            // MaKhoi
+            // TenKhoi
             // 
-            this.MaKhoi.Caption = "ID Khối";
-            this.MaKhoi.FieldName = "MaKhoi";
-            this.MaKhoi.MinWidth = 25;
-            this.MaKhoi.Name = "MaKhoi";
-            this.MaKhoi.Visible = true;
-            this.MaKhoi.VisibleIndex = 2;
-            this.MaKhoi.Width = 94;
+            this.TenKhoi.Caption = "Khối";
+            this.TenKhoi.FieldName = "TenKhoi";
+            this.TenKhoi.MinWidth = 25;
+            this.TenKhoi.Name = "TenKhoi";
+            this.TenKhoi.Visible = true;
+            this.TenKhoi.VisibleIndex = 2;
+            this.TenKhoi.Width = 94;
             // 
             // gridLop
             // 
@@ -363,7 +363,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn MaLop;
         private DevExpress.XtraGrid.Columns.GridColumn TenLop;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhoi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
         private System.Windows.Forms.ComboBox cbxKhoi;
         private DevExpress.XtraEditors.LabelControl labelControl2;
     }

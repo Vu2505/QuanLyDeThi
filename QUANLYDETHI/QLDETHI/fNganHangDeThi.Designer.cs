@@ -64,8 +64,9 @@ namespace QLDETHI
             this.DapAnDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.KyThi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.HinhThucThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -169,7 +170,7 @@ namespace QLDETHI
             // 
             this.barDaoDe.Caption = "Đảo đề";
             this.barDaoDe.Id = 7;
-            this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
+            this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
             this.barDaoDe.Name = "barDaoDe";
             this.barDaoDe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDaoDe_ItemClick);
             // 
@@ -231,10 +232,10 @@ namespace QLDETHI
             // gridDeThi
             // 
             this.gridDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDeThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10);
+            this.gridDeThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.gridDeThi.Location = new System.Drawing.Point(0, 30);
             this.gridDeThi.MainView = this.gvDanhSach;
-            this.gridDeThi.Margin = new System.Windows.Forms.Padding(10);
+            this.gridDeThi.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.gridDeThi.MenuManager = this.barManager2;
             this.gridDeThi.Name = "gridDeThi";
             this.gridDeThi.Size = new System.Drawing.Size(1924, 672);
@@ -260,9 +261,10 @@ namespace QLDETHI
             this.DapAnDung,
             this.HinhAnh,
             this.TenNamHoc,
-            this.KyThi,
-            this.HinhThucThi});
-            this.gvDanhSach.DetailHeight = 1065;
+            this.TenDeThi,
+            this.TenHocKy,
+            this.TenThoiGianThi});
+            this.gvDanhSach.DetailHeight = 1331;
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
@@ -271,173 +273,183 @@ namespace QLDETHI
             // 
             this.ID.Caption = "ID";
             this.ID.FieldName = "ID";
-            this.ID.MaxWidth = 30;
-            this.ID.MinWidth = 30;
+            this.ID.MaxWidth = 37;
+            this.ID.MinWidth = 37;
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 0;
-            this.ID.Width = 30;
+            this.ID.Width = 37;
             // 
             // MaDe
             // 
             this.MaDe.Caption = "ID Đề Thi";
             this.MaDe.FieldName = "MaDe";
-            this.MaDe.MinWidth = 76;
+            this.MaDe.MinWidth = 95;
             this.MaDe.Name = "MaDe";
             this.MaDe.Visible = true;
             this.MaDe.VisibleIndex = 1;
-            this.MaDe.Width = 123;
+            this.MaDe.Width = 154;
             // 
             // MaHienThi
             // 
             this.MaHienThi.Caption = "Mã Hiển Thị";
             this.MaHienThi.FieldName = "MaHienThi";
-            this.MaHienThi.MinWidth = 76;
+            this.MaHienThi.MinWidth = 95;
             this.MaHienThi.Name = "MaHienThi";
             this.MaHienThi.Visible = true;
             this.MaHienThi.VisibleIndex = 2;
-            this.MaHienThi.Width = 123;
+            this.MaHienThi.Width = 154;
             // 
             // MaCauHoi
             // 
             this.MaCauHoi.Caption = "ID Câu hỏi";
             this.MaCauHoi.FieldName = "MaCauHoi";
-            this.MaCauHoi.MinWidth = 76;
+            this.MaCauHoi.MinWidth = 95;
             this.MaCauHoi.Name = "MaCauHoi";
             this.MaCauHoi.Visible = true;
             this.MaCauHoi.VisibleIndex = 3;
-            this.MaCauHoi.Width = 123;
+            this.MaCauHoi.Width = 154;
             // 
             // TenMonHoc
             // 
             this.TenMonHoc.Caption = "Môn Học";
             this.TenMonHoc.FieldName = "TenMonHoc";
-            this.TenMonHoc.MinWidth = 76;
+            this.TenMonHoc.MinWidth = 95;
             this.TenMonHoc.Name = "TenMonHoc";
             this.TenMonHoc.Visible = true;
             this.TenMonHoc.VisibleIndex = 4;
-            this.TenMonHoc.Width = 123;
+            this.TenMonHoc.Width = 154;
             // 
             // TenKhoi
             // 
             this.TenKhoi.Caption = "Khối";
             this.TenKhoi.FieldName = "TenKhoi";
-            this.TenKhoi.MinWidth = 76;
+            this.TenKhoi.MinWidth = 95;
             this.TenKhoi.Name = "TenKhoi";
             this.TenKhoi.Visible = true;
             this.TenKhoi.VisibleIndex = 5;
-            this.TenKhoi.Width = 123;
+            this.TenKhoi.Width = 154;
             // 
             // ThuTuCauHoi
             // 
             this.ThuTuCauHoi.Caption = "TT Câu hỏi";
             this.ThuTuCauHoi.FieldName = "ThuTuCauHoi";
-            this.ThuTuCauHoi.MaxWidth = 30;
-            this.ThuTuCauHoi.MinWidth = 30;
+            this.ThuTuCauHoi.MaxWidth = 37;
+            this.ThuTuCauHoi.MinWidth = 37;
             this.ThuTuCauHoi.Name = "ThuTuCauHoi";
             this.ThuTuCauHoi.Visible = true;
             this.ThuTuCauHoi.VisibleIndex = 6;
-            this.ThuTuCauHoi.Width = 30;
+            this.ThuTuCauHoi.Width = 37;
             // 
             // NDCH
             // 
             this.NDCH.Caption = "ND Câu Hỏi";
             this.NDCH.FieldName = "NDCH";
-            this.NDCH.MinWidth = 76;
+            this.NDCH.MinWidth = 95;
             this.NDCH.Name = "NDCH";
             this.NDCH.Visible = true;
             this.NDCH.VisibleIndex = 7;
-            this.NDCH.Width = 127;
+            this.NDCH.Width = 159;
             // 
             // A
             // 
             this.A.Caption = "A";
             this.A.FieldName = "A";
-            this.A.MinWidth = 76;
+            this.A.MinWidth = 95;
             this.A.Name = "A";
             this.A.Visible = true;
             this.A.VisibleIndex = 8;
-            this.A.Width = 127;
+            this.A.Width = 159;
             // 
             // B
             // 
             this.B.Caption = "B";
             this.B.FieldName = "B";
-            this.B.MinWidth = 76;
+            this.B.MinWidth = 95;
             this.B.Name = "B";
             this.B.Visible = true;
             this.B.VisibleIndex = 9;
-            this.B.Width = 127;
+            this.B.Width = 159;
             // 
             // C
             // 
             this.C.Caption = "C";
             this.C.FieldName = "C";
-            this.C.MinWidth = 76;
+            this.C.MinWidth = 95;
             this.C.Name = "C";
             this.C.Visible = true;
             this.C.VisibleIndex = 10;
-            this.C.Width = 127;
+            this.C.Width = 159;
             // 
             // D
             // 
             this.D.Caption = "D";
             this.D.FieldName = "D";
-            this.D.MinWidth = 76;
+            this.D.MinWidth = 95;
             this.D.Name = "D";
             this.D.Visible = true;
             this.D.VisibleIndex = 11;
-            this.D.Width = 127;
+            this.D.Width = 159;
             // 
             // DapAnDung
             // 
             this.DapAnDung.Caption = "Đáp án đúng";
             this.DapAnDung.FieldName = "DapAnDung";
-            this.DapAnDung.MinWidth = 76;
+            this.DapAnDung.MinWidth = 95;
             this.DapAnDung.Name = "DapAnDung";
             this.DapAnDung.Visible = true;
             this.DapAnDung.VisibleIndex = 12;
-            this.DapAnDung.Width = 127;
+            this.DapAnDung.Width = 159;
             // 
             // HinhAnh
             // 
             this.HinhAnh.Caption = "Hình ảnh";
             this.HinhAnh.FieldName = "HinhAnh";
-            this.HinhAnh.MinWidth = 76;
+            this.HinhAnh.MinWidth = 95;
             this.HinhAnh.Name = "HinhAnh";
             this.HinhAnh.Visible = true;
             this.HinhAnh.VisibleIndex = 13;
-            this.HinhAnh.Width = 127;
+            this.HinhAnh.Width = 159;
             // 
             // TenNamHoc
             // 
             this.TenNamHoc.Caption = "Năm học";
             this.TenNamHoc.FieldName = "TenNamHoc";
-            this.TenNamHoc.MinWidth = 76;
+            this.TenNamHoc.MinWidth = 95;
             this.TenNamHoc.Name = "TenNamHoc";
             this.TenNamHoc.Visible = true;
             this.TenNamHoc.VisibleIndex = 14;
-            this.TenNamHoc.Width = 127;
+            this.TenNamHoc.Width = 159;
             // 
-            // KyThi
+            // TenDeThi
             // 
-            this.KyThi.Caption = "Kỳ thi";
-            this.KyThi.FieldName = "KyThi";
-            this.KyThi.MinWidth = 76;
-            this.KyThi.Name = "KyThi";
-            this.KyThi.Visible = true;
-            this.KyThi.VisibleIndex = 15;
-            this.KyThi.Width = 113;
+            this.TenDeThi.Caption = "Tên đề thi";
+            this.TenDeThi.FieldName = "TenDeThi";
+            this.TenDeThi.MinWidth = 95;
+            this.TenDeThi.Name = "TenDeThi";
+            this.TenDeThi.Visible = true;
+            this.TenDeThi.VisibleIndex = 15;
+            this.TenDeThi.Width = 141;
             // 
-            // HinhThucThi
+            // TenThoiGianThi
             // 
-            this.HinhThucThi.Caption = "Hình thức thi";
-            this.HinhThucThi.FieldName = "HinhThucThi";
-            this.HinhThucThi.MinWidth = 31;
-            this.HinhThucThi.Name = "HinhThucThi";
-            this.HinhThucThi.Visible = true;
-            this.HinhThucThi.VisibleIndex = 16;
-            this.HinhThucThi.Width = 90;
+            this.TenThoiGianThi.Caption = "Thời gian thi";
+            this.TenThoiGianThi.FieldName = "TenThoiGianThi";
+            this.TenThoiGianThi.MinWidth = 39;
+            this.TenThoiGianThi.Name = "TenThoiGianThi";
+            this.TenThoiGianThi.Visible = true;
+            this.TenThoiGianThi.VisibleIndex = 17;
+            this.TenThoiGianThi.Width = 112;
+            // 
+            // TenHocKy
+            // 
+            this.TenHocKy.Caption = "Học kì";
+            this.TenHocKy.FieldName = "TenHocKy";
+            this.TenHocKy.MinWidth = 25;
+            this.TenHocKy.Name = "TenHocKy";
+            this.TenHocKy.Visible = true;
+            this.TenHocKy.VisibleIndex = 16;
+            this.TenHocKy.Width = 94;
             // 
             // fNganHangDeThi
             // 
@@ -493,9 +505,10 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
         private DevExpress.XtraGrid.Columns.GridColumn ThuTuCauHoi;
         private DevExpress.XtraGrid.Columns.GridColumn TenNamHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn KyThi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDeThi;
         private DevExpress.XtraGrid.Columns.GridColumn MaDe;
-        private DevExpress.XtraGrid.Columns.GridColumn HinhThucThi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenThoiGianThi;
         public DevExpress.XtraGrid.GridControl gridDeThi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenHocKy;
     }
 }

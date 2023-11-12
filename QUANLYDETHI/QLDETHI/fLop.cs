@@ -37,7 +37,7 @@ namespace QLDETHI
 
         void loadData()
         {
-            gridLop.DataSource = _lop.getList();
+            gridLop.DataSource = _lop.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
         void loadCombo()
@@ -129,9 +129,15 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaLop").ToString());
-            txtTen.Text = gvDanhSach.GetFocusedRowCellValue("TenLop").ToString();
-            cbxKhoi.Text = gvDanhSach.GetFocusedRowCellValue("MaKhoi").ToString();
+
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaLop").ToString());
+                var k = _lop.getItem(_id);
+                txtTen.Text = k.TenLop;
+                cbxKhoi.SelectedValue = k.MaKhoi;
+                _lop.Update(k);
+            }
         }
 
         

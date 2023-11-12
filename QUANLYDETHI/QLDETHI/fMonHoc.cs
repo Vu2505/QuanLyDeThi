@@ -36,7 +36,7 @@ namespace QLDETHI
 
         void loadData()
         {
-            gridMonHoc.DataSource = _monhoc.getList();
+            gridMonHoc.DataSource = _monhoc.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
         }
 

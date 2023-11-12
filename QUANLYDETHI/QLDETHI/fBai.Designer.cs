@@ -45,7 +45,6 @@ namespace QLDETHI
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.MaChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -55,6 +54,7 @@ namespace QLDETHI
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBai)).BeginInit();
@@ -204,16 +204,6 @@ namespace QLDETHI
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 400);
             // 
-            // MaChuong
-            // 
-            this.MaChuong.Caption = "ID Chương";
-            this.MaChuong.FieldName = "MaChuong";
-            this.MaChuong.MinWidth = 25;
-            this.MaChuong.Name = "MaChuong";
-            this.MaChuong.Visible = true;
-            this.MaChuong.VisibleIndex = 2;
-            this.MaChuong.Width = 94;
-            // 
             // TenBai
             // 
             this.TenBai.Caption = "Tên Bài";
@@ -241,7 +231,7 @@ namespace QLDETHI
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MaBai,
             this.TenBai,
-            this.MaChuong});
+            this.TenChuong});
             this.gvDanhSach.GridControl = this.gridBai;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
@@ -315,6 +305,16 @@ namespace QLDETHI
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Mã Chương";
             // 
+            // TenChuong
+            // 
+            this.TenChuong.Caption = "Chương";
+            this.TenChuong.FieldName = "TenChuong";
+            this.TenChuong.MinWidth = 25;
+            this.TenChuong.Name = "TenChuong";
+            this.TenChuong.Visible = true;
+            this.TenChuong.VisibleIndex = 2;
+            this.TenChuong.Width = 94;
+            // 
             // fBai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,6 +366,6 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn MaBai;
         private DevExpress.XtraGrid.Columns.GridColumn TenBai;
-        private DevExpress.XtraGrid.Columns.GridColumn MaChuong;
+        private DevExpress.XtraGrid.Columns.GridColumn TenChuong;
     }
 }

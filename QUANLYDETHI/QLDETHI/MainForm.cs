@@ -64,10 +64,6 @@ namespace QLDETHI
             OpenForm(typeof(fBai));
         }
 
-        private void barCauHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            OpenForm(typeof(fCauHoi));
-        }
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -76,7 +72,7 @@ namespace QLDETHI
 
         private void import_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            OpenForm(typeof(fAddCau));
+            
         }
 
         private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -113,5 +109,16 @@ namespace QLDETHI
         {
             OpenForm(typeof(fNamHoc));
         }
+
+        private void barCauHoi1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fCauHoi));
+        }
+
+        private void barImportCauHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fAddCau));
+        }
+
     }
 }

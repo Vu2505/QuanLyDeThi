@@ -40,7 +40,7 @@ namespace QLDETHI
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MaChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -137,10 +137,11 @@ namespace QLDETHI
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MaChuong,
             this.TenChuong,
-            this.MaMonHoc});
+            this.TenMonHoc});
             this.gvDanhSach.GridControl = this.gridChuong;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
+            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // MaChuong
             // 
@@ -164,15 +165,15 @@ namespace QLDETHI
             this.TenChuong.VisibleIndex = 1;
             this.TenChuong.Width = 94;
             // 
-            // MaMonHoc
+            // TenMonHoc
             // 
-            this.MaMonHoc.Caption = "ID Môn Học";
-            this.MaMonHoc.FieldName = "MaMonHoc";
-            this.MaMonHoc.MinWidth = 25;
-            this.MaMonHoc.Name = "MaMonHoc";
-            this.MaMonHoc.Visible = true;
-            this.MaMonHoc.VisibleIndex = 2;
-            this.MaMonHoc.Width = 94;
+            this.TenMonHoc.Caption = "Môn Học";
+            this.TenMonHoc.FieldName = "TenMonHoc";
+            this.TenMonHoc.MinWidth = 25;
+            this.TenMonHoc.Name = "TenMonHoc";
+            this.TenMonHoc.Visible = true;
+            this.TenMonHoc.VisibleIndex = 2;
+            this.TenMonHoc.Width = 94;
             // 
             // barManager1
             // 
@@ -351,7 +352,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn MaChuong;
         private DevExpress.XtraGrid.Columns.GridColumn TenChuong;
-        private DevExpress.XtraGrid.Columns.GridColumn MaMonHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnThem;
