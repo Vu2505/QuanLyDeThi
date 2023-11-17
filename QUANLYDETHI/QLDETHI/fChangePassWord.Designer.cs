@@ -31,15 +31,15 @@ namespace QLDETHI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fChangePassWord));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.chbHienThi = new System.Windows.Forms.CheckBox();
+            this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
             this.txbAgainNewPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txbNewPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txbOldPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txbAgainNewPassword.Properties)).BeginInit();
@@ -75,6 +75,15 @@ namespace QLDETHI
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin thay đổi mật khẩu";
             // 
+            // btnDong
+            // 
+            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDong.ImageOptions.SvgImage")));
+            this.btnDong.Location = new System.Drawing.Point(269, 235);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(107, 37);
+            this.btnDong.TabIndex = 2;
+            this.btnDong.Text = "Thoát";
+            // 
             // chbHienThi
             // 
             this.chbHienThi.AutoSize = true;
@@ -85,6 +94,16 @@ namespace QLDETHI
             this.chbHienThi.Text = "Hiển thị mật khẩu";
             this.chbHienThi.UseVisualStyleBackColor = true;
             this.chbHienThi.CheckedChanged += new System.EventHandler(this.chbHienThi_CheckedChanged);
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhat.ImageOptions.SvgImage")));
+            this.btnCapNhat.Location = new System.Drawing.Point(98, 235);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(119, 37);
+            this.btnCapNhat.TabIndex = 1;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // txbAgainNewPassword
             // 
@@ -134,25 +153,6 @@ namespace QLDETHI
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Mật khẩu cũ";
             // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhat.ImageOptions.SvgImage")));
-            this.btnCapNhat.Location = new System.Drawing.Point(98, 235);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(119, 37);
-            this.btnCapNhat.TabIndex = 1;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // btnDong
-            // 
-            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDong.ImageOptions.SvgImage")));
-            this.btnDong.Location = new System.Drawing.Point(269, 235);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(107, 37);
-            this.btnDong.TabIndex = 2;
-            this.btnDong.Text = "Thoát";
-            // 
             // fChangePassWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,7 +161,7 @@ namespace QLDETHI
             this.Controls.Add(this.groupControl1);
             this.Name = "fChangePassWord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fChangePassWord";
+            this.Text = "Đổi mật khẩu";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

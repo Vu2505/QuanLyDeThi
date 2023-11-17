@@ -35,7 +35,7 @@ namespace QLDETHI
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDangNhap = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chbHienThi = new System.Windows.Forms.CheckBox();
             this.panelPassword = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txbPassWord = new System.Windows.Forms.TextBox();
@@ -86,7 +86,7 @@ namespace QLDETHI
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.Controls.Add(this.btnDangNhap);
-            this.panel4.Controls.Add(this.checkBox1);
+            this.panel4.Controls.Add(this.chbHienThi);
             this.panel4.Controls.Add(this.panelPassword);
             this.panel4.Controls.Add(this.panelUserName);
             this.panel4.Controls.Add(this.label3);
@@ -113,16 +113,16 @@ namespace QLDETHI
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
-            // checkBox1
+            // chbHienThi
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.checkBox1.Location = new System.Drawing.Point(51, 294);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(140, 21);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Hiển thị mật khẩu";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chbHienThi.AutoSize = true;
+            this.chbHienThi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
+            this.chbHienThi.Location = new System.Drawing.Point(51, 294);
+            this.chbHienThi.Name = "chbHienThi";
+            this.chbHienThi.Size = new System.Drawing.Size(140, 21);
+            this.chbHienThi.TabIndex = 9;
+            this.chbHienThi.Text = "Hiển thị mật khẩu";
+            this.chbHienThi.UseVisualStyleBackColor = true;
             // 
             // panelPassword
             // 
@@ -280,7 +280,7 @@ namespace QLDETHI
             this.ClientSize = new System.Drawing.Size(685, 483);
             this.Controls.Add(this.panel1);
             this.Name = "fLogin";
-            this.Text = "fLogin";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.fLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -314,7 +314,7 @@ namespace QLDETHI
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panelUserName;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chbHienThi;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.PictureBox pictureBox1;

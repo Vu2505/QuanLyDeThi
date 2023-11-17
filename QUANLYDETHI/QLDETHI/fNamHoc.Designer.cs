@@ -290,7 +290,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fNamHoc";
-            this.Text = "fNamHoc";
+            this.Text = "Năm học";
             this.Load += new System.EventHandler(this.fNamHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridNamHoc)).EndInit();

@@ -49,15 +49,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GiangViens">
-      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.GiangVien">
-        <MappingFragment StoreEntitySet="GiangVien">
-          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-          <ScalarProperty Name="TenGiangVien" ColumnName="TenGiangVien" />
-          <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Khois">
       <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Khoi">
         <MappingFragment StoreEntitySet="Khoi">
@@ -81,19 +72,6 @@
           <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
           <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
           <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TaiKhoans">
-      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
-        <MappingFragment StoreEntitySet="TaiKhoan">
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-          <ScalarProperty Name="LoaiTaiKhoan" ColumnName="LoaiTaiKhoan" />
-          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
-          <ScalarProperty Name="IdTK" ColumnName="IdTK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -154,6 +132,36 @@
           <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
           <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
           <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoanMonHocs">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoanMonHoc">
+        <MappingFragment StoreEntitySet="TaiKhoanMonHoc">
+          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+          <ScalarProperty Name="IdTK" ColumnName="IdTK" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiTaiKhoans">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.LoaiTaiKhoan">
+        <MappingFragment StoreEntitySet="LoaiTaiKhoan">
+          <ScalarProperty Name="TenLoaiTaiKhoan" ColumnName="TenLoaiTaiKhoan" />
+          <ScalarProperty Name="MaLoaiTaiKhoan" ColumnName="MaLoaiTaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="LoaiTaiKhoan" ColumnName="LoaiTaiKhoan" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+          <ScalarProperty Name="IdTK" ColumnName="IdTK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -93,7 +93,6 @@ namespace QLDETHI
                 txbNewPassword.Properties.UseSystemPasswordChar = true;
                 txbAgainNewPassword.Properties.UseSystemPasswordChar = true;
             }
-
         }
 
 

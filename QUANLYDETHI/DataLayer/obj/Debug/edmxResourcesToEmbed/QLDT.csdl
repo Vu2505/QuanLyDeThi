@@ -5,17 +5,18 @@
     <EntitySet Name="CauHois" EntityType="DETHITRACNGHIEMModel.CauHoi" />
     <EntitySet Name="Chuongs" EntityType="DETHITRACNGHIEMModel.Chuong" />
     <EntitySet Name="DoKhoes" EntityType="DETHITRACNGHIEMModel.DoKho" />
-    <EntitySet Name="GiangViens" EntityType="DETHITRACNGHIEMModel.GiangVien" />
     <EntitySet Name="Khois" EntityType="DETHITRACNGHIEMModel.Khoi" />
     <EntitySet Name="Lops" EntityType="DETHITRACNGHIEMModel.Lop" />
     <EntitySet Name="MonHocs" EntityType="DETHITRACNGHIEMModel.MonHoc" />
-    <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
     <EntitySet Name="NoiDungDeThis" EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" />
     <EntitySet Name="NamHocs" EntityType="DETHITRACNGHIEMModel.NamHoc" />
     <EntitySet Name="HocKies" EntityType="DETHITRACNGHIEMModel.HocKy" />
     <EntitySet Name="ThoiGianThis" EntityType="DETHITRACNGHIEMModel.ThoiGianThi" />
     <EntitySet Name="TinhTrangs" EntityType="DETHITRACNGHIEMModel.TinhTrang" />
     <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
+    <EntitySet Name="TaiKhoanMonHocs" EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" />
+    <EntitySet Name="LoaiTaiKhoans" EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" />
+    <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
   </EntityContainer>
   <EntityType Name="Bai">
     <Key>
@@ -61,14 +62,6 @@
     <Property Name="MaDoKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenDoKho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="GiangVien">
-    <Key>
-      <PropertyRef Name="MaGiangVien" />
-    </Key>
-    <Property Name="MaGiangVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenGiangVien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="MaMonHoc" Type="Int32" />
-  </EntityType>
   <EntityType Name="Khoi">
     <Key>
       <PropertyRef Name="MaKhoi" />
@@ -91,18 +84,6 @@
     <Property Name="MaMonHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenMonHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MaKhoi" Type="Int32" />
-  </EntityType>
-  <EntityType Name="TaiKhoan">
-    <Key>
-      <PropertyRef Name="IdTK" />
-    </Key>
-    <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenGV" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Matkhau" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LoaiTaiKhoan" Type="Int32" Nullable="false" />
-    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
-    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="NoiDungDeThi">
     <Key>
@@ -157,5 +138,32 @@
     <Property Name="MaGiangVien" Type="Int32" />
     <Property Name="MaHocKy" Type="Int32" />
     <Property Name="MaThoiGianThi" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TaiKhoanMonHoc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTK" Type="Int32" />
+    <Property Name="MaMonHoc" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LoaiTaiKhoan">
+    <Key>
+      <PropertyRef Name="MaLoaiTaiKhoan" />
+    </Key>
+    <Property Name="MaLoaiTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="IdTK" />
+    </Key>
+    <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGV" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Matkhau" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiTaiKhoan" Type="Int32" />
+    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

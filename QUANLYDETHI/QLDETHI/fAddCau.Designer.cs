@@ -295,7 +295,7 @@ namespace QLDETHI.Taodethi
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(1940, 679);
-            this.splitContainer1.SplitterDistance = 974;
+            this.splitContainer1.SplitterDistance = 1012;
             this.splitContainer1.TabIndex = 32;
             // 
             // splitContainer2
@@ -328,7 +328,7 @@ namespace QLDETHI.Taodethi
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.gridCauHoi);
-            this.splitContainer2.Size = new System.Drawing.Size(974, 679);
+            this.splitContainer2.Size = new System.Drawing.Size(1012, 679);
             this.splitContainer2.SplitterDistance = 254;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -507,7 +507,7 @@ namespace QLDETHI.Taodethi
             this.gridCauHoi.MainView = this.gvDanhSach;
             this.gridCauHoi.MenuManager = this.barManager2;
             this.gridCauHoi.Name = "gridCauHoi";
-            this.gridCauHoi.Size = new System.Drawing.Size(972, 419);
+            this.gridCauHoi.Size = new System.Drawing.Size(1010, 419);
             this.gridCauHoi.TabIndex = 0;
             this.gridCauHoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
@@ -702,7 +702,7 @@ namespace QLDETHI.Taodethi
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.richWordDeThi);
-            this.splitContainer3.Size = new System.Drawing.Size(962, 679);
+            this.splitContainer3.Size = new System.Drawing.Size(924, 679);
             this.splitContainer3.SplitterDistance = 70;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -747,7 +747,7 @@ namespace QLDETHI.Taodethi
             this.richWordDeThi.Location = new System.Drawing.Point(0, 0);
             this.richWordDeThi.MenuManager = this.barManager2;
             this.richWordDeThi.Name = "richWordDeThi";
-            this.richWordDeThi.Size = new System.Drawing.Size(960, 603);
+            this.richWordDeThi.Size = new System.Drawing.Size(922, 603);
             this.richWordDeThi.TabIndex = 0;
             this.richWordDeThi.Click += new System.EventHandler(this.richWordDeThi_Click);
             // 
@@ -762,7 +762,7 @@ namespace QLDETHI.Taodethi
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.Name = "fAddCau";
-            this.Text = "Import Câu Hỏi";
+            this.Text = "Thêm câu hỏi từ file";
             this.Load += new System.EventHandler(this.fAddCau_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);

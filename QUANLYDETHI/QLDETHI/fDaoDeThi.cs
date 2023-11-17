@@ -12,6 +12,7 @@ using DataLayer;
 using DethiLayer.DTO;
 using DevExpress.XtraGrid;
 using System.Diagnostics;
+using QLDETHI.Luutru;
 
 namespace QLDETHI
 {
@@ -20,9 +21,14 @@ namespace QLDETHI
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
         private int selectedMaDe;
         NOIDUNGDETHI _noidungdethi;
+
+        private TaiKhoan user;
+        int IdTK;
         public fDaoDeThi(int? selectedMaDe)
         {
             InitializeComponent();
+            user = LuuTru.User;
+            IdTK = user.IdTK;
             // Kiểm tra xem selectedMaDe có giá trị không
             if (selectedMaDe.HasValue)
             {
@@ -78,6 +84,7 @@ namespace QLDETHI
                     newDeThi.MaMonHoc = originalDeThi[i].MaMonHoc;
                     newDeThi.MaKhoi = originalDeThi[i].MaKhoi;
                     newDeThi.MaLop = originalDeThi[i].MaLop;
+                    newDeThi.MaGiangVien = IdTK;
 
                     newDeThi.SoCauHoi = originalDeThi.Count;
 
@@ -103,6 +110,11 @@ namespace QLDETHI
                     parentForm.UpdateGridDeThi();
                     this.Close();
                 }
+                this.Close();
+                MessageBox.Show($"Đảo thành công {numCopies} đề");
+                this.Close();
+
+
             }
         }
         
@@ -127,7 +139,8 @@ namespace QLDETHI
                     SoCauHoi = newDeThi.SoCauHoi,
                     MaMonHoc = newDeThi.MaMonHoc,
                     MaKhoi = newDeThi.MaKhoi,
-                    MaLop = newDeThi.MaLop
+                    MaLop = newDeThi.MaLop,
+                    MaGiangVien = newDeThi.MaGiangVien
                 };
                 db.DeThis.Add(deThiEntity);
                 db.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu

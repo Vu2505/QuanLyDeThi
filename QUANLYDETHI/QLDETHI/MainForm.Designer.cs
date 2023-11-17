@@ -50,8 +50,12 @@ namespace QLDETHI
             this.barBai = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barNamHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.barTinhTrang = new DevExpress.XtraBars.BarButtonItem();
+            this.barThoiGianThi = new DevExpress.XtraBars.BarButtonItem();
+            this.barTaiKhoanMonHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.barLoaiTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.barCauHoi = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.DoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
@@ -157,6 +161,10 @@ namespace QLDETHI
             this.ribbonPageGroup3.ItemLinks.Add(this.barBai, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem8, true);
             this.ribbonPageGroup3.ItemLinks.Add(this.barNamHoc, true);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barTinhTrang, true);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barThoiGianThi, true);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barTaiKhoanMonHoc, true);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barLoaiTaiKhoan, true);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = " ";
             // 
@@ -205,7 +213,7 @@ namespace QLDETHI
             // 
             // barButtonItem8
             // 
-            this.barButtonItem8.Caption = "Giảng viên";
+            this.barButtonItem8.Caption = "Tài khoản";
             this.barButtonItem8.Id = 12;
             this.barButtonItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem8.ImageOptions.SvgImage")));
             this.barButtonItem8.Name = "barButtonItem8";
@@ -220,6 +228,42 @@ namespace QLDETHI
             this.barNamHoc.Name = "barNamHoc";
             this.barNamHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barNamHoc_ItemClick);
             // 
+            // barTinhTrang
+            // 
+            this.barTinhTrang.Caption = "Tình Trạng";
+            this.barTinhTrang.Id = 23;
+            this.barTinhTrang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barTinhTrang.ImageOptions.Image")));
+            this.barTinhTrang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barTinhTrang.ImageOptions.LargeImage")));
+            this.barTinhTrang.Name = "barTinhTrang";
+            this.barTinhTrang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barTinhTrang_ItemClick);
+            // 
+            // barThoiGianThi
+            // 
+            this.barThoiGianThi.Caption = "Thời gian thi";
+            this.barThoiGianThi.Id = 24;
+            this.barThoiGianThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barThoiGianThi.ImageOptions.Image")));
+            this.barThoiGianThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barThoiGianThi.ImageOptions.LargeImage")));
+            this.barThoiGianThi.Name = "barThoiGianThi";
+            this.barThoiGianThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barThoiGianThi_ItemClick);
+            // 
+            // barTaiKhoanMonHoc
+            // 
+            this.barTaiKhoanMonHoc.Caption = "Tài khoản môn học";
+            this.barTaiKhoanMonHoc.Id = 25;
+            this.barTaiKhoanMonHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barTaiKhoanMonHoc.ImageOptions.Image")));
+            this.barTaiKhoanMonHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barTaiKhoanMonHoc.ImageOptions.LargeImage")));
+            this.barTaiKhoanMonHoc.Name = "barTaiKhoanMonHoc";
+            this.barTaiKhoanMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barTaiKhoanMonHoc_ItemClick);
+            // 
+            // barLoaiTaiKhoan
+            // 
+            this.barLoaiTaiKhoan.Caption = "Loại tài khoản";
+            this.barLoaiTaiKhoan.Id = 28;
+            this.barLoaiTaiKhoan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLoaiTaiKhoan.ImageOptions.Image")));
+            this.barLoaiTaiKhoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barLoaiTaiKhoan.ImageOptions.LargeImage")));
+            this.barLoaiTaiKhoan.Name = "barLoaiTaiKhoan";
+            this.barLoaiTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLoaiTaiKhoan_ItemClick);
+            // 
             // barCauHoi
             // 
             this.barCauHoi.Caption = "Câu hỏi";
@@ -227,13 +271,13 @@ namespace QLDETHI
             this.barCauHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barCauHoi.ImageOptions.SvgImage")));
             this.barCauHoi.Name = "barCauHoi";
             // 
-            // ribbonPage9
+            // ribQuanLy
             // 
-            this.ribbonPage9.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribQuanLy.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3});
-            this.ribbonPage9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage9.ImageOptions.Image")));
-            this.ribbonPage9.Name = "ribbonPage9";
-            this.ribbonPage9.Text = "Danh mục quản lý";
+            this.ribQuanLy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribQuanLy.ImageOptions.Image")));
+            this.ribQuanLy.Name = "ribQuanLy";
+            this.ribQuanLy.Text = "Danh mục quản lý";
             // 
             // ribbonPageGroup4
             // 
@@ -249,6 +293,7 @@ namespace QLDETHI
             this.barButtonItem11.Id = 16;
             this.barButtonItem11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem11.ImageOptions.SvgImage")));
             this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
             // 
             // DoiMatKhau
             // 
@@ -298,15 +343,19 @@ namespace QLDETHI
             this.barNganHangDeThi,
             this.barNamHoc,
             this.barCauHoi1,
-            this.barImportCauHoi});
+            this.barImportCauHoi,
+            this.barTinhTrang,
+            this.barThoiGianThi,
+            this.barTaiKhoanMonHoc,
+            this.barLoaiTaiKhoan});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl2.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl2.MaxItemId = 23;
+            this.ribbonControl2.MaxItemId = 29;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.OptionsMenuMinWidth = 412;
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage10,
-            this.ribbonPage9,
+            this.ribQuanLy,
             this.ribbonPage8,
             this.ribbonPage1});
             this.ribbonControl2.Size = new System.Drawing.Size(1039, 209);
@@ -376,8 +425,9 @@ namespace QLDETHI
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Ribbon = this.ribbonControl2;
-            this.Text = "Form1";
+            this.Text = "Giao diện chính";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -404,7 +454,7 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarButtonItem barBai;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barCauHoi;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage9;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribQuanLy;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem DoiMatKhau;
@@ -422,6 +472,10 @@ namespace QLDETHI
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem import;
+        private DevExpress.XtraBars.BarButtonItem barTinhTrang;
+        private DevExpress.XtraBars.BarButtonItem barThoiGianThi;
+        private DevExpress.XtraBars.BarButtonItem barTaiKhoanMonHoc;
+        private DevExpress.XtraBars.BarButtonItem barLoaiTaiKhoan;
     }
 }
 

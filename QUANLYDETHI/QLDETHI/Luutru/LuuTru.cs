@@ -10,12 +10,12 @@ namespace QLDETHI.Luutru
     public class LuuTru
     {
         private static TaiKhoan user;
+
         public static TaiKhoan User
         {
             get { return user; }
             set { user = value; }
-        }        
-
+        }
     }
 
 

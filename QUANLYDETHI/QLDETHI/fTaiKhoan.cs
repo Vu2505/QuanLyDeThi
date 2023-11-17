@@ -20,6 +20,8 @@ namespace QLDETHI
         }
 
         TAIKHOAN _taikhoan;
+        LOAITAIKHOAN _loaitaikhoan;
+        TINHTRANG _tinhtrang;
         bool _them;
         int _id;
 
@@ -27,13 +29,28 @@ namespace QLDETHI
         {
             _them = false;
             _taikhoan = new TAIKHOAN();
+            _loaitaikhoan = new LOAITAIKHOAN();
+            _tinhtrang = new TINHTRANG();
             _showHide(true);
             loadData();
+            loadCombo();
         }
         void loadData()
         {
-            gridTaiKhoan.DataSource = _taikhoan.getList();
+            gridTaiKhoan.DataSource = _taikhoan.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+        }
+
+        void loadCombo()
+        {
+            cbxLoaiTaiKhoan.DataSource = _loaitaikhoan.getList();
+            cbxLoaiTaiKhoan.DisplayMember = "TenLoaiTaiKhoan";
+            cbxLoaiTaiKhoan.ValueMember = "MaLoaiTaiKhoan";
+
+
+            cbxTinhTrang.DataSource = _tinhtrang.getList();
+            cbxTinhTrang.DisplayMember = "TenTinhTrang";
+            cbxTinhTrang.ValueMember = "MaTinhTrang";
         }
 
         void _showHide(bool kt)
@@ -105,8 +122,8 @@ namespace QLDETHI
                 tk.TenGV = txbTenGV.Text;
                 tk.Username = txbUserName.Text;
                 tk.Matkhau = txbMatKhau.Text;
-                tk.LoaiTaiKhoan = int.Parse(cbxLoaiTaiKhoan.Text);
-                tk.TinhTrang = int.Parse(cbxTinhTrang.Text);
+                tk.LoaiTaiKhoan = int.Parse(cbxLoaiTaiKhoan.SelectedValue.ToString());
+                tk.TinhTrang = int.Parse(cbxTinhTrang.SelectedValue.ToString());
                 tk.GhiChu = txbGhiChu.Text;
                 _taikhoan.Add(tk);
             }
@@ -116,8 +133,8 @@ namespace QLDETHI
                 tk.TenGV = txbTenGV.Text;
                 tk.Username = txbUserName.Text;
                 tk.Matkhau = txbMatKhau.Text;
-                tk.LoaiTaiKhoan = int.Parse(cbxLoaiTaiKhoan.Text);
-                tk.TinhTrang = int.Parse(cbxTinhTrang.Text);
+                tk.LoaiTaiKhoan = int.Parse(cbxLoaiTaiKhoan.SelectedValue.ToString());
+                tk.TinhTrang = int.Parse(cbxTinhTrang.SelectedValue.ToString());
                 tk.GhiChu = txbGhiChu.Text;
                 _taikhoan.Update(tk);
             }
@@ -132,8 +149,8 @@ namespace QLDETHI
                 txbTenGV.Text = k.TenGV;
                 txbUserName.Text = k.Username;
                 txbMatKhau.Text = k.Matkhau;
-                cbxLoaiTaiKhoan.Text = k.LoaiTaiKhoan.ToString();
-                cbxTinhTrang.Text = k.TinhTrang.ToString();
+                cbxLoaiTaiKhoan.SelectedValue = k.LoaiTaiKhoan;
+                cbxTinhTrang.SelectedValue = k.TinhTrang;
                 txbGhiChu.Text = k.GhiChu;
                 _taikhoan.Update(k);
             }

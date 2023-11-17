@@ -48,17 +48,17 @@ namespace QLDETHI
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gridKhoi = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridKhoi = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKhoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // barDockControlRight
@@ -237,6 +237,18 @@ namespace QLDETHI
             this.splitContainer1.SplitterDistance = 120;
             this.splitContainer1.TabIndex = 12;
             // 
+            // gridKhoi
+            // 
+            this.gridKhoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridKhoi.Location = new System.Drawing.Point(0, 0);
+            this.gridKhoi.MainView = this.gvDanhSach;
+            this.gridKhoi.MenuManager = this.barManager1;
+            this.gridKhoi.Name = "gridKhoi";
+            this.gridKhoi.Size = new System.Drawing.Size(800, 276);
+            this.gridKhoi.TabIndex = 0;
+            this.gridKhoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDanhSach});
+            // 
             // gvDanhSach
             // 
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -268,18 +280,6 @@ namespace QLDETHI
             this.TenKhoi.VisibleIndex = 1;
             this.TenKhoi.Width = 94;
             // 
-            // gridKhoi
-            // 
-            this.gridKhoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridKhoi.Location = new System.Drawing.Point(0, 0);
-            this.gridKhoi.MainView = this.gvDanhSach;
-            this.gridKhoi.MenuManager = this.barManager1;
-            this.gridKhoi.Name = "gridKhoi";
-            this.gridKhoi.Size = new System.Drawing.Size(800, 276);
-            this.gridKhoi.TabIndex = 0;
-            this.gridKhoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvDanhSach});
-            // 
             // fKhoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,7 +291,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fKhoi";
-            this.Text = "fKhoi";
+            this.Text = "Khối";
             this.Load += new System.EventHandler(this.fKhoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -299,8 +299,8 @@ namespace QLDETHI
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKhoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

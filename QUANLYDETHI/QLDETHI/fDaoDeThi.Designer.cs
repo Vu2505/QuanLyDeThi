@@ -80,7 +80,7 @@ namespace QLDETHI
             this.Controls.Add(this.nbSoLuongDe);
             this.Controls.Add(this.labelControl1);
             this.Name = "fDaoDeThi";
-            this.Text = "fDaoDeThi";
+            this.Text = "Đảo đề thi";
             this.Load += new System.EventHandler(this.fDaoDeThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nbSoLuongDe)).EndInit();
             this.ResumeLayout(false);

@@ -14,16 +14,19 @@ using DevExpress.Data;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using QLDETHI.Luutru;
 
 namespace QLDETHI
 {
     public partial class fAddDeThiThuCong : Form
     {
+        private TaiKhoan user;
+        int IdTK;
         public fAddDeThiThuCong()
         {
             InitializeComponent();
-            //gvDanhSach.OptionsSelection.MultiSelect = true;
-            //gvDanhSach.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
+            user = LuuTru.User;
+            IdTK = user.IdTK;
         }
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
         CHUONG _chuong;
@@ -56,9 +59,18 @@ namespace QLDETHI
 
         void loadCombo()
         {
-            cbxMonHoc1.DataSource = _monhoc.getList();
-            cbxMonHoc1.DisplayMember = "TenMonHoc";
-            cbxMonHoc1.ValueMember = "MaMonHoc";
+            if (user.LoaiTaiKhoan == 1)
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFull();
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
+            else
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFullTK(IdTK);
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
 
             cbxKhoi.DataSource = _khoi.getList();
             cbxKhoi.DisplayMember = "TenKhoi";
@@ -79,33 +91,64 @@ namespace QLDETHI
             cbxThoiGianThi.DataSource = _thoigianthi.getList();
             cbxThoiGianThi.DisplayMember = "TenThoiGianThi";
             cbxThoiGianThi.ValueMember = "MaThoiGianThi";
-
-
         }
 
         void loadData()
         {
-            gridCauHoi.DataSource = _cauhoi.getList();
-            gvDanhSach.OptionsBehavior.Editable = false;
+            if (user.LoaiTaiKhoan == 1)
+            {
+                gridCauHoi.DataSource = _cauhoi.getListFullGV();
+                gvDanhSach.OptionsBehavior.Editable = false;
+            }
+            else
+            {
+                gridCauHoi.DataSource = _cauhoi.getListFullGV(IdTK);
+                gvDanhSach.OptionsBehavior.Editable = false;
+            }
         }
 
         private void cbxKhoi_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                cbxLop.Controls.Clear();
-                cbxMonHoc1.Controls.Clear();
-                int selectedKhoiId = (int)cbxKhoi.SelectedValue;
 
-                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
-                cbxLop.DataSource = LopList;
-                cbxLop.DisplayMember = "TenLop";
-                cbxLop.ValueMember = "MaLop";
-                var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
-                cbxMonHoc1.DataSource = MonHocList;
-                cbxMonHoc1.DisplayMember = "TenMonHoc";
-                cbxMonHoc1.ValueMember = "MaMonHoc";
+                if (user.LoaiTaiKhoan == 1)
+                {
+                    cbxLop.Controls.Clear();
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+
+                    var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxLop.DataSource = LopList;
+                    cbxLop.DisplayMember = "TenLop";
+                    cbxLop.ValueMember = "MaLop";
+
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
+                else
+                {
+                    cbxLop.Controls.Clear();
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+
+                    var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxLop.DataSource = LopList;
+                    cbxLop.DisplayMember = "TenLop";
+                    cbxLop.ValueMember = "MaLop";
+
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs
+                                .Where(c => c.MaKhoi == selectedKhoiId)
+                                .Where(c => db.TaiKhoanMonHocs.Any(tm => tm.MaMonHoc == c.MaMonHoc && tm.IdTK == IdTK))
+                                .ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
             }
             catch (InvalidCastException ex)
             {
@@ -254,7 +297,7 @@ namespace QLDETHI
         // Khai báo biến để lưu trạng thái chọn của từng câu hỏi
         Dictionary<int, bool> selectedCauHoiStates = new Dictionary<int, bool>();
 
-        private bool isGridViewSelectionEvent = true;
+        //private bool isGridViewSelectionEvent = true;
         private void gridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.ControllerRow >= 0)
@@ -467,7 +510,7 @@ namespace QLDETHI
                 MaKhoi = (int)cbxKhoi.SelectedValue, // Mã khối
                 MaLop = (int)cbxLop.SelectedValue, // Mã lớp
                 MaHocKy = (int)cbxHocKy.SelectedValue,
-                MaGiangVien = 1, // Thay bằng giá trị thích hợp
+                MaGiangVien = IdTK, // Thay bằng giá trị thích hợp
             };
 
             // Thêm đề thi vào cơ sở dữ liệu
@@ -502,7 +545,10 @@ namespace QLDETHI
                 }
             }
             db.SaveChanges();
+            
+            MessageBox.Show($"Tạo thành công đề {newDeThi.MaHienThi} gồm {newDeThi.SoCauHoi} câu");
             selectedMaCauHoiIds.Clear();
+
         }
 
         private int GenerateNewMaHienThi()
@@ -516,18 +562,6 @@ namespace QLDETHI
                 }
                 while (db.DeThis.Any(d => d.MaHienThi == newMaHienThi));
                 return newMaHienThi;
-            }
-        }
-
-        int GetViTriDapAnDung(string dapAnDung)
-        {
-            switch (dapAnDung)
-            {
-                case "A": return 1;
-                case "B": return 2;
-                case "C": return 3;
-                case "D": return 4;
-                default: return -1; // Trả về -1 nếu không tìm thấy đáp án đúng
             }
         }
     }

@@ -57,6 +57,7 @@ namespace QLDETHI
             btnDong.Enabled = kt;
             btnPrint.Enabled = kt;
             txtTen.Enabled = !kt;
+            cbxKhoi.Enabled = !kt;
 
         }
 

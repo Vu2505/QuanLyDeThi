@@ -21,16 +21,28 @@ using DevExpress.XtraPrinting.Native;
 
 using Word = Microsoft.Office.Interop.Word;
 using System.Runtime.InteropServices;
-
+using QLDETHI.Luutru;
 
 namespace QLDETHI.Taodethi
 {
     public partial class fAddCau : DevExpress.XtraEditors.XtraForm
     {
+        private string currentUsername;
+        private TaiKhoan user;
+        int IdTK;
         public fAddCau()
         {
             InitializeComponent();
+            user = LuuTru.User;
+            IdTK = user.IdTK;
         }
+
+        //public fAddCau(MaGV)
+        //{
+        //    InitializeComponent();
+        //    user = LuuTru.User;
+        //    MaGV = user.IdTK;
+        //}
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
         int _id;
         bool _them;
@@ -40,6 +52,7 @@ namespace QLDETHI.Taodethi
         KHOI _khoi;
         DOKHO _dokho;
         BAI _bai;
+        TAIKHOANMONHOC _taikhoanmonhoc;
         TINHTRANG _tinhtrang;
         private string correctAnswer = ""; // Biến toàn cục để lưu trữ correctAnswer
 
@@ -53,22 +66,43 @@ namespace QLDETHI.Taodethi
             _dokho = new DOKHO();
             _bai = new BAI();
             _tinhtrang = new TINHTRANG();
+            _taikhoanmonhoc = new TAIKHOANMONHOC();
             _showHide(true);
             loadData();
             loadCombo();
         }
         void loadData()
-        {
-            gridCauHoi.DataSource = _cauhoi.getList();
-            gvDanhSach.OptionsBehavior.Editable = false;
+        {  
+            if(user.LoaiTaiKhoan == 1)
+            {
+                gridCauHoi.DataSource = _cauhoi.getListFull();
+                gvDanhSach.OptionsBehavior.Editable = false;
+            }
+            else
+            {
+                gridCauHoi.DataSource = _cauhoi.getListFullGV(IdTK);
+                gvDanhSach.OptionsBehavior.Editable = false;
+            }
+            
 
         }
 
         void loadCombo()
         {
-            cbxMonHoc1.DataSource = _monhoc.getList();
-            cbxMonHoc1.DisplayMember = "TenMonHoc";
-            cbxMonHoc1.ValueMember = "MaMonHoc";
+            if (user.LoaiTaiKhoan == 1)
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFull();
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
+            else
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFullTK(IdTK);
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
+
+            
 
             cbxKhoi.DataSource = _khoi.getList();
             cbxKhoi.DisplayMember = "TenKhoi";
@@ -95,14 +129,40 @@ namespace QLDETHI.Taodethi
         {
             try
             {
-                cbxMonHoc1.Controls.Clear();
-                int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+                //cbxMonHoc1.Controls.Clear();
+                //int selectedKhoiId = (int)cbxKhoi.SelectedValue;
 
-                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
-                cbxMonHoc1.DataSource = MonHocList;
-                cbxMonHoc1.DisplayMember = "TenMonHoc";
-                cbxMonHoc1.ValueMember = "MaMonHoc";
+                //// Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                //var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                //cbxMonHoc1.DataSource = MonHocList;
+                //cbxMonHoc1.DisplayMember = "TenMonHoc";
+                //cbxMonHoc1.ValueMember = "MaMonHoc";
+
+                if (user.LoaiTaiKhoan == 1)
+                {
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
+                else
+                {
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs
+                                .Where(c => c.MaKhoi == selectedKhoiId)
+                                .Where(c => db.TaiKhoanMonHocs.Any(tm => tm.MaMonHoc == c.MaMonHoc && tm.IdTK == IdTK))
+                                .ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
             }
             catch (InvalidCastException ex)
             {

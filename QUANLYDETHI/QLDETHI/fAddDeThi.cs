@@ -11,14 +11,19 @@ using System.Windows.Forms;
 using DethiLayer;
 using DataLayer;
 using DethiLayer.DTO;
+using QLDETHI.Luutru;
 
 namespace QLDETHI
 {
     public partial class fAddDeThi : DevExpress.XtraEditors.XtraForm
     {
+        private TaiKhoan user;
+        int IdTK;
         public fAddDeThi()
         {
             InitializeComponent();
+            user = LuuTru.User;
+            IdTK = user.IdTK;
         }
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
         CHUONG _chuong;
@@ -68,6 +73,7 @@ namespace QLDETHI
             KiemTraSoLuongCauHoi();
             flpKetQuaRangBuoc.Controls.Clear();
 
+
             // Hiển thị tất cả thông tin trên một label
             string ketQuaText = deThi.ToString();
             var label = new Label
@@ -95,16 +101,26 @@ namespace QLDETHI
             soLuongDeTrongChuong = map["soLuongCauDe"];
             soLuongTBTrongChuong = map["soLuongCauTB"];
             soLuongKhoTrongChuong = map["soLuongCauKho"];
+            if(user.LoaiTaiKhoan == 1)
+            {
+                tongCauDeChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 1).ToString();
+                tongCauTBChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 2).ToString();
+                tongCauKhoChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 3).ToString();
 
-            tongCauDeChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 1).ToString();
-            tongCauTBChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 2).ToString();
-            tongCauKhoChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 3).ToString();
+            }
+            else
+            {
+                tongCauDeChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 1, user.IdTK).ToString();
+                tongCauTBChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 2, user.IdTK).ToString();
+                tongCauKhoChuong.Text = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 3, user.IdTK).ToString();
 
+            }
             // Đặt giới hạn max
-            nudDe.Maximum = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 1);
-            nudTrungBinh.Maximum = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 2);
-            nudKho.Maximum = _cauhoi.SoLuongCauHoiTheoChuong(chuongDangChon.MaChuong, 3);
+            nudDe.Maximum = decimal.Parse(tongCauDeChuong.Text);
+            nudTrungBinh.Maximum = decimal.Parse(tongCauTBChuong.Text);
+            nudKho.Maximum = decimal.Parse(tongCauKhoChuong.Text);
 
+            lbTongCauChuong.Text = (nudDe.Maximum + nudTrungBinh.Maximum + nudKho.Maximum).ToString();
         }
 
         void CapNhatLaiSoLuongCauHoiCuaBai()
@@ -119,14 +135,27 @@ namespace QLDETHI
             nubBaiTB.Value = map["soLuongCauTB"];
             nubBaiKho.Value = map["soLuongCauKho"];
 
-            tongCauDeBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 1).ToString();
-            tongCauTBBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 2).ToString();
-            tongCauKhoBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 3).ToString();
+            if(user.LoaiTaiKhoan == 1)
+            {
+                tongCauDeBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 1).ToString();
+                tongCauTBBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 2).ToString();
+                tongCauKhoBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 3).ToString();
+            }
+            else
+            {
+                tongCauDeBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 1, user.IdTK).ToString();
+                tongCauTBBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 2, user.IdTK).ToString();
+                tongCauKhoBai.Text = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 3, user.IdTK).ToString();
+            }
+
 
             // Đặt giới hạn max
-            nubBaiDe.Maximum = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 1);
-            nubBaiTB.Maximum = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 2);
-            nubBaiKho.Maximum = _cauhoi.SoLuongCauHoiTheoBai(baiDangChon.MaBai, 3);
+
+            nubBaiDe.Maximum = decimal.Parse(tongCauDeBai.Text);
+            nubBaiTB.Maximum = decimal.Parse(tongCauTBBai.Text);
+            nubBaiKho.Maximum = decimal.Parse(tongCauKhoBai.Text);
+
+            lbTongCauBai.Text = (nubBaiDe.Maximum + nubBaiTB.Maximum + nubBaiKho.Maximum).ToString();
 
             lbTongSoCauDaChon.Text = deThi.SoLuongCauHoiDangTao.ToString();
             lbTongSoCauMuonTao.Text = deThi.SoLuongCauHoiMuonTao.ToString();
@@ -187,17 +216,11 @@ namespace QLDETHI
             _noidungdethi = new NOIDUNGDETHI();
             _dethi = new DETHI();
             loadData(selectedMaDe);
-            //LoadTable();
-            //LoadBai();
             loadCombo();
         }
 
         void loadCombo()
         {
-            //cbxMonHoc1.DataSource = _monhoc.getList();
-            //cbxMonHoc1.DisplayMember = "TenMonHoc";
-            //cbxMonHoc1.ValueMember = "MaMonHoc";
-
             cbxKhoi.DataSource = _khoi.getList();
             cbxKhoi.DisplayMember = "TenKhoi";
             cbxKhoi.ValueMember = "MaKhoi";
@@ -206,15 +229,27 @@ namespace QLDETHI
             cbxLop.DisplayMember = "TenLop";
             cbxLop.ValueMember = "MaLop";
 
+            if (user.LoaiTaiKhoan == 1)
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFull();
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
+            else
+            {
+                cbxMonHoc1.DataSource = _monhoc.getListFullTK(IdTK);
+                cbxMonHoc1.DisplayMember = "TenMonHoc";
+                cbxMonHoc1.ValueMember = "MaMonHoc";
+            }
 
 
             cbxNamHoc.DataSource = _namhoc.getList();
             cbxNamHoc.DisplayMember = "TenNamHoc";
             cbxNamHoc.ValueMember = "MaNamHoc";
 
-            cbxMonHoc1.DataSource = _monhoc.getList();
-            cbxMonHoc1.DisplayMember = "TenMonHoc";
-            cbxMonHoc1.ValueMember = "MaMonHoc";
+            //cbxMonHoc1.DataSource = _monhoc.getList();
+            //cbxMonHoc1.DisplayMember = "TenMonHoc";
+            //cbxMonHoc1.ValueMember = "MaMonHoc";
 
             cbxThoiGianThi.DataSource = _thoigianthi.getList();
             cbxThoiGianThi.DisplayMember = "TenThoiGianThi";
@@ -228,38 +263,77 @@ namespace QLDETHI
 
         void loadData(int? selectedMaDe)
         {
-            _lstDTDTO = _noidungdethi.getListFull(selectedMaDe);
-
-            if (_lstDTDTO != null && _lstDTDTO.Any())
+            if (user.LoaiTaiKhoan == 1)
             {
-                gridDeThi.DataSource = _lstDTDTO;
-                gvDanhSach.OptionsBehavior.Editable = false;
+                _lstDTDTO = _noidungdethi.getListFull(selectedMaDe);
+
+                if (_lstDTDTO != null && _lstDTDTO.Any())
+                {
+                    gridDeThi.DataSource = _lstDTDTO;
+                    gvDanhSach.OptionsBehavior.Editable = false;
+                }
+                else
+                {
+                    MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                }
             }
             else
             {
-                MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                _lstDTDTO = _noidungdethi.getListFullTK(IdTK, selectedMaDe);
+
+                if (_lstDTDTO != null && _lstDTDTO.Any())
+                {
+                    gridDeThi.DataSource = _lstDTDTO;
+                    gvDanhSach.OptionsBehavior.Editable = false;
+                }
+                else
+                {
+                    MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                }
             }
         }
-
 
         private void cbxKhoi_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                //cbxKhoi.Controls.Clear();
-                int selectedKhoiId = (int)cbxKhoi.SelectedValue;
+                if (user.LoaiTaiKhoan == 1)
+                {
+                    cbxLop.Controls.Clear();
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
 
-                // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
-                cbxMonHoc1.DataSource = MonHocList;
-                cbxMonHoc1.DisplayMember = "TenMonHoc";
-                cbxMonHoc1.ValueMember = "MaMonHoc";
+                    var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxLop.DataSource = LopList;
+                    cbxLop.DisplayMember = "TenLop";
+                    cbxLop.ValueMember = "MaLop";
 
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
+                else
+                {
+                    cbxLop.Controls.Clear();
+                    cbxMonHoc1.Controls.Clear();
+                    int selectedKhoiId = (int)cbxKhoi.SelectedValue;
 
-                var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
-                cbxLop.DataSource = LopList;
-                cbxLop.DisplayMember = "TenLop";
-                cbxLop.ValueMember = "MaLop";
+                    var LopList = db.Lops.Where(c => c.MaKhoi == selectedKhoiId).ToList();
+                    cbxLop.DataSource = LopList;
+                    cbxLop.DisplayMember = "TenLop";
+                    cbxLop.ValueMember = "MaLop";
+
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var MonHocList = db.MonHocs
+                                .Where(c => c.MaKhoi == selectedKhoiId)
+                                .Where(c => db.TaiKhoanMonHocs.Any(tm => tm.MaMonHoc == c.MaMonHoc && tm.IdTK == IdTK))
+                                .ToList();
+                    cbxMonHoc1.DataSource = MonHocList;
+                    cbxMonHoc1.DisplayMember = "TenMonHoc";
+                    cbxMonHoc1.ValueMember = "MaMonHoc";
+                }
             }
             catch (InvalidCastException ex)
             {
@@ -602,11 +676,11 @@ namespace QLDETHI
                 List<CAUHOI_DTO> list = new List<CAUHOI_DTO>();
                 if (rdDeTheoChuong.Checked)
                 {
-                    list = deThi.GetCauHoiTheoChuong();
+                    list = deThi.GetCauHoiTheoChuong(user);
                 }
                 else
                 {
-                    list = deThi.GetCauHoiTheoBai();
+                    list = deThi.GetCauHoiTheoBai(user);
                 }
 
                 int maHienThi = GenerateNewMaHienThi();
@@ -623,7 +697,7 @@ namespace QLDETHI
                     MaKhoi = (int)cbxKhoi.SelectedValue, // Mã khối
                     MaLop = (int)cbxLop.SelectedValue, // Mã lớp
                     MaHocKy = (int)cbxHocKy.SelectedValue,
-                    MaGiangVien = 1, // Thay bằng giá trị thích hợp
+                    MaGiangVien = IdTK, // Thay bằng giá trị thích hợp
                 };
 
                 // Thêm đề thi vào cơ sở dữ liệu
@@ -659,6 +733,7 @@ namespace QLDETHI
             
             db.SaveChanges();
             HienThiTaoDeThanhCong(soLuongDe, danhSachMaHienThi);
+            loadData(selectedMaDe);
 
         }
 

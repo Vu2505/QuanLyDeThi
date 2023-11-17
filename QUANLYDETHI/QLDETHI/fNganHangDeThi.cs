@@ -14,17 +14,23 @@ using DevExpress.XtraPrinting.Preview;
 using DevExpress.XtraReports.UI;
 using DethiLayer.DTO;
 using DevExpress.XtraGrid;
+using QLDETHI.Luutru;
 
 namespace QLDETHI
 {
     public partial class fNganHangDeThi : Form
     {
+        private TaiKhoan user;
+        int IdTK;
         public fNganHangDeThi()
         {
             InitializeComponent();
+            user = LuuTru.User;
+            IdTK = user.IdTK;
         }
         NOIDUNGDETHI _noidungdethi;
         List<DETHI_DTO> _lstDTDTO;
+        List<DETHI_DTO> _lstDTDTOTK;
         DETHI _dethi;
         int _id;
         // Lưu mã đề đã chọn
@@ -37,21 +43,37 @@ namespace QLDETHI
             loadData(selectedMaDe);
         }
 
-        void loadData(int? selectedMaDe)
+        void loadData(int? selectedMaDe = null)
         {
-            _lstDTDTO = _noidungdethi.getListFull(selectedMaDe);
-
-            if (_lstDTDTO != null && _lstDTDTO.Any())
+            if (user.LoaiTaiKhoan == 1)
             {
-                gridDeThi.DataSource = _lstDTDTO;
-                gvDanhSach.OptionsBehavior.Editable = false;
+                _lstDTDTO = _noidungdethi.getListFull(selectedMaDe);
+
+                if (_lstDTDTO != null && _lstDTDTO.Any())
+                {
+                    gridDeThi.DataSource = _lstDTDTO;
+                    gvDanhSach.OptionsBehavior.Editable = false;
+                }
+                else
+                {
+                    MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                }
             }
             else
             {
-                MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                _lstDTDTOTK = _noidungdethi.getListFullTK(IdTK, selectedMaDe);
+
+                if (_lstDTDTOTK != null && _lstDTDTOTK.Any())
+                {
+                    gridDeThi.DataSource = _lstDTDTOTK;
+                    gvDanhSach.OptionsBehavior.Editable = false;
+                }
+                else
+                {
+                    MessageBox.Show("Danh sách rỗng hoặc không có dữ liệu phù hợp.");
+                }
             }
         }
-
         private void barPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (selectedMaDe.HasValue) // Kiểm tra xem đã chọn mã đề hay chưa
@@ -99,8 +121,10 @@ namespace QLDETHI
                 using (var fDaoDeThiForm = new fDaoDeThi(selectedMaDe.Value))
                 {
                     fDaoDeThiForm.ShowDialog();
+                    
                 }
             }
+            loadData();
         }
 
         public GridControl GetGridDeThi()

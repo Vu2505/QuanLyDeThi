@@ -49,7 +49,7 @@ namespace QLDETHI
             this.C = new DevExpress.XtraGrid.Columns.GridColumn();
             this.D = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DapAnDung = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoKho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCauHoi = new DevExpress.XtraGrid.GridControl();
             this.chkChonCauHoi = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -197,7 +197,7 @@ namespace QLDETHI
             this.C,
             this.D,
             this.DapAnDung,
-            this.DoKho});
+            this.TenDoKho});
             this.gvDanhSach.GridControl = this.gridCauHoi;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsSelection.MultiSelect = true;
@@ -274,15 +274,15 @@ namespace QLDETHI
             this.DapAnDung.VisibleIndex = 7;
             this.DapAnDung.Width = 94;
             // 
-            // DoKho
+            // TenDoKho
             // 
-            this.DoKho.Caption = "Độ khó";
-            this.DoKho.FieldName = "DoKho";
-            this.DoKho.MinWidth = 25;
-            this.DoKho.Name = "DoKho";
-            this.DoKho.Visible = true;
-            this.DoKho.VisibleIndex = 8;
-            this.DoKho.Width = 94;
+            this.TenDoKho.Caption = "Độ khó";
+            this.TenDoKho.FieldName = "TenDoKho";
+            this.TenDoKho.MinWidth = 25;
+            this.TenDoKho.Name = "TenDoKho";
+            this.TenDoKho.Visible = true;
+            this.TenDoKho.VisibleIndex = 8;
+            this.TenDoKho.Width = 94;
             // 
             // gridCauHoi
             // 
@@ -563,7 +563,7 @@ namespace QLDETHI
         private System.Windows.Forms.FlowLayoutPanel flpChuong;
         private System.Windows.Forms.GroupBox Groupbox;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkChonCauHoi;
-        private DevExpress.XtraGrid.Columns.GridColumn DoKho;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
         private System.Windows.Forms.FlowLayoutPanel flpKetQuaRangBuoc;
         private System.Windows.Forms.Label lbTongSoCauMuonTao;
         private System.Windows.Forms.Label lb;

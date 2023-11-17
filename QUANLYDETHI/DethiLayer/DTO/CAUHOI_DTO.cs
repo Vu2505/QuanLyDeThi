@@ -27,6 +27,7 @@ namespace DethiLayer.DTO
         public int? MaDoKho { get; set; }
         public string TenDoKho { get; set; }
         public int? TrangThai { get; set; }
+        public string TenTinhTrang { get; set; }
         public string GhiChu { get; set; }
         public int? MaGiangVien { get; set; }
     }

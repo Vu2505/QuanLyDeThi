@@ -98,6 +98,7 @@ namespace DethiLayer
                 dtDTO.MaLop = mk.MaLop;
                 dtDTO.SoCauHoi = mk.SoCauHoi;
                 dtDTO.TenDeThi = mk.TenDeThi;
+                dtDTO.MaGiangVien = mk.MaGiangVien;
 
                 dtDTO.MaThoiGianThi = mk.MaThoiGianThi;
                 var thgian = db.ThoiGianThis.FirstOrDefault(b => b.MaThoiGianThi == mk.MaThoiGianThi);
@@ -210,6 +211,158 @@ namespace DethiLayer
                 lstDTDTO.Add(dtDTO);
             }
             return lstDTDTO;
+        }
+
+
+
+        public List<DETHI_DTO> getListFullTK(int IdTK, int? selectedMaDe = null )
+        {
+
+            ////var lstDT = db.NoiDungDeThis.ToList();
+            var query = db.NoiDungDeThis.AsQueryable();
+
+            if (selectedMaDe.HasValue)
+            {
+                //query = query/*.Where(item => db.CauHois.Any(ch => ch.MaCauHoi == item.MaCauHoi && ch.MaGiangVien == IdTK))*/
+                //             .Where(item => db.DeThis.Any(dt => dt.MaDe == item.MaDe && dt.MaGiangVien == IdTK));
+
+                // Thêm điều kiện để chỉ lấy các bản ghi mà MaGiangVien phù hợp với IdTK
+                query = query.Where(item => item.MaDe == selectedMaDe);
+            }
+
+            query = query.Where(item => db.DeThis.Any(dt => dt.MaDe == item.MaDe && dt.MaGiangVien == IdTK));
+            //var lstDT = db.NoiDungDeThis.Where(item => item.MaDe == selectedMaDe).ToList();
+            var lstDT = query.ToList();
+            List<DETHI_DTO> lstDTDTOTK = new List<DETHI_DTO>();
+            DETHI_DTO dtDTO;
+            foreach (var item in lstDT)
+            {
+                dtDTO = new DETHI_DTO();
+                dtDTO.ID = item.ID;
+                dtDTO.MaDe = item.MaDe;
+                dtDTO.MaCauHoi = item.MaCauHoi;
+                dtDTO.ThuTuCauHoi = item.ThuTuCauHoi;
+                dtDTO.ThuTuXepDapAn = item.ThuTuXepDapAn;
+
+                var mk = db.DeThis.FirstOrDefault(b => b.MaDe == item.MaDe);
+                dtDTO.MaKhoi = mk.MaKhoi;
+                dtDTO.MaLop = mk.MaLop;
+                dtDTO.SoCauHoi = mk.SoCauHoi;
+                dtDTO.TenDeThi = mk.TenDeThi;
+                dtDTO.MaGiangVien = mk.MaGiangVien;
+
+                dtDTO.MaThoiGianThi = mk.MaThoiGianThi;
+                var thgian = db.ThoiGianThis.FirstOrDefault(b => b.MaThoiGianThi == mk.MaThoiGianThi);
+                dtDTO.TenThoiGianThi = thgian.TenThoiGianThi;
+
+                dtDTO.MaHocKy = mk.MaHocKy;
+                var hk = db.HocKies.FirstOrDefault(b => b.MaHocKy == mk.MaHocKy);
+                dtDTO.TenHocKy = hk.TenHocKy;
+
+                dtDTO.MaHienThi = mk.MaHienThi;
+                dtDTO.NamHoc = mk.NamHoc;
+
+                var mkhoi = db.Khois.FirstOrDefault(b => b.MaKhoi == mk.MaKhoi);
+                dtDTO.TenKhoi = mkhoi.TenKhoi;
+
+                var nh = db.NamHocs.FirstOrDefault(b => b.MaNamHoc == mk.NamHoc);
+                dtDTO.TenNamHoc = nh.TenNamHoc;
+
+
+                dtDTO.MaMonHoc = mk.MaMonHoc;
+                var mh = db.MonHocs.FirstOrDefault(b => b.MaMonHoc == mk.MaMonHoc);
+                dtDTO.TenMonHoc = mh.TenMonHoc;
+
+
+                var ch = db.CauHois.FirstOrDefault(b => b.MaCauHoi == item.MaCauHoi);
+
+                var noiDungDTList = db.NoiDungDeThis.Where(b => b.MaDe == item.MaDe).ToList();
+                var chiTietCauHoiList = new List<CauHoi>();
+                foreach (var dong in noiDungDTList)
+                {
+                    chiTietCauHoiList.Add(db.CauHois.FirstOrDefault(b => b.MaCauHoi == dong.MaCauHoi));
+                }
+                dtDTO.CauHois = chiTietCauHoiList;
+                dtDTO.NDCH = ch.NDCH;
+
+                // Đảo vị trí đáp án dựa theo thứ tự đáp án
+                int thuTu = (int)dtDTO.ThuTuXepDapAn;
+                thuTu = thuTu < 25 && thuTu > 0 ? thuTu : 1;
+
+                List<string> thuTuSapXep = thuTuDapAn[thuTu];
+                List<string> mapIDtoQuestion = new List<string>();
+                foreach (var i in thuTuSapXep)
+                {
+                    switch (i)
+                    {
+                        case "A":
+                            mapIDtoQuestion.Add(ch.A);
+                            break;
+                        case "B":
+                            mapIDtoQuestion.Add(ch.B);
+                            break;
+                        case "C":
+                            mapIDtoQuestion.Add(ch.C);
+                            break;
+                        case "D":
+                            mapIDtoQuestion.Add(ch.D);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                dtDTO.A = mapIDtoQuestion.ElementAt(0);
+                dtDTO.B = mapIDtoQuestion.ElementAt(1);
+                dtDTO.C = mapIDtoQuestion.ElementAt(2);
+                dtDTO.D = mapIDtoQuestion.ElementAt(3);
+
+                // Tìm lại đáp án đúng
+                string chiTietDapAnDung = "";
+                switch (ch.DapAnDung)
+                {
+                    case "A":
+                        chiTietDapAnDung = ch.A;
+                        break;
+                    case "B":
+                        chiTietDapAnDung = ch.B;
+                        break;
+                    case "C":
+                        chiTietDapAnDung = ch.C;
+                        break;
+                    case "D":
+                        chiTietDapAnDung = ch.D;
+                        break;
+                    default:
+                        break;
+                }
+                for (int i = 0; i < mapIDtoQuestion.Count; ++i)
+                {
+                    if (mapIDtoQuestion.ElementAt(i) == chiTietDapAnDung)
+                    {
+                        if (i == 0)
+                        {
+                            dtDTO.DapAnDung = "A";
+                        }
+                        if (i == 1)
+                        {
+                            dtDTO.DapAnDung = "B";
+                        }
+                        if (i == 2)
+                        {
+                            dtDTO.DapAnDung = "C";
+                        }
+                        if (i == 3)
+                        {
+                            dtDTO.DapAnDung = "D";
+                        }
+                    }
+                }
+
+                dtDTO.HinhAnh = ch.HinhAnh;
+
+                lstDTDTOTK.Add(dtDTO);
+            }
+            return lstDTDTOTK;
         }
     }
 }

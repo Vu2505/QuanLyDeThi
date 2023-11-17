@@ -326,7 +326,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fMonHoc";
-            this.Text = "fMonHoc";
+            this.Text = "Môn học";
             this.Load += new System.EventHandler(this.fMonHoc_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

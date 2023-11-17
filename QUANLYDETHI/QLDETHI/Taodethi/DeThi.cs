@@ -1,4 +1,5 @@
-﻿using DethiLayer;
+﻿using DataLayer;
+using DethiLayer;
 using DethiLayer.DTO;
 using System;
 using System.Collections.Generic;
@@ -218,27 +219,27 @@ namespace QLDETHI.Taodethi
             return result;
         }
 
-        public List<CAUHOI_DTO> GetCauHoiTheoChuong()
+        public List<CAUHOI_DTO> GetCauHoiTheoChuong(TaiKhoan user)
         {
             CAUHOI db = new CAUHOI();
             List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
             
             foreach (var chuong in danhSachChuong)
             {
-                result.AddRange(chuong.GetCauHoi());
+                result.AddRange(chuong.GetCauHoi(user));
             }
 
             return result;
         }
 
-        public List<CAUHOI_DTO> GetCauHoiTheoBai()
+        public List<CAUHOI_DTO> GetCauHoiTheoBai(TaiKhoan user)
         {
             CAUHOI db = new CAUHOI();
             List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
 
             foreach (var chuong in danhSachChuong)
             {
-                result.AddRange(chuong.GetCauHoiTheoBai());
+                result.AddRange(chuong.GetCauHoiTheoBai(user));
             }
 
             return result;
@@ -331,24 +332,34 @@ namespace QLDETHI.Taodethi
             return $"{tenChuong}: Tổng Số Câu: {SoLuongCau} |(Dễ: {soLuongCauDe} câu, Trung bình: {soLuongCauTB} câu, Khó: {soLuongCauKho} câu)";
         }
 
-        public List<CAUHOI_DTO> GetCauHoi()
+        public List<CAUHOI_DTO> GetCauHoi(TaiKhoan user)
         {
             CAUHOI db = new CAUHOI();
             List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
-            result.AddRange(db.getListRanDomChuong(maChuong, 1, soLuongCauDe));
-            result.AddRange(db.getListRanDomChuong(maChuong, 2, soLuongCauTB));
-            result.AddRange(db.getListRanDomChuong(maChuong, 3, soLuongCauKho));
+            if(user.LoaiTaiKhoan == 1)
+            {
+                result.AddRange(db.getListRanDomChuong(maChuong, 1, soLuongCauDe));
+                result.AddRange(db.getListRanDomChuong(maChuong, 2, soLuongCauTB));
+                result.AddRange(db.getListRanDomChuong(maChuong, 3, soLuongCauKho));
+            }
+            else
+            {
+                result.AddRange(db.getListRanDomChuong(maChuong, 1, soLuongCauDe, user.IdTK));
+                result.AddRange(db.getListRanDomChuong(maChuong, 2, soLuongCauTB, user.IdTK));
+                result.AddRange(db.getListRanDomChuong(maChuong, 3, soLuongCauKho, user.IdTK));
+            }
+            
             return result;
         }
 
-        public List<CAUHOI_DTO> GetCauHoiTheoBai()
+        public List<CAUHOI_DTO> GetCauHoiTheoBai(TaiKhoan user)
         {
             CAUHOI db = new CAUHOI();
             List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
             
             foreach (var bai in danhSachBai)
             {
-                result.AddRange(bai.GetCauHoi());
+                result.AddRange(bai.GetCauHoi(user));
             }
 
             return result;
@@ -413,13 +424,23 @@ namespace QLDETHI.Taodethi
             return $"{tenBai}: Dễ: {soLuongCauDe} câu, Trung bình: {soLuongCauTB} câu, Khó: {soLuongCauKho} câu";
         }
 
-        public List<CAUHOI_DTO> GetCauHoi()
+        public List<CAUHOI_DTO> GetCauHoi(TaiKhoan user)
         {
             CAUHOI db = new CAUHOI();
             List<CAUHOI_DTO> result = new List<CAUHOI_DTO>();
-            result.AddRange(db.getListRanDomBai(maBai, 1, soLuongCauDe));
-            result.AddRange(db.getListRanDomBai(maBai, 2, soLuongCauTB));
-            result.AddRange(db.getListRanDomBai(maBai, 3, soLuongCauKho));
+            if(user.LoaiTaiKhoan == 1)
+            {
+                result.AddRange(db.getListRanDomBai(maBai, 1, soLuongCauDe));
+                result.AddRange(db.getListRanDomBai(maBai, 2, soLuongCauTB));
+                result.AddRange(db.getListRanDomBai(maBai, 3, soLuongCauKho));
+            }
+            else
+            {
+                result.AddRange(db.getListRanDomBai(maBai, 1, soLuongCauDe, user.IdTK));
+                result.AddRange(db.getListRanDomBai(maBai, 2, soLuongCauTB, user.IdTK));
+                result.AddRange(db.getListRanDomBai(maBai, 3, soLuongCauKho, user.IdTK));
+            }
+            
             return result;
         }
     }

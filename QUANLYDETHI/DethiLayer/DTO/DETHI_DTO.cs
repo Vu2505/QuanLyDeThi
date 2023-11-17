@@ -35,5 +35,7 @@ namespace DethiLayer.DTO
         public string D { get; set; }
         public string DapAnDung { get; set; }
         public byte[] HinhAnh { get; set; }
+
+        public int? MaGiangVien { get; set; }
     }
 }

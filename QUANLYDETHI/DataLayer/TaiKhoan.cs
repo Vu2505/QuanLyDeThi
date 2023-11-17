@@ -18,7 +18,7 @@ namespace DataLayer
         public string TenGV { get; set; }
         public string Username { get; set; }
         public string Matkhau { get; set; }
-        public int LoaiTaiKhoan { get; set; }
+        public Nullable<int> LoaiTaiKhoan { get; set; }
         public int TinhTrang { get; set; }
         public string GhiChu { get; set; }
     }

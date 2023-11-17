@@ -88,5 +88,31 @@ namespace DethiLayer
             }
             return lstBDTO;
         }
+
+
+        public List<MonHoc> getListFullTK(int IdTK)
+        {
+            var query = from monHoc in db.MonHocs
+                       join taiKhoanMonHoc in db.TaiKhoanMonHocs on monHoc.MaMonHoc equals taiKhoanMonHoc.MaMonHoc
+                       where taiKhoanMonHoc.IdTK == IdTK
+                       select monHoc;
+
+                return query.ToList();
+
+            //List<MONHOC_DTO> lstBDTO = new List<MONHOC_DTO>();
+            //MONHOC_DTO bDTO;
+            //foreach (var item in lstB)
+            //{
+            //    bDTO = new MONHOC_DTO();
+            //    bDTO.MaMonHoc = item.MaMonHoc;
+            //    bDTO.TenMonHoc = item.TenMonHoc;
+            //    bDTO.MaKhoi = item.MaKhoi;
+            //    var c = db.Khois.FirstOrDefault(b => b.MaKhoi == item.MaKhoi);
+            //    bDTO.TenKhoi = c.TenKhoi;
+
+            //    lstBDTO.Add(bDTO);
+            //}
+            //return lstBDTO;
+        }
     }
 }

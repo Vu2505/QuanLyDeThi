@@ -19,6 +19,12 @@ namespace QLDETHI
         {
             InitializeComponent();
         }
+
+        public fLogin(string username)
+        {
+            InitializeComponent();
+            txbUserName.Text = username;
+        }
         TAIKHOAN _taikhoan;
         private void btn_EditValueChanged(object sender, EventArgs e)
         {
@@ -32,14 +38,48 @@ namespace QLDETHI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            string userName = txbUserName.Text;
+            string passWord = txbPassWord.Text;
+
+            if (userName == null || userName == ""
+                || passWord == null || passWord == "")
+            {
+                MessageBox.Show("Chưa nhập username hay password");
+                return;
+            }
             TaiKhoan user = _taikhoan.Login(txbUserName.Text, txbPassWord.Text);
 
             if (user != null)
             {
                 LuuTru.User = user;
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
-                this.Hide();
+                if(user.TinhTrang == 1)
+                {
+                    if (user.LoaiTaiKhoan == 3)
+                    {
+                        this.Hide();
+                        fChangeResetPassWord f = new fChangeResetPassWord(user.Username);
+                        f.ShowDialog();
+                        return;
+                    }
+
+                    else
+                    {
+                        MainForm mainForm = new MainForm();
+                        this.Hide();
+                        mainForm.ShowDialog();
+                        
+                    }
+
+                    txbPassWord.Text = "";
+                    this.Show();
+
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản bị vô hiệu hóa");
+                }
+                
             }
             else
             {
@@ -47,6 +87,8 @@ namespace QLDETHI
                 return;
             }
         }
+
+
         //public bool Login(string username, string password)
         //{
         //    using (DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities())

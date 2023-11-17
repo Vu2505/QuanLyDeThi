@@ -45,7 +45,7 @@ namespace QLDETHI
             this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TrangThai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenTinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCauHoi = new DevExpress.XtraGrid.GridControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -132,7 +132,7 @@ namespace QLDETHI
             this.TenChuong,
             this.TenBai,
             this.TenDoKho,
-            this.TrangThai,
+            this.TenTinhTrang,
             this.GhiChu});
             this.gvDanhSach.GridControl = this.gridCauHoi;
             this.gvDanhSach.Name = "gvDanhSach";
@@ -259,15 +259,15 @@ namespace QLDETHI
             this.TenDoKho.VisibleIndex = 12;
             this.TenDoKho.Width = 93;
             // 
-            // TrangThai
+            // TenTinhTrang
             // 
-            this.TrangThai.Caption = "Trạng Thái";
-            this.TrangThai.FieldName = "TrangThai";
-            this.TrangThai.MinWidth = 25;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.Visible = true;
-            this.TrangThai.VisibleIndex = 13;
-            this.TrangThai.Width = 93;
+            this.TenTinhTrang.Caption = "Trạng Thái";
+            this.TenTinhTrang.FieldName = "TenTinhTrang";
+            this.TenTinhTrang.MinWidth = 25;
+            this.TenTinhTrang.Name = "TenTinhTrang";
+            this.TenTinhTrang.Visible = true;
+            this.TenTinhTrang.VisibleIndex = 13;
+            this.TenTinhTrang.Width = 93;
             // 
             // GhiChu
             // 
@@ -557,10 +557,6 @@ namespace QLDETHI
             // cbxTinhTrang
             // 
             this.cbxTinhTrang.FormattingEnabled = true;
-            this.cbxTinhTrang.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
             this.cbxTinhTrang.Location = new System.Drawing.Point(1029, 225);
             this.cbxTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxTinhTrang.Name = "cbxTinhTrang";
@@ -873,7 +869,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn TenChuong;
         private DevExpress.XtraGrid.Columns.GridColumn TenBai;
         private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
-        private DevExpress.XtraGrid.Columns.GridColumn TrangThai;
+        private DevExpress.XtraGrid.Columns.GridColumn TenTinhTrang;
         private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
         private System.Windows.Forms.ComboBox cbxTinhTrang;
         private System.Windows.Forms.ComboBox cbxDoKho;

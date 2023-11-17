@@ -65,8 +65,8 @@ namespace QLDETHI
             this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -232,10 +232,10 @@ namespace QLDETHI
             // gridDeThi
             // 
             this.gridDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDeThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.gridDeThi.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12);
             this.gridDeThi.Location = new System.Drawing.Point(0, 30);
             this.gridDeThi.MainView = this.gvDanhSach;
-            this.gridDeThi.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.gridDeThi.Margin = new System.Windows.Forms.Padding(12);
             this.gridDeThi.MenuManager = this.barManager2;
             this.gridDeThi.Name = "gridDeThi";
             this.gridDeThi.Size = new System.Drawing.Size(1924, 672);
@@ -431,16 +431,6 @@ namespace QLDETHI
             this.TenDeThi.VisibleIndex = 15;
             this.TenDeThi.Width = 141;
             // 
-            // TenThoiGianThi
-            // 
-            this.TenThoiGianThi.Caption = "Thời gian thi";
-            this.TenThoiGianThi.FieldName = "TenThoiGianThi";
-            this.TenThoiGianThi.MinWidth = 39;
-            this.TenThoiGianThi.Name = "TenThoiGianThi";
-            this.TenThoiGianThi.Visible = true;
-            this.TenThoiGianThi.VisibleIndex = 17;
-            this.TenThoiGianThi.Width = 112;
-            // 
             // TenHocKy
             // 
             this.TenHocKy.Caption = "Học kì";
@@ -450,6 +440,16 @@ namespace QLDETHI
             this.TenHocKy.Visible = true;
             this.TenHocKy.VisibleIndex = 16;
             this.TenHocKy.Width = 94;
+            // 
+            // TenThoiGianThi
+            // 
+            this.TenThoiGianThi.Caption = "Thời gian thi";
+            this.TenThoiGianThi.FieldName = "TenThoiGianThi";
+            this.TenThoiGianThi.MinWidth = 39;
+            this.TenThoiGianThi.Name = "TenThoiGianThi";
+            this.TenThoiGianThi.Visible = true;
+            this.TenThoiGianThi.VisibleIndex = 17;
+            this.TenThoiGianThi.Width = 112;
             // 
             // fNganHangDeThi
             // 
@@ -462,7 +462,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.Name = "fNganHangDeThi";
-            this.Text = "fNganHangDeThi";
+            this.Text = "Ngân hàng đề thi";
             this.Load += new System.EventHandler(this.fNganHangDeThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).EndInit();

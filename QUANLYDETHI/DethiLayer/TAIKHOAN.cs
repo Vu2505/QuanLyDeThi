@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
-
+using DethiLayer.DTO;
 
 namespace DethiLayer
 {
@@ -26,7 +26,7 @@ namespace DethiLayer
         public TaiKhoan Login(string username, string password)
         {
 
-            TaiKhoan taiKhoan = db.TaiKhoans.FirstOrDefault(tk => tk.Username == username && tk.Matkhau == password);
+            TaiKhoan taiKhoan = db.TaiKhoans.FirstOrDefault(tk => tk.Username == username && ( tk.LoaiTaiKhoan==3 || tk.Matkhau == password));
             return taiKhoan;
 
 
@@ -92,6 +92,61 @@ namespace DethiLayer
 
                 throw new Exception("Lỗi: " + ex.Message);
             }
+        }
+
+
+        public List<TAIKHOAN_DTO> getListFull()
+        {
+            var lstCH = db.TaiKhoans.ToList();
+            List<TAIKHOAN_DTO> lstCHDTO = new List<TAIKHOAN_DTO>();
+            TAIKHOAN_DTO ctDTO;
+            foreach (var item in lstCH)
+            {
+                ctDTO = new TAIKHOAN_DTO();
+                ctDTO.IdTK = item.IdTK;
+                ctDTO.Matkhau = item.Matkhau;
+                ctDTO.Username = item.Username;
+                ctDTO.TenGV = item.TenGV;
+                ctDTO.GhiChu = item.GhiChu;
+
+                ctDTO.LoaiTaiKhoan = item.LoaiTaiKhoan;
+                var ltk = db.LoaiTaiKhoans.FirstOrDefault(b => b.MaLoaiTaiKhoan == item.LoaiTaiKhoan);
+                ctDTO.TenLoaiTaiKhoan = ltk.TenLoaiTaiKhoan;
+
+                ctDTO.TinhTrang = item.TinhTrang;
+                var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TinhTrang);
+                ctDTO.TenTinhTrang = tt.TenTinhTrang;
+
+                lstCHDTO.Add(ctDTO);
+            }
+            return lstCHDTO;
+        }
+
+        public List<TAIKHOAN_DTO> getListFullTK(int IdTK)
+        {
+            var lstCH = db.TaiKhoans.Where(x => x.IdTK == IdTK).ToList();
+            List<TAIKHOAN_DTO> lstCHDTO = new List<TAIKHOAN_DTO>();
+            TAIKHOAN_DTO ctDTO;
+            foreach (var item in lstCH)
+            {
+                ctDTO = new TAIKHOAN_DTO();
+                ctDTO.IdTK = item.IdTK;
+                ctDTO.Matkhau = item.Matkhau;
+                ctDTO.Username = item.Username;
+                ctDTO.TenGV = item.TenGV;
+                ctDTO.GhiChu = item.GhiChu;
+
+                ctDTO.LoaiTaiKhoan = item.LoaiTaiKhoan;
+                var ltk = db.LoaiTaiKhoans.FirstOrDefault(b => b.MaLoaiTaiKhoan == item.LoaiTaiKhoan);
+                ctDTO.TenLoaiTaiKhoan = ltk.TenLoaiTaiKhoan;
+
+                ctDTO.TinhTrang = item.TinhTrang;
+                var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TinhTrang);
+                ctDTO.TenTinhTrang = tt.TenTinhTrang;
+
+                lstCHDTO.Add(ctDTO);
+            }
+            return lstCHDTO;
         }
 
     }

@@ -158,13 +158,13 @@
     <Compile Include="DoKho.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
-    <Compile Include="GiangVien.cs">
-      <DependentUpon>QLDT.tt</DependentUpon>
-    </Compile>
     <Compile Include="HocKy.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
     <Compile Include="Khoi.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiTaiKhoan.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
     <Compile Include="Lop.cs">
@@ -196,6 +196,9 @@
       <DependentUpon>QLDT.edmx</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoan.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaiKhoanMonHoc.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
     <Compile Include="ThoiGianThi.cs">

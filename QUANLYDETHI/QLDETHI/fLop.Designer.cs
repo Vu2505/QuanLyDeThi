@@ -325,7 +325,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fLop";
-            this.Text = "fLop";
+            this.Text = "Lớp";
             this.Load += new System.EventHandler(this.fLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();

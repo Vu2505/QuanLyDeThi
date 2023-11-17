@@ -219,6 +219,12 @@
     <Compile Include="fChangePassWord.Designer.cs">
       <DependentUpon>fChangePassWord.cs</DependentUpon>
     </Compile>
+    <Compile Include="fChangeResetPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChangeResetPassWord.Designer.cs">
+      <DependentUpon>fChangeResetPassWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="fChiTietDeThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,12 @@
     </Compile>
     <Compile Include="fKhoi.Designer.cs">
       <DependentUpon>fKhoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLoaiTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLoaiTaiKhoan.Designer.cs">
+      <DependentUpon>fLoaiTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
@@ -285,11 +297,29 @@
     <Compile Include="fTaiKhoan.Designer.cs">
       <DependentUpon>fTaiKhoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTaiKhoanMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTaiKhoanMonHoc.Designer.cs">
+      <DependentUpon>fTaiKhoanMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fThoiGianThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThoiGianThi.Designer.cs">
+      <DependentUpon>fThoiGianThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="fThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fThongTinCaNhan.Designer.cs">
       <DependentUpon>fThongTinCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTinhTrang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTinhTrang.Designer.cs">
+      <DependentUpon>fTinhTrang.cs</DependentUpon>
     </Compile>
     <Compile Include="Luutru\LuuTru.cs" />
     <Compile Include="MainForm.cs">
@@ -337,6 +367,9 @@
     <EmbeddedResource Include="fChangePassWord.resx">
       <DependentUpon>fChangePassWord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fChangeResetPassWord.resx">
+      <DependentUpon>fChangeResetPassWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fChiTietDeThi.resx">
       <DependentUpon>fChiTietDeThi.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fKhoi.resx">
       <DependentUpon>fKhoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLoaiTaiKhoan.resx">
+      <DependentUpon>fLoaiTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
@@ -369,6 +405,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fTaiKhoan.resx">
       <DependentUpon>fTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTaiKhoanMonHoc.resx">
+      <DependentUpon>fTaiKhoanMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThoiGianThi.resx">
+      <DependentUpon>fThoiGianThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThongTinCaNhan.resx">
+      <DependentUpon>fThongTinCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTinhTrang.resx">
+      <DependentUpon>fTinhTrang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

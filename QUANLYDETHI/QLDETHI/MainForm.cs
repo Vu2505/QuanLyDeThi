@@ -39,6 +39,7 @@ namespace QLDETHI
             f.Show();
         }
 
+
         private void BarMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OpenForm(typeof(fMonHoc));
@@ -120,5 +121,41 @@ namespace QLDETHI
             OpenForm(typeof(fAddCau));
         }
 
+        private void barTinhTrang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fTinhTrang));
+        }
+
+        private void barThoiGianThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fThoiGianThi));
+        }
+
+        private void barTaiKhoanMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fTaiKhoanMonHoc));
+        }
+
+        private void barLoaiTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fLoaiTaiKhoan));
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if(user.LoaiTaiKhoan == 1)
+            {
+                ribQuanLy.Visible = true;
+            }
+            else
+            {
+                ribQuanLy.Visible = false;
+            }
+        }
+
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fThongTinCaNhan));
+        }
     }
 }

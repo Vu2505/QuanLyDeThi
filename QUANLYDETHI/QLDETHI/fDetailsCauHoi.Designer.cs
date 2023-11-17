@@ -30,6 +30,10 @@ namespace QLDETHI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txbGhiChu = new System.Windows.Forms.TextBox();
+            this.txbTrangThai = new System.Windows.Forms.TextBox();
+            this.txbDoKho = new System.Windows.Forms.TextBox();
+            this.txbDapAnDung = new System.Windows.Forms.TextBox();
             this.txbMonHoc = new System.Windows.Forms.TextBox();
             this.txbChuong = new System.Windows.Forms.TextBox();
             this.txbBai = new System.Windows.Forms.TextBox();
@@ -53,10 +57,6 @@ namespace QLDETHI
             this.txbNDCH = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.picHinhAnh = new System.Windows.Forms.PictureBox();
-            this.txbGhiChu = new System.Windows.Forms.TextBox();
-            this.txbTrangThai = new System.Windows.Forms.TextBox();
-            this.txbDoKho = new System.Windows.Forms.TextBox();
-            this.txbDapAnDung = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,38 @@ namespace QLDETHI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(977, 580);
             this.panel1.TabIndex = 0;
+            // 
+            // txbGhiChu
+            // 
+            this.txbGhiChu.Location = new System.Drawing.Point(741, 93);
+            this.txbGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbGhiChu.Name = "txbGhiChu";
+            this.txbGhiChu.Size = new System.Drawing.Size(206, 22);
+            this.txbGhiChu.TabIndex = 78;
+            // 
+            // txbTrangThai
+            // 
+            this.txbTrangThai.Location = new System.Drawing.Point(741, 148);
+            this.txbTrangThai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTrangThai.Name = "txbTrangThai";
+            this.txbTrangThai.Size = new System.Drawing.Size(206, 22);
+            this.txbTrangThai.TabIndex = 77;
+            // 
+            // txbDoKho
+            // 
+            this.txbDoKho.Location = new System.Drawing.Point(741, 205);
+            this.txbDoKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbDoKho.Name = "txbDoKho";
+            this.txbDoKho.Size = new System.Drawing.Size(206, 22);
+            this.txbDoKho.TabIndex = 76;
+            // 
+            // txbDapAnDung
+            // 
+            this.txbDapAnDung.Location = new System.Drawing.Point(741, 42);
+            this.txbDapAnDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbDapAnDung.Name = "txbDapAnDung";
+            this.txbDapAnDung.Size = new System.Drawing.Size(206, 22);
+            this.txbDapAnDung.TabIndex = 75;
             // 
             // txbMonHoc
             // 
@@ -327,38 +359,6 @@ namespace QLDETHI
             this.picHinhAnh.TabIndex = 43;
             this.picHinhAnh.TabStop = false;
             // 
-            // txbGhiChu
-            // 
-            this.txbGhiChu.Location = new System.Drawing.Point(741, 93);
-            this.txbGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbGhiChu.Name = "txbGhiChu";
-            this.txbGhiChu.Size = new System.Drawing.Size(206, 22);
-            this.txbGhiChu.TabIndex = 78;
-            // 
-            // txbTrangThai
-            // 
-            this.txbTrangThai.Location = new System.Drawing.Point(741, 148);
-            this.txbTrangThai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbTrangThai.Name = "txbTrangThai";
-            this.txbTrangThai.Size = new System.Drawing.Size(206, 22);
-            this.txbTrangThai.TabIndex = 77;
-            // 
-            // txbDoKho
-            // 
-            this.txbDoKho.Location = new System.Drawing.Point(741, 205);
-            this.txbDoKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbDoKho.Name = "txbDoKho";
-            this.txbDoKho.Size = new System.Drawing.Size(206, 22);
-            this.txbDoKho.TabIndex = 76;
-            // 
-            // txbDapAnDung
-            // 
-            this.txbDapAnDung.Location = new System.Drawing.Point(741, 42);
-            this.txbDapAnDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbDapAnDung.Name = "txbDapAnDung";
-            this.txbDapAnDung.Size = new System.Drawing.Size(206, 22);
-            this.txbDapAnDung.TabIndex = 75;
-            // 
             // fDetailsCauHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,7 +366,8 @@ namespace QLDETHI
             this.ClientSize = new System.Drawing.Size(977, 580);
             this.Controls.Add(this.panel1);
             this.Name = "fDetailsCauHoi";
-            this.Text = "fDetailsCauHoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chi tiết câu hỏi";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).EndInit();

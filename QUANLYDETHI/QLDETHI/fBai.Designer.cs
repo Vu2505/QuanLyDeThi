@@ -48,13 +48,13 @@ namespace QLDETHI
             this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridBai = new DevExpress.XtraGrid.GridControl();
             this.cbxChuong = new System.Windows.Forms.ComboBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBai)).BeginInit();
@@ -237,6 +237,16 @@ namespace QLDETHI
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
+            // TenChuong
+            // 
+            this.TenChuong.Caption = "Chương";
+            this.TenChuong.FieldName = "TenChuong";
+            this.TenChuong.MinWidth = 25;
+            this.TenChuong.Name = "TenChuong";
+            this.TenChuong.Visible = true;
+            this.TenChuong.VisibleIndex = 2;
+            this.TenChuong.Width = 94;
+            // 
             // gridBai
             // 
             this.gridBai.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -305,16 +315,6 @@ namespace QLDETHI
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Mã Chương";
             // 
-            // TenChuong
-            // 
-            this.TenChuong.Caption = "Chương";
-            this.TenChuong.FieldName = "TenChuong";
-            this.TenChuong.MinWidth = 25;
-            this.TenChuong.Name = "TenChuong";
-            this.TenChuong.Visible = true;
-            this.TenChuong.VisibleIndex = 2;
-            this.TenChuong.Width = 94;
-            // 
             // fBai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -326,7 +326,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fBai";
-            this.Text = "fBai";
+            this.Text = "Bài";
             this.Load += new System.EventHandler(this.fBai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
