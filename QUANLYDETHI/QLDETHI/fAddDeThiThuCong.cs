@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using DethiLayer;
+using DethiLayer.DTO;
 using DevExpress.Data;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
@@ -42,6 +43,8 @@ namespace QLDETHI
         List<CauHoi> selectedCauHoiList = new List<CauHoi>();
         HOCKY _hocky;
         THOIGIANTHI _thoigianthi;
+        Dictionary<int, string> deThiInfo = new Dictionary<int, string>();
+
         private void fAddDeThiThuCong_Load(object sender, EventArgs e)
         {
             _chuong = new CHUONG();
@@ -53,7 +56,7 @@ namespace QLDETHI
             _namhoc = new NAMHOC();
             _hocky = new HOCKY();
             _thoigianthi = new THOIGIANTHI();
-            loadData();
+            //loadData();
             loadCombo();
         }
 
@@ -265,14 +268,25 @@ namespace QLDETHI
 
         private void LoadCauHoiForBai(int maBai)
         {
-            // Lấy danh sách câu hỏi cho bài được chọn
-            var cauHoiList = db.CauHois.Where(c => c.MaBai == maBai).ToList();
+
+            var cauHoiList = new List<CAUHOI_DTO>();
+            if (user.LoaiTaiKhoan == 1)
+            {
+                // Lấy danh sách câu hỏi cho bài được chọn
+                 cauHoiList = _cauhoi.getListCauHoiThuCong(maBai);
+            }
+            else
+            {
+                // Lấy danh sách câu hỏi cho bài được chọn
+                cauHoiList = _cauhoi.getListCauHoiThuCong(maBai, IdTK);
+            }
+            
 
             // Đặt nguồn dữ liệu cho GridControl
             gridCauHoi.DataSource = cauHoiList;
 
             // Đảm bảo cập nhật trạng thái của các checkbox dựa trên selectedCauHoiStates
-            foreach (CauHoi cauHoi in cauHoiList)
+            foreach (CAUHOI_DTO cauHoi in cauHoiList)
             {
                 int maCauHoi = cauHoi.MaCauHoi;
                 ////Đặt trạng thái cho checkbox trong GridView dựa trên selectedCauHoiStates
@@ -282,7 +296,7 @@ namespace QLDETHI
                 {
                     for (int i = 0; i < gvDanhSach.RowCount; i++)
                     {
-                        CauHoi rowCauHoi = (CauHoi)gvDanhSach.GetRow(i);
+                        CAUHOI_DTO rowCauHoi = (CAUHOI_DTO)gvDanhSach.GetRow(i);
                         if (rowCauHoi.MaCauHoi == maCauHoi)
                         {
                             gvDanhSach.SelectRow(i);
@@ -300,9 +314,10 @@ namespace QLDETHI
         //private bool isGridViewSelectionEvent = true;
         private void gridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             if (e.ControllerRow >= 0)
             {
-                CauHoi cauHoi = (CauHoi)gvDanhSach.GetRow(e.ControllerRow);
+                CAUHOI_DTO cauHoi = (CAUHOI_DTO)gvDanhSach.GetRow(e.ControllerRow);
                 int maCauHoi = cauHoi.MaCauHoi;
 
                 if (gvDanhSach.IsRowSelected(e.ControllerRow))
@@ -329,12 +344,11 @@ namespace QLDETHI
                 // Cập nhật giao diện người dùng
                 UpdateCauHoiColors();
 
-                // Cập nhật flpKetQuaRangBuoc
-                UpdateKetQuaRangBuoc();
-
                 // Cập nhật lbTongSoCauDaChon
                 UpdateTongSoCauDaChon();
             }
+            // Cập nhật flpKetQuaRangBuoc
+            UpdateKetQuaRangBuoc();
         }
 
         // Hàm cập nhật lbTongSoCauDaChon
@@ -361,8 +375,8 @@ namespace QLDETHI
         private void UpdateKetQuaRangBuoc()
         {
             flpKetQuaRangBuoc.Controls.Clear();
-            // Tạo danh sách các chuỗi thông tin cho chương và bài có câu hỏi
-            List<string> ketQuaRangBuoc = new List<string>();
+            List<int> chuongCoCauHoi = new List<int>();
+
             if (chuongDangChon != null)
             {
                 var chuongButtons = flpChuong.Controls.OfType<Button>().Where(btn => btn.BackColor == Color.Yellow).ToList();
@@ -370,6 +384,7 @@ namespace QLDETHI
                 {
                     Chuong chuong = (Chuong)chuongButton.Tag;
                     int maChuong = chuong.MaChuong;
+                    chuongCoCauHoi.Add(maChuong);
                     var baiButtons = flpBai.Controls.OfType<Button>().Where(btn => ((Bai)btn.Tag).MaChuong == maChuong && btn.BackColor == Color.Yellow).ToList();
                     List<string> chuongInfo = new List<string>();
                     foreach (var baiButton in baiButtons)
@@ -387,23 +402,48 @@ namespace QLDETHI
                             chuongInfo.Add(baiInfo);
                         }
                     }
-                    if (chuongInfo.Any())
+
+                    string chuongInfoText = "";
+                    if (chuongInfo.Count > 0)
                     {
                         // Tạo chuỗi chứa thông tin của chương hiện tại
-                        string chuongInfoText = $"{chuong.TenChuong}: ({string.Join(" | ", chuongInfo)})";
-                        ketQuaRangBuoc.Add(chuongInfoText);
+                        chuongInfoText = $"{chuong.TenChuong}: ({string.Join(" | ", chuongInfo)})";
+                        if (deThiInfo.ContainsKey(maChuong))
+                        {
+                            deThiInfo[maChuong] = chuongInfoText;
+                        }
+                        else
+                        {
+                            deThiInfo.Add(maChuong, chuongInfoText);
+                        }
                     }
                 }
+
             }
+            List<string> ketQuaRangBuoc = DisplayDeThiInfo(chuongCoCauHoi);
 
             // Hiển thị tất cả thông tin trên một label
-            string ketQuaText = string.Join(" | ", ketQuaRangBuoc);
+            string ketQuaText = string.Join("\n", ketQuaRangBuoc);
             var label = new Label
             {
                 Text = ketQuaText,
                 AutoSize = true,
             };
             flpKetQuaRangBuoc.Controls.Add(label);
+        }
+
+        private List<string> DisplayDeThiInfo(List<int> chuongCoCauHoi)
+        {
+            List<string> ketQuaRangBuoc = new List<string>();
+            foreach (var chuong in deThiInfo)
+            {
+                if (chuongCoCauHoi.Contains(chuong.Key))
+                {
+                    string formattedInfo = $"{chuong.Value}";
+                    ketQuaRangBuoc.Add(formattedInfo);
+                }
+            }
+            return ketQuaRangBuoc;
         }
 
         // Khai báo Dictionary để lưu trạng thái màu của từng chương và bài
@@ -547,7 +587,14 @@ namespace QLDETHI
             db.SaveChanges();
             
             MessageBox.Show($"Tạo thành công đề {newDeThi.MaHienThi} gồm {newDeThi.SoCauHoi} câu");
+            // Reset lại
             selectedMaCauHoiIds.Clear();
+            deThiInfo.Clear();
+            selectedCauHoiStates.Clear();
+            for (int i = 0; i < gvDanhSach.RowCount; i++)
+            {
+                gvDanhSach.UnselectRow(i);
+            }
 
         }
 

@@ -34,11 +34,12 @@ namespace QLDETHI
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.chbHienThi = new System.Windows.Forms.CheckBox();
             this.panelPassword = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txbPassWord = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelUserName = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txbUserName = new System.Windows.Forms.TextBox();
@@ -85,6 +86,7 @@ namespace QLDETHI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.btnDangNhap);
             this.panel4.Controls.Add(this.chbHienThi);
             this.panel4.Controls.Add(this.panelPassword);
@@ -97,6 +99,20 @@ namespace QLDETHI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(383, 481);
             this.panel4.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
+            this.button1.Location = new System.Drawing.Point(335, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 38);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "x";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnDangNhap
             // 
@@ -123,16 +139,31 @@ namespace QLDETHI
             this.chbHienThi.TabIndex = 9;
             this.chbHienThi.Text = "Hiển thị mật khẩu";
             this.chbHienThi.UseVisualStyleBackColor = true;
+            this.chbHienThi.CheckedChanged += new System.EventHandler(this.chbHienThi_CheckedChanged);
             // 
             // panelPassword
             // 
             this.panelPassword.BackColor = System.Drawing.SystemColors.Control;
-            this.panelPassword.Controls.Add(this.pictureBox3);
             this.panelPassword.Controls.Add(this.txbPassWord);
+            this.panelPassword.Controls.Add(this.pictureBox3);
             this.panelPassword.Location = new System.Drawing.Point(0, 236);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(381, 45);
             this.panelPassword.TabIndex = 8;
+            // 
+            // txbPassWord
+            // 
+            this.txbPassWord.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbPassWord.BackColor = System.Drawing.SystemColors.Control;
+            this.txbPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbPassWord.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txbPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(157)))), ((int)(((byte)(170)))));
+            this.txbPassWord.Location = new System.Drawing.Point(45, 11);
+            this.txbPassWord.Name = "txbPassWord";
+            this.txbPassWord.Size = new System.Drawing.Size(333, 25);
+            this.txbPassWord.TabIndex = 6;
+            this.txbPassWord.UseSystemPasswordChar = true;
+            this.txbPassWord.TextChanged += new System.EventHandler(this.txbPassWord_TextChanged);
             // 
             // pictureBox3
             // 
@@ -143,19 +174,6 @@ namespace QLDETHI
             this.pictureBox3.Size = new System.Drawing.Size(35, 35);
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
-            // 
-            // txbPassWord
-            // 
-            this.txbPassWord.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbPassWord.BackColor = System.Drawing.SystemColors.Control;
-            this.txbPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbPassWord.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txbPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(157)))), ((int)(((byte)(170)))));
-            this.txbPassWord.Location = new System.Drawing.Point(42, 11);
-            this.txbPassWord.Name = "txbPassWord";
-            this.txbPassWord.Size = new System.Drawing.Size(333, 25);
-            this.txbPassWord.TabIndex = 3;
-            this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // panelUserName
             // 
@@ -188,6 +206,7 @@ namespace QLDETHI
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(333, 25);
             this.txbUserName.TabIndex = 2;
+            this.txbUserName.Click += new System.EventHandler(this.txbUserName_Click);
             // 
             // label3
             // 
@@ -214,6 +233,7 @@ namespace QLDETHI
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel3
             // 
@@ -232,7 +252,7 @@ namespace QLDETHI
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(144)))), ((int)(((byte)(118)))));
-            this.pictureBox1.BackgroundImage = global::QLDETHI.Properties.Resources.z4723604482078_af4ca57c6ca46af3445f87752f94acc7;
+            this.pictureBox1.BackgroundImage = global::QLDETHI.Properties.Resources.z4891249913079_b5032240502eaf7999a0064953d9235e;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(11, -1);
             this.pictureBox1.Name = "pictureBox1";
@@ -278,8 +298,13 @@ namespace QLDETHI
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(685, 483);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "fLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.fLogin_Load);
             this.panel1.ResumeLayout(false);
@@ -304,7 +329,7 @@ namespace QLDETHI
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txbPassWord;
+        private System.Windows.Forms.TextBox txbPassWord1;
         private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel2;
@@ -321,5 +346,7 @@ namespace QLDETHI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txbPassWord;
+        private System.Windows.Forms.Button button1;
     }
 }

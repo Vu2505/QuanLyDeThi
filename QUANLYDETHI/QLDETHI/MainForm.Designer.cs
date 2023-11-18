@@ -60,6 +60,7 @@ namespace QLDETHI
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.DoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
             this.barDangXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
             this.ribbonPage10 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonControl2 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
@@ -70,9 +71,15 @@ namespace QLDETHI
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.import = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemColorPickEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit();
+            this.repositoryItemColorEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPage2
@@ -284,6 +291,7 @@ namespace QLDETHI
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup4.ItemLinks.Add(this.DoiMatKhau, true);
             this.ribbonPageGroup4.ItemLinks.Add(this.barDangXuat, true);
+            this.ribbonPageGroup4.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = " ";
             // 
@@ -311,6 +319,13 @@ namespace QLDETHI
             this.barDangXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barDangXuat.ImageOptions.LargeImage")));
             this.barDangXuat.Name = "barDangXuat";
             this.barDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDangXuat_ItemClick);
+            // 
+            // repositoryItemColorEdit1
+            // 
+            this.repositoryItemColorEdit1.AutoHeight = false;
+            this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
             // 
             // ribbonPage10
             // 
@@ -347,10 +362,11 @@ namespace QLDETHI
             this.barTinhTrang,
             this.barThoiGianThi,
             this.barTaiKhoanMonHoc,
-            this.barLoaiTaiKhoan});
+            this.barLoaiTaiKhoan,
+            this.skinRibbonGalleryBarItem1});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl2.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl2.MaxItemId = 29;
+            this.ribbonControl2.MaxItemId = 36;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.OptionsMenuMinWidth = 412;
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -358,6 +374,10 @@ namespace QLDETHI
             this.ribQuanLy,
             this.ribbonPage8,
             this.ribbonPage1});
+            this.ribbonControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemColorEdit1,
+            this.repositoryItemColorPickEdit1,
+            this.repositoryItemColorEdit2});
             this.ribbonControl2.Size = new System.Drawing.Size(1039, 209);
             // 
             // barButtonItem7
@@ -415,6 +435,27 @@ namespace QLDETHI
             this.import.Name = "import";
             this.import.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.import_ItemClick);
             // 
+            // repositoryItemColorPickEdit1
+            // 
+            this.repositoryItemColorPickEdit1.AutoHeight = false;
+            this.repositoryItemColorPickEdit1.AutomaticColor = System.Drawing.Color.Black;
+            this.repositoryItemColorPickEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorPickEdit1.Name = "repositoryItemColorPickEdit1";
+            // 
+            // repositoryItemColorEdit2
+            // 
+            this.repositoryItemColorEdit2.AutoHeight = false;
+            this.repositoryItemColorEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit2.Name = "repositoryItemColorEdit2";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 35;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -428,9 +469,12 @@ namespace QLDETHI
             this.Text = "Giao diện chính";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,6 +520,10 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarButtonItem barThoiGianThi;
         private DevExpress.XtraBars.BarButtonItem barTaiKhoanMonHoc;
         private DevExpress.XtraBars.BarButtonItem barLoaiTaiKhoan;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit repositoryItemColorEdit1;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit repositoryItemColorPickEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit repositoryItemColorEdit2;
     }
 }
 

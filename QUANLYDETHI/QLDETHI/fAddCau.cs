@@ -222,12 +222,44 @@ namespace QLDETHI.Taodethi
                 f2.txbD.Text = k.D;
                 f2.txbDapAnDung.Text = k.DapAnDung;
                 f2.picHinhAnh.Image = Base64ToImage(k.HinhAnh);
-                f2.txbKhoi.Text = k.MaKhoi.ToString();
-                f2.txbMonHoc.Text = k.MaMonHoc.ToString();
-                f2.txbChuong.Text = k.MaChuong.ToString();
-                f2.txbBai.Text = k.MaBai.ToString();
-                f2.txbDoKho.Text = k.DoKho.ToString();
-                f2.txbTrangThai.Text = k.TrangThai.ToString();
+
+                if (k.MaKhoi.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.MaKhoi, (int)k.MaKhoi);
+                    f2.txbKhoi.Text = ten;
+                }
+
+                if (k.MaMonHoc.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.MaMonHoc, (int)k.MaMonHoc);
+                    f2.txbMonHoc.Text = ten;
+                }
+
+                if (k.MaChuong.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.MaChuong, (int)k.MaChuong);
+                    f2.txbChuong.Text = ten;
+                }
+
+                if (k.MaBai.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.MaBai, (int)k.MaBai);
+                    f2.txbBai.Text = ten;
+                }
+
+                if (k.DoKho.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.DoKho, (int)k.DoKho);
+                    f2.txbDoKho.Text = ten;
+                }
+                if (k.TrangThai.HasValue)
+                {
+                    string ten = _cauhoi.getListInfoCauHoi(FieldCauHoi.TrangThai, (int)k.TrangThai);
+                    f2.txbTrangThai.Text = ten;
+                }
+
+
+                
                 f2.txbGhiChu.Text = k.GhiChu;
                 _cauhoi.Update(k);
             }
@@ -462,6 +494,15 @@ namespace QLDETHI.Taodethi
             barSua.Enabled = kt;
             barXoa.Enabled = kt;
             barDong.Enabled = kt;
+
+            cbxKhoi.Enabled = !kt;
+            cbxMonHoc1.Enabled = !kt;
+            cbxChuong.Enabled = !kt;
+            cbxBai.Enabled = !kt;
+            
+            cbxDoKho.Enabled = !kt;
+            cbxTrangThai.Enabled = !kt;
+            txtGhiChu.Enabled = !kt;
             //barPrint.Enabled = kt;
             //txtNDCH.Enabled = !kt;
         }
@@ -501,7 +542,8 @@ namespace QLDETHI.Taodethi
                     k.MaChuong = int.Parse(cbxChuong.SelectedValue.ToString());
                     k.MaBai = int.Parse(cbxBai.SelectedValue.ToString());
                     k.DoKho = int.Parse(cbxDoKho.SelectedValue.ToString());
-                    k.TrangThai = int.Parse(cbxTrangThai.Text);
+                    k.TrangThai = int.Parse(cbxTrangThai.SelectedValue.ToString());
+                    k.MaGiangVien = IdTK;
                     k.GhiChu = txtGhiChu.Text;
                     _cauhoi.Add(k);
                 //}
@@ -568,65 +610,6 @@ namespace QLDETHI.Taodethi
         
         private void barLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (matches != null && matches.Count > 0)
-            {
-                foreach (System.Text.RegularExpressions.Match match in matches)
-                {
-                    string cauhoi = match.Groups[1].Value;
-                    string dapAnA = match.Groups[2].Value;
-                    string dapAnB = match.Groups[3].Value;
-                    string dapAnC = match.Groups[4].Value;
-                    string dapAnD = match.Groups[5].Value;
-
-                    SaveData(cauhoi, dapAnA, dapAnB, dapAnC, dapAnD, correctAnswer);
-                }
-                loadData();
-                _them = false;
-            }
-            else
-            {
-                // Xử lý khi không có mẫu hoặc matches là null
-            }
-
-            loadData();
-        }
-        
-
-        private void gvDanhSach_Click(object sender, EventArgs e)
-        {
-            if (gvDanhSach.RowCount > 0)
-            {
-                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaCauHoi").ToString());
-                var k = _cauhoi.getItem(_id);
-                picHinhAnh.Image = Base64ToImage(k.HinhAnh);
-                cbxKhoi.SelectedValue = k.MaKhoi;
-                cbxMonHoc1.SelectedValue = k.MaMonHoc;
-                cbxChuong.SelectedValue = k.MaChuong;
-                try
-                {
-                    int selectedChuongId = (int)cbxChuong.SelectedValue;
-                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
-                    var baiList = db.Bais.Where(c => c.MaChuong == selectedChuongId).ToList();
-                    cbxBai.DataSource = baiList;
-                    cbxBai.DisplayMember = "TenBai";
-                    cbxBai.ValueMember = "MaBai";
-                }
-                catch (InvalidCastException ex)
-                {
-                    // Xử lý trường hợp không thể ép kiểu thành công.
-                    //MessageBox.Show("Lỗi: " + ex.Message);
-                }
-                cbxBai.SelectedValue = k.MaBai;
-                cbxDoKho.SelectedValue = k.DoKho;
-                cbxTrangThai.Text = k.TrangThai.ToString();
-                txtGhiChu.Text = k.GhiChu;
-                _cauhoi.Update(k);
-            }
-
-        }
-
-        private void btnThemCH_Click(object sender, EventArgs e)
-        {
             // Đường dẫn đến tệp Word
             string filePath = txbNameFile.Text;
 
@@ -676,7 +659,7 @@ namespace QLDETHI.Taodethi
                     // Lấy đáp án từ các đoạn văn bản không trống
                     if (text.StartsWith("A. "))
                     {
-                        currentAnswers[0] = text.Substring(3);                        
+                        currentAnswers[0] = text.Substring(3);
                         if (paragraph.Range.Font.Color != Word.WdColor.wdColorAutomatic)
                         {
                             correctAnswer = "A";
@@ -725,6 +708,40 @@ namespace QLDETHI.Taodethi
             MessageBox.Show("Thêm thành công " + countQuestions + " câu");
             loadData();
         }
+        
+
+        private void gvDanhSach_Click(object sender, EventArgs e)
+        {
+            if (gvDanhSach.RowCount > 0)
+            {
+                _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaCauHoi").ToString());
+                var k = _cauhoi.getItem(_id);
+                picHinhAnh.Image = Base64ToImage(k.HinhAnh);
+                cbxKhoi.SelectedValue = k.MaKhoi;
+                cbxMonHoc1.SelectedValue = k.MaMonHoc;
+                cbxChuong.SelectedValue = k.MaChuong;
+                try
+                {
+                    int selectedChuongId = (int)cbxChuong.SelectedValue;
+                    // Giá trị đã được ép kiểu thành kiểu int và lưu trong selectedMonHocId.
+                    var baiList = db.Bais.Where(c => c.MaChuong == selectedChuongId).ToList();
+                    cbxBai.DataSource = baiList;
+                    cbxBai.DisplayMember = "TenBai";
+                    cbxBai.ValueMember = "MaBai";
+                }
+                catch (InvalidCastException ex)
+                {
+                    // Xử lý trường hợp không thể ép kiểu thành công.
+                    //MessageBox.Show("Lỗi: " + ex.Message);
+                }
+                cbxBai.SelectedValue = k.MaBai;
+                cbxDoKho.SelectedValue = k.DoKho;
+                cbxTrangThai.Text = k.TrangThai.ToString();
+                txtGhiChu.Text = k.GhiChu;
+                _cauhoi.Update(k);
+            }
+
+        }
 
         private Word.WdColor GetRowColor(Word.Paragraph paragraph)
         {
@@ -736,6 +753,11 @@ namespace QLDETHI.Taodethi
             Word.WdColor color = shading.BackgroundPatternColor;
 
             return color;
+        }
+
+        private void barSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 

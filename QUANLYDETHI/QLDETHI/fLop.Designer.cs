@@ -234,7 +234,6 @@ namespace QLDETHI
             this.TenKhoi});
             this.gvDanhSach.GridControl = this.gridLop;
             this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             // 
             // TenKhoi
             // 

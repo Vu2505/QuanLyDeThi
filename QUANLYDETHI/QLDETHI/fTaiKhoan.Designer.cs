@@ -257,7 +257,6 @@ namespace QLDETHI
             this.GhiChu});
             this.gvDanhSach.GridControl = this.gridTaiKhoan;
             this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // TenLoaiTaiKhoan

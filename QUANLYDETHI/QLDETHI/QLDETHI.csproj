@@ -237,6 +237,12 @@
     <Compile Include="fChuong.Designer.cs">
       <DependentUpon>fChuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="fDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDangNhap.Designer.cs">
+      <DependentUpon>fDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="fDaoDeThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     <EmbeddedResource Include="fChuong.resx">
       <DependentUpon>fChuong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fDangNhap.resx">
+      <DependentUpon>fDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fDaoDeThi.resx">
       <DependentUpon>fDaoDeThi.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +486,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image\image-preview-icon-picture-placeholder-vector-31284806.jpg" />
+    <None Include="Resources\z4891249913079_b5032240502eaf7999a0064953d9235e.jpg" />
+    <None Include="Resources\z4891248173272_44c326fd243cab2bf293107ebfd17c9d.jpg" />
     <None Include="Resources\z4723604482078_af4ca57c6ca46af3445f87752f94acc7.jpg" />
     <None Include="Resources\z4723586258107_844ff1c91377ca08082b85369ccb9f7e.jpg" />
     <None Include="Resources\z4723583542852_3025424f44aefe7475887008afb771aa.jpg" />

@@ -267,3 +267,4 @@ D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fTinhTrang.resources
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fLoaiTaiKhoan.resources
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fChangeResetPassWord.resources
 D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fThongTinCaNhan.resources
+D:\QLYDETHI\QUANLYDETHI\QLDETHI\obj\Debug\QLDETHI.fDangNhap.resources

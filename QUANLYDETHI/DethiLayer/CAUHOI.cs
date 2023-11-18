@@ -279,6 +279,34 @@ namespace DethiLayer
             return lstCHDTO;
         }
 
+        public string getListInfoCauHoi(FieldCauHoi field, int ma)
+        {
+            string tenLayTheoMa = "";
+            switch (field)
+            {
+                case FieldCauHoi.MaKhoi:
+                    tenLayTheoMa = db.Khois.FirstOrDefault(x => x.MaKhoi == ma).TenKhoi;
+                    break;
+
+                case FieldCauHoi.MaMonHoc:
+                    tenLayTheoMa = db.MonHocs.FirstOrDefault(x => x.MaMonHoc == ma).TenMonHoc;
+                    break;
+                case FieldCauHoi.MaChuong:
+                    tenLayTheoMa = db.Chuongs.FirstOrDefault(x => x.MaChuong == ma).TenChuong;
+                    break;
+                case FieldCauHoi.MaBai:
+                    tenLayTheoMa = db.Bais.FirstOrDefault(x => x.MaBai == ma).TenBai;
+                    break;
+                case FieldCauHoi.DoKho:
+                    tenLayTheoMa = db.DoKhoes.FirstOrDefault(x => x.MaDoKho == ma).TenDoKho;
+                    break;
+                case FieldCauHoi.TrangThai:
+                    tenLayTheoMa = db.TinhTrangs.FirstOrDefault(x => x.MaTinhTrang == ma).TenTinhTrang;
+                    break;
+            }
+            return tenLayTheoMa;
+        }
+
 
         public List<CAUHOI_DTO> getListFullGV(int? IdTK = null)
         {
@@ -332,5 +360,70 @@ namespace DethiLayer
             }
             return lstCHDTO;
         }
+
+
+
+        public List<CAUHOI_DTO> getListCauHoiThuCong(int maBai ,int? IdTK = null)
+        {
+
+            var lstCH = db.CauHois.Where(x => x.TrangThai == 1 && x.MaBai == maBai).ToList();
+
+            if (IdTK.HasValue)
+            {
+                lstCH = db.CauHois.Where(x => x.MaGiangVien == IdTK && x.TrangThai == 1 && x.MaBai == maBai).ToList();
+            }
+
+            List<CAUHOI_DTO> lstCHDTO = new List<CAUHOI_DTO>();
+            CAUHOI_DTO ctDTO;
+            foreach (var item in lstCH)
+            {
+                ctDTO = new CAUHOI_DTO();
+                ctDTO.MaCauHoi = item.MaCauHoi;
+                ctDTO.NDCH = item.NDCH;
+                ctDTO.A = item.A;
+                ctDTO.B = item.B;
+                ctDTO.C = item.C;
+                ctDTO.D = item.D;
+                ctDTO.DapAnDung = item.DapAnDung;
+                ctDTO.HinhAnh = item.HinhAnh;
+                ctDTO.MaKhoi = item.MaKhoi;
+                var k = db.Khois.FirstOrDefault(b => b.MaKhoi == item.MaKhoi);
+                ctDTO.TenKhoi = k.TenKhoi;
+                ctDTO.MaMonHoc = item.MaMonHoc;
+                var mh = db.MonHocs.FirstOrDefault(b => b.MaMonHoc == item.MaMonHoc);
+                ctDTO.TenMonHoc = mh.TenMonHoc;
+
+                ctDTO.MaChuong = item.MaChuong;
+                var c = db.Chuongs.FirstOrDefault(b => b.MaChuong == item.MaChuong);
+                ctDTO.TenChuong = c.TenChuong;
+
+
+                ctDTO.MaBai = item.MaBai;
+                var cb = db.Bais.FirstOrDefault(b => b.MaBai == item.MaBai);
+                ctDTO.TenBai = cb.TenBai;
+
+                ctDTO.MaDoKho = item.DoKho;
+                var dk = db.DoKhoes.FirstOrDefault(b => b.MaDoKho == item.DoKho);
+                ctDTO.TenDoKho = dk.TenDoKho;
+
+                ctDTO.TrangThai = item.TrangThai;
+                var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TrangThai);
+                ctDTO.TenTinhTrang = tt.TenTinhTrang;
+                ctDTO.GhiChu = item.GhiChu;
+
+                lstCHDTO.Add(ctDTO);
+            }
+            return lstCHDTO;
+        }
+    }
+
+    public enum FieldCauHoi
+    {
+        MaKhoi,
+        MaMonHoc,
+        MaChuong,
+        MaBai,
+        DoKho,
+        TrangThai
     }
 }

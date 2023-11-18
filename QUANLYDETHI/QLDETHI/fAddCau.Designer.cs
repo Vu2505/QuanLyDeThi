@@ -78,14 +78,13 @@ namespace QLDETHI.Taodethi
             this.D = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DapAnDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaChuong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaBai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DoKho = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TrangThai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenChuong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenTinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btnThemCH = new System.Windows.Forms.Button();
             this.btnAddFileWord = new System.Windows.Forms.Button();
             this.txbNameFile = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -173,6 +172,7 @@ namespace QLDETHI.Taodethi
             this.barSua.Id = 2;
             this.barSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSua.ImageOptions.SvgImage")));
             this.barSua.Name = "barSua";
+            this.barSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSua_ItemClick);
             // 
             // barLuu
             // 
@@ -295,7 +295,7 @@ namespace QLDETHI.Taodethi
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(1940, 679);
-            this.splitContainer1.SplitterDistance = 1012;
+            this.splitContainer1.SplitterDistance = 906;
             this.splitContainer1.TabIndex = 32;
             // 
             // splitContainer2
@@ -328,7 +328,7 @@ namespace QLDETHI.Taodethi
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.gridCauHoi);
-            this.splitContainer2.Size = new System.Drawing.Size(1012, 679);
+            this.splitContainer2.Size = new System.Drawing.Size(906, 679);
             this.splitContainer2.SplitterDistance = 254;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -357,7 +357,7 @@ namespace QLDETHI.Taodethi
             // cbxMonHoc1
             // 
             this.cbxMonHoc1.FormattingEnabled = true;
-            this.cbxMonHoc1.Location = new System.Drawing.Point(337, 74);
+            this.cbxMonHoc1.Location = new System.Drawing.Point(314, 77);
             this.cbxMonHoc1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxMonHoc1.Name = "cbxMonHoc1";
             this.cbxMonHoc1.Size = new System.Drawing.Size(221, 24);
@@ -367,7 +367,7 @@ namespace QLDETHI.Taodethi
             // cbxChuong
             // 
             this.cbxChuong.FormattingEnabled = true;
-            this.cbxChuong.Location = new System.Drawing.Point(337, 135);
+            this.cbxChuong.Location = new System.Drawing.Point(314, 138);
             this.cbxChuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxChuong.Name = "cbxChuong";
             this.cbxChuong.Size = new System.Drawing.Size(221, 24);
@@ -377,7 +377,7 @@ namespace QLDETHI.Taodethi
             // cbxBai
             // 
             this.cbxBai.FormattingEnabled = true;
-            this.cbxBai.Location = new System.Drawing.Point(337, 191);
+            this.cbxBai.Location = new System.Drawing.Point(314, 194);
             this.cbxBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxBai.Name = "cbxBai";
             this.cbxBai.Size = new System.Drawing.Size(221, 24);
@@ -390,7 +390,7 @@ namespace QLDETHI.Taodethi
             "1",
             "2",
             "3"});
-            this.cbxTrangThai.Location = new System.Drawing.Point(719, 74);
+            this.cbxTrangThai.Location = new System.Drawing.Point(650, 77);
             this.cbxTrangThai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxTrangThai.Name = "cbxTrangThai";
             this.cbxTrangThai.Size = new System.Drawing.Size(221, 24);
@@ -399,7 +399,7 @@ namespace QLDETHI.Taodethi
             // cbxDoKho
             // 
             this.cbxDoKho.FormattingEnabled = true;
-            this.cbxDoKho.Location = new System.Drawing.Point(719, 14);
+            this.cbxDoKho.Location = new System.Drawing.Point(650, 17);
             this.cbxDoKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDoKho.Name = "cbxDoKho";
             this.cbxDoKho.Size = new System.Drawing.Size(221, 24);
@@ -408,7 +408,7 @@ namespace QLDETHI.Taodethi
             // cbxKhoi
             // 
             this.cbxKhoi.FormattingEnabled = true;
-            this.cbxKhoi.Location = new System.Drawing.Point(337, 15);
+            this.cbxKhoi.Location = new System.Drawing.Point(314, 18);
             this.cbxKhoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxKhoi.Name = "cbxKhoi";
             this.cbxKhoi.Size = new System.Drawing.Size(221, 24);
@@ -417,7 +417,7 @@ namespace QLDETHI.Taodethi
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(719, 135);
+            this.txtGhiChu.Location = new System.Drawing.Point(650, 138);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(221, 23);
@@ -427,7 +427,7 @@ namespace QLDETHI.Taodethi
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(596, 140);
+            this.labelControl14.Location = new System.Drawing.Point(562, 142);
             this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(48, 18);
@@ -438,7 +438,7 @@ namespace QLDETHI.Taodethi
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(596, 80);
+            this.labelControl11.Location = new System.Drawing.Point(562, 82);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(72, 18);
@@ -449,7 +449,7 @@ namespace QLDETHI.Taodethi
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(596, 20);
+            this.labelControl12.Location = new System.Drawing.Point(562, 22);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(46, 18);
@@ -507,7 +507,7 @@ namespace QLDETHI.Taodethi
             this.gridCauHoi.MainView = this.gvDanhSach;
             this.gridCauHoi.MenuManager = this.barManager2;
             this.gridCauHoi.Name = "gridCauHoi";
-            this.gridCauHoi.Size = new System.Drawing.Size(1010, 419);
+            this.gridCauHoi.Size = new System.Drawing.Size(904, 419);
             this.gridCauHoi.TabIndex = 0;
             this.gridCauHoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
@@ -524,11 +524,11 @@ namespace QLDETHI.Taodethi
             this.D,
             this.DapAnDung,
             this.HinhAnh,
-            this.MaKhoi,
-            this.MaChuong,
-            this.MaBai,
-            this.DoKho,
-            this.TrangThai,
+            this.TenKhoi,
+            this.TenChuong,
+            this.TenBai,
+            this.TenDoKho,
+            this.TenTinhTrang,
             this.GhiChu});
             this.gvDanhSach.GridControl = this.gridCauHoi;
             this.gvDanhSach.Name = "gvDanhSach";
@@ -624,55 +624,55 @@ namespace QLDETHI.Taodethi
             this.HinhAnh.VisibleIndex = 7;
             this.HinhAnh.Width = 94;
             // 
-            // MaKhoi
+            // TenKhoi
             // 
-            this.MaKhoi.Caption = "ID Khối";
-            this.MaKhoi.FieldName = "MaKhoi";
-            this.MaKhoi.MinWidth = 25;
-            this.MaKhoi.Name = "MaKhoi";
-            this.MaKhoi.Visible = true;
-            this.MaKhoi.VisibleIndex = 8;
-            this.MaKhoi.Width = 94;
+            this.TenKhoi.Caption = "ID Khối";
+            this.TenKhoi.FieldName = "TenKhoi";
+            this.TenKhoi.MinWidth = 25;
+            this.TenKhoi.Name = "TenKhoi";
+            this.TenKhoi.Visible = true;
+            this.TenKhoi.VisibleIndex = 8;
+            this.TenKhoi.Width = 94;
             // 
-            // MaChuong
+            // TenChuong
             // 
-            this.MaChuong.Caption = "ID Chương";
-            this.MaChuong.FieldName = "MaChuong";
-            this.MaChuong.MinWidth = 25;
-            this.MaChuong.Name = "MaChuong";
-            this.MaChuong.Visible = true;
-            this.MaChuong.VisibleIndex = 10;
-            this.MaChuong.Width = 94;
+            this.TenChuong.Caption = "ID Chương";
+            this.TenChuong.FieldName = "TenChuong";
+            this.TenChuong.MinWidth = 25;
+            this.TenChuong.Name = "TenChuong";
+            this.TenChuong.Visible = true;
+            this.TenChuong.VisibleIndex = 10;
+            this.TenChuong.Width = 94;
             // 
-            // MaBai
+            // TenBai
             // 
-            this.MaBai.Caption = "ID Bài";
-            this.MaBai.FieldName = "MaBai";
-            this.MaBai.MinWidth = 25;
-            this.MaBai.Name = "MaBai";
-            this.MaBai.Visible = true;
-            this.MaBai.VisibleIndex = 11;
-            this.MaBai.Width = 94;
+            this.TenBai.Caption = "ID Bài";
+            this.TenBai.FieldName = "TenBai";
+            this.TenBai.MinWidth = 25;
+            this.TenBai.Name = "TenBai";
+            this.TenBai.Visible = true;
+            this.TenBai.VisibleIndex = 11;
+            this.TenBai.Width = 94;
             // 
-            // DoKho
+            // TenDoKho
             // 
-            this.DoKho.Caption = "Độ Khó";
-            this.DoKho.FieldName = "DoKho";
-            this.DoKho.MinWidth = 25;
-            this.DoKho.Name = "DoKho";
-            this.DoKho.Visible = true;
-            this.DoKho.VisibleIndex = 12;
-            this.DoKho.Width = 94;
+            this.TenDoKho.Caption = "Độ Khó";
+            this.TenDoKho.FieldName = "TenDoKho";
+            this.TenDoKho.MinWidth = 25;
+            this.TenDoKho.Name = "TenDoKho";
+            this.TenDoKho.Visible = true;
+            this.TenDoKho.VisibleIndex = 12;
+            this.TenDoKho.Width = 94;
             // 
-            // TrangThai
+            // TenTinhTrang
             // 
-            this.TrangThai.Caption = "Trạng thái";
-            this.TrangThai.FieldName = "TrangThai";
-            this.TrangThai.MinWidth = 25;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.Visible = true;
-            this.TrangThai.VisibleIndex = 13;
-            this.TrangThai.Width = 94;
+            this.TenTinhTrang.Caption = "Trạng thái";
+            this.TenTinhTrang.FieldName = "TenTinhTrang";
+            this.TenTinhTrang.MinWidth = 25;
+            this.TenTinhTrang.Name = "TenTinhTrang";
+            this.TenTinhTrang.Visible = true;
+            this.TenTinhTrang.VisibleIndex = 13;
+            this.TenTinhTrang.Width = 94;
             // 
             // GhiChu
             // 
@@ -686,15 +686,15 @@ namespace QLDETHI.Taodethi
             // 
             // splitContainer3
             // 
+            this.splitContainer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.btnThemCH);
             this.splitContainer3.Panel1.Controls.Add(this.btnAddFileWord);
             this.splitContainer3.Panel1.Controls.Add(this.txbNameFile);
             this.splitContainer3.Panel1.Controls.Add(this.labelControl1);
@@ -702,40 +702,30 @@ namespace QLDETHI.Taodethi
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.richWordDeThi);
-            this.splitContainer3.Size = new System.Drawing.Size(924, 679);
+            this.splitContainer3.Size = new System.Drawing.Size(945, 679);
             this.splitContainer3.SplitterDistance = 70;
             this.splitContainer3.TabIndex = 0;
             // 
-            // btnThemCH
-            // 
-            this.btnThemCH.Location = new System.Drawing.Point(23, 22);
-            this.btnThemCH.Name = "btnThemCH";
-            this.btnThemCH.Size = new System.Drawing.Size(75, 23);
-            this.btnThemCH.TabIndex = 3;
-            this.btnThemCH.Text = "Thêm";
-            this.btnThemCH.UseVisualStyleBackColor = true;
-            this.btnThemCH.Click += new System.EventHandler(this.btnThemCH_Click);
-            // 
             // btnAddFileWord
             // 
-            this.btnAddFileWord.Location = new System.Drawing.Point(775, 19);
+            this.btnAddFileWord.Location = new System.Drawing.Point(724, 20);
             this.btnAddFileWord.Name = "btnAddFileWord";
             this.btnAddFileWord.Size = new System.Drawing.Size(104, 23);
             this.btnAddFileWord.TabIndex = 2;
-            this.btnAddFileWord.Text = "AddFile";
+            this.btnAddFileWord.Text = "Add file";
             this.btnAddFileWord.UseVisualStyleBackColor = true;
             this.btnAddFileWord.Click += new System.EventHandler(this.btnAddFileWord_Click);
             // 
             // txbNameFile
             // 
-            this.txbNameFile.Location = new System.Drawing.Point(244, 19);
+            this.txbNameFile.Location = new System.Drawing.Point(221, 19);
             this.txbNameFile.Name = "txbNameFile";
             this.txbNameFile.Size = new System.Drawing.Size(486, 23);
             this.txbNameFile.TabIndex = 1;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(121, 22);
+            this.labelControl1.Location = new System.Drawing.Point(98, 22);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(89, 17);
             this.labelControl1.TabIndex = 0;
@@ -747,7 +737,7 @@ namespace QLDETHI.Taodethi
             this.richWordDeThi.Location = new System.Drawing.Point(0, 0);
             this.richWordDeThi.MenuManager = this.barManager2;
             this.richWordDeThi.Name = "richWordDeThi";
-            this.richWordDeThi.Size = new System.Drawing.Size(922, 603);
+            this.richWordDeThi.Size = new System.Drawing.Size(943, 603);
             this.richWordDeThi.TabIndex = 0;
             this.richWordDeThi.Click += new System.EventHandler(this.richWordDeThi_Click);
             // 
@@ -808,8 +798,6 @@ namespace QLDETHI.Taodethi
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private DevExpress.XtraEditors.SimpleButton btnHinhAnh;
-        private System.Windows.Forms.PictureBox picHinhAnh;
         private System.Windows.Forms.ComboBox cbxMonHoc1;
         private System.Windows.Forms.ComboBox cbxChuong;
         private System.Windows.Forms.ComboBox cbxBai;
@@ -839,13 +827,14 @@ namespace QLDETHI.Taodethi
         private DevExpress.XtraGrid.Columns.GridColumn D;
         private DevExpress.XtraGrid.Columns.GridColumn DapAnDung;
         private DevExpress.XtraGrid.Columns.GridColumn HinhAnh;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhoi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
         private DevExpress.XtraGrid.Columns.GridColumn MaMonHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn MaChuong;
-        private DevExpress.XtraGrid.Columns.GridColumn MaBai;
-        private DevExpress.XtraGrid.Columns.GridColumn DoKho;
-        private DevExpress.XtraGrid.Columns.GridColumn TrangThai;
+        private DevExpress.XtraGrid.Columns.GridColumn TenChuong;
+        private DevExpress.XtraGrid.Columns.GridColumn TenBai;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
+        private DevExpress.XtraGrid.Columns.GridColumn TenTinhTrang;
         private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
-        private System.Windows.Forms.Button btnThemCH;
+        private DevExpress.XtraEditors.SimpleButton btnHinhAnh;
+        private System.Windows.Forms.PictureBox picHinhAnh;
     }
 }

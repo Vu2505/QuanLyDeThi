@@ -83,6 +83,7 @@ namespace QLDETHI
             this.btnDong.Size = new System.Drawing.Size(107, 37);
             this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Thoát";
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // chbHienThi
             // 
@@ -159,7 +160,10 @@ namespace QLDETHI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 304);
             this.Controls.Add(this.groupControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "fChangePassWord";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

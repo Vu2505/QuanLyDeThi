@@ -326,8 +326,7 @@ namespace QLDETHI
             // 
             // btnTaoDeThi
             // 
-            this.btnTaoDeThi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTaoDeThi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTaoDeThi.Location = new System.Drawing.Point(1693, 345);
             this.btnTaoDeThi.Name = "btnTaoDeThi";
             this.btnTaoDeThi.Size = new System.Drawing.Size(176, 116);
@@ -338,11 +337,10 @@ namespace QLDETHI
             // 
             // groupBox5
             // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.flpKetQuaRangBuoc);
-            this.groupBox5.Location = new System.Drawing.Point(12, 339);
+            this.groupBox5.Location = new System.Drawing.Point(12, 337);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(1675, 122);
             this.groupBox5.TabIndex = 2;
@@ -351,6 +349,8 @@ namespace QLDETHI
             // 
             // flpKetQuaRangBuoc
             // 
+            this.flpKetQuaRangBuoc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpKetQuaRangBuoc.Location = new System.Drawing.Point(7, 21);
             this.flpKetQuaRangBuoc.Name = "flpKetQuaRangBuoc";
             this.flpKetQuaRangBuoc.Size = new System.Drawing.Size(1662, 95);
@@ -358,8 +358,7 @@ namespace QLDETHI
             // 
             // gbBai
             // 
-            this.gbBai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbBai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbBai.AutoSize = true;
             this.gbBai.Controls.Add(this.flpBai);
             this.gbBai.Location = new System.Drawing.Point(850, 168);
@@ -381,8 +380,7 @@ namespace QLDETHI
             // 
             // gbChuong
             // 
-            this.gbChuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbChuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbChuong.AutoSize = true;
             this.gbChuong.Controls.Add(this.flpChuong);

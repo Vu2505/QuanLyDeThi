@@ -136,6 +136,22 @@ namespace QLDETHI
             btnXoa.Enabled = kt;
             btnDong.Enabled = kt;
             btnPrint.Enabled = kt;
+
+            cbxKhoi.Enabled = !kt;
+            cbxMonHoc1.Enabled = !kt;
+            cbxChuong.Enabled = !kt;
+            cbxBai.Enabled = !kt;
+            cbxDoKho.Enabled = !kt;
+            txtNDCH.Enabled = !kt;
+            txtA.Enabled = !kt;
+            txtB.Enabled = !kt;
+            txtC.Enabled = !kt;
+            txtD.Enabled = !kt;
+            cbxBai.Enabled = !kt;
+            cbxDoKho.Enabled = !kt;
+            cbxDapAnDung.Enabled = !kt;
+            cbxTinhTrang.Enabled = !kt;
+            txtGhiChu.Enabled = !kt;
             //txtNDCH.Enabled = !kt;
         }
 

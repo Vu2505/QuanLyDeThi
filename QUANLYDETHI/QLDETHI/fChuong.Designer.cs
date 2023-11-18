@@ -140,7 +140,6 @@ namespace QLDETHI
             this.TenMonHoc});
             this.gvDanhSach.GridControl = this.gridChuong;
             this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.OptionsView.ShowGroupPanel = false;
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // MaChuong

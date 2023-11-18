@@ -144,6 +144,26 @@ namespace QLDETHI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap z4891248173272_44c326fd243cab2bf293107ebfd17c9d {
+            get {
+                object obj = ResourceManager.GetObject("z4891248173272_44c326fd243cab2bf293107ebfd17c9d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z4891249913079_b5032240502eaf7999a0064953d9235e {
+            get {
+                object obj = ResourceManager.GetObject("z4891249913079_b5032240502eaf7999a0064953d9235e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap zyro_image {
             get {
                 object obj = ResourceManager.GetObject("zyro-image", resourceCulture);

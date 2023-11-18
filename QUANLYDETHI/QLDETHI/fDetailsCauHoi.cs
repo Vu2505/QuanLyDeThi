@@ -17,6 +17,9 @@ namespace QLDETHI
             InitializeComponent();
         }
 
-       
+        private void fDetailsCauHoi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

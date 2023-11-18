@@ -86,6 +86,40 @@ namespace QLDETHI
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+        }
+
+        private void txbUserName_Click(object sender, EventArgs e)
+        {
+            txbUserName.BackColor = Color.White;
+            panelUserName.BackColor = Color.White;
+            panelPassword.BackColor = SystemColors.Control;
+            txbPassWord.BackColor = SystemColors.Control;
+        }
+
+        private void txbPassWord_TextChanged(object sender, EventArgs e)
+        {
+            txbPassWord.BackColor = Color.White;
+            panelPassword.BackColor = Color.White;
+            panelUserName.BackColor = SystemColors.Control;
+            txbUserName.BackColor = SystemColors.Control;
+        }
+
+        private void chbHienThi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbHienThi.Checked)
+            {
+                txbPassWord.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbPassWord.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
 
