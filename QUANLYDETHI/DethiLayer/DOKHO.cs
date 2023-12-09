@@ -19,5 +19,50 @@ namespace DethiLayer
         {
             return db.DoKhoes.ToList();
         }
+
+        public DoKho Add(DoKho k)
+        {
+            try
+            {
+                db.DoKhoes.Add(k);
+                db.SaveChanges();
+                return k;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+
+        public DoKho Update(DoKho k)
+        {
+            try
+            {
+                var _k = db.DoKhoes.FirstOrDefault(x => x.MaDoKho == k.MaDoKho);
+                _k.TenDoKho = k.TenDoKho;
+                db.SaveChanges();
+                return k;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+
+
+        public void Detele(int id)
+        {
+            try
+            {
+                var _dt = db.DoKhoes.FirstOrDefault(x => x.MaDoKho == id);
+                db.DoKhoes.Remove(_dt);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
     }
 }

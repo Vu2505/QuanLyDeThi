@@ -237,12 +237,6 @@
     <Compile Include="fChuong.Designer.cs">
       <DependentUpon>fChuong.cs</DependentUpon>
     </Compile>
-    <Compile Include="fDangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fDangNhap.Designer.cs">
-      <DependentUpon>fDangNhap.cs</DependentUpon>
-    </Compile>
     <Compile Include="fDaoDeThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +248,18 @@
     </Compile>
     <Compile Include="fDetailsCauHoi.Designer.cs">
       <DependentUpon>fDetailsCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fDoKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDoKho.Designer.cs">
+      <DependentUpon>fDoKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHocKy.Designer.cs">
+      <DependentUpon>fHocKy.cs</DependentUpon>
     </Compile>
     <Compile Include="fKhoi.cs">
       <SubType>Form</SubType>
@@ -382,14 +388,17 @@
     <EmbeddedResource Include="fChuong.resx">
       <DependentUpon>fChuong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fDangNhap.resx">
-      <DependentUpon>fDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="fDaoDeThi.resx">
       <DependentUpon>fDaoDeThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fDetailsCauHoi.resx">
       <DependentUpon>fDetailsCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDoKho.resx">
+      <DependentUpon>fDoKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHocKy.resx">
+      <DependentUpon>fHocKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fKhoi.resx">
       <DependentUpon>fKhoi.cs</DependentUpon>

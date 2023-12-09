@@ -24,6 +24,7 @@ namespace QLDETHI
             InitializeComponent();
             user = LuuTru.User;
             IdTK = user.IdTK;
+            danhSachMaDeThi = new List<int>();
         }
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
         CHUONG _chuong;
@@ -667,6 +668,8 @@ namespace QLDETHI
             
         }
 
+        private List<int> danhSachMaDeThi; // Thêm biến danh sách MaDeThi
+
         private void btnTaoDe_Click(object sender, EventArgs e)
         {            
             int soLuongDe = int.Parse(nubSoLuongDe.Value.ToString());
@@ -698,6 +701,7 @@ namespace QLDETHI
                     MaLop = (int)cbxLop.SelectedValue, // Mã lớp
                     MaHocKy = (int)cbxHocKy.SelectedValue,
                     MaGiangVien = IdTK, // Thay bằng giá trị thích hợp
+                    NgayCapNhat = DateTime.UtcNow
                 };
 
                 // Thêm đề thi vào cơ sở dữ liệu
@@ -706,6 +710,9 @@ namespace QLDETHI
 
                 // Lấy mã đề thi vừa tạo ra
                 int maDeThi = newDeThi.MaDe; // Mã đề thi mới
+
+                //danhSachMaDeThi.Add(maDeThi); // Thêm MaDeThi vào danh sách
+
 
                 int thuTuCauHoi = 1; // Đặt số thứ tự của câu hỏi
 
@@ -733,6 +740,24 @@ namespace QLDETHI
             
             db.SaveChanges();
             HienThiTaoDeThanhCong(soLuongDe, danhSachMaHienThi);
+
+            //DialogResult dialogResult = MessageBox.Show($" Bạn có muốn xem đề thi vừa tạo không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    //// Chuyển giá trị danh sách MaDeThi đến form fNganHangDeThi
+            //    //fNganHangDeThi fNganHangDeThiForm = new fNganHangDeThi();
+            //    //fNganHangDeThiForm.UpdateGridDeThiWithMaDe1(danhSachMaDeThi);
+
+            //    //// Mở form fNganHangDeThi
+            //    //fNganHangDeThiForm.Show();
+
+            //    // Chuyển giá trị danh sách MaDeThi đến form fNganHangDeThi
+            //    fNganHangDeThi fNganHangDeThiForm = new fNganHangDeThi();
+            //    fNganHangDeThiForm.DanhSachMaDeThiMoiTao = danhSachMaDeThi;
+            //    fNganHangDeThiForm.Show();
+            //}
+
             loadData(selectedMaDe);
 
         }

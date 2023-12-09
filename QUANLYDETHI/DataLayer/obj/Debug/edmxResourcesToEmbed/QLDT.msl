@@ -10,28 +10,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CauHois">
-      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.CauHoi">
-        <MappingFragment StoreEntitySet="CauHoi">
-          <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-          <ScalarProperty Name="DoKho" ColumnName="DoKho" />
-          <ScalarProperty Name="MaBai" ColumnName="MaBai" />
-          <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
-          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-          <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
-          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
-          <ScalarProperty Name="DapAnDung" ColumnName="DapAnDung" />
-          <ScalarProperty Name="D" ColumnName="D" />
-          <ScalarProperty Name="C" ColumnName="C" />
-          <ScalarProperty Name="B" ColumnName="B" />
-          <ScalarProperty Name="A" ColumnName="A" />
-          <ScalarProperty Name="NDCH" ColumnName="NDCH" />
-          <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Chuongs">
       <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Chuong">
         <MappingFragment StoreEntitySet="Chuong">
@@ -118,23 +96,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DeThis">
-      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DeThi">
-        <MappingFragment StoreEntitySet="DeThi">
-          <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
-          <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
-          <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
-          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
-          <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
-          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-          <ScalarProperty Name="SoCauHoi" ColumnName="SoCauHoi" />
-          <ScalarProperty Name="TenDeThi" ColumnName="TenDeThi" />
-          <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
-          <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
-          <ScalarProperty Name="MaDe" ColumnName="MaDe" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TaiKhoanMonHocs">
       <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoanMonHoc">
         <MappingFragment StoreEntitySet="TaiKhoanMonHoc">
@@ -162,6 +123,47 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="TenGV" ColumnName="TenGV" />
           <ScalarProperty Name="IdTK" ColumnName="IdTK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CauHois">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.CauHoi">
+        <MappingFragment StoreEntitySet="CauHoi">
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="DoKho" ColumnName="DoKho" />
+          <ScalarProperty Name="MaBai" ColumnName="MaBai" />
+          <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+          <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="DapAnDung" ColumnName="DapAnDung" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="NDCH" ColumnName="NDCH" />
+          <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeThis">
+      <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DeThi">
+        <MappingFragment StoreEntitySet="DeThi">
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
+          <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
+          <ScalarProperty Name="MaGiangVien" ColumnName="MaGiangVien" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+          <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+          <ScalarProperty Name="SoCauHoi" ColumnName="SoCauHoi" />
+          <ScalarProperty Name="TenDeThi" ColumnName="TenDeThi" />
+          <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
+          <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+          <ScalarProperty Name="MaDe" ColumnName="MaDe" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -88,7 +88,7 @@ namespace QLDETHI
             // cbxKhoi
             // 
             this.cbxKhoi.FormattingEnabled = true;
-            this.cbxKhoi.Location = new System.Drawing.Point(275, 55);
+            this.cbxKhoi.Location = new System.Drawing.Point(293, 68);
             this.cbxKhoi.Name = "cbxKhoi";
             this.cbxKhoi.Size = new System.Drawing.Size(282, 24);
             this.cbxKhoi.TabIndex = 3;
@@ -97,7 +97,7 @@ namespace QLDETHI
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(128, 63);
+            this.labelControl2.Location = new System.Drawing.Point(146, 76);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(27, 18);
             this.labelControl2.TabIndex = 2;
@@ -105,7 +105,7 @@ namespace QLDETHI
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(275, 21);
+            this.txtTen.Location = new System.Drawing.Point(293, 34);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(282, 22);
             this.txtTen.TabIndex = 1;
@@ -114,7 +114,7 @@ namespace QLDETHI
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(128, 26);
+            this.labelControl1.Location = new System.Drawing.Point(146, 39);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(89, 18);
             this.labelControl1.TabIndex = 0;

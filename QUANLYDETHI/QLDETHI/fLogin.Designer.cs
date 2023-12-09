@@ -34,7 +34,7 @@ namespace QLDETHI
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.chbHienThi = new System.Windows.Forms.CheckBox();
             this.panelPassword = new System.Windows.Forms.Panel();
@@ -86,7 +86,7 @@ namespace QLDETHI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.btnClose);
             this.panel4.Controls.Add(this.btnDangNhap);
             this.panel4.Controls.Add(this.chbHienThi);
             this.panel4.Controls.Add(this.panelPassword);
@@ -100,19 +100,20 @@ namespace QLDETHI
             this.panel4.Size = new System.Drawing.Size(383, 481);
             this.panel4.TabIndex = 8;
             // 
-            // button1
+            // btnClose
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.button1.Location = new System.Drawing.Point(335, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 38);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "x";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
+            this.btnClose.Location = new System.Drawing.Point(335, 1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(49, 38);
+            this.btnClose.TabIndex = 11;
+            this.btnClose.Text = "x";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDangNhap
             // 
@@ -254,7 +255,7 @@ namespace QLDETHI
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(144)))), ((int)(((byte)(118)))));
             this.pictureBox1.BackgroundImage = global::QLDETHI.Properties.Resources.z4891249913079_b5032240502eaf7999a0064953d9235e;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(11, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(14, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 254);
             this.pictureBox1.TabIndex = 0;
@@ -347,6 +348,6 @@ namespace QLDETHI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txbPassWord;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

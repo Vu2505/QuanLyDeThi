@@ -111,6 +111,7 @@ namespace QLDETHI
             this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenLop = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -692,6 +693,7 @@ namespace QLDETHI
             // 
             // lbTongSoCauMuonTao
             // 
+            this.lbTongSoCauMuonTao.AutoSize = true;
             this.lbTongSoCauMuonTao.Location = new System.Drawing.Point(1113, 34);
             this.lbTongSoCauMuonTao.Name = "lbTongSoCauMuonTao";
             this.lbTongSoCauMuonTao.Size = new System.Drawing.Size(16, 17);
@@ -741,6 +743,7 @@ namespace QLDETHI
             // 
             // lbTongSoCauDaChon
             // 
+            this.lbTongSoCauDaChon.AutoSize = true;
             this.lbTongSoCauDaChon.Location = new System.Drawing.Point(1070, 34);
             this.lbTongSoCauDaChon.Name = "lbTongSoCauDaChon";
             this.lbTongSoCauDaChon.Size = new System.Drawing.Size(16, 17);
@@ -857,6 +860,7 @@ namespace QLDETHI
             this.TenThoiGianThi,
             this.TenMonHoc,
             this.TenKhoi,
+            this.NgayCapNhat,
             this.TenLop});
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
@@ -951,6 +955,16 @@ namespace QLDETHI
             this.TenKhoi.VisibleIndex = 8;
             this.TenKhoi.Width = 94;
             // 
+            // NgayCapNhat
+            // 
+            this.NgayCapNhat.Caption = "Ngày cập nhật";
+            this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MinWidth = 25;
+            this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.Visible = true;
+            this.NgayCapNhat.VisibleIndex = 9;
+            this.NgayCapNhat.Width = 94;
+            // 
             // TenLop
             // 
             this.TenLop.Caption = "Lớp";
@@ -958,7 +972,7 @@ namespace QLDETHI
             this.TenLop.MinWidth = 25;
             this.TenLop.Name = "TenLop";
             this.TenLop.Visible = true;
-            this.TenLop.VisibleIndex = 9;
+            this.TenLop.VisibleIndex = 10;
             this.TenLop.Width = 94;
             // 
             // fAddDeThi
@@ -1083,5 +1097,6 @@ namespace QLDETHI
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbxThoiGianThi;
         private System.Windows.Forms.Label label15;
+        private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
     }
 }

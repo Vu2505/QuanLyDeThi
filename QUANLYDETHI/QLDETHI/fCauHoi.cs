@@ -58,10 +58,6 @@ namespace QLDETHI
             _showHide(true);
             loadData();
             loadCombo();
-
-            // Tải danh sách Môn Học vào ComboBox MonHoc
-            loadMonHoc();
-
         }
 
         void loadData()
@@ -79,15 +75,7 @@ namespace QLDETHI
                 gridCauHoi.DataSource = _cauhoi.getListFull(IdTK);
                 gvDanhSach.OptionsBehavior.Editable = false;
             }
-
         }
-
-
-        void loadMonHoc()
-        {
-            
-        }
-
         void loadCombo()
         {
             if (user.LoaiTaiKhoan == 1)
@@ -123,9 +111,6 @@ namespace QLDETHI
             cbxTinhTrang.DisplayMember = "TenTinhTrang";
             cbxTinhTrang.ValueMember = "MaTinhTrang";
         }
-
-
-
 
         void _showHide(bool kt)
         {
@@ -184,7 +169,6 @@ namespace QLDETHI
                     cbxMonHoc1.DisplayMember = "TenMonHoc";
                     cbxMonHoc1.ValueMember = "MaMonHoc";
                 }
-                
             }
             catch (InvalidCastException ex)
             {
@@ -195,7 +179,6 @@ namespace QLDETHI
 
         private void cbxMonHoc1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
                 cbxChuong.Controls.Clear();
@@ -231,7 +214,6 @@ namespace QLDETHI
                 //MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
-
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -365,12 +347,11 @@ namespace QLDETHI
                 k.DoKho = int.Parse(cbxDoKho.SelectedValue.ToString());
                 k.TrangThai = int.Parse(cbxTinhTrang.SelectedValue.ToString());
                 k.GhiChu = txtGhiChu.Text;
+                k.NgayCapNhat = DateTime.UtcNow;
                 _cauhoi.Add(k);
             }
             else
             {
-                
-                
                 var k = _cauhoi.getItem(_id);
                 if (k != null)
                 {
@@ -393,7 +374,6 @@ namespace QLDETHI
                     //string defaultImagePath = "QUANLYDETHI/QLYDETHI/image/image-preview-icon-picture-placeholder-vector-31284806.jpg";
                     k.HinhAnh = ImageToBase64(picHinhAnh.Image, picHinhAnh.Image.RawFormat);
                 }
-
                 k.MaKhoi = int.Parse(cbxKhoi.SelectedValue.ToString());
                 k.MaMonHoc = int.Parse(cbxMonHoc1.SelectedValue.ToString());
                 k.MaChuong = int.Parse(cbxChuong.SelectedValue.ToString());
@@ -480,7 +460,6 @@ namespace QLDETHI
                 txtGhiChu.Text= k.GhiChu;
                 _cauhoi.Update(k);
             }
-
         }
 
         public byte[] ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat fomat)

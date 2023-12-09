@@ -15,6 +15,7 @@ using DevExpress.XtraReports.UI;
 using DethiLayer.DTO;
 using DevExpress.XtraGrid;
 using QLDETHI.Luutru;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLDETHI
 {
@@ -35,6 +36,70 @@ namespace QLDETHI
         int _id;
         // Lưu mã đề đã chọn
         private int? selectedMaDe;
+        DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
+
+        //public void UpdateGridDeThiWithMaDe(int maDeThi)
+        //{
+        //    // Cập nhật GridView và GridControl với MaDeThi
+        //    int rowHandle = gvDanhSach.LocateByValue("MaDe", maDeThi, null);
+
+        //    if (rowHandle != GridControl.InvalidRowHandle)
+        //    {
+        //        gvDanhSach.FocusedRowHandle = rowHandle;
+        //    }
+        //}
+
+        //public void UpdateGridDeThiWithMaDe1(List<int> danhSachMaDeThi)
+        //{
+        //    //// Cập nhật GridView và GridControl với danh sách MaDeThi
+        //    //foreach (int maDeThi in danhSachMaDeThi)
+        //    //{
+        //    //    // Kiểm tra xem đề thi có mã nằm trong danh sách không
+        //    //    if (db.DeThis.Any(d => d.MaDe == maDeThi))
+        //    //    {
+        //    //        int rowHandle = gvDanhSach.LocateByValue("MaDe", maDeThi, null);
+
+        //    //        if (rowHandle != GridControl.InvalidRowHandle)
+        //    //        {
+        //    //            gvDanhSach.FocusedRowHandle = rowHandle;
+        //    //        }
+        //    //    }
+        //    //}
+
+        //    // Cập nhật GridView và GridControl với danh sách MaDeThi
+        //    if (DanhSachMaDeThiMoiTao != null)
+        //    {
+        //        // Lọc dữ liệu để chỉ cập nhật cho các đề mới tạo
+        //        var dsDeThiMoiTao = _lstDTDTO.Where(dt => _danhSachMaDeThiMoiTao.Contains((int)dt.MaDe)).ToList();
+
+        //        gridDeThi.DataSource = dsDeThiMoiTao;
+        //        gvDanhSach.OptionsBehavior.Editable = false;
+        //    }
+        //}
+
+        //private List<int> _danhSachMaDeThiMoiTao;
+
+        //// Property để nhận danh sách đề mới tạo
+        //public List<int> DanhSachMaDeThiMoiTao
+        //{
+        //    get { return _danhSachMaDeThiMoiTao; }
+        //    set { _danhSachMaDeThiMoiTao = value; }
+        //}
+
+        //// ... (các phần khác của form)
+
+        //private void UpdateGridDeThi1()
+        //{
+        //    if (_danhSachMaDeThiMoiTao != null)
+        //    {
+        //        // Lọc dữ liệu để chỉ hiển thị các đề mới tạo
+        //        var dsDeThiMoiTao = _lstDTDTO.Where(dt => _danhSachMaDeThiMoiTao.Contains((int)dt.MaDe)).ToList();
+
+        //        gridDeThi.DataSource = dsDeThiMoiTao;
+        //        gvDanhSach.OptionsBehavior.Editable = false;
+        //    }
+        //}
+
 
         private void fNganHangDeThi_Load(object sender, EventArgs e)
         {
@@ -65,6 +130,7 @@ namespace QLDETHI
 
                 if (_lstDTDTOTK != null && _lstDTDTOTK.Any())
                 {
+
                     gridDeThi.DataSource = _lstDTDTOTK;
                     gvDanhSach.OptionsBehavior.Editable = false;
                 }
@@ -74,6 +140,7 @@ namespace QLDETHI
                 }
             }
         }
+
         private void barPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (selectedMaDe.HasValue) // Kiểm tra xem đã chọn mã đề hay chưa

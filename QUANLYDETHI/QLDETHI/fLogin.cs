@@ -119,7 +119,33 @@ namespace QLDETHI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Bạn có thực sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel)
+                == DialogResult.OK)
+            {
+                // Người dùng đã chọn OK, thoát chương trình
+                Application.Exit();
+            }
+            else
+            {
+                // Người dùng đã chọn Cancel, không thoát chương trình
+                cancel = true;
+            }
+        }
+
+        private bool cancel = false;
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có thực sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel)
+                == DialogResult.OK)
+            {
+                // Người dùng đã chọn OK, thoát chương trình
+                Application.Exit();
+            }
+            else
+            {
+                // Người dùng đã chọn Cancel, không thoát chương trình
+                cancel = true;
+            }
         }
 
 

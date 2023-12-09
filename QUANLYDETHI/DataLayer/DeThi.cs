@@ -25,5 +25,6 @@ namespace DataLayer
         public Nullable<int> MaGiangVien { get; set; }
         public Nullable<int> MaHocKy { get; set; }
         public Nullable<int> MaThoiGianThi { get; set; }
+        public Nullable<System.DateTime> NgayCapNhat { get; set; }
     }
 }

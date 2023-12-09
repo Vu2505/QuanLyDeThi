@@ -30,5 +30,6 @@ namespace DataLayer
         public Nullable<int> TrangThai { get; set; }
         public string GhiChu { get; set; }
         public Nullable<int> MaGiangVien { get; set; }
+        public Nullable<System.DateTime> NgayCapNhat { get; set; }
     }
 }

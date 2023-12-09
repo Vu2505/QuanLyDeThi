@@ -85,6 +85,7 @@ namespace QLDETHI
                     newDeThi.MaKhoi = originalDeThi[i].MaKhoi;
                     newDeThi.MaLop = originalDeThi[i].MaLop;
                     newDeThi.MaGiangVien = IdTK;
+                    newDeThi.NgayCapNhat = DateTime.UtcNow;
 
                     newDeThi.SoCauHoi = originalDeThi.Count;
 
@@ -140,7 +141,8 @@ namespace QLDETHI
                     MaMonHoc = newDeThi.MaMonHoc,
                     MaKhoi = newDeThi.MaKhoi,
                     MaLop = newDeThi.MaLop,
-                    MaGiangVien = newDeThi.MaGiangVien
+                    MaGiangVien = newDeThi.MaGiangVien,
+                    NgayCapNhat = newDeThi.NgayCapNhat
                 };
                 db.DeThis.Add(deThiEntity);
                 db.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu

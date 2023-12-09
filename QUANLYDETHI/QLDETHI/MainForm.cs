@@ -157,5 +157,15 @@ namespace QLDETHI
         {
             OpenForm(typeof(fThongTinCaNhan));
         }
+
+        private void barHocKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fHocKy));
+        }
+
+        private void barDoKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fDoKho));
+        }
     }
 }

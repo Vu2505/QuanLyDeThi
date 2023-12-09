@@ -56,6 +56,7 @@ namespace DethiLayer
                 _k.DoKho = k.MaKhoi;
                 _k.TrangThai = k.TrangThai;
                 _k.GhiChu = k.GhiChu;
+                _k.NgayCapNhat = k.NgayCapNhat;
                 db.SaveChanges();
                 return k;
             }
@@ -160,7 +161,9 @@ namespace DethiLayer
 
                 var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TrangThai);
                 ctDTO.TenTinhTrang = tt.TenTinhTrang;
+
                 ctDTO.GhiChu = item.GhiChu;
+                ctDTO.NgayCapNhat = item.NgayCapNhat;
 
                 lstCHDTO.Add(ctDTO);
             }
@@ -218,6 +221,7 @@ namespace DethiLayer
                 var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TrangThai);
                 ctDTO.TenTinhTrang = tt.TenTinhTrang;
                 ctDTO.GhiChu = item.GhiChu;
+                ctDTO.NgayCapNhat = item.NgayCapNhat;
 
                 lstCHDTO.Add(ctDTO);
             }
@@ -271,6 +275,8 @@ namespace DethiLayer
                 ctDTO.TrangThai = item.TrangThai;
                 var tt = db.TinhTrangs.FirstOrDefault(b => b.MaTinhTrang == item.TrangThai);
                 ctDTO.TenTinhTrang = tt.TenTinhTrang;
+
+                ctDTO.NgayCapNhat = item.NgayCapNhat;
 
                 ctDTO.GhiChu = item.GhiChu;
 

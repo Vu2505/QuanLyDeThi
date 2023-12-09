@@ -99,6 +99,7 @@ namespace DethiLayer
                 dtDTO.SoCauHoi = mk.SoCauHoi;
                 dtDTO.TenDeThi = mk.TenDeThi;
                 dtDTO.MaGiangVien = mk.MaGiangVien;
+                dtDTO.NgayCapNhat = mk.NgayCapNhat;
 
                 dtDTO.MaThoiGianThi = mk.MaThoiGianThi;
                 var thgian = db.ThoiGianThis.FirstOrDefault(b => b.MaThoiGianThi == mk.MaThoiGianThi);
@@ -250,6 +251,7 @@ namespace DethiLayer
                 dtDTO.SoCauHoi = mk.SoCauHoi;
                 dtDTO.TenDeThi = mk.TenDeThi;
                 dtDTO.MaGiangVien = mk.MaGiangVien;
+                dtDTO.NgayCapNhat = mk.NgayCapNhat;
 
                 dtDTO.MaThoiGianThi = mk.MaThoiGianThi;
                 var thgian = db.ThoiGianThis.FirstOrDefault(b => b.MaThoiGianThi == mk.MaThoiGianThi);

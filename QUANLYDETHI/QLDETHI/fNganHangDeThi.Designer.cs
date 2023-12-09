@@ -33,20 +33,17 @@ namespace QLDETHI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fNganHangDeThi));
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barThem = new DevExpress.XtraBars.BarButtonItem();
-            this.barXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.barSua = new DevExpress.XtraBars.BarButtonItem();
-            this.barLuu = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barPrint = new DevExpress.XtraBars.BarButtonItem();
             this.barDaoDe = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.barThem = new DevExpress.XtraBars.BarButtonItem();
+            this.barSua = new DevExpress.XtraBars.BarButtonItem();
+            this.barLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.gridDeThi = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +63,9 @@ namespace QLDETHI
             this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Print = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -84,16 +83,14 @@ namespace QLDETHI
             this.barManager2.Form = this;
             this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barThem,
-            this.barXoa,
             this.barSua,
             this.barLuu,
             this.barButtonItem6,
             this.barButtonItem7,
-            this.barPrint,
             this.barDaoDe,
-            this.barButtonItem10});
+            this.Print});
             this.barManager2.MainMenu = this.bar2;
-            this.barManager2.MaxItemId = 10;
+            this.barManager2.MaxItemId = 11;
             this.barManager2.StatusBar = this.bar1;
             // 
             // bar2
@@ -103,68 +100,11 @@ namespace QLDETHI
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barXoa, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSua, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barLuu, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem6, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem7, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barPrint, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barDaoDe, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem10, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.Print)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
-            // 
-            // barThem
-            // 
-            this.barThem.Caption = "Thêm";
-            this.barThem.Id = 0;
-            this.barThem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barThem.ImageOptions.SvgImage")));
-            this.barThem.Name = "barThem";
-            // 
-            // barXoa
-            // 
-            this.barXoa.Caption = "Xóa";
-            this.barXoa.Id = 1;
-            this.barXoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barXoa.ImageOptions.SvgImage")));
-            this.barXoa.Name = "barXoa";
-            // 
-            // barSua
-            // 
-            this.barSua.Caption = "Sửa";
-            this.barSua.Id = 2;
-            this.barSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSua.ImageOptions.SvgImage")));
-            this.barSua.Name = "barSua";
-            // 
-            // barLuu
-            // 
-            this.barLuu.Caption = "Lưu";
-            this.barLuu.Id = 3;
-            this.barLuu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLuu.ImageOptions.SvgImage")));
-            this.barLuu.Name = "barLuu";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Hủy";
-            this.barButtonItem6.Id = 4;
-            this.barButtonItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "Đóng";
-            this.barButtonItem7.Id = 5;
-            this.barButtonItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem7.ImageOptions.SvgImage")));
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barPrint
-            // 
-            this.barPrint.Caption = "Print";
-            this.barPrint.Id = 6;
-            this.barPrint.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barPrint.ImageOptions.SvgImage")));
-            this.barPrint.Name = "barPrint";
-            this.barPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrint_ItemClick);
             // 
             // barDaoDe
             // 
@@ -173,13 +113,6 @@ namespace QLDETHI
             this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
             this.barDaoDe.Name = "barDaoDe";
             this.barDaoDe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDaoDe_ItemClick);
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "Export Word";
-            this.barButtonItem10.Id = 8;
-            this.barButtonItem10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem10.ImageOptions.SvgImage")));
-            this.barButtonItem10.Name = "barButtonItem10";
             // 
             // bar1
             // 
@@ -229,6 +162,41 @@ namespace QLDETHI
             this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControl4.Size = new System.Drawing.Size(0, 672);
             // 
+            // barThem
+            // 
+            this.barThem.Caption = "Thêm";
+            this.barThem.Id = 0;
+            this.barThem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barThem.ImageOptions.SvgImage")));
+            this.barThem.Name = "barThem";
+            // 
+            // barSua
+            // 
+            this.barSua.Caption = "Sửa";
+            this.barSua.Id = 2;
+            this.barSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSua.ImageOptions.SvgImage")));
+            this.barSua.Name = "barSua";
+            // 
+            // barLuu
+            // 
+            this.barLuu.Caption = "Lưu";
+            this.barLuu.Id = 3;
+            this.barLuu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLuu.ImageOptions.SvgImage")));
+            this.barLuu.Name = "barLuu";
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Hủy";
+            this.barButtonItem6.Id = 4;
+            this.barButtonItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
+            this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Đóng";
+            this.barButtonItem7.Id = 5;
+            this.barButtonItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem7.ImageOptions.SvgImage")));
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
             // gridDeThi
             // 
             this.gridDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -263,6 +231,7 @@ namespace QLDETHI
             this.TenNamHoc,
             this.TenDeThi,
             this.TenHocKy,
+            this.NgayCapNhat,
             this.TenThoiGianThi});
             this.gvDanhSach.DetailHeight = 1331;
             this.gvDanhSach.GridControl = this.gridDeThi;
@@ -288,17 +257,18 @@ namespace QLDETHI
             this.MaDe.Name = "MaDe";
             this.MaDe.Visible = true;
             this.MaDe.VisibleIndex = 1;
-            this.MaDe.Width = 154;
+            this.MaDe.Width = 116;
             // 
             // MaHienThi
             // 
             this.MaHienThi.Caption = "Mã Hiển Thị";
             this.MaHienThi.FieldName = "MaHienThi";
-            this.MaHienThi.MinWidth = 95;
+            this.MaHienThi.MaxWidth = 50;
+            this.MaHienThi.MinWidth = 50;
             this.MaHienThi.Name = "MaHienThi";
             this.MaHienThi.Visible = true;
             this.MaHienThi.VisibleIndex = 2;
-            this.MaHienThi.Width = 154;
+            this.MaHienThi.Width = 50;
             // 
             // MaCauHoi
             // 
@@ -308,7 +278,7 @@ namespace QLDETHI
             this.MaCauHoi.Name = "MaCauHoi";
             this.MaCauHoi.Visible = true;
             this.MaCauHoi.VisibleIndex = 3;
-            this.MaCauHoi.Width = 154;
+            this.MaCauHoi.Width = 119;
             // 
             // TenMonHoc
             // 
@@ -318,7 +288,7 @@ namespace QLDETHI
             this.TenMonHoc.Name = "TenMonHoc";
             this.TenMonHoc.Visible = true;
             this.TenMonHoc.VisibleIndex = 4;
-            this.TenMonHoc.Width = 154;
+            this.TenMonHoc.Width = 119;
             // 
             // TenKhoi
             // 
@@ -328,7 +298,7 @@ namespace QLDETHI
             this.TenKhoi.Name = "TenKhoi";
             this.TenKhoi.Visible = true;
             this.TenKhoi.VisibleIndex = 5;
-            this.TenKhoi.Width = 154;
+            this.TenKhoi.Width = 119;
             // 
             // ThuTuCauHoi
             // 
@@ -349,7 +319,7 @@ namespace QLDETHI
             this.NDCH.Name = "NDCH";
             this.NDCH.Visible = true;
             this.NDCH.VisibleIndex = 7;
-            this.NDCH.Width = 159;
+            this.NDCH.Width = 123;
             // 
             // A
             // 
@@ -359,7 +329,7 @@ namespace QLDETHI
             this.A.Name = "A";
             this.A.Visible = true;
             this.A.VisibleIndex = 8;
-            this.A.Width = 159;
+            this.A.Width = 123;
             // 
             // B
             // 
@@ -369,7 +339,7 @@ namespace QLDETHI
             this.B.Name = "B";
             this.B.Visible = true;
             this.B.VisibleIndex = 9;
-            this.B.Width = 159;
+            this.B.Width = 123;
             // 
             // C
             // 
@@ -379,7 +349,7 @@ namespace QLDETHI
             this.C.Name = "C";
             this.C.Visible = true;
             this.C.VisibleIndex = 10;
-            this.C.Width = 159;
+            this.C.Width = 123;
             // 
             // D
             // 
@@ -389,7 +359,7 @@ namespace QLDETHI
             this.D.Name = "D";
             this.D.Visible = true;
             this.D.VisibleIndex = 11;
-            this.D.Width = 159;
+            this.D.Width = 123;
             // 
             // DapAnDung
             // 
@@ -399,7 +369,7 @@ namespace QLDETHI
             this.DapAnDung.Name = "DapAnDung";
             this.DapAnDung.Visible = true;
             this.DapAnDung.VisibleIndex = 12;
-            this.DapAnDung.Width = 159;
+            this.DapAnDung.Width = 123;
             // 
             // HinhAnh
             // 
@@ -409,7 +379,7 @@ namespace QLDETHI
             this.HinhAnh.Name = "HinhAnh";
             this.HinhAnh.Visible = true;
             this.HinhAnh.VisibleIndex = 13;
-            this.HinhAnh.Width = 159;
+            this.HinhAnh.Width = 123;
             // 
             // TenNamHoc
             // 
@@ -419,7 +389,7 @@ namespace QLDETHI
             this.TenNamHoc.Name = "TenNamHoc";
             this.TenNamHoc.Visible = true;
             this.TenNamHoc.VisibleIndex = 14;
-            this.TenNamHoc.Width = 159;
+            this.TenNamHoc.Width = 123;
             // 
             // TenDeThi
             // 
@@ -429,7 +399,7 @@ namespace QLDETHI
             this.TenDeThi.Name = "TenDeThi";
             this.TenDeThi.Visible = true;
             this.TenDeThi.VisibleIndex = 15;
-            this.TenDeThi.Width = 141;
+            this.TenDeThi.Width = 108;
             // 
             // TenHocKy
             // 
@@ -439,7 +409,18 @@ namespace QLDETHI
             this.TenHocKy.Name = "TenHocKy";
             this.TenHocKy.Visible = true;
             this.TenHocKy.VisibleIndex = 16;
-            this.TenHocKy.Width = 94;
+            this.TenHocKy.Width = 72;
+            // 
+            // NgayCapNhat
+            // 
+            this.NgayCapNhat.Caption = "Ngày cập nhật";
+            this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MaxWidth = 95;
+            this.NgayCapNhat.MinWidth = 95;
+            this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.Visible = true;
+            this.NgayCapNhat.VisibleIndex = 17;
+            this.NgayCapNhat.Width = 95;
             // 
             // TenThoiGianThi
             // 
@@ -448,8 +429,15 @@ namespace QLDETHI
             this.TenThoiGianThi.MinWidth = 39;
             this.TenThoiGianThi.Name = "TenThoiGianThi";
             this.TenThoiGianThi.Visible = true;
-            this.TenThoiGianThi.VisibleIndex = 17;
-            this.TenThoiGianThi.Width = 112;
+            this.TenThoiGianThi.VisibleIndex = 18;
+            this.TenThoiGianThi.Width = 61;
+            // 
+            // Print
+            // 
+            this.Print.Caption = "Print";
+            this.Print.Id = 10;
+            this.Print.Name = "Print";
+            this.Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrint_ItemClick);
             // 
             // fNganHangDeThi
             // 
@@ -477,14 +465,11 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarManager barManager2;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem barThem;
-        private DevExpress.XtraBars.BarButtonItem barXoa;
         private DevExpress.XtraBars.BarButtonItem barSua;
         private DevExpress.XtraBars.BarButtonItem barLuu;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barPrint;
         private DevExpress.XtraBars.BarButtonItem barDaoDe;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.BarDockControl barDockControl2;
@@ -510,5 +495,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn TenThoiGianThi;
         public DevExpress.XtraGrid.GridControl gridDeThi;
         private DevExpress.XtraGrid.Columns.GridColumn TenHocKy;
+        private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
+        private DevExpress.XtraBars.BarButtonItem Print;
     }
 }

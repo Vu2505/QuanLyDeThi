@@ -551,7 +551,8 @@ namespace QLDETHI
                 MaLop = (int)cbxLop.SelectedValue, // Mã lớp
                 MaHocKy = (int)cbxHocKy.SelectedValue,
                 MaGiangVien = IdTK, // Thay bằng giá trị thích hợp
-            };
+                NgayCapNhat = DateTime.UtcNow
+        };
 
             // Thêm đề thi vào cơ sở dữ liệu
             db.DeThis.Add(newDeThi);
@@ -595,6 +596,20 @@ namespace QLDETHI
             {
                 gvDanhSach.UnselectRow(i);
             }
+
+
+            //// Hiển thị thông báo và hỏi người dùng
+            //DialogResult dialogResult = MessageBox.Show($"Tạo thành công đề {newDeThi.MaHienThi} gồm {newDeThi.SoCauHoi} câu. Bạn có muốn xem đề thi không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    // Chuyển giá trị MaDeThi đến form fNganHangDeThi
+            //    fNganHangDeThi fNganHangDeThiForm = new fNganHangDeThi();
+            //    fNganHangDeThiForm.UpdateGridDeThiWithMaDe(maDeThi);
+
+            //    // Mở form fNganHangDeThi
+            //    fNganHangDeThiForm.Show();
+            //}
 
         }
 

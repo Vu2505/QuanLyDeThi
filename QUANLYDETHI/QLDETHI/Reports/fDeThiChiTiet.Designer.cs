@@ -269,11 +269,11 @@ namespace QLDETHI.Reports
             // xrLabel8
             // 
             this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(260.6286F, 78.44444F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(244.6288F, 78.44444F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(377.3712F, 23.00001F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(393.3712F, 23.00001F);
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "Thời gian làm bài: [TenThoiGianThi] (Không kể thời gian phát đề)";
@@ -315,7 +315,7 @@ namespace QLDETHI.Reports
             this.xrLabel3.SizeF = new System.Drawing.SizeF(377.3713F, 23F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "ĐỀ KIỂM TRA [TenHocKy]";
+            this.xrLabel3.Text = "[TenDeThi] [TenHocKy]";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel7

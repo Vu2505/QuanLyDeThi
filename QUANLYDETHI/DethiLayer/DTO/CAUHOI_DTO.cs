@@ -30,5 +30,6 @@ namespace DethiLayer.DTO
         public string TenTinhTrang { get; set; }
         public string GhiChu { get; set; }
         public int? MaGiangVien { get; set; }
+        public DateTime? NgayCapNhat { get; set; }
     }
 }

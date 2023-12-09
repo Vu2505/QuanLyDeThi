@@ -67,22 +67,22 @@ namespace QLDETHI
             this.btnHinhAnh = new DevExpress.XtraEditors.SimpleButton();
             this.picHinhAnh = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cbxMonHoc1 = new System.Windows.Forms.ComboBox();
-            this.cbxChuong = new System.Windows.Forms.ComboBox();
-            this.cbxBai = new System.Windows.Forms.ComboBox();
             this.cbxTinhTrang = new System.Windows.Forms.ComboBox();
-            this.cbxDoKho = new System.Windows.Forms.ComboBox();
-            this.cbxKhoi = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.cbxDapAnDung = new System.Windows.Forms.ComboBox();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.cbxMonHoc1 = new System.Windows.Forms.ComboBox();
+            this.cbxChuong = new System.Windows.Forms.ComboBox();
+            this.cbxBai = new System.Windows.Forms.ComboBox();
+            this.cbxDoKho = new System.Windows.Forms.ComboBox();
+            this.cbxKhoi = new System.Windows.Forms.ComboBox();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.cbxDapAnDung = new System.Windows.Forms.ComboBox();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtD = new System.Windows.Forms.TextBox();
             this.txtC = new System.Windows.Forms.TextBox();
             this.txtB = new System.Windows.Forms.TextBox();
@@ -94,6 +94,7 @@ namespace QLDETHI
             this.txtNDCH = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCauHoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -133,6 +134,7 @@ namespace QLDETHI
             this.TenBai,
             this.TenDoKho,
             this.TenTinhTrang,
+            this.NgayCapNhat,
             this.GhiChu});
             this.gvDanhSach.GridControl = this.gridCauHoi;
             this.gvDanhSach.Name = "gvDanhSach";
@@ -276,7 +278,7 @@ namespace QLDETHI
             this.GhiChu.MinWidth = 25;
             this.GhiChu.Name = "GhiChu";
             this.GhiChu.Visible = true;
-            this.GhiChu.VisibleIndex = 14;
+            this.GhiChu.VisibleIndex = 15;
             this.GhiChu.Width = 93;
             // 
             // gridCauHoi
@@ -460,7 +462,7 @@ namespace QLDETHI
             // btnHinhAnh
             // 
             this.btnHinhAnh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHinhAnh.ImageOptions.SvgImage")));
-            this.btnHinhAnh.Location = new System.Drawing.Point(29, 212);
+            this.btnHinhAnh.Location = new System.Drawing.Point(76, 212);
             this.btnHinhAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHinhAnh.Name = "btnHinhAnh";
             this.btnHinhAnh.Size = new System.Drawing.Size(148, 47);
@@ -471,7 +473,7 @@ namespace QLDETHI
             // picHinhAnh
             // 
             this.picHinhAnh.Image = global::QLDETHI.Properties.Resources.image_preview_icon_picture_placeholder_vector_312848061;
-            this.picHinhAnh.Location = new System.Drawing.Point(12, 18);
+            this.picHinhAnh.Location = new System.Drawing.Point(59, 18);
             this.picHinhAnh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picHinhAnh.Name = "picHinhAnh";
             this.picHinhAnh.Size = new System.Drawing.Size(183, 188);
@@ -489,22 +491,22 @@ namespace QLDETHI
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.cbxMonHoc1);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxChuong);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxBai);
             this.splitContainer1.Panel1.Controls.Add(this.cbxTinhTrang);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxDoKho);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxKhoi);
             this.splitContainer1.Panel1.Controls.Add(this.txtGhiChu);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl14);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl11);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxDapAnDung);
+            this.splitContainer1.Panel1.Controls.Add(this.labelControl7);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxMonHoc1);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxChuong);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxBai);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxDoKho);
+            this.splitContainer1.Panel1.Controls.Add(this.cbxKhoi);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl12);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl13);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl8);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl9);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl10);
-            this.splitContainer1.Panel1.Controls.Add(this.cbxDapAnDung);
-            this.splitContainer1.Panel1.Controls.Add(this.labelControl7);
             this.splitContainer1.Panel1.Controls.Add(this.txtD);
             this.splitContainer1.Panel1.Controls.Add(this.txtC);
             this.splitContainer1.Panel1.Controls.Add(this.txtB);
@@ -524,6 +526,70 @@ namespace QLDETHI
             this.splitContainer1.Size = new System.Drawing.Size(1924, 672);
             this.splitContainer1.SplitterDistance = 271;
             this.splitContainer1.TabIndex = 10;
+            // 
+            // cbxTinhTrang
+            // 
+            this.cbxTinhTrang.FormattingEnabled = true;
+            this.cbxTinhTrang.Location = new System.Drawing.Point(1643, 137);
+            this.cbxTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxTinhTrang.Name = "cbxTinhTrang";
+            this.cbxTinhTrang.Size = new System.Drawing.Size(225, 24);
+            this.cbxTinhTrang.TabIndex = 48;
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.Location = new System.Drawing.Point(1643, 184);
+            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(225, 22);
+            this.txtGhiChu.TabIndex = 47;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Location = new System.Drawing.Point(1497, 185);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(48, 18);
+            this.labelControl14.TabIndex = 46;
+            this.labelControl14.Text = "Ghi chú";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(1497, 143);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(72, 18);
+            this.labelControl11.TabIndex = 45;
+            this.labelControl11.Text = "Tình Trạng";
+            // 
+            // cbxDapAnDung
+            // 
+            this.cbxDapAnDung.FormattingEnabled = true;
+            this.cbxDapAnDung.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.cbxDapAnDung.Location = new System.Drawing.Point(1643, 91);
+            this.cbxDapAnDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxDapAnDung.Name = "cbxDapAnDung";
+            this.cbxDapAnDung.Size = new System.Drawing.Size(225, 24);
+            this.cbxDapAnDung.TabIndex = 44;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(1495, 97);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(85, 18);
+            this.labelControl7.TabIndex = 43;
+            this.labelControl7.Text = "Đáp án đúng";
             // 
             // cbxMonHoc1
             // 
@@ -554,15 +620,6 @@ namespace QLDETHI
             this.cbxBai.Size = new System.Drawing.Size(281, 24);
             this.cbxBai.TabIndex = 40;
             // 
-            // cbxTinhTrang
-            // 
-            this.cbxTinhTrang.FormattingEnabled = true;
-            this.cbxTinhTrang.Location = new System.Drawing.Point(1029, 225);
-            this.cbxTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxTinhTrang.Name = "cbxTinhTrang";
-            this.cbxTinhTrang.Size = new System.Drawing.Size(225, 24);
-            this.cbxTinhTrang.TabIndex = 39;
-            // 
             // cbxDoKho
             // 
             this.cbxDoKho.FormattingEnabled = true;
@@ -581,36 +638,6 @@ namespace QLDETHI
             this.cbxKhoi.Size = new System.Drawing.Size(281, 24);
             this.cbxKhoi.TabIndex = 34;
             this.cbxKhoi.SelectedIndexChanged += new System.EventHandler(this.cbxKhoi_SelectedIndexChanged);
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.Location = new System.Drawing.Point(1029, 186);
-            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(225, 22);
-            this.txtGhiChu.TabIndex = 33;
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(881, 194);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(48, 18);
-            this.labelControl14.TabIndex = 32;
-            this.labelControl14.Text = "Ghi chú";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(883, 231);
-            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(72, 18);
-            this.labelControl11.TabIndex = 28;
-            this.labelControl11.Text = "Tình Trạng";
             // 
             // labelControl12
             // 
@@ -667,34 +694,9 @@ namespace QLDETHI
             this.labelControl10.TabIndex = 20;
             this.labelControl10.Text = "Mã Khối";
             // 
-            // cbxDapAnDung
-            // 
-            this.cbxDapAnDung.FormattingEnabled = true;
-            this.cbxDapAnDung.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D"});
-            this.cbxDapAnDung.Location = new System.Drawing.Point(1029, 142);
-            this.cbxDapAnDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxDapAnDung.Name = "cbxDapAnDung";
-            this.cbxDapAnDung.Size = new System.Drawing.Size(225, 24);
-            this.cbxDapAnDung.TabIndex = 19;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(881, 148);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(85, 18);
-            this.labelControl7.TabIndex = 18;
-            this.labelControl7.Text = "Đáp án đúng";
-            // 
             // txtD
             // 
-            this.txtD.Location = new System.Drawing.Point(1467, 225);
+            this.txtD.Location = new System.Drawing.Point(1029, 220);
             this.txtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(401, 22);
@@ -702,7 +704,7 @@ namespace QLDETHI
             // 
             // txtC
             // 
-            this.txtC.Location = new System.Drawing.Point(1467, 186);
+            this.txtC.Location = new System.Drawing.Point(1029, 181);
             this.txtC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(401, 22);
@@ -710,7 +712,7 @@ namespace QLDETHI
             // 
             // txtB
             // 
-            this.txtB.Location = new System.Drawing.Point(1467, 144);
+            this.txtB.Location = new System.Drawing.Point(1029, 139);
             this.txtB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(401, 22);
@@ -718,7 +720,7 @@ namespace QLDETHI
             // 
             // txtA
             // 
-            this.txtA.Location = new System.Drawing.Point(1467, 98);
+            this.txtA.Location = new System.Drawing.Point(1029, 93);
             this.txtA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(401, 22);
@@ -728,7 +730,7 @@ namespace QLDETHI
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(1327, 229);
+            this.labelControl6.Location = new System.Drawing.Point(883, 224);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(62, 18);
@@ -739,7 +741,7 @@ namespace QLDETHI
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(1327, 186);
+            this.labelControl5.Location = new System.Drawing.Point(883, 181);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(61, 18);
@@ -750,7 +752,7 @@ namespace QLDETHI
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(1327, 144);
+            this.labelControl4.Location = new System.Drawing.Point(883, 139);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(61, 18);
@@ -761,7 +763,7 @@ namespace QLDETHI
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(1327, 98);
+            this.labelControl3.Location = new System.Drawing.Point(883, 93);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(62, 18);
@@ -795,6 +797,16 @@ namespace QLDETHI
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // NgayCapNhat
+            // 
+            this.NgayCapNhat.Caption = "Ngày cập nhật";
+            this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MinWidth = 25;
+            this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.Visible = true;
+            this.NgayCapNhat.VisibleIndex = 14;
+            this.NgayCapNhat.Width = 94;
             // 
             // fCauHoi
             // 
@@ -852,12 +864,10 @@ namespace QLDETHI
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.TextBox txtNDCH;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
         private System.Windows.Forms.TextBox txtD;
         private System.Windows.Forms.TextBox txtC;
         private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.TextBox txtA;
-        private System.Windows.Forms.ComboBox cbxDapAnDung;
         private DevExpress.XtraGrid.Columns.GridColumn A;
         private DevExpress.XtraGrid.Columns.GridColumn B;
         private DevExpress.XtraGrid.Columns.GridColumn C;
@@ -871,12 +881,8 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
         private DevExpress.XtraGrid.Columns.GridColumn TenTinhTrang;
         private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
-        private System.Windows.Forms.ComboBox cbxTinhTrang;
         private System.Windows.Forms.ComboBox cbxDoKho;
         private System.Windows.Forms.ComboBox cbxKhoi;
-        private System.Windows.Forms.TextBox txtGhiChu;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -888,5 +894,12 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarButtonItem btnPdf;
         private DevExpress.XtraBars.BarButtonItem btnWord;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private System.Windows.Forms.ComboBox cbxTinhTrang;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private System.Windows.Forms.ComboBox cbxDapAnDung;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
     }
 }

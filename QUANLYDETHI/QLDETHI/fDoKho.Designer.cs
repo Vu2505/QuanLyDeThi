@@ -1,7 +1,7 @@
 ﻿
 namespace QLDETHI
 {
-    partial class fKhoi
+    partial class fDoKho
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,14 @@ namespace QLDETHI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fKhoi));
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDoKho));
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtTen = new System.Windows.Forms.TextBox();
+            this.gridDoKho = new DevExpress.XtraGrid.GridControl();
+            this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.MaDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -45,29 +51,94 @@ namespace QLDETHI
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.txtTen = new System.Windows.Forms.TextBox();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.gridKhoi = new DevExpress.XtraGrid.GridControl();
-            this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridKhoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDoKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // barDockControlRight
+            // labelControl1
             // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(800, 30);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 400);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(120, 55);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(46, 18);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Độ khó";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtTen);
+            this.splitContainer1.Panel1.Controls.Add(this.labelControl1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.gridDoKho);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 400);
+            this.splitContainer1.SplitterDistance = 120;
+            this.splitContainer1.TabIndex = 14;
+            // 
+            // txtTen
+            // 
+            this.txtTen.Location = new System.Drawing.Point(198, 55);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(282, 22);
+            this.txtTen.TabIndex = 1;
+            // 
+            // gridDoKho
+            // 
+            this.gridDoKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridDoKho.Location = new System.Drawing.Point(0, 0);
+            this.gridDoKho.MainView = this.gvDanhSach;
+            this.gridDoKho.MenuManager = this.barManager1;
+            this.gridDoKho.Name = "gridDoKho";
+            this.gridDoKho.Size = new System.Drawing.Size(800, 276);
+            this.gridDoKho.TabIndex = 0;
+            this.gridDoKho.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDanhSach});
+            // 
+            // gvDanhSach
+            // 
+            this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.MaDoKho,
+            this.TenDoKho});
+            this.gvDanhSach.GridControl = this.gridDoKho;
+            this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
+            // 
+            // MaDoKho
+            // 
+            this.MaDoKho.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.MaDoKho.AppearanceCell.Options.UseFont = true;
+            this.MaDoKho.Caption = "ID";
+            this.MaDoKho.FieldName = "MaDoKho";
+            this.MaDoKho.MinWidth = 25;
+            this.MaDoKho.Name = "MaDoKho";
+            this.MaDoKho.Visible = true;
+            this.MaDoKho.VisibleIndex = 0;
+            this.MaDoKho.Width = 94;
+            // 
+            // TenDoKho
+            // 
+            this.TenDoKho.Caption = "Độ khó";
+            this.TenDoKho.FieldName = "TenDoKho";
+            this.TenDoKho.MinWidth = 25;
+            this.TenDoKho.Name = "TenDoKho";
+            this.TenDoKho.Visible = true;
+            this.TenDoKho.VisibleIndex = 1;
+            this.TenDoKho.Width = 94;
             // 
             // barManager1
             // 
@@ -201,86 +272,15 @@ namespace QLDETHI
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 400);
             // 
-            // txtTen
+            // barDockControlRight
             // 
-            this.txtTen.Location = new System.Drawing.Point(242, 60);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(282, 22);
-            this.txtTen.TabIndex = 1;
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(800, 30);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 400);
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(164, 60);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(58, 18);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Tên Khối";
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtTen);
-            this.splitContainer1.Panel1.Controls.Add(this.labelControl1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.gridKhoi);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 400);
-            this.splitContainer1.SplitterDistance = 120;
-            this.splitContainer1.TabIndex = 12;
-            // 
-            // gridKhoi
-            // 
-            this.gridKhoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridKhoi.Location = new System.Drawing.Point(0, 0);
-            this.gridKhoi.MainView = this.gvDanhSach;
-            this.gridKhoi.MenuManager = this.barManager1;
-            this.gridKhoi.Name = "gridKhoi";
-            this.gridKhoi.Size = new System.Drawing.Size(800, 276);
-            this.gridKhoi.TabIndex = 0;
-            this.gridKhoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvDanhSach});
-            // 
-            // gvDanhSach
-            // 
-            this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MaKhoi,
-            this.TenKhoi});
-            this.gvDanhSach.GridControl = this.gridKhoi;
-            this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
-            // 
-            // MaKhoi
-            // 
-            this.MaKhoi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
-            this.MaKhoi.AppearanceCell.Options.UseFont = true;
-            this.MaKhoi.Caption = "ID";
-            this.MaKhoi.FieldName = "MaKhoi";
-            this.MaKhoi.MinWidth = 25;
-            this.MaKhoi.Name = "MaKhoi";
-            this.MaKhoi.Visible = true;
-            this.MaKhoi.VisibleIndex = 0;
-            this.MaKhoi.Width = 94;
-            // 
-            // TenKhoi
-            // 
-            this.TenKhoi.Caption = "Tên Khối";
-            this.TenKhoi.FieldName = "TenKhoi";
-            this.TenKhoi.MinWidth = 25;
-            this.TenKhoi.Name = "TenKhoi";
-            this.TenKhoi.Visible = true;
-            this.TenKhoi.VisibleIndex = 1;
-            this.TenKhoi.Width = 94;
-            // 
-            // fKhoi
+            // fDoKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -290,17 +290,17 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "fKhoi";
-            this.Text = "Khối";
-            this.Load += new System.EventHandler(this.fKhoi_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            this.Name = "fDoKho";
+            this.Text = "fDoKho";
+            this.Load += new System.EventHandler(this.fDoKho_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridKhoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDoKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,7 +308,13 @@ namespace QLDETHI
 
         #endregion
 
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox txtTen;
+        private DevExpress.XtraGrid.GridControl gridDoKho;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
+        private DevExpress.XtraGrid.Columns.GridColumn MaDoKho;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDoKho;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnThem;
@@ -322,12 +328,6 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox txtTen;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraGrid.GridControl gridKhoi;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
-        private DevExpress.XtraGrid.Columns.GridColumn MaKhoi;
-        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }
