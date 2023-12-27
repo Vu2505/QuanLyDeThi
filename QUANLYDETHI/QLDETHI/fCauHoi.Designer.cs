@@ -46,6 +46,7 @@ namespace QLDETHI
             this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenTinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridCauHoi = new DevExpress.XtraGrid.GridControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -55,7 +56,6 @@ namespace QLDETHI
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDong = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.btnPdf = new DevExpress.XtraBars.BarButtonItem();
             this.btnWord = new DevExpress.XtraBars.BarButtonItem();
@@ -94,7 +94,6 @@ namespace QLDETHI
             this.txtNDCH = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCauHoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -271,6 +270,16 @@ namespace QLDETHI
             this.TenTinhTrang.VisibleIndex = 13;
             this.TenTinhTrang.Width = 93;
             // 
+            // NgayCapNhat
+            // 
+            this.NgayCapNhat.Caption = "Ngày cập nhật";
+            this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MinWidth = 25;
+            this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.Visible = true;
+            this.NgayCapNhat.VisibleIndex = 14;
+            this.NgayCapNhat.Width = 94;
+            // 
             // GhiChu
             // 
             this.GhiChu.Caption = "Ghi chú";
@@ -311,7 +320,6 @@ namespace QLDETHI
             this.btnSua,
             this.btnLuu,
             this.btnHuy,
-            this.btnDong,
             this.btnPrint,
             this.btnPdf,
             this.btnWord});
@@ -331,10 +339,9 @@ namespace QLDETHI
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuu, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDong, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrint, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPdf, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnWord, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPdf, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnWord, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -378,14 +385,6 @@ namespace QLDETHI
             this.btnHuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHuy.ImageOptions.SvgImage")));
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
-            // 
-            // btnDong
-            // 
-            this.btnDong.Caption = "Đóng";
-            this.btnDong.Id = 5;
-            this.btnDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDong.ImageOptions.SvgImage")));
-            this.btnDong.Name = "btnDong";
-            this.btnDong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDong_ItemClick);
             // 
             // btnPrint
             // 
@@ -798,16 +797,6 @@ namespace QLDETHI
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // NgayCapNhat
-            // 
-            this.NgayCapNhat.Caption = "Ngày cập nhật";
-            this.NgayCapNhat.FieldName = "NgayCapNhat";
-            this.NgayCapNhat.MinWidth = 25;
-            this.NgayCapNhat.Name = "NgayCapNhat";
-            this.NgayCapNhat.Visible = true;
-            this.NgayCapNhat.VisibleIndex = 14;
-            this.NgayCapNhat.Width = 94;
-            // 
             // fCauHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -848,7 +837,6 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarButtonItem btnSua;
         private DevExpress.XtraBars.BarButtonItem btnLuu;
         private DevExpress.XtraBars.BarButtonItem btnHuy;
-        private DevExpress.XtraBars.BarButtonItem btnDong;
         private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

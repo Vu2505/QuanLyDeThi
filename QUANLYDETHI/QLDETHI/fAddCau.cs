@@ -268,9 +268,6 @@ namespace QLDETHI.Taodethi
             barLuu.Enabled = !kt;
             barHuy.Enabled = !kt;
             barThem.Enabled = kt;
-            barSua.Enabled = kt;
-            barXoa.Enabled = kt;
-            barDong.Enabled = kt;
 
             cbxKhoi.Enabled = !kt;
             cbxMonHoc1.Enabled = !kt;
@@ -417,11 +414,14 @@ namespace QLDETHI.Taodethi
 
             MessageBox.Show("Thêm thành công " + countQuestions + " câu");
             loadData();
+            _them = false;
+            _showHide(true);
         }
 
         private void barSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            _them = false;
+            _showHide(true);
         }
 
         private void gvDanhSach_Click(object sender, EventArgs e)
@@ -453,6 +453,12 @@ namespace QLDETHI.Taodethi
                 txtGhiChu.Text = k.GhiChu;
                 _cauhoi.Update(k);
             }
+        }
+
+        private void barHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _them = false;
+            _showHide(true);
         }
     }
 

@@ -112,8 +112,7 @@ namespace QLDETHI.Reports
             // 
             // objectDataSource1
             // 
-            this.objectDataSource1.DataSource = typeof(DethiLayer.DTO.DETHI_DTO);
-            this.objectDataSource1.Name = "objectDataSource1";
+            
             // 
             // xrTableCell3
             // 

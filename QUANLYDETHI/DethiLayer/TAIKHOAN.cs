@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 using DethiLayer.DTO;
+using System.Security.Cryptography;
 
 namespace DethiLayer
 {
@@ -25,8 +26,15 @@ namespace DethiLayer
 
         public TaiKhoan Login(string username, string password)
         {
+            db = new DETHITRACNGHIEMEntities();
+            TaiKhoan taiKhoanLaySalt = db.TaiKhoans.FirstOrDefault(tk => tk.Username == username);
+            if (taiKhoanLaySalt == null)
+                return null;
 
-            TaiKhoan taiKhoan = db.TaiKhoans.FirstOrDefault(tk => tk.Username == username && ( tk.LoaiTaiKhoan==3 || tk.Matkhau == password));
+            string hashPassword = HashPassword(password, taiKhoanLaySalt.Salt);
+            TaiKhoan taiKhoan = db.TaiKhoans.FirstOrDefault(tk => tk.Username == username && 
+            ( tk.LoaiTaiKhoan==3 || tk.Matkhau == hashPassword));
+
             return taiKhoan;
 
 
@@ -78,6 +86,23 @@ namespace DethiLayer
             }
         }
 
+        public TaiKhoan ResetPassWord(TaiKhoan dt)
+        {
+            try
+            {
+                var _dt = db.TaiKhoans.FirstOrDefault(x => x.IdTK == dt.IdTK);
+                _dt.Matkhau = dt.Matkhau;
+                _dt.LoaiTaiKhoan = dt.LoaiTaiKhoan;
+                _dt.TinhTrang = dt.TinhTrang;
+                db.SaveChanges();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
 
         public void Detele(int id)
         {
@@ -149,5 +174,13 @@ namespace DethiLayer
             return lstCHDTO;
         }
 
+        public static string HashPassword(string password, string salt)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password + salt));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
     }
 }

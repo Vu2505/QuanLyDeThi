@@ -45,8 +45,6 @@ namespace QLDETHI
             btnThem.Enabled = kt;
             btnSua.Enabled = kt;
             btnXoa.Enabled = kt;
-            btnDong.Enabled = kt;
-            btnPrint.Enabled = kt;
             txtTen.Enabled = !kt;
 
         }

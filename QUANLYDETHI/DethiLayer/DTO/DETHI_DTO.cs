@@ -27,6 +27,7 @@ namespace DethiLayer.DTO
         public string TenMonHoc { get; set; }
         public int? MaKhoi { get; set; }
         public int? MaLop { get; set; }
+        public string TenLop { get; set; }
         public string TenKhoi { get; set; }
         public string NDCH { get; set; }
         public string A { get; set; }

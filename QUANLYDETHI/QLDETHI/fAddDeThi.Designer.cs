@@ -105,7 +105,7 @@ namespace QLDETHI
             this.MaDe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaHienThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SoCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -854,7 +854,7 @@ namespace QLDETHI
             this.MaDe,
             this.MaHienThi,
             this.SoCauHoi,
-            this.NamHoc,
+            this.TenNamHoc,
             this.TenHocKy,
             this.TenDeThi,
             this.TenThoiGianThi,
@@ -895,15 +895,15 @@ namespace QLDETHI
             this.SoCauHoi.VisibleIndex = 2;
             this.SoCauHoi.Width = 94;
             // 
-            // NamHoc
+            // TenNamHoc
             // 
-            this.NamHoc.Caption = "Năm học";
-            this.NamHoc.FieldName = "NamHoc";
-            this.NamHoc.MinWidth = 25;
-            this.NamHoc.Name = "NamHoc";
-            this.NamHoc.Visible = true;
-            this.NamHoc.VisibleIndex = 3;
-            this.NamHoc.Width = 94;
+            this.TenNamHoc.Caption = "Năm học";
+            this.TenNamHoc.FieldName = "TenNamHoc";
+            this.TenNamHoc.MinWidth = 25;
+            this.TenNamHoc.Name = "TenNamHoc";
+            this.TenNamHoc.Visible = true;
+            this.TenNamHoc.VisibleIndex = 3;
+            this.TenNamHoc.Width = 94;
             // 
             // TenHocKy
             // 
@@ -1085,7 +1085,7 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn MaDe;
         private DevExpress.XtraGrid.Columns.GridColumn MaHienThi;
         private DevExpress.XtraGrid.Columns.GridColumn SoCauHoi;
-        private DevExpress.XtraGrid.Columns.GridColumn NamHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn TenNamHoc;
         private DevExpress.XtraGrid.Columns.GridColumn TenDeThi;
         private DevExpress.XtraGrid.Columns.GridColumn TenThoiGianThi;
         private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;

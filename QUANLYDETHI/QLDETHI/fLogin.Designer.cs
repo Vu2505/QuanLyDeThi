@@ -213,13 +213,13 @@ namespace QLDETHI
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.label3.Location = new System.Drawing.Point(43, 112);
+            this.label3.Location = new System.Drawing.Point(37, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(270, 32);
+            this.label3.Size = new System.Drawing.Size(323, 25);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Login to your account !!";
+            this.label3.Text = "Đăng nhập bằng tài khoản của bạn !!";
             // 
             // btnCancel
             // 
@@ -264,35 +264,35 @@ namespace QLDETHI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(186, 354);
+            this.label6.Location = new System.Drawing.Point(114, 352);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 30);
+            this.label6.Size = new System.Drawing.Size(167, 32);
             this.label6.TabIndex = 2;
-            this.label6.Text = "System";
+            this.label6.Text = "Quản lý đề thi";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(44, 313);
+            this.label5.Location = new System.Drawing.Point(165, 311);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(250, 30);
+            this.label5.Size = new System.Drawing.Size(116, 32);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Exam Management";
+            this.label5.Text = "Hệ thống";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(83, 266);
+            this.label4.Location = new System.Drawing.Point(54, 267);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 30);
+            this.label4.Size = new System.Drawing.Size(227, 32);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Welcome to the";
+            this.label4.Text = "Chào mừng đến với";
             // 
             // fLogin
             // 

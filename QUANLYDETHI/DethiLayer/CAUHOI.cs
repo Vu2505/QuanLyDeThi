@@ -53,7 +53,7 @@ namespace DethiLayer
                 _k.MaMonHoc = k.MaMonHoc;
                 _k.MaChuong = k.MaChuong;
                 _k.MaBai = k.MaBai;
-                _k.DoKho = k.MaKhoi;
+                _k.DoKho = k.DoKho;
                 _k.TrangThai = k.TrangThai;
                 _k.GhiChu = k.GhiChu;
                 _k.NgayCapNhat = k.NgayCapNhat;
@@ -403,7 +403,6 @@ namespace DethiLayer
                 var c = db.Chuongs.FirstOrDefault(b => b.MaChuong == item.MaChuong);
                 ctDTO.TenChuong = c.TenChuong;
 
-
                 ctDTO.MaBai = item.MaBai;
                 var cb = db.Bais.FirstOrDefault(b => b.MaBai == item.MaBai);
                 ctDTO.TenBai = cb.TenBai;
@@ -421,8 +420,33 @@ namespace DethiLayer
             }
             return lstCHDTO;
         }
-    }
 
+            // Các thuộc tính và phương thức khác của lớp CAUHOI
+
+        public CAUHOI_DTO GetCauHoiDetails(int maCauHoi)
+        {
+            using (DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities())
+            {
+                // Assume CAUHOI_DTO is a class containing details of a question
+                // Assume CauHoi is the entity corresponding to the database table
+                var cauHoiDetails = new CAUHOI_DTO();
+                    
+                CauHoi cauHoi = db.CauHois
+                    .Where(c => c.MaCauHoi == maCauHoi).FirstOrDefault();
+
+                cauHoiDetails.NDCH = cauHoi.NDCH;
+                cauHoiDetails.A = cauHoi.A;
+                cauHoiDetails.B = cauHoi.B;
+                cauHoiDetails.C = cauHoi.C;
+                cauHoiDetails.D = cauHoi.D;
+                cauHoiDetails.DapAnDung = cauHoi.DapAnDung;
+                cauHoiDetails.TenKhoi = db.Khois.FirstOrDefault(b => b.MaKhoi == cauHoi.MaKhoi).TenKhoi;
+                cauHoiDetails.TenDoKho = db.DoKhoes.FirstOrDefault(b => b.MaDoKho == cauHoi.DoKho).TenDoKho;
+
+                return cauHoiDetails;
+            }
+        }
+    }
     public enum FieldCauHoi
     {
         MaKhoi,

@@ -132,6 +132,7 @@
           <Property Name="LoaiTaiKhoan" Type="int" />
           <Property Name="TinhTrang" Type="int" Nullable="false" />
           <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="Salt" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TaiKhoanMonHoc">
           <Key>
@@ -191,9 +192,9 @@
           <EntitySet Name="TinhTrangs" EntityType="DETHITRACNGHIEMModel.TinhTrang" />
           <EntitySet Name="TaiKhoanMonHocs" EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" />
           <EntitySet Name="LoaiTaiKhoans" EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" />
-          <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
           <EntitySet Name="CauHois" EntityType="DETHITRACNGHIEMModel.CauHoi" />
           <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
+          <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
         </EntityContainer>
         <EntityType Name="Bai">
           <Key>
@@ -294,18 +295,6 @@
           <Property Name="MaLoaiTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="TaiKhoan">
-          <Key>
-            <PropertyRef Name="IdTK" />
-          </Key>
-          <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenGV" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Matkhau" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LoaiTaiKhoan" Type="Int32" />
-          <Property Name="TinhTrang" Type="Int32" Nullable="false" />
-          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="CauHoi">
           <Key>
             <PropertyRef Name="MaCauHoi" />
@@ -344,6 +333,19 @@
           <Property Name="MaHocKy" Type="Int32" />
           <Property Name="MaThoiGianThi" Type="Int32" />
           <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="IdTK" />
+          </Key>
+          <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGV" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Matkhau" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiTaiKhoan" Type="Int32" />
+          <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -463,19 +465,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
-              <MappingFragment StoreEntitySet="TaiKhoan">
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-                <ScalarProperty Name="LoaiTaiKhoan" ColumnName="LoaiTaiKhoan" />
-                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="TenGV" ColumnName="TenGV" />
-                <ScalarProperty Name="IdTK" ColumnName="IdTK" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CauHois">
             <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.CauHoi">
               <MappingFragment StoreEntitySet="CauHoi">
@@ -514,6 +503,20 @@
                 <ScalarProperty Name="MaHienThi" ColumnName="MaHienThi" />
                 <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
                 <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="LoaiTaiKhoan" ColumnName="LoaiTaiKhoan" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+                <ScalarProperty Name="IdTK" ColumnName="IdTK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

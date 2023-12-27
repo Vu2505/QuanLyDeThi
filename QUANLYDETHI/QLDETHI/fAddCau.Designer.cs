@@ -34,14 +34,8 @@ namespace QLDETHI.Taodethi
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barThem = new DevExpress.XtraBars.BarButtonItem();
-            this.barXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.barSua = new DevExpress.XtraBars.BarButtonItem();
             this.barLuu = new DevExpress.XtraBars.BarButtonItem();
             this.barHuy = new DevExpress.XtraBars.BarButtonItem();
-            this.barDong = new DevExpress.XtraBars.BarButtonItem();
-            this.barExcel = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
@@ -81,13 +75,13 @@ namespace QLDETHI.Taodethi
             this.TenBai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenDoKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenTinhTrang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.btnAddFileWord = new System.Windows.Forms.Button();
             this.txbNameFile = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.richWordDeThi = new DevExpress.XtraRichEdit.RichEditControl();
-            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -117,14 +111,8 @@ namespace QLDETHI.Taodethi
             this.barManager2.Form = this;
             this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barThem,
-            this.barXoa,
-            this.barSua,
             this.barLuu,
-            this.barHuy,
-            this.barDong,
-            this.barExcel,
-            this.barButtonItem9,
-            this.barButtonItem10});
+            this.barHuy});
             this.barManager2.MainMenu = this.bar2;
             this.barManager2.MaxItemId = 10;
             this.barManager2.StatusBar = this.bar1;
@@ -137,14 +125,8 @@ namespace QLDETHI.Taodethi
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barXoa, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSua, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barLuu, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barHuy, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barDong, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barExcel, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem9, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem10, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barHuy, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -156,21 +138,6 @@ namespace QLDETHI.Taodethi
             this.barThem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barThem.ImageOptions.SvgImage")));
             this.barThem.Name = "barThem";
             this.barThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barThem_ItemClick);
-            // 
-            // barXoa
-            // 
-            this.barXoa.Caption = "Xóa";
-            this.barXoa.Id = 1;
-            this.barXoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barXoa.ImageOptions.SvgImage")));
-            this.barXoa.Name = "barXoa";
-            // 
-            // barSua
-            // 
-            this.barSua.Caption = "Sửa";
-            this.barSua.Id = 2;
-            this.barSua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSua.ImageOptions.SvgImage")));
-            this.barSua.Name = "barSua";
-            this.barSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSua_ItemClick);
             // 
             // barLuu
             // 
@@ -186,34 +153,7 @@ namespace QLDETHI.Taodethi
             this.barHuy.Id = 4;
             this.barHuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barHuy.ImageOptions.SvgImage")));
             this.barHuy.Name = "barHuy";
-            // 
-            // barDong
-            // 
-            this.barDong.Caption = "Đóng";
-            this.barDong.Id = 5;
-            this.barDong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDong.ImageOptions.SvgImage")));
-            this.barDong.Name = "barDong";
-            // 
-            // barExcel
-            // 
-            this.barExcel.Caption = "Export Excel";
-            this.barExcel.Id = 6;
-            this.barExcel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barExcel.ImageOptions.SvgImage")));
-            this.barExcel.Name = "barExcel";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "Export Pdf";
-            this.barButtonItem9.Id = 7;
-            this.barButtonItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "Export Word";
-            this.barButtonItem10.Id = 8;
-            this.barButtonItem10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem10.ImageOptions.SvgImage")));
-            this.barButtonItem10.Name = "barButtonItem10";
+            this.barHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barHuy_ItemClick);
             // 
             // bar1
             // 
@@ -650,6 +590,16 @@ namespace QLDETHI.Taodethi
             this.TenTinhTrang.VisibleIndex = 13;
             this.TenTinhTrang.Width = 94;
             // 
+            // NgayCapNhat
+            // 
+            this.NgayCapNhat.Caption = "Ngày cập nhật";
+            this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MinWidth = 25;
+            this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.Visible = true;
+            this.NgayCapNhat.VisibleIndex = 14;
+            this.NgayCapNhat.Width = 94;
+            // 
             // GhiChu
             // 
             this.GhiChu.Caption = "Ghi chú";
@@ -717,16 +667,6 @@ namespace QLDETHI.Taodethi
             this.richWordDeThi.TabIndex = 0;
             this.richWordDeThi.Click += new System.EventHandler(this.richWordDeThi_Click);
             // 
-            // NgayCapNhat
-            // 
-            this.NgayCapNhat.Caption = "Ngày cập nhật";
-            this.NgayCapNhat.FieldName = "NgayCapNhat";
-            this.NgayCapNhat.MinWidth = 25;
-            this.NgayCapNhat.Name = "NgayCapNhat";
-            this.NgayCapNhat.Visible = true;
-            this.NgayCapNhat.VisibleIndex = 14;
-            this.NgayCapNhat.Width = 94;
-            // 
             // fAddCau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -766,14 +706,8 @@ namespace QLDETHI.Taodethi
         private DevExpress.XtraBars.BarManager barManager2;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem barThem;
-        private DevExpress.XtraBars.BarButtonItem barXoa;
-        private DevExpress.XtraBars.BarButtonItem barSua;
         private DevExpress.XtraBars.BarButtonItem barLuu;
         private DevExpress.XtraBars.BarButtonItem barHuy;
-        private DevExpress.XtraBars.BarButtonItem barDong;
-        private DevExpress.XtraBars.BarButtonItem barExcel;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.BarDockControl barDockControl2;

@@ -119,7 +119,6 @@ namespace QLDETHI
             btnThem.Enabled = kt;
             btnSua.Enabled = kt;
             btnXoa.Enabled = kt;
-            btnDong.Enabled = kt;
             btnPrint.Enabled = kt;
 
             cbxKhoi.Enabled = !kt;
@@ -409,7 +408,7 @@ namespace QLDETHI
 
         private void gvDanhSach_Click(object sender, EventArgs e)
         {
-            if (gvDanhSach.RowCount > 0)
+            if (gvDanhSach.FocusedRowHandle > 0)
             {
                 _id = int.Parse(gvDanhSach.GetFocusedRowCellValue("MaCauHoi").ToString());
                 var k  = _cauhoi.getItem(_id);

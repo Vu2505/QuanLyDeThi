@@ -50,8 +50,7 @@ namespace QLDETHI
             TaiKhoan user = _taikhoan.Login(txbUserName.Text, txbPassWord.Text);
 
             if (user != null)
-            {
-                LuuTru.User = user;
+            {                
                 if(user.TinhTrang == 1)
                 {
                     if (user.LoaiTaiKhoan == 3)
@@ -59,20 +58,18 @@ namespace QLDETHI
                         this.Hide();
                         fChangeResetPassWord f = new fChangeResetPassWord(user.Username);
                         f.ShowDialog();
-                        return;
                     }
-
                     else
                     {
+                        LuuTru.User = user;
                         MainForm mainForm = new MainForm();
                         this.Hide();
                         mainForm.ShowDialog();
                         
                     }
-
+                    LuuTru.User = new TaiKhoan();
                     txbPassWord.Text = "";
                     this.Show();
-
                     return;
                 }
                 else

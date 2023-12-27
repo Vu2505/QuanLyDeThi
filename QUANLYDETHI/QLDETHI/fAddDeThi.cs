@@ -266,7 +266,7 @@ namespace QLDETHI
         {
             if (user.LoaiTaiKhoan == 1)
             {
-                _lstDTDTO = _noidungdethi.getListFull(selectedMaDe);
+                _lstDTDTO = _dethi.getListFull(selectedMaDe);
 
                 if (_lstDTDTO != null && _lstDTDTO.Any())
                 {
@@ -280,7 +280,7 @@ namespace QLDETHI
             }
             else
             {
-                _lstDTDTO = _noidungdethi.getListFullTK(IdTK, selectedMaDe);
+                _lstDTDTO = _dethi.getListFullTK(IdTK, selectedMaDe);
 
                 if (_lstDTDTO != null && _lstDTDTO.Any())
                 {
@@ -405,7 +405,7 @@ namespace QLDETHI
                     }
                     else
                     {
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.Yellow;
                     }                    
                 }
             }
@@ -530,7 +530,7 @@ namespace QLDETHI
                     }
                     else
                     {
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.Yellow;
                     }
                     flpChuong.Controls.Add(btn);
                 }
@@ -607,7 +607,7 @@ namespace QLDETHI
                     }
                     else
                     {
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.Yellow;
                     }
 
                     flpBai.Controls.Add(btn);
@@ -635,7 +635,7 @@ namespace QLDETHI
                     }
                     else
                     {
-                        btn.BackColor = Color.Green;
+                        btn.BackColor = Color.Yellow;
                     }                    
 
                     flpChuong.Controls.Add(btn);

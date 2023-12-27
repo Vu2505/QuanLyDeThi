@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,5 +18,8 @@ namespace DethiLayer.DTO
         public int? TinhTrang { get; set; }
         public string TenTinhTrang { get; set; }
         public string GhiChu { get; set; }
+        public string Salt { get; set; }
+
+        
     }
 }

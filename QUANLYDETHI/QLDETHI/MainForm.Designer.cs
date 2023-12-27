@@ -31,7 +31,7 @@ namespace QLDETHI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges1 = new DevExpress.Skins.SkinPaddingEdges();
+            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges3 = new DevExpress.Skins.SkinPaddingEdges();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -56,6 +56,7 @@ namespace QLDETHI
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barTaiKhoanMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.barLoaiTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
+            this.barDoKho = new DevExpress.XtraBars.BarButtonItem();
             this.barCauHoi = new DevExpress.XtraBars.BarButtonItem();
             this.ribQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,14 +70,17 @@ namespace QLDETHI
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barCauHoi1 = new DevExpress.XtraBars.BarButtonItem();
             this.barImportCauHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.barThongKeDeThi = new DevExpress.XtraBars.BarButtonItem();
+            this.barThongKeCauHoi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemColorPickEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit();
             this.repositoryItemColorEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.import = new DevExpress.XtraBars.BarButtonItem();
-            this.barDoKho = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).BeginInit();
@@ -285,6 +289,15 @@ namespace QLDETHI
             this.barLoaiTaiKhoan.Name = "barLoaiTaiKhoan";
             this.barLoaiTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLoaiTaiKhoan_ItemClick);
             // 
+            // barDoKho
+            // 
+            this.barDoKho.Caption = "Độ khó";
+            this.barDoKho.Id = 37;
+            this.barDoKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barDoKho.ImageOptions.Image")));
+            this.barDoKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barDoKho.ImageOptions.LargeImage")));
+            this.barDoKho.Name = "barDoKho";
+            this.barDoKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDoKho_ItemClick);
+            // 
             // barCauHoi
             // 
             this.barCauHoi.Caption = "Câu hỏi";
@@ -347,9 +360,9 @@ namespace QLDETHI
             this.skinRibbonGalleryBarItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
             this.skinRibbonGalleryBarItem1.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
             this.skinRibbonGalleryBarItem1.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top;
-            skinPaddingEdges1.Left = 8;
-            skinPaddingEdges1.Right = 8;
-            this.skinRibbonGalleryBarItem1.Gallery.ItemImagePadding = skinPaddingEdges1;
+            skinPaddingEdges3.Left = 8;
+            skinPaddingEdges3.Right = 8;
+            this.skinRibbonGalleryBarItem1.Gallery.ItemImagePadding = skinPaddingEdges3;
             this.skinRibbonGalleryBarItem1.Id = 35;
             this.skinRibbonGalleryBarItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("skinRibbonGalleryBarItem1.ImageOptions.SvgImage")));
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
@@ -399,22 +412,25 @@ namespace QLDETHI
             this.barLoaiTaiKhoan,
             this.skinRibbonGalleryBarItem1,
             this.barHocKy,
-            this.barDoKho});
+            this.barDoKho,
+            this.barThongKeDeThi,
+            this.barThongKeCauHoi});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl2.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl2.MaxItemId = 38;
+            this.ribbonControl2.MaxItemId = 40;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.OptionsMenuMinWidth = 412;
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage10,
             this.ribQuanLy,
             this.ribbonPage8,
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage9});
             this.ribbonControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemColorEdit1,
             this.repositoryItemColorPickEdit1,
             this.repositoryItemColorEdit2});
-            this.ribbonControl2.Size = new System.Drawing.Size(1039, 209);
+            this.ribbonControl2.Size = new System.Drawing.Size(1039, 217);
             // 
             // barButtonItem7
             // 
@@ -440,6 +456,22 @@ namespace QLDETHI
             this.barImportCauHoi.Name = "barImportCauHoi";
             this.barImportCauHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barImportCauHoi_ItemClick);
             // 
+            // barThongKeDeThi
+            // 
+            this.barThongKeDeThi.Caption = "Thống kê đề thi";
+            this.barThongKeDeThi.Id = 38;
+            this.barThongKeDeThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.barThongKeDeThi.Name = "barThongKeDeThi";
+            this.barThongKeDeThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barThongKeDeThi_ItemClick);
+            // 
+            // barThongKeCauHoi
+            // 
+            this.barThongKeCauHoi.Caption = "Thống kê câu hỏi";
+            this.barThongKeCauHoi.Id = 39;
+            this.barThongKeCauHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.barThongKeCauHoi.Name = "barThongKeCauHoi";
+            this.barThongKeCauHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barThongKeCauHoi_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -455,6 +487,21 @@ namespace QLDETHI
             this.ribbonPageGroup1.ItemLinks.Add(this.barImportCauHoi, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = " ";
+            // 
+            // ribbonPage9
+            // 
+            this.ribbonPage9.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
+            this.ribbonPage9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage9.ImageOptions.SvgImage")));
+            this.ribbonPage9.Name = "ribbonPage9";
+            this.ribbonPage9.Text = "Thống kê";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barThongKeDeThi);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barThongKeCauHoi, true);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
             // repositoryItemColorPickEdit1
             // 
@@ -485,15 +532,6 @@ namespace QLDETHI
             this.import.Id = 19;
             this.import.Name = "import";
             this.import.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.import_ItemClick);
-            // 
-            // barDoKho
-            // 
-            this.barDoKho.Caption = "Độ khó";
-            this.barDoKho.Id = 37;
-            this.barDoKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barDoKho.ImageOptions.Image")));
-            this.barDoKho.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barDoKho.ImageOptions.LargeImage")));
-            this.barDoKho.Name = "barDoKho";
-            this.barDoKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDoKho_ItemClick);
             // 
             // MainForm
             // 
@@ -565,6 +603,10 @@ namespace QLDETHI
         private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit repositoryItemColorEdit2;
         private DevExpress.XtraBars.BarButtonItem barHocKy;
         private DevExpress.XtraBars.BarButtonItem barDoKho;
+        private DevExpress.XtraBars.BarButtonItem barThongKeDeThi;
+        private DevExpress.XtraBars.BarButtonItem barThongKeCauHoi;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage9;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 

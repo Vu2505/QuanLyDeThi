@@ -9,24 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using DethiLayer;
+using DethiLayer.DTO;
 using QLDETHI.Luutru;
 namespace QLDETHI
 {
     public partial class fChangePassWord : Form
     {
         private string currentUsername;
-        private TaiKhoan user;
+        private TaiKhoan globalUser;
         public fChangePassWord()
         {
             InitializeComponent();
-            user = LuuTru.User;
-            currentUsername = user.Username;
+            globalUser = LuuTru.User;
+            currentUsername = globalUser.Username;
         }
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            string oldPassword = txbOldPassword.Text;
+            string oldPassword = TAIKHOAN.HashPassword(txbOldPassword.Text, globalUser.Salt);
             string newPassword = txbNewPassword.Text;
 
             // Kiểm tra mật khẩu cũ có đúng không (điều này phụ thuộc vào thiết kế cơ sở dữ liệu của bạn)
@@ -43,9 +44,10 @@ namespace QLDETHI
                     else
                     {
                         // Cập nhật mật khẩu mới cho người dùng
-                        user.Matkhau = newPassword;
+                        user.Matkhau = TAIKHOAN.HashPassword(newPassword, user.Salt);
                         db.SaveChanges();
                         MessageBox.Show("Mật khẩu đã được thay đổi thành công.");
+                        this.Close();
                     }
                 }
                 catch (Exception exception)

@@ -127,6 +127,7 @@
     <Property Name="LoaiTaiKhoan" Type="int" />
     <Property Name="TinhTrang" Type="int" Nullable="false" />
     <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="Salt" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="TaiKhoanMonHoc">
     <Key>

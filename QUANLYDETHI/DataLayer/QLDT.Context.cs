@@ -38,8 +38,8 @@ namespace DataLayer
         public virtual DbSet<TinhTrang> TinhTrangs { get; set; }
         public virtual DbSet<TaiKhoanMonHoc> TaiKhoanMonHocs { get; set; }
         public virtual DbSet<LoaiTaiKhoan> LoaiTaiKhoans { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<CauHoi> CauHois { get; set; }
         public virtual DbSet<DeThi> DeThis { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

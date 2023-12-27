@@ -321,6 +321,18 @@
     <Compile Include="fThoiGianThi.Designer.cs">
       <DependentUpon>fThoiGianThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="fThongKeCauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThongKeCauHoi.Designer.cs">
+      <DependentUpon>fThongKeCauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fThongKeDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThongKeDeThi.Designer.cs">
+      <DependentUpon>fThongKeDeThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="fThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +371,18 @@
     </Compile>
     <Compile Include="Reports\fDeThiChiTiet.Designer.cs">
       <DependentUpon>fDeThiChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ThongKeCauHoi_rep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ThongKeCauHoi_rep.Designer.cs">
+      <DependentUpon>ThongKeCauHoi_rep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ThongKeDeThi_rep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ThongKeDeThi_rep.Designer.cs">
+      <DependentUpon>ThongKeDeThi_rep.cs</DependentUpon>
     </Compile>
     <Compile Include="Taodethi\DeThi.cs" />
     <Compile Include="fAddCau.cs">
@@ -430,6 +454,12 @@
     <EmbeddedResource Include="fThoiGianThi.resx">
       <DependentUpon>fThoiGianThi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fThongKeCauHoi.resx">
+      <DependentUpon>fThongKeCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThongKeDeThi.resx">
+      <DependentUpon>fThongKeDeThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fThongTinCaNhan.resx">
       <DependentUpon>fThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +491,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\fDeThiChiTiet.resx">
       <DependentUpon>fDeThiChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ThongKeCauHoi_rep.resx">
+      <DependentUpon>ThongKeCauHoi_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ThongKeDeThi_rep.resx">
+      <DependentUpon>ThongKeDeThi_rep.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

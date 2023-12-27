@@ -21,5 +21,6 @@ namespace DataLayer
         public Nullable<int> LoaiTaiKhoan { get; set; }
         public int TinhTrang { get; set; }
         public string GhiChu { get; set; }
+        public string Salt { get; set; }
     }
 }

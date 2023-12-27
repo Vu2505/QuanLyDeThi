@@ -34,6 +34,7 @@ namespace QLDETHI
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barDaoDe = new DevExpress.XtraBars.BarButtonItem();
+            this.Print = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
@@ -46,12 +47,15 @@ namespace QLDETHI
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.gridDeThi = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaDe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaHienThi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ThuTuCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NDCH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.A = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,13 +63,7 @@ namespace QLDETHI
             this.C = new DevExpress.XtraGrid.Columns.GridColumn();
             this.D = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DapAnDung = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Print = new DevExpress.XtraBars.BarButtonItem();
+            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
@@ -101,7 +99,7 @@ namespace QLDETHI
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barDaoDe, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.Print)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.Print, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -113,6 +111,14 @@ namespace QLDETHI
             this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
             this.barDaoDe.Name = "barDaoDe";
             this.barDaoDe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDaoDe_ItemClick);
+            // 
+            // Print
+            // 
+            this.Print.Caption = "Print";
+            this.Print.Id = 10;
+            this.Print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Print.ImageOptions.SvgImage")));
+            this.Print.Name = "Print";
+            this.Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrint_ItemClick);
             // 
             // bar1
             // 
@@ -207,19 +213,22 @@ namespace QLDETHI
             this.gridDeThi.MenuManager = this.barManager2;
             this.gridDeThi.Name = "gridDeThi";
             this.gridDeThi.Size = new System.Drawing.Size(1924, 672);
-            this.gridDeThi.TabIndex = 4;
+            this.gridDeThi.TabIndex = 22;
             this.gridDeThi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
             // 
             // gvDanhSach
             // 
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.ID,
             this.MaDe,
             this.MaHienThi,
-            this.MaCauHoi,
             this.TenMonHoc,
             this.TenKhoi,
+            this.TenNamHoc,
+            this.TenDeThi,
+            this.TenHocKy,
+            this.NgayCapNhat,
+            this.TenThoiGianThi,
             this.ThuTuCauHoi,
             this.NDCH,
             this.A,
@@ -227,58 +236,31 @@ namespace QLDETHI
             this.C,
             this.D,
             this.DapAnDung,
-            this.HinhAnh,
-            this.TenNamHoc,
-            this.TenDeThi,
-            this.TenHocKy,
-            this.NgayCapNhat,
-            this.TenThoiGianThi});
+            this.ID});
             this.gvDanhSach.DetailHeight = 1331;
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
-            // ID
-            // 
-            this.ID.Caption = "ID";
-            this.ID.FieldName = "ID";
-            this.ID.MaxWidth = 37;
-            this.ID.MinWidth = 37;
-            this.ID.Name = "ID";
-            this.ID.Visible = true;
-            this.ID.VisibleIndex = 0;
-            this.ID.Width = 37;
-            // 
             // MaDe
             // 
-            this.MaDe.Caption = "ID Đề Thi";
+            this.MaDe.Caption = "ID Đề";
             this.MaDe.FieldName = "MaDe";
-            this.MaDe.MinWidth = 95;
+            this.MaDe.MinWidth = 10;
             this.MaDe.Name = "MaDe";
             this.MaDe.Visible = true;
             this.MaDe.VisibleIndex = 1;
-            this.MaDe.Width = 116;
+            this.MaDe.Width = 50;
             // 
             // MaHienThi
             // 
             this.MaHienThi.Caption = "Mã Hiển Thị";
             this.MaHienThi.FieldName = "MaHienThi";
-            this.MaHienThi.MaxWidth = 50;
-            this.MaHienThi.MinWidth = 50;
+            this.MaHienThi.MinWidth = 10;
             this.MaHienThi.Name = "MaHienThi";
             this.MaHienThi.Visible = true;
             this.MaHienThi.VisibleIndex = 2;
-            this.MaHienThi.Width = 50;
-            // 
-            // MaCauHoi
-            // 
-            this.MaCauHoi.Caption = "ID Câu hỏi";
-            this.MaCauHoi.FieldName = "MaCauHoi";
-            this.MaCauHoi.MinWidth = 95;
-            this.MaCauHoi.Name = "MaCauHoi";
-            this.MaCauHoi.Visible = true;
-            this.MaCauHoi.VisibleIndex = 3;
-            this.MaCauHoi.Width = 119;
+            this.MaHienThi.Width = 83;
             // 
             // TenMonHoc
             // 
@@ -287,109 +269,28 @@ namespace QLDETHI
             this.TenMonHoc.MinWidth = 95;
             this.TenMonHoc.Name = "TenMonHoc";
             this.TenMonHoc.Visible = true;
-            this.TenMonHoc.VisibleIndex = 4;
-            this.TenMonHoc.Width = 119;
+            this.TenMonHoc.VisibleIndex = 3;
+            this.TenMonHoc.Width = 95;
             // 
             // TenKhoi
             // 
             this.TenKhoi.Caption = "Khối";
             this.TenKhoi.FieldName = "TenKhoi";
-            this.TenKhoi.MinWidth = 95;
+            this.TenKhoi.MinWidth = 10;
             this.TenKhoi.Name = "TenKhoi";
             this.TenKhoi.Visible = true;
-            this.TenKhoi.VisibleIndex = 5;
-            this.TenKhoi.Width = 119;
-            // 
-            // ThuTuCauHoi
-            // 
-            this.ThuTuCauHoi.Caption = "TT Câu hỏi";
-            this.ThuTuCauHoi.FieldName = "ThuTuCauHoi";
-            this.ThuTuCauHoi.MaxWidth = 37;
-            this.ThuTuCauHoi.MinWidth = 37;
-            this.ThuTuCauHoi.Name = "ThuTuCauHoi";
-            this.ThuTuCauHoi.Visible = true;
-            this.ThuTuCauHoi.VisibleIndex = 6;
-            this.ThuTuCauHoi.Width = 37;
-            // 
-            // NDCH
-            // 
-            this.NDCH.Caption = "ND Câu Hỏi";
-            this.NDCH.FieldName = "NDCH";
-            this.NDCH.MinWidth = 95;
-            this.NDCH.Name = "NDCH";
-            this.NDCH.Visible = true;
-            this.NDCH.VisibleIndex = 7;
-            this.NDCH.Width = 123;
-            // 
-            // A
-            // 
-            this.A.Caption = "A";
-            this.A.FieldName = "A";
-            this.A.MinWidth = 95;
-            this.A.Name = "A";
-            this.A.Visible = true;
-            this.A.VisibleIndex = 8;
-            this.A.Width = 123;
-            // 
-            // B
-            // 
-            this.B.Caption = "B";
-            this.B.FieldName = "B";
-            this.B.MinWidth = 95;
-            this.B.Name = "B";
-            this.B.Visible = true;
-            this.B.VisibleIndex = 9;
-            this.B.Width = 123;
-            // 
-            // C
-            // 
-            this.C.Caption = "C";
-            this.C.FieldName = "C";
-            this.C.MinWidth = 95;
-            this.C.Name = "C";
-            this.C.Visible = true;
-            this.C.VisibleIndex = 10;
-            this.C.Width = 123;
-            // 
-            // D
-            // 
-            this.D.Caption = "D";
-            this.D.FieldName = "D";
-            this.D.MinWidth = 95;
-            this.D.Name = "D";
-            this.D.Visible = true;
-            this.D.VisibleIndex = 11;
-            this.D.Width = 123;
-            // 
-            // DapAnDung
-            // 
-            this.DapAnDung.Caption = "Đáp án đúng";
-            this.DapAnDung.FieldName = "DapAnDung";
-            this.DapAnDung.MinWidth = 95;
-            this.DapAnDung.Name = "DapAnDung";
-            this.DapAnDung.Visible = true;
-            this.DapAnDung.VisibleIndex = 12;
-            this.DapAnDung.Width = 123;
-            // 
-            // HinhAnh
-            // 
-            this.HinhAnh.Caption = "Hình ảnh";
-            this.HinhAnh.FieldName = "HinhAnh";
-            this.HinhAnh.MinWidth = 95;
-            this.HinhAnh.Name = "HinhAnh";
-            this.HinhAnh.Visible = true;
-            this.HinhAnh.VisibleIndex = 13;
-            this.HinhAnh.Width = 123;
+            this.TenKhoi.VisibleIndex = 4;
+            this.TenKhoi.Width = 61;
             // 
             // TenNamHoc
             // 
             this.TenNamHoc.Caption = "Năm học";
             this.TenNamHoc.FieldName = "TenNamHoc";
-            this.TenNamHoc.MinWidth = 95;
+            this.TenNamHoc.MinWidth = 10;
             this.TenNamHoc.Name = "TenNamHoc";
             this.TenNamHoc.Visible = true;
-            this.TenNamHoc.VisibleIndex = 14;
-            this.TenNamHoc.Width = 123;
+            this.TenNamHoc.VisibleIndex = 5;
+            this.TenNamHoc.Width = 90;
             // 
             // TenDeThi
             // 
@@ -398,8 +299,8 @@ namespace QLDETHI
             this.TenDeThi.MinWidth = 95;
             this.TenDeThi.Name = "TenDeThi";
             this.TenDeThi.Visible = true;
-            this.TenDeThi.VisibleIndex = 15;
-            this.TenDeThi.Width = 108;
+            this.TenDeThi.VisibleIndex = 6;
+            this.TenDeThi.Width = 170;
             // 
             // TenHocKy
             // 
@@ -408,8 +309,8 @@ namespace QLDETHI
             this.TenHocKy.MinWidth = 25;
             this.TenHocKy.Name = "TenHocKy";
             this.TenHocKy.Visible = true;
-            this.TenHocKy.VisibleIndex = 16;
-            this.TenHocKy.Width = 72;
+            this.TenHocKy.VisibleIndex = 8;
+            this.TenHocKy.Width = 80;
             // 
             // NgayCapNhat
             // 
@@ -419,7 +320,7 @@ namespace QLDETHI
             this.NgayCapNhat.MinWidth = 95;
             this.NgayCapNhat.Name = "NgayCapNhat";
             this.NgayCapNhat.Visible = true;
-            this.NgayCapNhat.VisibleIndex = 17;
+            this.NgayCapNhat.VisibleIndex = 16;
             this.NgayCapNhat.Width = 95;
             // 
             // TenThoiGianThi
@@ -429,15 +330,88 @@ namespace QLDETHI
             this.TenThoiGianThi.MinWidth = 39;
             this.TenThoiGianThi.Name = "TenThoiGianThi";
             this.TenThoiGianThi.Visible = true;
-            this.TenThoiGianThi.VisibleIndex = 18;
-            this.TenThoiGianThi.Width = 61;
+            this.TenThoiGianThi.VisibleIndex = 7;
+            this.TenThoiGianThi.Width = 89;
             // 
-            // Print
+            // ThuTuCauHoi
             // 
-            this.Print.Caption = "Print";
-            this.Print.Id = 10;
-            this.Print.Name = "Print";
-            this.Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrint_ItemClick);
+            this.ThuTuCauHoi.Caption = "STT";
+            this.ThuTuCauHoi.FieldName = "ThuTuCauHoi";
+            this.ThuTuCauHoi.MinWidth = 25;
+            this.ThuTuCauHoi.Name = "ThuTuCauHoi";
+            this.ThuTuCauHoi.Visible = true;
+            this.ThuTuCauHoi.VisibleIndex = 9;
+            this.ThuTuCauHoi.Width = 42;
+            // 
+            // NDCH
+            // 
+            this.NDCH.Caption = "NDCH";
+            this.NDCH.FieldName = "NDCH";
+            this.NDCH.MinWidth = 25;
+            this.NDCH.Name = "NDCH";
+            this.NDCH.Visible = true;
+            this.NDCH.VisibleIndex = 10;
+            this.NDCH.Width = 162;
+            // 
+            // A
+            // 
+            this.A.Caption = "A";
+            this.A.FieldName = "A";
+            this.A.MinWidth = 25;
+            this.A.Name = "A";
+            this.A.Visible = true;
+            this.A.VisibleIndex = 11;
+            this.A.Width = 162;
+            // 
+            // B
+            // 
+            this.B.Caption = "B";
+            this.B.FieldName = "B";
+            this.B.MinWidth = 25;
+            this.B.Name = "B";
+            this.B.Visible = true;
+            this.B.VisibleIndex = 12;
+            this.B.Width = 162;
+            // 
+            // C
+            // 
+            this.C.Caption = "C";
+            this.C.FieldName = "C";
+            this.C.MinWidth = 25;
+            this.C.Name = "C";
+            this.C.Visible = true;
+            this.C.VisibleIndex = 13;
+            this.C.Width = 162;
+            // 
+            // D
+            // 
+            this.D.Caption = "D";
+            this.D.FieldName = "D";
+            this.D.MinWidth = 25;
+            this.D.Name = "D";
+            this.D.Visible = true;
+            this.D.VisibleIndex = 14;
+            this.D.Width = 162;
+            // 
+            // DapAnDung
+            // 
+            this.DapAnDung.Caption = "Đáp án đúng";
+            this.DapAnDung.FieldName = "DapAnDung";
+            this.DapAnDung.MinWidth = 25;
+            this.DapAnDung.Name = "DapAnDung";
+            this.DapAnDung.Visible = true;
+            this.DapAnDung.VisibleIndex = 15;
+            this.DapAnDung.Width = 120;
+            // 
+            // ID
+            // 
+            this.ID.Caption = "ID";
+            this.ID.FieldName = "ID";
+            this.ID.MinWidth = 25;
+            this.ID.Name = "ID";
+            this.ID.Visible = true;
+            this.ID.VisibleIndex = 0;
+            this.ID.Width = 89;
             // 
             // fNganHangDeThi
             // 
@@ -475,27 +449,25 @@ namespace QLDETHI
         private DevExpress.XtraBars.BarDockControl barDockControl2;
         private DevExpress.XtraBars.BarDockControl barDockControl3;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
+        private DevExpress.XtraBars.BarButtonItem Print;
+        public DevExpress.XtraGrid.GridControl gridDeThi;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
-        private DevExpress.XtraGrid.Columns.GridColumn ID;
-        private DevExpress.XtraGrid.Columns.GridColumn MaCauHoi;
-        private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn MaDe;
         private DevExpress.XtraGrid.Columns.GridColumn MaHienThi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenNamHoc;
+        private DevExpress.XtraGrid.Columns.GridColumn TenDeThi;
+        private DevExpress.XtraGrid.Columns.GridColumn TenHocKy;
+        private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
+        private DevExpress.XtraGrid.Columns.GridColumn TenThoiGianThi;
+        private DevExpress.XtraGrid.Columns.GridColumn ThuTuCauHoi;
         private DevExpress.XtraGrid.Columns.GridColumn NDCH;
         private DevExpress.XtraGrid.Columns.GridColumn A;
         private DevExpress.XtraGrid.Columns.GridColumn B;
         private DevExpress.XtraGrid.Columns.GridColumn C;
         private DevExpress.XtraGrid.Columns.GridColumn D;
+        private DevExpress.XtraGrid.Columns.GridColumn ID;
         private DevExpress.XtraGrid.Columns.GridColumn DapAnDung;
-        private DevExpress.XtraGrid.Columns.GridColumn HinhAnh;
-        private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
-        private DevExpress.XtraGrid.Columns.GridColumn ThuTuCauHoi;
-        private DevExpress.XtraGrid.Columns.GridColumn TenNamHoc;
-        private DevExpress.XtraGrid.Columns.GridColumn TenDeThi;
-        private DevExpress.XtraGrid.Columns.GridColumn MaDe;
-        private DevExpress.XtraGrid.Columns.GridColumn TenThoiGianThi;
-        public DevExpress.XtraGrid.GridControl gridDeThi;
-        private DevExpress.XtraGrid.Columns.GridColumn TenHocKy;
-        private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
-        private DevExpress.XtraBars.BarButtonItem Print;
     }
 }

@@ -63,7 +63,6 @@ namespace QLDETHI
             btnThem.Enabled = kt;
             btnSua.Enabled = kt;
             btnXoa.Enabled = kt;
-            btnDong.Enabled = kt;
             btnPrint.Enabled = kt;
             cbxMonHoc.Enabled = !kt;
             cbxTaiKhoan.Enabled = !kt;

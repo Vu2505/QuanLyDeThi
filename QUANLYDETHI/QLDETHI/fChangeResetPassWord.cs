@@ -9,21 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using DethiLayer;
+using DethiLayer.DTO;
 using QLDETHI.Luutru;
 namespace QLDETHI
 {
     public partial class fChangeResetPassWord : Form
     {
         private string currentUsername;
-        private TaiKhoan user;
-
 
         public fChangeResetPassWord()
         {
             InitializeComponent();
-            //user = LuuTru.User;
-            //currentUsername = user.Username;
-
         }
 
         public fChangeResetPassWord(string username)
@@ -31,10 +27,8 @@ namespace QLDETHI
             InitializeComponent();
             txbUserName.Text = username;
             currentUsername = username;
-
         }
         DETHITRACNGHIEMEntities db = new DETHITRACNGHIEMEntities();
-
 
         public bool KiemTra()
         {
@@ -69,17 +63,15 @@ namespace QLDETHI
                     if (user != null && newPassword == newAgainPassword)
                     {
                         // Cập nhật mật khẩu mới cho người dùng
-                        user.Matkhau = newPassword;
+                        user.Matkhau = TAIKHOAN.HashPassword(newPassword, user.Salt);
                         user.LoaiTaiKhoan = 2;
                         db.SaveChanges();
                         MessageBox.Show("Mật khẩu đã được thay đổi thành công.");
-                        fLogin f = new fLogin(username);
-                        f.ShowDialog();
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Mật khẩu xác nhận không đúng!");
-
                     }
                 }
                 catch (Exception exception)
@@ -87,7 +79,6 @@ namespace QLDETHI
                     MessageBox.Show(exception.Message);
                 }
             }
-
         }
 
         private void chbHienThi_CheckedChanged(object sender, EventArgs e)

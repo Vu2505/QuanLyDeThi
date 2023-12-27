@@ -83,7 +83,6 @@ namespace DethiLayer
                 bDTO.MaKhoi = item.MaKhoi;
                 var c = db.Khois.FirstOrDefault(b => b.MaKhoi == item.MaKhoi);
                 bDTO.TenKhoi = c.TenKhoi;
-
                 lstBDTO.Add(bDTO);
             }
             return lstBDTO;

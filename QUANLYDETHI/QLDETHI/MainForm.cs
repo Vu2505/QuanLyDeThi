@@ -92,6 +92,7 @@ namespace QLDETHI
             DialogResult dg = MessageBox.Show("Bạn có muốn đăng xuất ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dg == DialogResult.Yes)
             {
+                Luutru.LuuTru.User = new TaiKhoan();
                 this.Close();
             }
         }
@@ -155,7 +156,8 @@ namespace QLDETHI
 
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            OpenForm(typeof(fThongTinCaNhan));
+            fThongTinCaNhan f = new fThongTinCaNhan();
+            f.ShowDialog();
         }
 
         private void barHocKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -166,6 +168,16 @@ namespace QLDETHI
         private void barDoKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OpenForm(typeof(fDoKho));
+        }
+
+        private void barThongKeDeThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fThongKeDeThi));
+        }
+
+        private void barThongKeCauHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenForm(typeof(fThongKeCauHoi));
         }
     }
 }
