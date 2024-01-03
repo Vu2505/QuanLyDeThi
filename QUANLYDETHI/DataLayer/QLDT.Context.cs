@@ -26,20 +26,20 @@ namespace DataLayer
         }
     
         public virtual DbSet<Bai> Bais { get; set; }
+        public virtual DbSet<CauHoi> CauHois { get; set; }
         public virtual DbSet<Chuong> Chuongs { get; set; }
+        public virtual DbSet<DeThi> DeThis { get; set; }
         public virtual DbSet<DoKho> DoKhoes { get; set; }
+        public virtual DbSet<HocKy> HocKies { get; set; }
         public virtual DbSet<Khoi> Khois { get; set; }
+        public virtual DbSet<LoaiTaiKhoan> LoaiTaiKhoans { get; set; }
         public virtual DbSet<Lop> Lops { get; set; }
         public virtual DbSet<MonHoc> MonHocs { get; set; }
-        public virtual DbSet<NoiDungDeThi> NoiDungDeThis { get; set; }
         public virtual DbSet<NamHoc> NamHocs { get; set; }
-        public virtual DbSet<HocKy> HocKies { get; set; }
+        public virtual DbSet<NoiDungDeThi> NoiDungDeThis { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<TaiKhoanMonHoc> TaiKhoanMonHocs { get; set; }
         public virtual DbSet<ThoiGianThi> ThoiGianThis { get; set; }
         public virtual DbSet<TinhTrang> TinhTrangs { get; set; }
-        public virtual DbSet<TaiKhoanMonHoc> TaiKhoanMonHocs { get; set; }
-        public virtual DbSet<LoaiTaiKhoan> LoaiTaiKhoans { get; set; }
-        public virtual DbSet<CauHoi> CauHois { get; set; }
-        public virtual DbSet<DeThi> DeThis { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

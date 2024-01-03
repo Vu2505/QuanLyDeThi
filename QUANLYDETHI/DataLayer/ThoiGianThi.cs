@@ -14,7 +14,16 @@ namespace DataLayer
     
     public partial class ThoiGianThi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ThoiGianThi()
+        {
+            this.DeThis = new HashSet<DeThi>();
+        }
+    
         public int MaThoiGianThi { get; set; }
         public string TenThoiGianThi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
     }
 }

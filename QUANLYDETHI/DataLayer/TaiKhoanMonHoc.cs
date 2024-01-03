@@ -17,5 +17,8 @@ namespace DataLayer
         public int Id { get; set; }
         public Nullable<int> IdTK { get; set; }
         public Nullable<int> MaMonHoc { get; set; }
+    
+        public virtual MonHoc MonHoc { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

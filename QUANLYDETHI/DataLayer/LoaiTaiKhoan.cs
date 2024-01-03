@@ -14,7 +14,16 @@ namespace DataLayer
     
     public partial class LoaiTaiKhoan
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LoaiTaiKhoan()
+        {
+            this.TaiKhoans = new HashSet<TaiKhoan>();
+        }
+    
         public int MaLoaiTaiKhoan { get; set; }
         public string TenLoaiTaiKhoan { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

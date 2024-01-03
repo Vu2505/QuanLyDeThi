@@ -151,6 +151,8 @@ namespace QLDETHI
             else
             {
                 ribQuanLy.Visible = false;
+                barBackup.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                barPhucHoiDuLieu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
         }
 
@@ -178,6 +180,18 @@ namespace QLDETHI
         private void barThongKeCauHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OpenForm(typeof(fThongKeCauHoi));
+        }
+
+        private void barBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fBackupDuLieu f = new fBackupDuLieu();
+            f.ShowDialog();
+        }
+
+        private void barPhucHoiDuLieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            fKhoiPhucDuLieu f = new fKhoiPhucDuLieu();
+            f.ShowDialog();
         }
     }
 }

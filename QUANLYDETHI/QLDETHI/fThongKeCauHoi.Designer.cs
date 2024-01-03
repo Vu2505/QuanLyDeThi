@@ -34,7 +34,7 @@ namespace QLDETHI
             this.lbSoDeThi1 = new System.Windows.Forms.Label();
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barDaoDe = new DevExpress.XtraBars.BarButtonItem();
+            this.barXuatExcel = new DevExpress.XtraBars.BarButtonItem();
             this.Print = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -101,7 +101,7 @@ namespace QLDETHI
             this.barLuu,
             this.barButtonItem6,
             this.barButtonItem7,
-            this.barDaoDe,
+            this.barXuatExcel,
             this.Print});
             this.barManager2.MainMenu = this.bar2;
             this.barManager2.MaxItemId = 11;
@@ -114,18 +114,19 @@ namespace QLDETHI
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barDaoDe, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barXuatExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.Print, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barDaoDe
+            // barXuatExcel
             // 
-            this.barDaoDe.Caption = "Đảo đề";
-            this.barDaoDe.Id = 7;
-            this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
-            this.barDaoDe.Name = "barDaoDe";
+            this.barXuatExcel.Caption = "Xuất excel";
+            this.barXuatExcel.Id = 7;
+            this.barXuatExcel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
+            this.barXuatExcel.Name = "barXuatExcel";
+            this.barXuatExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barXuatExcel_ItemClick);
             // 
             // Print
             // 
@@ -457,7 +458,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.Name = "fThongKeCauHoi";
-            this.Text = "fThongKeCauHoi";
+            this.Text = "Thống kê câu hỏi";
             this.Load += new System.EventHandler(this.fThongKeCauHoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -477,7 +478,7 @@ namespace QLDETHI
         private System.Windows.Forms.Label lbSoDeThi1;
         private DevExpress.XtraBars.BarManager barManager2;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem barDaoDe;
+        private DevExpress.XtraBars.BarButtonItem barXuatExcel;
         private DevExpress.XtraBars.BarButtonItem Print;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControl1;

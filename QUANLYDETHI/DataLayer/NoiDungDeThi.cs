@@ -19,5 +19,8 @@ namespace DataLayer
         public Nullable<int> MaCauHoi { get; set; }
         public Nullable<int> ThuTuCauHoi { get; set; }
         public Nullable<int> ThuTuXepDapAn { get; set; }
+    
+        public virtual CauHoi CauHoi { get; set; }
+        public virtual DeThi DeThi { get; set; }
     }
 }

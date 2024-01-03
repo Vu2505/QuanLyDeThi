@@ -14,8 +14,27 @@ namespace DataLayer
     
     public partial class MonHoc
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MonHoc()
+        {
+            this.CauHois = new HashSet<CauHoi>();
+            this.Chuongs = new HashSet<Chuong>();
+            this.DeThis = new HashSet<DeThi>();
+            this.TaiKhoanMonHocs = new HashSet<TaiKhoanMonHoc>();
+        }
+    
         public int MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }
         public Nullable<int> MaKhoi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Chuong> Chuongs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
+        public virtual Khoi Khoi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiKhoanMonHoc> TaiKhoanMonHocs { get; set; }
     }
 }

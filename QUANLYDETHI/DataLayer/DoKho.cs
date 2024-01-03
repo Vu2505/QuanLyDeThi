@@ -14,7 +14,16 @@ namespace DataLayer
     
     public partial class DoKho
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DoKho()
+        {
+            this.CauHois = new HashSet<CauHoi>();
+        }
+    
         public int MaDoKho { get; set; }
         public string TenDoKho { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
     }
 }

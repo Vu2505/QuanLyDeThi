@@ -14,8 +14,21 @@ namespace DataLayer
     
     public partial class Chuong
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Chuong()
+        {
+            this.Bais = new HashSet<Bai>();
+            this.CauHois = new HashSet<CauHoi>();
+        }
+    
         public int MaChuong { get; set; }
         public string TenChuong { get; set; }
         public Nullable<int> MaMonHoc { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bai> Bais { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
+        public virtual MonHoc MonHoc { get; set; }
     }
 }

@@ -14,7 +14,19 @@ namespace DataLayer
     
     public partial class TinhTrang
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TinhTrang()
+        {
+            this.CauHois = new HashSet<CauHoi>();
+            this.TaiKhoans = new HashSet<TaiKhoan>();
+        }
+    
         public int MaTinhTrang { get; set; }
         public string TenTinhTrang { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

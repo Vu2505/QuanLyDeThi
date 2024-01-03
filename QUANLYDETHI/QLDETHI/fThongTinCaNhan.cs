@@ -41,5 +41,6 @@ namespace QLDETHI
                 label6.Text = tkInfo.TenLoaiTaiKhoan;
             }
         }
+
     }
 }

@@ -106,9 +106,12 @@ namespace QLDETHI
             this.MaHienThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SoCauHoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenNamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ricmbNamHoc = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.TenHocKy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ricmbHocKy = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.TenDeThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenThoiGianThi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ricmbThoiGianThi = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -133,6 +136,9 @@ namespace QLDETHI
             ((System.ComponentModel.ISupportInitialize)(this.nubSoLuongCauHoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbNamHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbHocKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbThoiGianThi)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -155,6 +161,7 @@ namespace QLDETHI
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.gridDeThi);
             this.splitContainer1.Size = new System.Drawing.Size(1918, 1040);
             this.splitContainer1.SplitterDistance = 513;
@@ -840,10 +847,15 @@ namespace QLDETHI
             // 
             // gridDeThi
             // 
+            this.gridDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDeThi.Location = new System.Drawing.Point(0, 0);
             this.gridDeThi.MainView = this.gvDanhSach;
             this.gridDeThi.Name = "gridDeThi";
-            this.gridDeThi.Size = new System.Drawing.Size(1918, 535);
+            this.gridDeThi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.ricmbHocKy,
+            this.ricmbNamHoc,
+            this.ricmbThoiGianThi});
+            this.gridDeThi.Size = new System.Drawing.Size(1918, 523);
             this.gridDeThi.TabIndex = 0;
             this.gridDeThi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
@@ -864,116 +876,173 @@ namespace QLDETHI
             this.TenLop});
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.OptionsEditForm.ShowUpdateCancelPanel = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDanhSach.OptionsView.ShowFooter = true;
+            this.gvDanhSach.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gvDanhSach.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDanhSach_CellValueChanged);
+            this.gvDanhSach.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvDanhSach_RowUpdated);
             // 
             // MaDe
             // 
             this.MaDe.Caption = "Mã Đề";
             this.MaDe.FieldName = "MaDe";
+            this.MaDe.MaxWidth = 70;
             this.MaDe.MinWidth = 25;
             this.MaDe.Name = "MaDe";
+            this.MaDe.OptionsColumn.AllowEdit = false;
+            this.MaDe.OptionsColumn.AllowFocus = false;
+            this.MaDe.OptionsColumn.ReadOnly = true;
             this.MaDe.Visible = true;
             this.MaDe.VisibleIndex = 0;
-            this.MaDe.Width = 94;
+            this.MaDe.Width = 70;
             // 
             // MaHienThi
             // 
             this.MaHienThi.Caption = "Mã Hiển Thị";
             this.MaHienThi.FieldName = "MaHienThi";
+            this.MaHienThi.MaxWidth = 110;
             this.MaHienThi.MinWidth = 25;
             this.MaHienThi.Name = "MaHienThi";
             this.MaHienThi.Visible = true;
             this.MaHienThi.VisibleIndex = 1;
-            this.MaHienThi.Width = 94;
+            this.MaHienThi.Width = 110;
             // 
             // SoCauHoi
             // 
             this.SoCauHoi.Caption = "Số Câu Hỏi";
             this.SoCauHoi.FieldName = "SoCauHoi";
+            this.SoCauHoi.MaxWidth = 110;
             this.SoCauHoi.MinWidth = 25;
             this.SoCauHoi.Name = "SoCauHoi";
+            this.SoCauHoi.OptionsColumn.AllowEdit = false;
+            this.SoCauHoi.OptionsColumn.AllowFocus = false;
+            this.SoCauHoi.OptionsColumn.ReadOnly = true;
             this.SoCauHoi.Visible = true;
             this.SoCauHoi.VisibleIndex = 2;
-            this.SoCauHoi.Width = 94;
+            this.SoCauHoi.Width = 110;
             // 
             // TenNamHoc
             // 
             this.TenNamHoc.Caption = "Năm học";
+            this.TenNamHoc.ColumnEdit = this.ricmbNamHoc;
             this.TenNamHoc.FieldName = "TenNamHoc";
+            this.TenNamHoc.MaxWidth = 130;
             this.TenNamHoc.MinWidth = 25;
             this.TenNamHoc.Name = "TenNamHoc";
             this.TenNamHoc.Visible = true;
             this.TenNamHoc.VisibleIndex = 3;
-            this.TenNamHoc.Width = 94;
+            this.TenNamHoc.Width = 130;
+            // 
+            // ricmbNamHoc
+            // 
+            this.ricmbNamHoc.AutoHeight = false;
+            this.ricmbNamHoc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ricmbNamHoc.Name = "ricmbNamHoc";
+            this.ricmbNamHoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrevenTcharactersComboBox);
             // 
             // TenHocKy
             // 
             this.TenHocKy.Caption = "Học Kỳ";
+            this.TenHocKy.ColumnEdit = this.ricmbHocKy;
             this.TenHocKy.FieldName = "TenHocKy";
+            this.TenHocKy.MaxWidth = 150;
             this.TenHocKy.MinWidth = 25;
             this.TenHocKy.Name = "TenHocKy";
             this.TenHocKy.Visible = true;
             this.TenHocKy.VisibleIndex = 4;
-            this.TenHocKy.Width = 94;
+            this.TenHocKy.Width = 150;
+            // 
+            // ricmbHocKy
+            // 
+            this.ricmbHocKy.AutoHeight = false;
+            this.ricmbHocKy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ricmbHocKy.Name = "ricmbHocKy";
+            this.ricmbHocKy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrevenTcharactersComboBox);
             // 
             // TenDeThi
             // 
             this.TenDeThi.Caption = "Tên đề thi";
             this.TenDeThi.FieldName = "TenDeThi";
+            this.TenDeThi.MaxWidth = 215;
             this.TenDeThi.MinWidth = 25;
             this.TenDeThi.Name = "TenDeThi";
             this.TenDeThi.Visible = true;
             this.TenDeThi.VisibleIndex = 5;
-            this.TenDeThi.Width = 94;
+            this.TenDeThi.Width = 215;
             // 
             // TenThoiGianThi
             // 
             this.TenThoiGianThi.Caption = "Thời gian thi";
+            this.TenThoiGianThi.ColumnEdit = this.ricmbThoiGianThi;
             this.TenThoiGianThi.FieldName = "TenThoiGianThi";
+            this.TenThoiGianThi.MaxWidth = 170;
             this.TenThoiGianThi.MinWidth = 25;
             this.TenThoiGianThi.Name = "TenThoiGianThi";
             this.TenThoiGianThi.Visible = true;
             this.TenThoiGianThi.VisibleIndex = 6;
-            this.TenThoiGianThi.Width = 94;
+            this.TenThoiGianThi.Width = 170;
+            // 
+            // ricmbThoiGianThi
+            // 
+            this.ricmbThoiGianThi.AutoHeight = false;
+            this.ricmbThoiGianThi.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ricmbThoiGianThi.Name = "ricmbThoiGianThi";
+            this.ricmbThoiGianThi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrevenTcharactersComboBox);
             // 
             // TenMonHoc
             // 
             this.TenMonHoc.Caption = "Môn học";
             this.TenMonHoc.FieldName = "TenMonHoc";
+            this.TenMonHoc.MaxWidth = 150;
             this.TenMonHoc.MinWidth = 25;
             this.TenMonHoc.Name = "TenMonHoc";
+            this.TenMonHoc.OptionsColumn.AllowEdit = false;
+            this.TenMonHoc.OptionsColumn.ReadOnly = true;
             this.TenMonHoc.Visible = true;
             this.TenMonHoc.VisibleIndex = 7;
-            this.TenMonHoc.Width = 94;
+            this.TenMonHoc.Width = 150;
             // 
             // TenKhoi
             // 
             this.TenKhoi.Caption = "Khối";
             this.TenKhoi.FieldName = "TenKhoi";
+            this.TenKhoi.MaxWidth = 110;
             this.TenKhoi.MinWidth = 25;
             this.TenKhoi.Name = "TenKhoi";
+            this.TenKhoi.OptionsColumn.AllowEdit = false;
+            this.TenKhoi.OptionsColumn.ReadOnly = true;
             this.TenKhoi.Visible = true;
             this.TenKhoi.VisibleIndex = 8;
-            this.TenKhoi.Width = 94;
+            this.TenKhoi.Width = 110;
             // 
             // NgayCapNhat
             // 
             this.NgayCapNhat.Caption = "Ngày cập nhật";
             this.NgayCapNhat.FieldName = "NgayCapNhat";
+            this.NgayCapNhat.MaxWidth = 150;
             this.NgayCapNhat.MinWidth = 25;
             this.NgayCapNhat.Name = "NgayCapNhat";
+            this.NgayCapNhat.OptionsColumn.AllowEdit = false;
+            this.NgayCapNhat.OptionsColumn.ReadOnly = true;
             this.NgayCapNhat.Visible = true;
             this.NgayCapNhat.VisibleIndex = 9;
-            this.NgayCapNhat.Width = 94;
+            this.NgayCapNhat.Width = 150;
             // 
             // TenLop
             // 
             this.TenLop.Caption = "Lớp";
             this.TenLop.FieldName = "TenLop";
+            this.TenLop.MaxWidth = 150;
             this.TenLop.MinWidth = 25;
             this.TenLop.Name = "TenLop";
+            this.TenLop.OptionsColumn.AllowEdit = false;
+            this.TenLop.OptionsColumn.ReadOnly = true;
             this.TenLop.Visible = true;
             this.TenLop.VisibleIndex = 10;
-            this.TenLop.Width = 94;
+            this.TenLop.Width = 150;
             // 
             // fAddDeThi
             // 
@@ -1008,6 +1077,9 @@ namespace QLDETHI
             ((System.ComponentModel.ISupportInitialize)(this.nubSoLuongCauHoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDeThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbNamHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbHocKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmbThoiGianThi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1098,5 +1170,8 @@ namespace QLDETHI
         private System.Windows.Forms.ComboBox cbxThoiGianThi;
         private System.Windows.Forms.Label label15;
         private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmbNamHoc;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmbThoiGianThi;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmbHocKy;
     }
 }

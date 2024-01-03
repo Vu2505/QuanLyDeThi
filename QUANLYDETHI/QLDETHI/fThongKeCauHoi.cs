@@ -114,5 +114,16 @@ namespace QLDETHI
             documentViewer.DocumentSource = report;
             report.ShowPreviewDialog();
         }
+
+        private void barXuatExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.Filter = "Excel 2007 or higher (.xlsx)|*.xlsx";
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                gvDanhSach.ExportToXlsx(sf.FileName);
+            }
+        }
     }
 }

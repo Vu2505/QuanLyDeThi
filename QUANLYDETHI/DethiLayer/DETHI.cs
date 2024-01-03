@@ -68,6 +68,30 @@ namespace DethiLayer
         }
 
 
+        public DeThi Update(DeThi k)
+        {
+            try
+            {
+                var _k = db.DeThis.FirstOrDefault(x => x.MaDe == k.MaDe);
+                _k.MaHienThi = k.MaHienThi;
+                _k.TenDeThi = k.TenDeThi;
+                _k.NamHoc = k.NamHoc;
+                _k.MaHocKy = k.MaHocKy;
+                _k.MaThoiGianThi = k.MaThoiGianThi;
+                //_k.MaKhoi = k.MaKhoi;
+                //_k.MaHocKy = k.MaHocKy;
+                //_k.MaThoiGianThi = k.MaThoiGianThi;
+
+                db.SaveChanges();
+                return k;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+
         public List<DETHI_DTO> getListFullTK(int IdTK, int? selectedMaDe = null)
         {
 

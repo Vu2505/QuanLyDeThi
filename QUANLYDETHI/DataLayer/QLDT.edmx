@@ -156,6 +156,294 @@
           <Property Name="MaTinhTrang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTinhTrang" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_Bai_Chuong">
+          <End Role="Chuong" Type="Self.Chuong" Multiplicity="0..1" />
+          <End Role="Bai" Type="Self.Bai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuong">
+              <PropertyRef Name="MaChuong" />
+            </Principal>
+            <Dependent Role="Bai">
+              <PropertyRef Name="MaChuong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Bai">
+          <End Role="Bai" Type="Self.Bai" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bai">
+              <PropertyRef Name="MaBai" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaBai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Chuong">
+          <End Role="Chuong" Type="Self.Chuong" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuong">
+              <PropertyRef Name="MaChuong" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaChuong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_DoKho">
+          <End Role="DoKho" Type="Self.DoKho" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoKho">
+              <PropertyRef Name="MaDoKho" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="DoKho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Khoi">
+          <End Role="Khoi" Type="Self.Khoi" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_TaiKhoan">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaGiangVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_TinhTrang">
+          <End Role="TinhTrang" Type="Self.TinhTrang" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhTrang">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="TrangThai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chuong_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="Chuong" Type="Self.Chuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="Chuong">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_HocKy">
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocKy">
+              <PropertyRef Name="MaHocKy" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_Khoi">
+          <End Role="Khoi" Type="Self.Khoi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_Lop">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_NamHoc">
+          <End Role="NamHoc" Type="Self.NamHoc" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="NamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_TaiKhoan">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaGiangVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_ThoiGianThi">
+          <End Role="ThoiGianThi" Type="Self.ThoiGianThi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThoiGianThi">
+              <PropertyRef Name="MaThoiGianThi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaThoiGianThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lop_Khoi">
+          <End Role="Khoi" Type="Self.Khoi" Multiplicity="0..1" />
+          <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="Lop">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MonHoc_Khoi">
+          <End Role="Khoi" Type="Self.Khoi" Multiplicity="0..1" />
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="MonHoc">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoiDungDeThi_CauHoi">
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="0..1" />
+          <End Role="NoiDungDeThi" Type="Self.NoiDungDeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="NoiDungDeThi">
+              <PropertyRef Name="MaCauHoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoiDungDeThi_DeThi">
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="0..1" />
+          <End Role="NoiDungDeThi" Type="Self.NoiDungDeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="NoiDungDeThi">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_LoaiTaiKhoan">
+          <End Role="LoaiTaiKhoan" Type="Self.LoaiTaiKhoan" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiTaiKhoan">
+              <PropertyRef Name="MaLoaiTaiKhoan" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="LoaiTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_TinhTrang">
+          <End Role="TinhTrang" Type="Self.TinhTrang" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhTrang">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="TinhTrang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanMonHoc_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="TaiKhoanMonHoc" Type="Self.TaiKhoanMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="TaiKhoanMonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanMonHoc_TaiKhoan">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="TaiKhoanMonHoc" Type="Self.TaiKhoanMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="TaiKhoanMonHoc">
+              <PropertyRef Name="IdTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DETHITRACNGHIEMModelStoreContainer">
           <EntitySet Name="Bai" EntityType="Self.Bai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CauHoi" EntityType="Self.CauHoi" Schema="dbo" store:Type="Tables" />
@@ -173,6 +461,102 @@
           <EntitySet Name="TaiKhoanMonHoc" EntityType="Self.TaiKhoanMonHoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThoiGianThi" EntityType="Self.ThoiGianThi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bai_Chuong" Association="Self.FK_Bai_Chuong">
+            <End Role="Chuong" EntitySet="Chuong" />
+            <End Role="Bai" EntitySet="Bai" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Bai" Association="Self.FK_Cauhoi_Bai">
+            <End Role="Bai" EntitySet="Bai" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Chuong" Association="Self.FK_Cauhoi_Chuong">
+            <End Role="Chuong" EntitySet="Chuong" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_DoKho" Association="Self.FK_Cauhoi_DoKho">
+            <End Role="DoKho" EntitySet="DoKho" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Khoi" Association="Self.FK_Cauhoi_Khoi">
+            <End Role="Khoi" EntitySet="Khoi" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_MonHoc" Association="Self.FK_Cauhoi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_TaiKhoan" Association="Self.FK_Cauhoi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_TinhTrang" Association="Self.FK_Cauhoi_TinhTrang">
+            <End Role="TinhTrang" EntitySet="TinhTrang" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chuong_MonHoc" Association="Self.FK_Chuong_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="Chuong" EntitySet="Chuong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_HocKy" Association="Self.FK_DeThi_HocKy">
+            <End Role="HocKy" EntitySet="HocKy" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_Khoi" Association="Self.FK_DeThi_Khoi">
+            <End Role="Khoi" EntitySet="Khoi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_Lop" Association="Self.FK_DeThi_Lop">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_MonHoc" Association="Self.FK_DeThi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_NamHoc" Association="Self.FK_DeThi_NamHoc">
+            <End Role="NamHoc" EntitySet="NamHoc" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_TaiKhoan" Association="Self.FK_DeThi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_ThoiGianThi" Association="Self.FK_DeThi_ThoiGianThi">
+            <End Role="ThoiGianThi" EntitySet="ThoiGianThi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lop_Khoi" Association="Self.FK_Lop_Khoi">
+            <End Role="Khoi" EntitySet="Khoi" />
+            <End Role="Lop" EntitySet="Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MonHoc_Khoi" Association="Self.FK_MonHoc_Khoi">
+            <End Role="Khoi" EntitySet="Khoi" />
+            <End Role="MonHoc" EntitySet="MonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoiDungDeThi_CauHoi" Association="Self.FK_NoiDungDeThi_CauHoi">
+            <End Role="CauHoi" EntitySet="CauHoi" />
+            <End Role="NoiDungDeThi" EntitySet="NoiDungDeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoiDungDeThi_DeThi" Association="Self.FK_NoiDungDeThi_DeThi">
+            <End Role="DeThi" EntitySet="DeThi" />
+            <End Role="NoiDungDeThi" EntitySet="NoiDungDeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_LoaiTaiKhoan" Association="Self.FK_TaiKhoan_LoaiTaiKhoan">
+            <End Role="LoaiTaiKhoan" EntitySet="LoaiTaiKhoan" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_TinhTrang" Association="Self.FK_TaiKhoan_TinhTrang">
+            <End Role="TinhTrang" EntitySet="TinhTrang" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanMonHoc_MonHoc" Association="Self.FK_TaiKhoanMonHoc_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="TaiKhoanMonHoc" EntitySet="TaiKhoanMonHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanMonHoc_TaiKhoan" Association="Self.FK_TaiKhoanMonHoc_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="TaiKhoanMonHoc" EntitySet="TaiKhoanMonHoc" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -180,21 +564,117 @@
       <Schema Namespace="DETHITRACNGHIEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DETHITRACNGHIEMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bais" EntityType="DETHITRACNGHIEMModel.Bai" />
+          <EntitySet Name="CauHois" EntityType="DETHITRACNGHIEMModel.CauHoi" />
           <EntitySet Name="Chuongs" EntityType="DETHITRACNGHIEMModel.Chuong" />
+          <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
           <EntitySet Name="DoKhoes" EntityType="DETHITRACNGHIEMModel.DoKho" />
+          <EntitySet Name="HocKies" EntityType="DETHITRACNGHIEMModel.HocKy" />
           <EntitySet Name="Khois" EntityType="DETHITRACNGHIEMModel.Khoi" />
+          <EntitySet Name="LoaiTaiKhoans" EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" />
           <EntitySet Name="Lops" EntityType="DETHITRACNGHIEMModel.Lop" />
           <EntitySet Name="MonHocs" EntityType="DETHITRACNGHIEMModel.MonHoc" />
-          <EntitySet Name="NoiDungDeThis" EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" />
           <EntitySet Name="NamHocs" EntityType="DETHITRACNGHIEMModel.NamHoc" />
-          <EntitySet Name="HocKies" EntityType="DETHITRACNGHIEMModel.HocKy" />
+          <EntitySet Name="NoiDungDeThis" EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" />
+          <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
+          <EntitySet Name="TaiKhoanMonHocs" EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" />
           <EntitySet Name="ThoiGianThis" EntityType="DETHITRACNGHIEMModel.ThoiGianThi" />
           <EntitySet Name="TinhTrangs" EntityType="DETHITRACNGHIEMModel.TinhTrang" />
-          <EntitySet Name="TaiKhoanMonHocs" EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" />
-          <EntitySet Name="LoaiTaiKhoans" EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" />
-          <EntitySet Name="CauHois" EntityType="DETHITRACNGHIEMModel.CauHoi" />
-          <EntitySet Name="DeThis" EntityType="DETHITRACNGHIEMModel.DeThi" />
-          <EntitySet Name="TaiKhoans" EntityType="DETHITRACNGHIEMModel.TaiKhoan" />
+          <AssociationSet Name="FK_Bai_Chuong" Association="DETHITRACNGHIEMModel.FK_Bai_Chuong">
+            <End Role="Chuong" EntitySet="Chuongs" />
+            <End Role="Bai" EntitySet="Bais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Bai" Association="DETHITRACNGHIEMModel.FK_Cauhoi_Bai">
+            <End Role="Bai" EntitySet="Bais" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Chuong" Association="DETHITRACNGHIEMModel.FK_Cauhoi_Chuong">
+            <End Role="Chuong" EntitySet="Chuongs" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_DoKho" Association="DETHITRACNGHIEMModel.FK_Cauhoi_DoKho">
+            <End Role="DoKho" EntitySet="DoKhoes" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_Khoi" Association="DETHITRACNGHIEMModel.FK_Cauhoi_Khoi">
+            <End Role="Khoi" EntitySet="Khois" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_MonHoc" Association="DETHITRACNGHIEMModel.FK_Cauhoi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_TaiKhoan" Association="DETHITRACNGHIEMModel.FK_Cauhoi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cauhoi_TinhTrang" Association="DETHITRACNGHIEMModel.FK_Cauhoi_TinhTrang">
+            <End Role="TinhTrang" EntitySet="TinhTrangs" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoiDungDeThi_CauHoi" Association="DETHITRACNGHIEMModel.FK_NoiDungDeThi_CauHoi">
+            <End Role="CauHoi" EntitySet="CauHois" />
+            <End Role="NoiDungDeThi" EntitySet="NoiDungDeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chuong_MonHoc" Association="DETHITRACNGHIEMModel.FK_Chuong_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="Chuong" EntitySet="Chuongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_HocKy" Association="DETHITRACNGHIEMModel.FK_DeThi_HocKy">
+            <End Role="HocKy" EntitySet="HocKies" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_Khoi" Association="DETHITRACNGHIEMModel.FK_DeThi_Khoi">
+            <End Role="Khoi" EntitySet="Khois" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_Lop" Association="DETHITRACNGHIEMModel.FK_DeThi_Lop">
+            <End Role="Lop" EntitySet="Lops" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_MonHoc" Association="DETHITRACNGHIEMModel.FK_DeThi_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_NamHoc" Association="DETHITRACNGHIEMModel.FK_DeThi_NamHoc">
+            <End Role="NamHoc" EntitySet="NamHocs" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_TaiKhoan" Association="DETHITRACNGHIEMModel.FK_DeThi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_ThoiGianThi" Association="DETHITRACNGHIEMModel.FK_DeThi_ThoiGianThi">
+            <End Role="ThoiGianThi" EntitySet="ThoiGianThis" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoiDungDeThi_DeThi" Association="DETHITRACNGHIEMModel.FK_NoiDungDeThi_DeThi">
+            <End Role="DeThi" EntitySet="DeThis" />
+            <End Role="NoiDungDeThi" EntitySet="NoiDungDeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lop_Khoi" Association="DETHITRACNGHIEMModel.FK_Lop_Khoi">
+            <End Role="Khoi" EntitySet="Khois" />
+            <End Role="Lop" EntitySet="Lops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MonHoc_Khoi" Association="DETHITRACNGHIEMModel.FK_MonHoc_Khoi">
+            <End Role="Khoi" EntitySet="Khois" />
+            <End Role="MonHoc" EntitySet="MonHocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_LoaiTaiKhoan" Association="DETHITRACNGHIEMModel.FK_TaiKhoan_LoaiTaiKhoan">
+            <End Role="LoaiTaiKhoan" EntitySet="LoaiTaiKhoans" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanMonHoc_MonHoc" Association="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="TaiKhoanMonHoc" EntitySet="TaiKhoanMonHocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_TinhTrang" Association="DETHITRACNGHIEMModel.FK_TaiKhoan_TinhTrang">
+            <End Role="TinhTrang" EntitySet="TinhTrangs" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanMonHoc_TaiKhoan" Association="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="TaiKhoanMonHoc" EntitySet="TaiKhoanMonHocs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bai">
           <Key>
@@ -203,97 +683,8 @@
           <Property Name="MaBai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenBai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MaChuong" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Chuong">
-          <Key>
-            <PropertyRef Name="MaChuong" />
-          </Key>
-          <Property Name="MaChuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenChuong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MaMonHoc" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DoKho">
-          <Key>
-            <PropertyRef Name="MaDoKho" />
-          </Key>
-          <Property Name="MaDoKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenDoKho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Khoi">
-          <Key>
-            <PropertyRef Name="MaKhoi" />
-          </Key>
-          <Property Name="MaKhoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenKhoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Lop">
-          <Key>
-            <PropertyRef Name="MaLop" />
-          </Key>
-          <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MaKhoi" Type="Int32" />
-        </EntityType>
-        <EntityType Name="MonHoc">
-          <Key>
-            <PropertyRef Name="MaMonHoc" />
-          </Key>
-          <Property Name="MaMonHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenMonHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MaKhoi" Type="Int32" />
-        </EntityType>
-        <EntityType Name="NoiDungDeThi">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaDe" Type="Int32" />
-          <Property Name="MaCauHoi" Type="Int32" />
-          <Property Name="ThuTuCauHoi" Type="Int32" />
-          <Property Name="ThuTuXepDapAn" Type="Int32" />
-        </EntityType>
-        <EntityType Name="NamHoc">
-          <Key>
-            <PropertyRef Name="MaNamHoc" />
-          </Key>
-          <Property Name="MaNamHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNamHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="HocKy">
-          <Key>
-            <PropertyRef Name="MaHocKy" />
-          </Key>
-          <Property Name="MaHocKy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenHocKy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ThoiGianThi">
-          <Key>
-            <PropertyRef Name="MaThoiGianThi" />
-          </Key>
-          <Property Name="MaThoiGianThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenThoiGianThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TinhTrang">
-          <Key>
-            <PropertyRef Name="MaTinhTrang" />
-          </Key>
-          <Property Name="MaTinhTrang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenTinhTrang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="TaiKhoanMonHoc">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTK" Type="Int32" />
-          <Property Name="MaMonHoc" Type="Int32" />
-        </EntityType>
-        <EntityType Name="LoaiTaiKhoan">
-          <Key>
-            <PropertyRef Name="MaLoaiTaiKhoan" />
-          </Key>
-          <Property Name="MaLoaiTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLoaiTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chuong" Relationship="DETHITRACNGHIEMModel.FK_Bai_Chuong" FromRole="Bai" ToRole="Chuong" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Bai" FromRole="Bai" ToRole="CauHoi" />
         </EntityType>
         <EntityType Name="CauHoi">
           <Key>
@@ -316,6 +707,25 @@
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MaGiangVien" Type="Int32" />
           <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bai" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Bai" FromRole="CauHoi" ToRole="Bai" />
+          <NavigationProperty Name="Chuong" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Chuong" FromRole="CauHoi" ToRole="Chuong" />
+          <NavigationProperty Name="DoKho1" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_DoKho" FromRole="CauHoi" ToRole="DoKho" />
+          <NavigationProperty Name="Khoi" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Khoi" FromRole="CauHoi" ToRole="Khoi" />
+          <NavigationProperty Name="MonHoc" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_MonHoc" FromRole="CauHoi" ToRole="MonHoc" />
+          <NavigationProperty Name="TaiKhoan" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_TaiKhoan" FromRole="CauHoi" ToRole="TaiKhoan" />
+          <NavigationProperty Name="TinhTrang" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_TinhTrang" FromRole="CauHoi" ToRole="TinhTrang" />
+          <NavigationProperty Name="NoiDungDeThis" Relationship="DETHITRACNGHIEMModel.FK_NoiDungDeThi_CauHoi" FromRole="CauHoi" ToRole="NoiDungDeThi" />
+        </EntityType>
+        <EntityType Name="Chuong">
+          <Key>
+            <PropertyRef Name="MaChuong" />
+          </Key>
+          <Property Name="MaChuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenChuong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaMonHoc" Type="Int32" />
+          <NavigationProperty Name="Bais" Relationship="DETHITRACNGHIEMModel.FK_Bai_Chuong" FromRole="Chuong" ToRole="Bai" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Chuong" FromRole="Chuong" ToRole="CauHoi" />
+          <NavigationProperty Name="MonHoc" Relationship="DETHITRACNGHIEMModel.FK_Chuong_MonHoc" FromRole="Chuong" ToRole="MonHoc" />
         </EntityType>
         <EntityType Name="DeThi">
           <Key>
@@ -333,6 +743,92 @@
           <Property Name="MaHocKy" Type="Int32" />
           <Property Name="MaThoiGianThi" Type="Int32" />
           <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="HocKy" Relationship="DETHITRACNGHIEMModel.FK_DeThi_HocKy" FromRole="DeThi" ToRole="HocKy" />
+          <NavigationProperty Name="Khoi" Relationship="DETHITRACNGHIEMModel.FK_DeThi_Khoi" FromRole="DeThi" ToRole="Khoi" />
+          <NavigationProperty Name="Lop" Relationship="DETHITRACNGHIEMModel.FK_DeThi_Lop" FromRole="DeThi" ToRole="Lop" />
+          <NavigationProperty Name="MonHoc" Relationship="DETHITRACNGHIEMModel.FK_DeThi_MonHoc" FromRole="DeThi" ToRole="MonHoc" />
+          <NavigationProperty Name="NamHoc1" Relationship="DETHITRACNGHIEMModel.FK_DeThi_NamHoc" FromRole="DeThi" ToRole="NamHoc" />
+          <NavigationProperty Name="TaiKhoan" Relationship="DETHITRACNGHIEMModel.FK_DeThi_TaiKhoan" FromRole="DeThi" ToRole="TaiKhoan" />
+          <NavigationProperty Name="ThoiGianThi" Relationship="DETHITRACNGHIEMModel.FK_DeThi_ThoiGianThi" FromRole="DeThi" ToRole="ThoiGianThi" />
+          <NavigationProperty Name="NoiDungDeThis" Relationship="DETHITRACNGHIEMModel.FK_NoiDungDeThi_DeThi" FromRole="DeThi" ToRole="NoiDungDeThi" />
+        </EntityType>
+        <EntityType Name="DoKho">
+          <Key>
+            <PropertyRef Name="MaDoKho" />
+          </Key>
+          <Property Name="MaDoKho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDoKho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_DoKho" FromRole="DoKho" ToRole="CauHoi" />
+        </EntityType>
+        <EntityType Name="HocKy">
+          <Key>
+            <PropertyRef Name="MaHocKy" />
+          </Key>
+          <Property Name="MaHocKy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHocKy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_HocKy" FromRole="HocKy" ToRole="DeThi" />
+        </EntityType>
+        <EntityType Name="Khoi">
+          <Key>
+            <PropertyRef Name="MaKhoi" />
+          </Key>
+          <Property Name="MaKhoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKhoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_Khoi" FromRole="Khoi" ToRole="CauHoi" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_Khoi" FromRole="Khoi" ToRole="DeThi" />
+          <NavigationProperty Name="Lops" Relationship="DETHITRACNGHIEMModel.FK_Lop_Khoi" FromRole="Khoi" ToRole="Lop" />
+          <NavigationProperty Name="MonHocs" Relationship="DETHITRACNGHIEMModel.FK_MonHoc_Khoi" FromRole="Khoi" ToRole="MonHoc" />
+        </EntityType>
+        <EntityType Name="LoaiTaiKhoan">
+          <Key>
+            <PropertyRef Name="MaLoaiTaiKhoan" />
+          </Key>
+          <Property Name="MaLoaiTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoans" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoan_LoaiTaiKhoan" FromRole="LoaiTaiKhoan" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoi" Type="Int32" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_Lop" FromRole="Lop" ToRole="DeThi" />
+          <NavigationProperty Name="Khoi" Relationship="DETHITRACNGHIEMModel.FK_Lop_Khoi" FromRole="Lop" ToRole="Khoi" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="MaMonHoc" />
+          </Key>
+          <Property Name="MaMonHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMonHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoi" Type="Int32" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_MonHoc" FromRole="MonHoc" ToRole="CauHoi" />
+          <NavigationProperty Name="Chuongs" Relationship="DETHITRACNGHIEMModel.FK_Chuong_MonHoc" FromRole="MonHoc" ToRole="Chuong" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_MonHoc" FromRole="MonHoc" ToRole="DeThi" />
+          <NavigationProperty Name="Khoi" Relationship="DETHITRACNGHIEMModel.FK_MonHoc_Khoi" FromRole="MonHoc" ToRole="Khoi" />
+          <NavigationProperty Name="TaiKhoanMonHocs" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_MonHoc" FromRole="MonHoc" ToRole="TaiKhoanMonHoc" />
+        </EntityType>
+        <EntityType Name="NamHoc">
+          <Key>
+            <PropertyRef Name="MaNamHoc" />
+          </Key>
+          <Property Name="MaNamHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNamHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_NamHoc" FromRole="NamHoc" ToRole="DeThi" />
+        </EntityType>
+        <EntityType Name="NoiDungDeThi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDe" Type="Int32" />
+          <Property Name="MaCauHoi" Type="Int32" />
+          <Property Name="ThuTuCauHoi" Type="Int32" />
+          <Property Name="ThuTuXepDapAn" Type="Int32" />
+          <NavigationProperty Name="CauHoi" Relationship="DETHITRACNGHIEMModel.FK_NoiDungDeThi_CauHoi" FromRole="NoiDungDeThi" ToRole="CauHoi" />
+          <NavigationProperty Name="DeThi" Relationship="DETHITRACNGHIEMModel.FK_NoiDungDeThi_DeThi" FromRole="NoiDungDeThi" ToRole="DeThi" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
@@ -346,7 +842,327 @@
           <Property Name="TinhTrang" Type="Int32" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Salt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_TaiKhoan" FromRole="TaiKhoan" ToRole="CauHoi" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_TaiKhoan" FromRole="TaiKhoan" ToRole="DeThi" />
+          <NavigationProperty Name="LoaiTaiKhoan1" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoan_LoaiTaiKhoan" FromRole="TaiKhoan" ToRole="LoaiTaiKhoan" />
+          <NavigationProperty Name="TinhTrang1" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoan_TinhTrang" FromRole="TaiKhoan" ToRole="TinhTrang" />
+          <NavigationProperty Name="TaiKhoanMonHocs" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_TaiKhoan" FromRole="TaiKhoan" ToRole="TaiKhoanMonHoc" />
         </EntityType>
+        <EntityType Name="TaiKhoanMonHoc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTK" Type="Int32" />
+          <Property Name="MaMonHoc" Type="Int32" />
+          <NavigationProperty Name="MonHoc" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_MonHoc" FromRole="TaiKhoanMonHoc" ToRole="MonHoc" />
+          <NavigationProperty Name="TaiKhoan" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_TaiKhoan" FromRole="TaiKhoanMonHoc" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="ThoiGianThi">
+          <Key>
+            <PropertyRef Name="MaThoiGianThi" />
+          </Key>
+          <Property Name="MaThoiGianThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenThoiGianThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DeThis" Relationship="DETHITRACNGHIEMModel.FK_DeThi_ThoiGianThi" FromRole="ThoiGianThi" ToRole="DeThi" />
+        </EntityType>
+        <EntityType Name="TinhTrang">
+          <Key>
+            <PropertyRef Name="MaTinhTrang" />
+          </Key>
+          <Property Name="MaTinhTrang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTinhTrang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CauHois" Relationship="DETHITRACNGHIEMModel.FK_Cauhoi_TinhTrang" FromRole="TinhTrang" ToRole="CauHoi" />
+          <NavigationProperty Name="TaiKhoans" Relationship="DETHITRACNGHIEMModel.FK_TaiKhoan_TinhTrang" FromRole="TinhTrang" ToRole="TaiKhoan" />
+        </EntityType>
+        <Association Name="FK_Bai_Chuong">
+          <End Type="DETHITRACNGHIEMModel.Chuong" Role="Chuong" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.Bai" Role="Bai" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuong">
+              <PropertyRef Name="MaChuong" />
+            </Principal>
+            <Dependent Role="Bai">
+              <PropertyRef Name="MaChuong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Bai">
+          <End Type="DETHITRACNGHIEMModel.Bai" Role="Bai" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bai">
+              <PropertyRef Name="MaBai" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaBai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Chuong">
+          <End Type="DETHITRACNGHIEMModel.Chuong" Role="Chuong" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuong">
+              <PropertyRef Name="MaChuong" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaChuong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_DoKho">
+          <End Type="DETHITRACNGHIEMModel.DoKho" Role="DoKho" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DoKho">
+              <PropertyRef Name="MaDoKho" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="DoKho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_Khoi">
+          <End Type="DETHITRACNGHIEMModel.Khoi" Role="Khoi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_MonHoc">
+          <End Type="DETHITRACNGHIEMModel.MonHoc" Role="MonHoc" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_TaiKhoan">
+          <End Type="DETHITRACNGHIEMModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaGiangVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cauhoi_TinhTrang">
+          <End Type="DETHITRACNGHIEMModel.TinhTrang" Role="TinhTrang" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhTrang">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="TrangThai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoiDungDeThi_CauHoi">
+          <End Type="DETHITRACNGHIEMModel.CauHoi" Role="CauHoi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.NoiDungDeThi" Role="NoiDungDeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="NoiDungDeThi">
+              <PropertyRef Name="MaCauHoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chuong_MonHoc">
+          <End Type="DETHITRACNGHIEMModel.MonHoc" Role="MonHoc" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.Chuong" Role="Chuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="Chuong">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_HocKy">
+          <End Type="DETHITRACNGHIEMModel.HocKy" Role="HocKy" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocKy">
+              <PropertyRef Name="MaHocKy" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_Khoi">
+          <End Type="DETHITRACNGHIEMModel.Khoi" Role="Khoi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_Lop">
+          <End Type="DETHITRACNGHIEMModel.Lop" Role="Lop" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_MonHoc">
+          <End Type="DETHITRACNGHIEMModel.MonHoc" Role="MonHoc" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_NamHoc">
+          <End Type="DETHITRACNGHIEMModel.NamHoc" Role="NamHoc" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="NamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_TaiKhoan">
+          <End Type="DETHITRACNGHIEMModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaGiangVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_ThoiGianThi">
+          <End Type="DETHITRACNGHIEMModel.ThoiGianThi" Role="ThoiGianThi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThoiGianThi">
+              <PropertyRef Name="MaThoiGianThi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaThoiGianThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoiDungDeThi_DeThi">
+          <End Type="DETHITRACNGHIEMModel.DeThi" Role="DeThi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.NoiDungDeThi" Role="NoiDungDeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="NoiDungDeThi">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lop_Khoi">
+          <End Type="DETHITRACNGHIEMModel.Khoi" Role="Khoi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.Lop" Role="Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="Lop">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MonHoc_Khoi">
+          <End Type="DETHITRACNGHIEMModel.Khoi" Role="Khoi" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.MonHoc" Role="MonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Khoi">
+              <PropertyRef Name="MaKhoi" />
+            </Principal>
+            <Dependent Role="MonHoc">
+              <PropertyRef Name="MaKhoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_LoaiTaiKhoan">
+          <End Type="DETHITRACNGHIEMModel.LoaiTaiKhoan" Role="LoaiTaiKhoan" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiTaiKhoan">
+              <PropertyRef Name="MaLoaiTaiKhoan" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="LoaiTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanMonHoc_MonHoc">
+          <End Type="DETHITRACNGHIEMModel.MonHoc" Role="MonHoc" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.TaiKhoanMonHoc" Role="TaiKhoanMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Principal>
+            <Dependent Role="TaiKhoanMonHoc">
+              <PropertyRef Name="MaMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_TinhTrang">
+          <End Type="DETHITRACNGHIEMModel.TinhTrang" Role="TinhTrang" Multiplicity="1" />
+          <End Type="DETHITRACNGHIEMModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhTrang">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="TinhTrang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanMonHoc_TaiKhoan">
+          <End Type="DETHITRACNGHIEMModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
+          <End Type="DETHITRACNGHIEMModel.TaiKhoanMonHoc" Role="TaiKhoanMonHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="IdTK" />
+            </Principal>
+            <Dependent Role="TaiKhoanMonHoc">
+              <PropertyRef Name="IdTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -359,109 +1175,6 @@
                 <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
                 <ScalarProperty Name="TenBai" ColumnName="TenBai" />
                 <ScalarProperty Name="MaBai" ColumnName="MaBai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Chuongs">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Chuong">
-              <MappingFragment StoreEntitySet="Chuong">
-                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-                <ScalarProperty Name="TenChuong" ColumnName="TenChuong" />
-                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DoKhoes">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DoKho">
-              <MappingFragment StoreEntitySet="DoKho">
-                <ScalarProperty Name="TenDoKho" ColumnName="TenDoKho" />
-                <ScalarProperty Name="MaDoKho" ColumnName="MaDoKho" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Khois">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Khoi">
-              <MappingFragment StoreEntitySet="Khoi">
-                <ScalarProperty Name="TenKhoi" ColumnName="TenKhoi" />
-                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Lops">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Lop">
-              <MappingFragment StoreEntitySet="Lop">
-                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
-                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
-                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MonHocs">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.MonHoc">
-              <MappingFragment StoreEntitySet="MonHoc">
-                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
-                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
-                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NoiDungDeThis">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NoiDungDeThi">
-              <MappingFragment StoreEntitySet="NoiDungDeThi">
-                <ScalarProperty Name="ThuTuXepDapAn" ColumnName="ThuTuXepDapAn" />
-                <ScalarProperty Name="ThuTuCauHoi" ColumnName="ThuTuCauHoi" />
-                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
-                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NamHocs">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NamHoc">
-              <MappingFragment StoreEntitySet="NamHoc">
-                <ScalarProperty Name="TenNamHoc" ColumnName="TenNamHoc" />
-                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HocKies">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.HocKy">
-              <MappingFragment StoreEntitySet="HocKy">
-                <ScalarProperty Name="TenHocKy" ColumnName="TenHocKy" />
-                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ThoiGianThis">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.ThoiGianThi">
-              <MappingFragment StoreEntitySet="ThoiGianThi">
-                <ScalarProperty Name="TenThoiGianThi" ColumnName="TenThoiGianThi" />
-                <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TinhTrangs">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TinhTrang">
-              <MappingFragment StoreEntitySet="TinhTrang">
-                <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
-                <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TaiKhoanMonHocs">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoanMonHoc">
-              <MappingFragment StoreEntitySet="TaiKhoanMonHoc">
-                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
-                <ScalarProperty Name="IdTK" ColumnName="IdTK" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LoaiTaiKhoans">
-            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.LoaiTaiKhoan">
-              <MappingFragment StoreEntitySet="LoaiTaiKhoan">
-                <ScalarProperty Name="TenLoaiTaiKhoan" ColumnName="TenLoaiTaiKhoan" />
-                <ScalarProperty Name="MaLoaiTaiKhoan" ColumnName="MaLoaiTaiKhoan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -488,6 +1201,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Chuongs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Chuong">
+              <MappingFragment StoreEntitySet="Chuong">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="TenChuong" ColumnName="TenChuong" />
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DeThis">
             <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DeThi">
               <MappingFragment StoreEntitySet="DeThi">
@@ -506,6 +1228,75 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DoKhoes">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.DoKho">
+              <MappingFragment StoreEntitySet="DoKho">
+                <ScalarProperty Name="TenDoKho" ColumnName="TenDoKho" />
+                <ScalarProperty Name="MaDoKho" ColumnName="MaDoKho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocKies">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.HocKy">
+              <MappingFragment StoreEntitySet="HocKy">
+                <ScalarProperty Name="TenHocKy" ColumnName="TenHocKy" />
+                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khois">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Khoi">
+              <MappingFragment StoreEntitySet="Khoi">
+                <ScalarProperty Name="TenKhoi" ColumnName="TenKhoi" />
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiTaiKhoans">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.LoaiTaiKhoan">
+              <MappingFragment StoreEntitySet="LoaiTaiKhoan">
+                <ScalarProperty Name="TenLoaiTaiKhoan" ColumnName="TenLoaiTaiKhoan" />
+                <ScalarProperty Name="MaLoaiTaiKhoan" ColumnName="MaLoaiTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lops">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.Lop">
+              <MappingFragment StoreEntitySet="Lop">
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonHocs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.MonHoc">
+              <MappingFragment StoreEntitySet="MonHoc">
+                <ScalarProperty Name="MaKhoi" ColumnName="MaKhoi" />
+                <ScalarProperty Name="TenMonHoc" ColumnName="TenMonHoc" />
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NamHocs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NamHoc">
+              <MappingFragment StoreEntitySet="NamHoc">
+                <ScalarProperty Name="TenNamHoc" ColumnName="TenNamHoc" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoiDungDeThis">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.NoiDungDeThi">
+              <MappingFragment StoreEntitySet="NoiDungDeThi">
+                <ScalarProperty Name="ThuTuXepDapAn" ColumnName="ThuTuXepDapAn" />
+                <ScalarProperty Name="ThuTuCauHoi" ColumnName="ThuTuCauHoi" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
             <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
@@ -517,6 +1308,31 @@
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="TenGV" ColumnName="TenGV" />
                 <ScalarProperty Name="IdTK" ColumnName="IdTK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoanMonHocs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TaiKhoanMonHoc">
+              <MappingFragment StoreEntitySet="TaiKhoanMonHoc">
+                <ScalarProperty Name="MaMonHoc" ColumnName="MaMonHoc" />
+                <ScalarProperty Name="IdTK" ColumnName="IdTK" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThoiGianThis">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.ThoiGianThi">
+              <MappingFragment StoreEntitySet="ThoiGianThi">
+                <ScalarProperty Name="TenThoiGianThi" ColumnName="TenThoiGianThi" />
+                <ScalarProperty Name="MaThoiGianThi" ColumnName="MaThoiGianThi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinhTrangs">
+            <EntityTypeMapping TypeName="DETHITRACNGHIEMModel.TinhTrang">
+              <MappingFragment StoreEntitySet="TinhTrang">
+                <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+                <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

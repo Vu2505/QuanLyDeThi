@@ -14,6 +14,12 @@ namespace DataLayer
     
     public partial class CauHoi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CauHoi()
+        {
+            this.NoiDungDeThis = new HashSet<NoiDungDeThi>();
+        }
+    
         public int MaCauHoi { get; set; }
         public string NDCH { get; set; }
         public string A { get; set; }
@@ -31,5 +37,15 @@ namespace DataLayer
         public string GhiChu { get; set; }
         public Nullable<int> MaGiangVien { get; set; }
         public Nullable<System.DateTime> NgayCapNhat { get; set; }
+    
+        public virtual Bai Bai { get; set; }
+        public virtual Chuong Chuong { get; set; }
+        public virtual DoKho DoKho1 { get; set; }
+        public virtual Khoi Khoi { get; set; }
+        public virtual MonHoc MonHoc { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual TinhTrang TinhTrang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NoiDungDeThi> NoiDungDeThis { get; set; }
     }
 }

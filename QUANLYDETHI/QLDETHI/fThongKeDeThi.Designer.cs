@@ -48,7 +48,7 @@ namespace QLDETHI
             this.lbSoDeThi1 = new System.Windows.Forms.Label();
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barDaoDe = new DevExpress.XtraBars.BarButtonItem();
+            this.barXuatExcel = new DevExpress.XtraBars.BarButtonItem();
             this.Print = new DevExpress.XtraBars.BarButtonItem();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -73,7 +73,7 @@ namespace QLDETHI
             this.TenMonHoc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TenKhoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NgayCapNhat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this._commandsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -233,7 +233,7 @@ namespace QLDETHI
             this.barLuu,
             this.barButtonItem6,
             this.barButtonItem7,
-            this.barDaoDe,
+            this.barXuatExcel,
             this.Print});
             this.barManager2.MainMenu = this.bar2;
             this.barManager2.MaxItemId = 11;
@@ -246,18 +246,19 @@ namespace QLDETHI
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barDaoDe, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barXuatExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.Print, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barDaoDe
+            // barXuatExcel
             // 
-            this.barDaoDe.Caption = "Đảo đề";
-            this.barDaoDe.Id = 7;
-            this.barDaoDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barDaoDe.ImageOptions.SvgImage")));
-            this.barDaoDe.Name = "barDaoDe";
+            this.barXuatExcel.Caption = "Xuất excel";
+            this.barXuatExcel.Id = 7;
+            this.barXuatExcel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barXuatExcel.ImageOptions.SvgImage")));
+            this.barXuatExcel.Name = "barXuatExcel";
+            this.barXuatExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barXuatExcel_ItemClick);
             // 
             // Print
             // 
@@ -393,7 +394,7 @@ namespace QLDETHI
             this.TenMonHoc,
             this.TenKhoi,
             this.NgayCapNhat,
-            this.gridColumn11});
+            this._commandsColumn});
             this.gvDanhSach.GridControl = this.gridDeThi;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.ColumnFilterChanged += new System.EventHandler(this.gvDanhSach_ColumnFilterChanged);
@@ -498,15 +499,17 @@ namespace QLDETHI
             this.NgayCapNhat.VisibleIndex = 9;
             this.NgayCapNhat.Width = 94;
             // 
-            // gridColumn11
+            // _commandsColumn
             // 
-            this.gridColumn11.Caption = "Lớp";
-            this.gridColumn11.FieldName = "TenLop";
-            this.gridColumn11.MinWidth = 25;
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
-            this.gridColumn11.Width = 94;
+            this._commandsColumn.Caption = "Lớp";
+            this._commandsColumn.FieldName = "TenLop";
+            this._commandsColumn.MinWidth = 25;
+            this._commandsColumn.Name = "_commandsColumn";
+            this._commandsColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this._commandsColumn.UnboundDataType = typeof(object);
+            this._commandsColumn.Visible = true;
+            this._commandsColumn.VisibleIndex = 10;
+            this._commandsColumn.Width = 94;
             // 
             // fThongKeDeThi
             // 
@@ -520,7 +523,7 @@ namespace QLDETHI
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.Name = "fThongKeDeThi";
-            this.Text = "fThongKeDeThi";
+            this.Text = "Thống kê đề thi";
             this.Load += new System.EventHandler(this.fThongKeDeThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
@@ -554,7 +557,7 @@ namespace QLDETHI
         private System.Windows.Forms.Label lbSoDeThi1;
         private DevExpress.XtraBars.BarManager barManager2;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem barDaoDe;
+        private DevExpress.XtraBars.BarButtonItem barXuatExcel;
         private DevExpress.XtraBars.BarButtonItem Print;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
@@ -579,6 +582,6 @@ namespace QLDETHI
         private DevExpress.XtraGrid.Columns.GridColumn TenMonHoc;
         private DevExpress.XtraGrid.Columns.GridColumn TenKhoi;
         private DevExpress.XtraGrid.Columns.GridColumn NgayCapNhat;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn _commandsColumn;
     }
 }

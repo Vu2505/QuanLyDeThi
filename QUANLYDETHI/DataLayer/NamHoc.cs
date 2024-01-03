@@ -14,7 +14,16 @@ namespace DataLayer
     
     public partial class NamHoc
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NamHoc()
+        {
+            this.DeThis = new HashSet<DeThi>();
+        }
+    
         public int MaNamHoc { get; set; }
         public string TenNamHoc { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
     }
 }

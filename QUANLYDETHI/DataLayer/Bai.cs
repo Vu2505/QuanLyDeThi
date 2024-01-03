@@ -14,8 +14,18 @@ namespace DataLayer
     
     public partial class Bai
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Bai()
+        {
+            this.CauHois = new HashSet<CauHoi>();
+        }
+    
         public int MaBai { get; set; }
         public string TenBai { get; set; }
         public Nullable<int> MaChuong { get; set; }
+    
+        public virtual Chuong Chuong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
     }
 }

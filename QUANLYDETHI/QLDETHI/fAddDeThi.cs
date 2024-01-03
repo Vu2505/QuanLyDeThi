@@ -12,6 +12,13 @@ using DethiLayer;
 using DataLayer;
 using DethiLayer.DTO;
 using QLDETHI.Luutru;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Utils;
+using DevExpress.XtraBars.Docking2010.Views;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace QLDETHI
 {
@@ -43,14 +50,16 @@ namespace QLDETHI
         List<DETHI_DTO> _lstDTDTO;
         DETHI _dethi;
         private int? selectedMaDe;
-
-
         int soLuongDeTrongChuong = 0;
         int soLuongTBTrongChuong = 0;
         int soLuongKhoTrongChuong = 0;
         int soLuongDeTrongBai = 0;
         int soLuongTBTrongBai = 0;
         int soLuongKhoTrongBai = 0;
+
+        List<NamHoc> listNamHoc = new List<NamHoc>();
+        List<HocKy> listHocKy = new List<HocKy>();
+        List<ThoiGianThi> listThoiGianThi = new List<ThoiGianThi>();
 
         // Mặc định là thiếu câu
         Taodethi.KiemTraSoLuong trangThaiSoLuongCau = Taodethi.KiemTraSoLuong.ThieuCau;
@@ -202,9 +211,62 @@ namespace QLDETHI
             }
         }
         #endregion
+        //private ImageCollection imageCollection; // Thêm dòng này
 
+
+        //private bool _isEditMode = false;
+
+        //private void EnterEditMode()
+        //{
+        //    _isEditMode = true;
+        //}
+
+        //private void ExitEditMode()
+        //{
+        //    _isEditMode = false;
+        //}
+        private void gvDanhSach_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            //try
+            //{
+            //    MessageBox.Show("RowUpdated event triggered");
+            //    DataRowView rowView = e.Row as DataRowView;
+            //    if (rowView != null)
+            //    {
+            //        int maDe = Convert.ToInt32(rowView["MaDe"]);
+            //        string tenDeThi = rowView["TenDeThi"].ToString();
+            //        int mahienthi = Convert.ToInt32(rowView["MaHienThi"]);
+            //        // Cập nhật vào cơ sở dữ liệu
+            //        UpdateDeThi(maDe, tenDeThi, mahienthi);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error in RowUpdated event: {ex.Message}");
+            //}
+            //try
+            //{
+            //    MessageBox.Show("CellValueChanged event triggered");
+
+            //    int rowHandle = gvDanhSach.FocusedRowHandle;
+            //    int maDe = Convert.ToInt32(gvDanhSach.GetRowCellValue(rowHandle, "MaDe"));
+            //    string tenDeThi = gvDanhSach.GetRowCellValue(rowHandle, "TenDeThi").ToString();
+            //    int mahienthi = Convert.ToInt32(gvDanhSach.GetRowCellValue(rowHandle, "MaHienThi"));
+
+            //    // Cập nhật vào cơ sở dữ liệu
+            //    UpdateDeThi(maDe, tenDeThi, mahienthi);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error in CellValueChanged event: {ex.Message}");
+            //}
+        }
         private void fAddDeThi_Load(object sender, EventArgs e)
         {
+            // Cho GridControl
+            gridDeThi.UseEmbeddedNavigator = true;
+            //gvDanhSach.CellValueChanged += gvDanhSach_CellValueChanged;
+            //gvDanhSach.RowUpdated += gvDanhSach_RowUpdated;
             _chuong = new CHUONG();
             _bai = new BAI();
             _monhoc = new MONHOC();
@@ -218,6 +280,90 @@ namespace QLDETHI
             _dethi = new DETHI();
             loadData(selectedMaDe);
             loadCombo();
+            gvDanhSach.EditFormPrepared += GridView_EditFormPrepared;
+
+            gvDanhSach.ShownEditor += (s, ee) => {
+                GridView view = s as GridView;
+                
+                view.ActiveEditor.Properties.ReadOnly =
+                    gvDanhSach.FocusedColumn.FieldName == "MaDe";
+            };
+
+            RepositoryItemButtonEdit commandsEdit = new RepositoryItemButtonEdit { AutoHeight = false, Name = "CommandsEdit", TextEditStyle = TextEditStyles.HideTextEditor };
+            commandsEdit.Buttons.Clear();
+
+            commandsEdit.Buttons.AddRange(new EditorButton[] {
+                new EditorButton(ButtonPredefines.Glyph, "Sửa", -1, true, true, false,ImageLocation.MiddleLeft, null)
+            });
+            gridDeThi.RepositoryItems.Add(commandsEdit);
+
+            //commandsEdit.Buttons.AddRange(new EditorButton[] {
+            //    new EditorButton(ButtonPredefines.Glyph, "Sửa", -1, true, true, false, ImageLocation.MiddleLeft, imageCollection != null && imageCollection.Images.Count > 0 ? imageCollection.Images[0] : null)
+            //});
+
+
+            GridColumn _commandsColumn = gvDanhSach.Columns.AddField("Hành động");
+            _commandsColumn.UnboundDataType = typeof(object);
+            _commandsColumn.Visible = true;
+            _commandsColumn.Width = 45;
+
+            _commandsColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
+
+            gvDanhSach.CustomRowCellEdit += (s, ee) =>
+            {
+                //MessageBox.Show("CustomRowCellEdit");
+                if (ee.RowHandle == gvDanhSach.FocusedRowHandle && ee.Column == _commandsColumn)
+                    ee.RepositoryItem = commandsEdit;
+            };
+
+            gvDanhSach.CustomRowCellEditForEditing += (s, ee) =>
+            {
+                //MessageBox.Show("CustomRowCellEditForEditing");
+                if (ee.RowHandle == gvDanhSach.FocusedRowHandle && ee.Column == _commandsColumn)
+                    ee.RepositoryItem = commandsEdit;
+            };
+
+            gvDanhSach.ShowingEditor += (s, ee) =>
+            {
+                ee.Cancel = gvDanhSach.FocusedColumn != _commandsColumn;
+            };
+
+            gvDanhSach.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.False;
+            gvDanhSach.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.False;
+            gvDanhSach.OptionsEditForm.ShowOnF2Key = DevExpress.Utils.DefaultBoolean.False;
+            gvDanhSach.OptionsBehavior.EditingMode = GridEditingMode.EditFormInplace;
+
+            commandsEdit.ButtonClick += (s, ee) =>
+            {
+                //MessageBox.Show(ee.Button.Caption);
+                switch (ee.Button.Caption)
+                {
+                    case "Sửa":
+                        gvDanhSach.CloseEditor();
+                        gvDanhSach.ShowEditForm();
+                        break;
+                }
+            };
+        }
+        private void GridView_EditFormPrepared(object sender, EditFormPreparedEventArgs e)
+        {           
+
+            Control ctrl = MyExtenstions.FindControl(e.Panel, "Cancel");
+            if (ctrl != null)
+            {
+                ctrl.Text = "Đóng";
+                //EnterEditMode();
+                //(ctrl as SimpleButton).ImageOptions.Image = imageCollection.Images[2];
+
+            }
+
+            ctrl = MyExtenstions.FindControl(e.Panel, "Update");
+            if (ctrl != null)
+            {
+                //ExitEditMode();
+                //(ctrl as SimpleButton).ImageOptions.Image = imageCollection.Images[3];
+                ctrl.Text = "Cập nhật";
+            }
         }
 
         void loadCombo()
@@ -259,6 +405,28 @@ namespace QLDETHI
             cbxHocKy.DataSource = _hocky.getList();
             cbxHocKy.DisplayMember = "TenHocKy";
             cbxHocKy.ValueMember = "MaHocKy";
+
+            listNamHoc = _namhoc.getList();
+            listHocKy = _hocky.getList();
+            listThoiGianThi = _thoigianthi.getList();
+
+            ricmbHocKy.Items.Clear();
+            foreach(var item in listHocKy)
+            {
+                ricmbHocKy.Items.Add(item.TenHocKy);
+            }
+
+            ricmbNamHoc.Items.Clear();
+            foreach (var item in listNamHoc)
+            {
+                ricmbNamHoc.Items.Add(item.TenNamHoc);
+            }
+
+            ricmbThoiGianThi.Items.Clear();
+            foreach (var item in listThoiGianThi)
+            {
+                ricmbThoiGianThi.Items.Add(item.TenThoiGianThi);
+            }
         }
 
 
@@ -271,7 +439,7 @@ namespace QLDETHI
                 if (_lstDTDTO != null && _lstDTDTO.Any())
                 {
                     gridDeThi.DataSource = _lstDTDTO;
-                    gvDanhSach.OptionsBehavior.Editable = false;
+                    //gvDanhSach.OptionsBehavior.Editable = false;
                 }
                 else
                 {
@@ -285,7 +453,7 @@ namespace QLDETHI
                 if (_lstDTDTO != null && _lstDTDTO.Any())
                 {
                     gridDeThi.DataSource = _lstDTDTO;
-                    gvDanhSach.OptionsBehavior.Editable = false;
+                    //gvDanhSach.OptionsBehavior.Editable = false;
                 }
                 else
                 {
@@ -653,7 +821,6 @@ namespace QLDETHI
             nudDe.Enabled = true;
             nudTrungBinh.Enabled = true;
             nudKho.Enabled = true;
-            
         }
 
         private void rdDeBaiTheoChuong_CheckedChanged(object sender, EventArgs e)
@@ -665,7 +832,6 @@ namespace QLDETHI
             nubBaiDe.Enabled = true;
             nubBaiTB.Enabled = true;
             nubBaiKho.Enabled = true;
-            
         }
 
         private List<int> danhSachMaDeThi; // Thêm biến danh sách MaDeThi
@@ -685,7 +851,6 @@ namespace QLDETHI
                 {
                     list = deThi.GetCauHoiTheoBai(user);
                 }
-
                 int maHienThi = GenerateNewMaHienThi();
                 danhSachMaHienThi.Add(maHienThi.ToString());
                 // Tạo đề thi mới
@@ -703,7 +868,6 @@ namespace QLDETHI
                     MaGiangVien = IdTK, // Thay bằng giá trị thích hợp
                     NgayCapNhat = DateTime.UtcNow
                 };
-
                 // Thêm đề thi vào cơ sở dữ liệu
                 db.DeThis.Add(newDeThi);
                 db.SaveChanges(); // Lưu thay đổi để có mã đề thi mới
@@ -712,8 +876,6 @@ namespace QLDETHI
                 int maDeThi = newDeThi.MaDe; // Mã đề thi mới
 
                 //danhSachMaDeThi.Add(maDeThi); // Thêm MaDeThi vào danh sách
-
-
                 int thuTuCauHoi = 1; // Đặt số thứ tự của câu hỏi
 
                 foreach (var cauHoi in list)
@@ -729,7 +891,6 @@ namespace QLDETHI
                             ThuTuCauHoi = thuTuCauHoi,
                             ThuTuXepDapAn = 1
                         };
-
                         // Thêm noiDungDeThi vào cơ sở dữ liệu
                         db.NoiDungDeThis.Add(noiDungDeThi);
 
@@ -737,27 +898,8 @@ namespace QLDETHI
                     }
                 }
             }
-            
             db.SaveChanges();
             HienThiTaoDeThanhCong(soLuongDe, danhSachMaHienThi);
-
-            //DialogResult dialogResult = MessageBox.Show($" Bạn có muốn xem đề thi vừa tạo không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    //// Chuyển giá trị danh sách MaDeThi đến form fNganHangDeThi
-            //    //fNganHangDeThi fNganHangDeThiForm = new fNganHangDeThi();
-            //    //fNganHangDeThiForm.UpdateGridDeThiWithMaDe1(danhSachMaDeThi);
-
-            //    //// Mở form fNganHangDeThi
-            //    //fNganHangDeThiForm.Show();
-
-            //    // Chuyển giá trị danh sách MaDeThi đến form fNganHangDeThi
-            //    fNganHangDeThi fNganHangDeThiForm = new fNganHangDeThi();
-            //    fNganHangDeThiForm.DanhSachMaDeThiMoiTao = danhSachMaDeThi;
-            //    fNganHangDeThiForm.Show();
-            //}
-
             loadData(selectedMaDe);
 
         }
@@ -766,6 +908,107 @@ namespace QLDETHI
         {
             deThi.SoLuongCauHoiMuonTao = int.Parse(nubSoLuongCauHoi.Value.ToString());
             KiemTraSoLuongCauHoi();
+        }
+
+        private void gvDanhSach_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            try
+            {
+                //MessageBox.Show("RowUpdated event triggered");
+                ColumnView view = sender as ColumnView;
+                view.CloseEditor();
+                if (view.UpdateCurrentRow())
+                {
+                    // Use data source API to save changes.                    
+                    DataRowView rowView = e.Row as DataRowView;
+
+                    int maDe = Convert.ToInt32(gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "MaDe").ToString());
+                    string tenDeThi = gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "TenDeThi").ToString();
+                    int mahienthi = Convert.ToInt32(gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "MaHienThi").ToString());
+                    string namhoc = gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "TenNamHoc").ToString();
+                    string hocky = gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "TenHocKy").ToString();
+                    string thoigianthi = gvDanhSach.GetRowCellValue(view.FocusedRowHandle, "TenThoiGianThi").ToString();
+
+                    int manamhoc = 0;
+                    foreach(var item in listNamHoc)
+                    {
+                        if(namhoc == item.TenNamHoc)
+                        {
+                            manamhoc = item.MaNamHoc;
+                            break;
+                        }
+                    }
+
+                    int mahocky = 0;
+                    foreach (var item in listHocKy)
+                    {
+                        if (hocky == item.TenHocKy)
+                        {
+                            mahocky = item.MaHocKy;
+                            break;
+                        }
+                    }
+
+                    int mathoigianthi = 0;
+                    foreach (var item in listThoiGianThi)
+                    {
+                        if (thoigianthi == item.TenThoiGianThi)
+                        {
+                            mathoigianthi = item.MaThoiGianThi;
+                            break;
+                        }
+                    }
+
+                    //MessageBox.Show($"maDe: {maDe}, tenDeThi: {tenDeThi}, mahienthi: {mahienthi}\nnamhoc: {namhoc}, hocky: {hocky}, thoigianthi: {thoigianthi}");
+
+                    // Cập nhật vào cơ sở dữ liệu
+                    UpdateDeThi(maDe, tenDeThi, mahienthi, manamhoc, mahocky, mathoigianthi);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in RowUpdated event: {ex.Message}");
+            }
+            //var madethi = gvDanhSach.GetFocusedRowCellValue("MaDe").ToString();
+            ////var tendethi = gvDanhSach.GetFocusedRowCellValue["TenDeThi"].ToString();
+            ////var mahienthi = gvDanhSach.GetFocusedRowCellValue["MaHienThi"].ToString();
+            ////var manmahoc = gvDanhSach.GetFocusedRowCellValue["MaNamHoc"].ToString();
+            ////var mahocky = gvDanhSach.GetFocusedRowCellValue["MaHocKy"].ToString();
+            ////var thoigianthi = gvDanhSach.GetFocusedRowCellValue["ThoiGianThi"].ToString();
+            //MessageBox.Show("Chỉnh sửa thành công" + madethi + "\n");
+        }
+
+        private void UpdateDeThi(int maDe, string tenDeThi, int mahienthi, int manamhoc, int mahocky, int mathoigianthi)
+        {
+            var dt = _dethi.getItem(maDe);
+            dt.TenDeThi = tenDeThi;
+            dt.MaHienThi = mahienthi;
+            dt.NamHoc = manamhoc;
+            dt.MaHocKy = mahocky;
+            dt.MaThoiGianThi = mathoigianthi;
+            _dethi.Update(dt);
+        }
+
+        private void PrevenTcharactersComboBox(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+    }
+    public static class MyExtenstions
+    {
+
+        public static Control FindControl(this Control root, string text)
+        {
+            if (root == null) throw new ArgumentNullException("root");
+            foreach (Control child in root.Controls)
+            {
+                if (child.Text == text) return child;
+                Control found = FindControl(child, text);
+                if (found != null) return found;
+            }
+            return null;
         }
     }
 }

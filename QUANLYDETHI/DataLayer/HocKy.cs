@@ -14,7 +14,16 @@ namespace DataLayer
     
     public partial class HocKy
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HocKy()
+        {
+            this.DeThis = new HashSet<DeThi>();
+        }
+    
         public int MaHocKy { get; set; }
         public string TenHocKy { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
     }
 }

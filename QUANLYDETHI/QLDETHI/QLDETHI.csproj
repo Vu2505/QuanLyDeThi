@@ -113,6 +113,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
@@ -201,6 +202,12 @@
     <Compile Include="fAddDeThiThuCong.Designer.cs">
       <DependentUpon>fAddDeThiThuCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="fBackupDuLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBackupDuLieu.Designer.cs">
+      <DependentUpon>fBackupDuLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="fBai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +273,12 @@
     </Compile>
     <Compile Include="fKhoi.Designer.cs">
       <DependentUpon>fKhoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fKhoiPhucDuLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fKhoiPhucDuLieu.Designer.cs">
+      <DependentUpon>fKhoiPhucDuLieu.cs</DependentUpon>
     </Compile>
     <Compile Include="fLoaiTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -394,6 +407,9 @@
     <EmbeddedResource Include="fAddDeThiThuCong.resx">
       <DependentUpon>fAddDeThiThuCong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fBackupDuLieu.resx">
+      <DependentUpon>fBackupDuLieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fBai.resx">
       <DependentUpon>fBai.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fKhoi.resx">
       <DependentUpon>fKhoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fKhoiPhucDuLieu.resx">
+      <DependentUpon>fKhoiPhucDuLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLoaiTaiKhoan.resx">
       <DependentUpon>fLoaiTaiKhoan.cs</DependentUpon>
@@ -540,7 +559,9 @@
     <None Include="Resources\5219805cd094cfb9f86235f2784de03f.jpg" />
     <None Include="Resources\stock-vector-use-trial-testing-concept-icon-passing-online-test-check-knowledge-and-level-of-training-1583888074.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Backup\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

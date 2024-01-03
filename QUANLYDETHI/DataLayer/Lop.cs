@@ -14,8 +14,18 @@ namespace DataLayer
     
     public partial class Lop
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Lop()
+        {
+            this.DeThis = new HashSet<DeThi>();
+        }
+    
         public int MaLop { get; set; }
         public string TenLop { get; set; }
         public Nullable<int> MaKhoi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
+        public virtual Khoi Khoi { get; set; }
     }
 }

@@ -14,7 +14,25 @@ namespace DataLayer
     
     public partial class Khoi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Khoi()
+        {
+            this.CauHois = new HashSet<CauHoi>();
+            this.DeThis = new HashSet<DeThi>();
+            this.Lops = new HashSet<Lop>();
+            this.MonHocs = new HashSet<MonHoc>();
+        }
+    
         public int MaKhoi { get; set; }
         public string TenKhoi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CauHoi> CauHois { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DeThi> DeThis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lop> Lops { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MonHoc> MonHocs { get; set; }
     }
 }

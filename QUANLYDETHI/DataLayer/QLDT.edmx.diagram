@@ -5,22 +5,46 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="efd67a79b29c434fbdc570e69a7e72a4" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Bai" Width="1.5" PointX="0.5" PointY="0.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Chuong" Width="1.5" PointX="4" PointY="0.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.DoKho" Width="1.5" PointX="0.5" PointY="2.25" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Khoi" Width="1.5" PointX="5.75" PointY="2.25" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Lop" Width="1.5" PointX="5.75" PointY="3.875" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.MonHoc" Width="1.5" PointX="0.5" PointY="3.875" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" Width="1.5" PointX="7.5" PointY="0.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NamHoc" Width="1.5" PointX="2.25" PointY="4.875" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.HocKy" Width="1.5" PointX="4" PointY="5.75" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.ThoiGianThi" Width="1.5" PointX="0.5" PointY="5.75" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TinhTrang" Width="1.5" PointX="5.75" PointY="5.75" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" Width="1.5" PointX="2.25" PointY="6.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" Width="1.5" PointX="5.75" PointY="0.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.CauHoi" Width="1.5" PointX="2.375" PointY="0.5" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.DeThi" Width="1.5" PointX="4" PointY="2.25" />
-        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TaiKhoan" Width="1.5" PointX="7.5" PointY="2.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Bai" Width="1.5" PointX="7.25" PointY="24.25" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.CauHoi" Width="1.5" PointX="9.5" PointY="15.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Chuong" Width="1.5" PointX="5" PointY="24.25" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.DeThi" Width="1.5" PointX="5" PointY="15.375" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.DoKho" Width="1.5" PointX="7.25" PointY="17.75" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.HocKy" Width="1.5" PointX="3.5" PointY="27" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Khoi" Width="1.5" PointX="0.5" PointY="10.625" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.LoaiTaiKhoan" Width="1.5" PointX="0.5" PointY="14.25" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.Lop" Width="1.5" PointX="2.75" PointY="9.125" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.MonHoc" Width="1.5" PointX="2.75" PointY="24" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NamHoc" Width="1.5" PointX="2.75" PointY="21.5" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.NoiDungDeThi" Width="1.5" PointX="11.75" PointY="17.25" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TaiKhoan" Width="1.5" PointX="2.75" PointY="14.5" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TaiKhoanMonHoc" Width="1.5" PointX="5" PointY="21.25" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.ThoiGianThi" Width="1.5" PointX="2.75" PointY="19.125" />
+        <EntityTypeShape EntityType="DETHITRACNGHIEMModel.TinhTrang" Width="1.5" PointX="0.5" PointY="16.625" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Bai_Chuong" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_Bai" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_Chuong" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_DoKho" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_Khoi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_MonHoc" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_TaiKhoan" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Cauhoi_TinhTrang" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_NoiDungDeThi_CauHoi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Chuong_MonHoc" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_HocKy" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_Khoi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_Lop" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_MonHoc" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_NamHoc" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_TaiKhoan" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_DeThi_ThoiGianThi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_NoiDungDeThi_DeThi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_Lop_Khoi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_MonHoc_Khoi" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_TaiKhoan_LoaiTaiKhoan" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_MonHoc" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_TaiKhoan_TinhTrang" />
+        <AssociationConnector Association="DETHITRACNGHIEMModel.FK_TaiKhoanMonHoc_TaiKhoan" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
