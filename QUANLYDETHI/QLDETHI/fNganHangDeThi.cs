@@ -133,6 +133,44 @@ namespace QLDETHI
             loadData();
         }
 
+        private void barXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (selectedMaDe.HasValue)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đề thi này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Xóa nội dung đề thi
+                    var noiDungDeThiList = db.NoiDungDeThis.Where(nd => nd.MaDe == selectedMaDe).ToList();
+                    foreach (var noiDungDeThi in noiDungDeThiList)
+                    {
+                        db.NoiDungDeThis.Remove(noiDungDeThi);
+                    }
+
+                    // Xóa đề thi
+                    var deThi = db.DeThis.SingleOrDefault(dt => dt.MaDe == selectedMaDe);
+                    if (deThi != null)
+                    {
+                        db.DeThis.Remove(deThi);
+                        db.SaveChanges();
+
+                        // Cập nhật lại grid
+                        loadData();
+                        MessageBox.Show("Xóa đề thi thành công.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy đề thi cần xóa.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một đề thi để xóa.");
+            }
+        }
+
         public GridControl GetGridDeThi()
         {
             return gridDeThi; // Trả về GridControl cho các form khác

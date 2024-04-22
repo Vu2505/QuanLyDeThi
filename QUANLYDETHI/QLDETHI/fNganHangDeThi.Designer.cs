@@ -246,11 +246,12 @@ namespace QLDETHI
             // 
             this.MaDe.Caption = "ID Đề";
             this.MaDe.FieldName = "MaDe";
+            this.MaDe.MaxWidth = 90;
             this.MaDe.MinWidth = 10;
             this.MaDe.Name = "MaDe";
             this.MaDe.Visible = true;
             this.MaDe.VisibleIndex = 1;
-            this.MaDe.Width = 50;
+            this.MaDe.Width = 90;
             // 
             // MaHienThi
             // 
@@ -260,7 +261,7 @@ namespace QLDETHI
             this.MaHienThi.Name = "MaHienThi";
             this.MaHienThi.Visible = true;
             this.MaHienThi.VisibleIndex = 2;
-            this.MaHienThi.Width = 83;
+            this.MaHienThi.Width = 81;
             // 
             // TenMonHoc
             // 
@@ -280,7 +281,7 @@ namespace QLDETHI
             this.TenKhoi.Name = "TenKhoi";
             this.TenKhoi.Visible = true;
             this.TenKhoi.VisibleIndex = 4;
-            this.TenKhoi.Width = 61;
+            this.TenKhoi.Width = 59;
             // 
             // TenNamHoc
             // 
@@ -290,7 +291,7 @@ namespace QLDETHI
             this.TenNamHoc.Name = "TenNamHoc";
             this.TenNamHoc.Visible = true;
             this.TenNamHoc.VisibleIndex = 5;
-            this.TenNamHoc.Width = 90;
+            this.TenNamHoc.Width = 87;
             // 
             // TenDeThi
             // 
@@ -300,7 +301,7 @@ namespace QLDETHI
             this.TenDeThi.Name = "TenDeThi";
             this.TenDeThi.Visible = true;
             this.TenDeThi.VisibleIndex = 6;
-            this.TenDeThi.Width = 170;
+            this.TenDeThi.Width = 167;
             // 
             // TenHocKy
             // 
@@ -310,7 +311,7 @@ namespace QLDETHI
             this.TenHocKy.Name = "TenHocKy";
             this.TenHocKy.Visible = true;
             this.TenHocKy.VisibleIndex = 8;
-            this.TenHocKy.Width = 80;
+            this.TenHocKy.Width = 78;
             // 
             // NgayCapNhat
             // 
@@ -331,7 +332,7 @@ namespace QLDETHI
             this.TenThoiGianThi.Name = "TenThoiGianThi";
             this.TenThoiGianThi.Visible = true;
             this.TenThoiGianThi.VisibleIndex = 7;
-            this.TenThoiGianThi.Width = 89;
+            this.TenThoiGianThi.Width = 86;
             // 
             // ThuTuCauHoi
             // 
@@ -341,7 +342,7 @@ namespace QLDETHI
             this.ThuTuCauHoi.Name = "ThuTuCauHoi";
             this.ThuTuCauHoi.Visible = true;
             this.ThuTuCauHoi.VisibleIndex = 9;
-            this.ThuTuCauHoi.Width = 42;
+            this.ThuTuCauHoi.Width = 41;
             // 
             // NDCH
             // 
@@ -351,7 +352,7 @@ namespace QLDETHI
             this.NDCH.Name = "NDCH";
             this.NDCH.Visible = true;
             this.NDCH.VisibleIndex = 10;
-            this.NDCH.Width = 162;
+            this.NDCH.Width = 159;
             // 
             // A
             // 
@@ -361,7 +362,7 @@ namespace QLDETHI
             this.A.Name = "A";
             this.A.Visible = true;
             this.A.VisibleIndex = 11;
-            this.A.Width = 162;
+            this.A.Width = 159;
             // 
             // B
             // 
@@ -371,7 +372,7 @@ namespace QLDETHI
             this.B.Name = "B";
             this.B.Visible = true;
             this.B.VisibleIndex = 12;
-            this.B.Width = 162;
+            this.B.Width = 159;
             // 
             // C
             // 
@@ -381,7 +382,7 @@ namespace QLDETHI
             this.C.Name = "C";
             this.C.Visible = true;
             this.C.VisibleIndex = 13;
-            this.C.Width = 162;
+            this.C.Width = 159;
             // 
             // D
             // 
@@ -391,7 +392,7 @@ namespace QLDETHI
             this.D.Name = "D";
             this.D.Visible = true;
             this.D.VisibleIndex = 14;
-            this.D.Width = 162;
+            this.D.Width = 159;
             // 
             // DapAnDung
             // 
@@ -401,7 +402,7 @@ namespace QLDETHI
             this.DapAnDung.Name = "DapAnDung";
             this.DapAnDung.Visible = true;
             this.DapAnDung.VisibleIndex = 15;
-            this.DapAnDung.Width = 120;
+            this.DapAnDung.Width = 131;
             // 
             // ID
             // 

@@ -509,7 +509,7 @@ namespace QLDETHI
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.splitContainer1);
             this.Name = "fAddDeThiThuCong";
-            this.Text = "fAddDeThiThuCong";
+            this.Text = "Thêm đề thi thủ công";
             this.Load += new System.EventHandler(this.fAddDeThiThuCong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudSoCauHoiMuonTao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
